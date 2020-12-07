@@ -1,0 +1,4155 @@
+\documentclass{styles/kaobook}
+\usepackage{showframe}
+\renewcommand{\ShowFrameLinethickness}{0.0pt}
+\usepackage{enumerate}
+\usepackage{styles/general}
+\usepackage{blindtext}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{subfig}
+\captionsetup[subfigure]{labelformat=empty}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{bbm}
+\usepackage{calrsfs}
+\pagestyle{plain}
+\usepackage{yfonts}
+\usepackage{ragged2e}
+\usepackage{framed}
+\pagestyle{empty}
+\usepackage{physics}
+\usepackage{pdfpages}
+\usepackage{setspace}
+\usepackage[bookmarks=true]{hyperref} %hyperref sin bookmarks
+\hypersetup{
+    colorlinks=false, % falso=poner color en la tabla de contenido
+    linkcolor=black, % el color de la letra de la tabla de contenido
+    urlcolor=red, % El color del hipervinculo (el cuadro) 
+    linktocpage=true % solamente los numeros van a tener hipervinculo, el texto no.
+}
+
+
+
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+%\makeatletter
+%\patchcmd{\tableofcontents}{\@starttoc{toc}}{\thispagestyle{empty}\pagestyle{empty}\@starttoc{toc}}{}{}
+%\makeatother
+
+\usepackage{tikz}
+\usetikzlibrary{matrix,intersections,calc}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\usepackage{physics}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\newcommand\simpleparagraph[1]{%
+\stepcounter{paragraph}\text{\theparagraph\quad{}#1}}
+\usepackage{ccicons}
+
+
+%\renewcommand{\contentsname}{asf} %comando para que NO aparezca el titulo de contenido en las tablas de contenido
+
+\usepackage[toc]{glossaries}
+
+\begin{document}
+
+\title{Solved Problems in Mathematical Methods for Physicists}
+
+\author[JBG]{Carlos Faz}
+
+\date{\today}
+
+%\publishers{Carlos Faz \\ \texttt{A01229031@itesm.mx}}
+
+\makeatletter
+
+\uppertitleback{\@titlehead}
+
+\lowertitleback{
+	\textbf{Disclaimer} \\
+	This document shows the solution to the problems of chapter 2 and 3 of Mathematical Methods for Physicist $7^{\text{th}}-$ed by George Arfken solved by Carlos Faz in \LaTeX . This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
+	
+	\medskip
+	
+	\textbf{Publisher} \\
+	First printed in December by Carlos Faz
+	
+	\medskip
+	
+	\textbf{No copyright} \\
+	\cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law.
+	
+	
+	\medskip
+	
+	\textbf{Publisher} \\
+	First printed in March 2020 by Carlos Faz\\ \\ \texttt{Última modificación} \\ \texttt{\today}. \\ \texttt{Versión: kao1.2}
+}
+
+\makeatother
+
+\KOMAoptions{twoside=semi}
+
+
+
+
+
+\maketitle
+
+\renewcommand{\familydefault}{\sfdefault}
+\makeatletter
+
+\renewcommand{\sectionlinesformat}[4]{%
+  \ifstr{#1}{section}{\clearpage}{}%
+  \@hangfrom{\hskip #2#3}{#4}%
+}
+
+%\makeatother
+\pagelayout{wide}
+%\doublespacing
+\tableofcontents
+\singlespacing
+
+
+
+\setuptoc{toc}{totoc}
+
+\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+\setchapterstyle{kao} % Choose the default chapter heading style
+
+
+
+%\subsubsection*{\fontsize{12}{1}\textbf{Subsection}}
+%\addcontentsline{toc}{subsubsection}{\protect\numberline{}1.1: Asdf}
+
+\chapter*{Chapter 2.2 \\ Matrices}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 2.2: Matrices}
+
+\begin{greenbox}{2.2.1}
+Show that matrix multiplication is associative, $(\mathbf{A}\mathbf{B}) \mathbf{C}=\mathbf{A}(\mathbf{B}\mathbf{C})$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ The product $\mathbf{BC}$ is defined because the column of $\mathbf{B}$ and rows of $\mathbf{C}$ are same.
+Suppose $\mathbf{D}=\mathbf{BC}$
+Then element of $\mathbf{D}$ is of the form
+$$d_{ik}=\sum_{j} b_{ij} c_{j k}$$
+Now the product $\mathbf{AD}$ is defined because the column of $\mathbf{A}$ and rows of $\mathbf{D}$ are same. Then element of $\mathbf{E}$ is of the form
+$$e_{l k}=\sum_{k} a_{l i}\left(\sum_{j} b_{i j} c_{j k}\right)$$
+Therefore, the matrix $\mathbf{E}=\mathbf{A}(\mathbf{B} \mathbf{C})$ have the elements $e_{lk}$. The product $\mathbf{AB}$ is defined because the column of $\mathbf{A}$ and rows of $\mathbf{B}$ are same. Let, $\mathbf{D}=\mathbf{AB}$. Then element of $\mathbf{D}$ is of the form
+$$d_{l j}=\sum_{i} a_{li} b_{i j}$$
+Now the product $\mathbf{D C}$ is defined because the column of $\mathbf{D}$ and rows of $\mathbf{C}$ are same. Let, $\mathbf{E}=\mathbf{D C}$. Then element of $\mathbf{D}$ is of the form
+$$e_{lk}=\sum_{j}\left(\sum_{i} a_{li} b_{i j}\right) c_{j k}$$
+Therefore, the matrix $\mathbf{E}=(\mathbf{A} \mathbf{B}) \mathbf{C}$ have the elements $e_{lk}$
+Therefore,
+$$\mathbf{A}(\mathbf{B} \mathbf{C})=(\mathbf{A} \mathbf{B}) \mathbf{C}$$
+Hence, matrix multiplication is associative.
+
+
+\begin{greenbox}{2.2.2}
+Show that
+$$
+(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=\mathbf{A}^{2}-\mathbf{B}^{2}
+$$
+if and only if $\mathbf{A}$ and $\mathbf{B}$ commute
+$$[\mathbf{A}, \mathbf{B}]=0$$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ 
+$$(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=(\mathbf{A}-\mathbf{B})(\mathbf{A}+\mathbf{B})=\mathbf{A}(\mathbf{A}+\mathbf{B})-\mathbf{B}(\mathbf{A}+\mathbf{B})$$
+$$(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=\mathbf{A}^2+\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A}-\mathbf{B}^2$$
+$$(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=\mathbf{A}^2-\mathbf{B}^2+(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})$$
+Because $\mathbf{A}$ and $\mathbf{B}$ conmute, the term $(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})$ equals to zero, hence is proved.
+$$(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=\mathbf{A}^2 -\mathbf{B}^2$$
+
+
+
+
+
+
+\begin{greenbox}{2.2.3}
+\begin{enumerate}[$(a)$]
+\item Complex numbers, $a+i b,$ with $a$ and $b$ real, may be represented by (or are isomorphic with) $2 \times 2$ matrices:
+$$
+a+i b \longleftrightarrow\begin{bmatrix}{a} & {b} \\ {-b} & {a}\end{bmatrix}
+$$
+Show that this matrix representation is valid for 
+\begin{enumerate}[(i)]
+\item addition
+\item multiplication
+\end{enumerate}
+\item Find the matrix corresponding to $(a+i b)^{-1}$.
+\end{enumerate}
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$  $(a)$ Let us start with addition. For complex numbers, we have (straightforwardly)
+$$
+(a+i b)+(c+i d)=(a+c)+i(b+d)
+$$
+whereas, if we used matrices we would get
+$$\begin{bmatrix}{a} & {b} \\ {-b} & {a}\end{bmatrix}+\begin{bmatrix}{c} & {d} \\ {-d} & {c}\end{bmatrix}=\begin{bmatrix}{(a+c)} & {(b+d)} \\ {-(b+d)} & {(a+c)}\end{bmatrix}$$
+which shows that the sum of matrices yields the proper representation of the complex number $(a+c)+i(b+d)$. We now handle multiplication in the same manner. First, we have
+$$(a+i b)(c+i d)=(a c-b d)+i(a d+b c)$$
+while matrix multiplication gives
+$$
+\begin{bmatrix}{a} & {b} \\ {-b} & {a}\end{bmatrix}\begin{bmatrix}{c} & {d} \\ {-d} & {c}\end{bmatrix}=\begin{bmatrix}{(a c-b d)} & {(a d+b c)} \\ {-(a d+b c)} & {(a c-b d)}\end{bmatrix}
+$$
+which is again the correct result.
+
+
+
+
+$\boxed{\textbf{Solution}}$  $(b)$ Find the matrix oorresponding to $(a+i b)^{-1}$ We can find the matrix in two ways. We first do standand complex arithmetic
+$$
+(a+i b)^{-1}=\frac{1}{a+i b}=\frac{a-i b}{(a+i b)(a-i b)}=\frac{1}{a^{2}+b^{2}}(a-i b)
+$$
+This corresponds to the $2 \times 2$ matrix
+$$
+(a+i b)^{-1} \longleftrightarrow \frac{1}{a^{2}+b^{2}}\begin{bmatrix}{a} & {-b} \\ {b} & {a}\end{bmatrix}
+$$
+Alternatively, we first convert to a matrix representation, and then find the inverse
+matrix
+$$
+(a+i b)^{-1} \leftrightarrow\begin{bmatrix}{a} & {b} \\ {-b} & {a}\end{bmatrix}^{-1}=\frac{1}{a^{2}+b^{2}}\begin{bmatrix}{a} & {-b} \\ {b} & {a}\end{bmatrix}
+$$
+Either way, we obtain the same result.
+
+\newpage
+
+
+
+\begin{greenbox}{2.2.4}
+If $\mathbf{A}$ is an $n \times n$ matrix, show that
+$$
+\operatorname{det}(-\mathbf{A})=(-1)^{n} \text { det } \mathbf{A}.
+$$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ 
+An elementary deinition of the determinant of a matrix $\mathbf{A}=(a_{i,j})$ is given by the expression 
+$$\det(\mathbf{A})=\sum_{\pi}s(\pi)a_{1,\pi(1)}\cdots a_{n,\pi(n)}$$
+where the sum is extended over all permutations of the set ${1,...,n}$ and $s(\pi)=\pm 1$ is the sign of the permutation $\pi$. Since each summand is the product of exactly $n$ of the entries of the matrix, if you reverse all the signs each summand--and so the whole sum-will be altered by a factor of $(-1)^{n}.$
+
+
+
+
+\begin{greenbox}{2.2.5}
+\begin{enumerate}[$(a)$]
+\item The matrix equation $\mathbf{A}^{2}=0$ does not imply $\mathbf{A}=0 .$ Show that the most general
+$2 \times 2$ matrix whose square is zero may be written as
+$$
+\begin{bmatrix}{a b} & {b^{2}} \\ {-a^{2}} & {-a b}\end{bmatrix}
+$$
+where $a$ and $b$ are real or complex numbers.
+\item If $\mathbf{C}=\mathbf{A}+\mathbf{B}$, in general
+$$
+\text { det } \mathbf{C}\neq \operatorname{det} \mathbf{A}+\text { det } \mathbf{B} \text.
+$$
+Construct a specific numerical example to illustrate this inequality.
+\end{enumerate}
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$ first we check the condition
+$$
+\left(\begin{array}{cc}
+a b & b^{2} \\
+-a^{2} & -a b
+\end{array}\right) \times\left(\begin{array}{cc}
+a b & b^{2} \\
+-a^{2} & -a b
+\end{array}\right)=\left(\begin{array}{cc}
+a^{2} b^{2}-a^{2} b^{2} & a b^{3}-a b^{3} \\
+-a^{3} b+a^{3} b & -a^{2} b^{2}+a^{2} b^{2}
+\end{array}\right)=0
+$$
+Therefore, the $2\times 2$ matrix square is zero
+
+$\boxed{\textbf{Solution}}$ For $(b)$ we know $\mathrm{C}=\mathrm{A}+\mathrm{B},$ let us consider following matrices to show that
+$$
+\operatorname{det} C \neq \operatorname{det} A+\operatorname{det} B
+$$
+Now, let
+$$
+A=\left(\begin{array}{ll}
+1 & 0 \\
+0 & 1
+\end{array}\right), B=\left(\begin{array}{ll}
+1 & 0 \\
+0 & 1
+\end{array}\right)
+$$
+then 
+$$
+C=\left(\begin{array}{ll}
+2 & 0 \\
+0 & 2
+\end{array}\right)
+$$
+$$
+\begin{array}{l}
+\operatorname{det} A=1-0=1 \\
+\operatorname{det} B=1-0=1 \\
+\operatorname{det} C=4-0=4
+\end{array}
+$$
+From this
+$$
+\begin{array}{l}
+\operatorname{det} C \neq \operatorname{det} A+\operatorname{det} B \\
+4 \neq 2
+\end{array}
+$$
+Therefore, the following matrix satisfies the condition
+
+
+\begin{greenbox}{2.2.6}
+Given
+$$
+\mathbf{K}=\begin{bmatrix}{0} & {0} & {i} \\ {-i} & {0} & {0} \\ {0} & {-1} & {0}\end{bmatrix}
+$$
+show that
+$$
+\mathbf{K}^{n}=\mathbf{KKK} \ \cdots \ (n \text { factors})=1
+$$
+(with the proper choice of $n, n \neq 0$ ).
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ We calculate for different $n$
+$$\mathbf{K}^2 = \begin{bmatrix}{0} & {-i} & {0} \\ {0} & {0} & {1} \\ {i} & {0} & {0}\end{bmatrix} \quad \mathbf{K}^3=\begin{bmatrix}{-1} & {0} & {0} \\ {0} & {-1} & {0} \\ {0} & {0} & {-1}\end{bmatrix} \quad \mathbf{K}^4 = \begin{bmatrix}{0} & {0} & {-i} \\ {i} & {0} & {0} \\ {0} & {1} & {0}\end{bmatrix}$$
+$$\mathbf{K}^5 = \begin{bmatrix}{0} & {i} & {0} \\ {0} & {0} & {-1} \\ {-i} & {0} & {0}\end{bmatrix} \quad \mathbf{K}^6 = \begin{bmatrix}{1} & {0} & {0} \\ {0} & {1} & {0} \\ {0} & {0} & {1}\end{bmatrix}$$
+With this, the answer is $n=6$
+
+
+
+\begin{greenbox}{2.2.7}
+Verify the Jacobi identity,
+$$[\mathbf{A},[\mathbf{B}, \mathbf{C}]]=[\mathbf{B},[\mathbf{A}, \mathbf{C}]]-[\mathbf{C},[\mathbf{A}, \mathbf{B}]]$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ 
+
+$$
+\begin{aligned}
+[\mathbf{A}[\mathbf{B}, \mathbf{C}]]&=[\mathbf{A}, \mathbf{B} \mathbf{C}-\mathbf{C} \mathbf{B}]=\mathbf{A}(\mathbf{B} \mathbf{C}-\mathbf{C} \mathbf{B})-(\mathbf{B} \mathbf{C}-\mathbf{C} \mathbf{B}) \mathbf{A} \\
+[\mathbf{A}[\mathbf{B}, \mathbf{C}]]&=\mathbf{A}(\mathbf{B} \mathbf{C})-\mathbf{A}(\mathbf{C} \mathbf{B})-(\mathbf{B} \mathbf{C}) \mathbf{A}+(\mathbf{C} \mathbf{B}) \mathbf{A} \\
+[\mathbf{B}[\mathbf{C}, \mathbf{A}]]&=[\mathbf{B}, \mathbf{C} \mathbf{A}-\mathbf{A} \mathbf{C}]=\mathbf{B}(\mathbf{C A}-\mathbf{A} \mathbf{C})-(\mathbf{C A}-\mathbf{A} \mathbf{C}) \mathbf{B} \\
+[\mathbf{B}[\mathbf{C}, \mathbf{A}]]&=\mathbf{B}(\mathbf{C} \mathbf{A})-\mathbf{B}(\mathbf{A} \mathbf{C})-(\mathbf{C} \mathbf{A}) \mathbf{B}+(\mathbf{A} \mathbf{C}) \mathbf{B} \\
+[\mathbf{C}[\mathbf{A}, \mathbf{B}]]&=[\mathbf{C}, \mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A}]=\mathbf{C}(\mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A})-(\mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A}) \mathbf{C} \\
+[\mathbf{C}[\mathbf{A}, \mathbf{B}]]&=\mathbf{C}(\mathbf{A} \mathbf{B})-\mathbf{C}(\mathbf{B} \mathbf{A})-(\mathbf{A} \mathbf{B}) \mathbf{C}+(\mathbf{B} \mathbf{A}) \mathbf{C} \\
+\end{aligned}
+$$
+
+$\mathbf{A}, \mathbf{B}, \mathbf{C}$ are obey associative law $ \mathbf{C}(\mathbf{A} \mathbf{B})=(\mathbf{C} \mathbf{A}) \mathbf{B},$ $\mathbf{C}(\mathbf{B} \mathbf{A})=(\mathbf{C} \mathbf{B}) \mathbf{A},$ $(\mathbf{A} \mathbf{B}) \mathbf{C}=\mathbf{A}(\mathbf{B} \mathbf{C})$ and $(\mathbf{B} \mathbf{A}) \mathbf{C}=\mathbf{B}(\mathbf{A} \mathbf{C})$
+$$
+\begin{aligned}
+[\mathbf{C}[\mathbf{A}, \mathbf{B}]]&=(\mathbf{C} \mathbf{A}) \mathbf{B}-(\mathbf{C} \mathbf{B}) \mathbf{A}-\mathbf{A}(\mathbf{B} \mathbf{C})+\mathbf{B}(\mathbf{A} \mathbf{C}) \\
+[\mathbf{C}[\mathbf{A}, \mathbf{B}]]&=[\mathbf{A},[\mathbf{B}, \mathbf{C}]]+[\mathbf{B}[\mathbf{C}, \mathbf{A}]]+[\mathbf{C}[\mathbf{A}, \mathbf{B}]] \\
+&=(\mathbf{A}(\mathbf{B} \mathbf{C})-\mathbf{A}(\mathbf{C} \mathbf{B})-(\mathbf{B} \mathbf{C}) \mathbf{A}+(\mathbf{C} \mathbf{B}) \mathbf{A})+(\mathbf{B}(\mathbf{C} \mathbf{A})-\mathbf{B}(\mathbf{A} \mathbf{C})-(\mathbf{C} \mathbf{A}) \mathbf{B} \\
+&+(\mathbf{A} \mathbf{C}) \mathbf{B})+(\mathbf{C} \mathbf{A}) \mathbf{B}-(\mathbf{C} \mathbf{B}) \mathbf{A}-\mathbf{A}(\mathbf{B} \mathbf{C})+\mathbf{B}(\mathbf{A} \mathbf{C})=0
+\end{aligned}
+$$
+
+\begin{greenbox}{2.2.8}
+Show that the matrices
+$$\mathbf{A}=\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}, \quad \mathbf{B}=\begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix}, \quad \mathbf{C}=\begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}$$
+satisfy the commutation relations
+$$
+[\mathbf{A}, \mathbf{B}]=\mathbf{C}, \quad[\mathbf{A}, \mathbf{C}]=0, \quad \text { and } \quad[\mathbf{B}, \mathbf{C}]=0
+$$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ We simply multiply the matrices
+$$\mathbf{C}=[\mathbf{A}, \mathbf{B}] = \mathbf{\mathbf{AB}}- \mathbf{BA}$$
+$$\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix} \begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix} - \begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix}\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix} = C$$
+
+$$[\mathbf{A}, \mathbf{C}] = A\mathbf{C}-\mathbf{C}\mathbf{A} = 0$$
+
+$$\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix} \begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}- \begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix} = 0$$
+
+$$[\mathbf{B}, \mathbf{C}] = \mathbf{BC}-\mathbf{C}\mathbf{B} = 0$$
+
+$$\begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix}\begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}- \begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}\begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix} = 0 $$
+
+\begin{greenbox}{2.2.9}
+Let
+$$
+i=\begin{bmatrix}{0} & {1} & {0} & {0} \\ {-1} & {0} & {0} & {0} \\ {0} & {0} & {0} & {1} \\ {0} & {0} & {-1} & {0}\end{bmatrix}, \quad j=\begin{bmatrix}{0} & {0} & {0} & {-1} \\ {0} & {0} & {-1} & {0} \\ {0} & {1} & {0} & {0} \\ {1} & {0} & {0} & {0}\end{bmatrix} \quad k=\begin{bmatrix}{0} & {0} & {-1} & {0} \\ {0} & {0} & {0} & {1} \\ {1} & {0} & {0} & {0} \\ {0} & {-1} & {0} & {0}\end{bmatrix}
+$$
+
+\begin{enumerate}[$(a)$]
+\item $i^{2}=j^{2}=k^{2}=-I,$ where $\mathbf{I}$ is the unit matrix. 
+\item $ij=-ji=k$, $jk=-k j=i$, $ki=-ik=j$
+\end{enumerate}
+
+These three matrices $(i, j,$ and $k)$ plus the unit matrix 1 form a basis for quaternions. An alternate basis is provided by the four 2 $\times 2$ matrices, $i \sigma_{1}, i \sigma_{2},-i \sigma_{3},$ and $1,$ where the $\sigma_{i}$ are the Pauli spin matrices of Example 2.2.1.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$i^2=j^2 = k^2 =\begin{bmatrix}{-1} & {0} & {0} & {0} \\ {0} & {-1} & {0} & {0} \\ {0} & {0} & {-1} & {0} \\ {0} & {0} & {0} & {-1}\end{bmatrix}$$
+$$ij = -ij = k =\begin{bmatrix}{0} & {0} & {-1} & {0} \\ {0} & {0} & {0} & {1} \\ {1} & {0} & {0} & {0} \\ {0} & {-1} & {0} & {0}\end{bmatrix} $$
+$$jk=-kj=i=\begin{bmatrix}{0} & {1} & {0} & {0} \\ {-1} & {0} & {0} & {0} \\ {0} & {0} & {0} & {1} \\ {0} & {0} & {-1} & {0}\end{bmatrix}$$
+$$ki=-ik=j = \begin{bmatrix}{0} & {0} & {0} & {-1} \\ {0} & {0} & {-1} & {0} \\ {0} & {1} & {0} & {0} \\ {1} & {0} & {0} & {0}\end{bmatrix}$$
+
+\newpage
+
+
+\begin{greenbox}{2.2.10}
+A matrix with elements $a_{i j}=0$ for $j<i$ may be called upper right triangular. The
+elements in the lower left (below and to the left of the main diagonal) vanish. Show that
+the product of two uper right triangular matrices is an upper right triangular matrix. 
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ We build 2 matrix with terms $a,b,c,x,y,z$ that can take any number
+$$\begin{bmatrix}{a} & {b} & {c} \\ {0} & {d} & {e} \\ {0} & {0} & {0}\end{bmatrix} \times\begin{bmatrix}{x} & {y} & {z} \\ {0} & {u} & {w} \\ {0} & {0} & {0}\end{bmatrix}=\begin{bmatrix}{a\times x} & {b \times u+a\times y} & {b \times w+a\times z} \\ {0} & {d \times u} & {d \times w} \\ {0} & {0} & {0}\end{bmatrix}$$
+Hence is demostrated that the product of two upper right triangular matrices is an upper right triagular matrix.
+
+
+\begin{greenbox}{2.2.11}
+The three Pauli spin matrices are
+$$
+\sigma_{1}=\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}, \quad \sigma_{2}=\begin{bmatrix}{0} & {-i} \\ {i} & {0}\end{bmatrix}, \quad \text { and } \quad \sigma_{3}=\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}
+$$
+Show that
+
+\begin{enumerate}[$(a)$]
+\item $\left(\sigma_{i}\right)^{2}=\hat{1}_{2}$
+\item $\sigma_{i} \sigma_{j}=i \sigma_{k},(i, j, k)=(1,2,3)$ or a cyclic permutation thereof,
+\item $\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=2 \delta_{i j} \hat{1}_{2} ; \quad \hat{1}_{2}$ is the $2 \times 2$ unit matrix.
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $i=1, j=2, k=3$
+$$\sigma_{i} \sigma_{j} = \sigma_{1} \sigma_{2} = \begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}\begin{bmatrix}{0} & {-1} \\ {1} & {0}\end{bmatrix}=\begin{bmatrix}{i} & {0} \\ {0} & {-i}\end{bmatrix}=i\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}= i\sigma_3 = i\sigma_k$$
+For $i=2, j=3, k=1$
+$$\sigma_{i} \sigma_{j}=\sigma_{2} \sigma_{3}=\begin{bmatrix}{0} & {i} \\ {i} & {0}\end{bmatrix}\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}=\begin{bmatrix}{0} & {i} \\ {i} & {0}\end{bmatrix}=i\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix} = i\sigma_3 = i\sigma_k$$
+For $i=2, j=3, k=1$
+$$\sigma_{i}\sigma_j = \sigma_3\sigma_1=\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}=\begin{bmatrix}{0} & {1} \\ {-1} & {0}\end{bmatrix}=i\begin{bmatrix}{0} & {-i} \\ {i} & {0}\end{bmatrix}=i\sigma_2 = i\sigma_k$$
+So, we conclude that $\sigma_1\sigma_j = i\sigma_k$
+
+
+
+
+$\boxed{\textbf{Solution}}$  $(c)$ For this proof we need only to work out the commutation relation and use the proofs done in part $(a)$ and $(b)$
+$$\sigma_{2} \sigma_{1}=\begin{bmatrix}{0} & {-i} \\ {i} & {0}\end{bmatrix}\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}=\begin{bmatrix}{-1} & {0} \\ {0} & {i}\end{bmatrix}=-i\begin{bmatrix}{1} & {0} \\ {0} & {1}\end{bmatrix} = -i\sigma_3$$
+$$\sigma_{1} \sigma_{3}=\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}=\begin{bmatrix}{0} & {-1} \\ {1} & {0}\end{bmatrix}=-i\begin{bmatrix}{0} & {i} \\ {-i} & {0}\end{bmatrix}=-i \sigma_{2}$$
+$$\sigma_{3} \cdot \sigma_{2}=\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}\begin{bmatrix}{0} & {-i} \\ {i} & {0}\end{bmatrix}=\begin{bmatrix}{0} & {-i} \\ {-i} & {0}\end{bmatrix}=-i\begin{bmatrix}{0} & {i} \\ {1} & {0}\end{bmatrix} = -i\sigma_1$$
+$$\left.\begin{array}{l}{\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=\sigma_{i} \sigma_{j}-\sigma_{i} \sigma_{j}=0} \vspace{3mm} \\ {\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=2 \sigma_{i}^{2}}\end{array}\right\} \begin{array}{l}{\text { for } j \neq i} \\ {\text { for } j=i}\end{array}$$
+since $\sigma_{i}^{2}=1$ and using the kronecker delta we have
+$$\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=2 \delta_{i j} 1$$
+
+
+
+\begin{greenbox}{2.2.12}
+One description of spin$-$1 particles uses the matrices
+$$
+\mathbf{M}_{x}=\frac{1}{\sqrt{2}}\begin{bmatrix}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{bmatrix}, \quad \mathbf{M}_{y}=\frac{1}{\sqrt{2}}\begin{bmatrix}{0} & {-i} & {0} \\ {i} & {0} & {-i} \\ {0} & {i} & {0}\end{bmatrix}
+$$
+and
+$$\mathbf{M}_{z}=\begin{bmatrix}{1} & {0} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {-1}\end{bmatrix}$$
+
+\begin{enumerate}[$(a)$]
+\item $\left[\mathbf{M}_{x}, \mathbf{M}_{y}\right]=i \mathbf{M}_{z},$ and so on (cyclic permutation of indices). Using the Levi-Civita
+symbol, we may write
+$$
+\left[\mathbf{M}_{i}, \mathbf{M}_{j}\right]=i \sum_{k} \varepsilon_{i j k} \mathbf{M}_{k}
+$$
+\item $\mathbf{M}^{2} \equiv \mathbf{M}_{x}^{2}+\mathbf{M}_{y}^{2}+\mathbf{M}_{z}^{2}=2 \mathbf{I}_{3},$ where $\mathbf{I}_{3}$ is the $3 \times 3$ unit matrix.
+\item $\left[\mathbf{M}^{2}, \mathbf{M}_{i}\right]=0$
+$\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right]=\mathbf{L}^{+}$
+$\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right]=2 \mathbf{M}_{z}$
+where $\mathbf{L}^{+} \equiv \mathbf{M}_{x}+i \mathbf{M}_{y}$ and $\mathbf{L}^{-} \equiv \mathbf{M}_{x}-i \mathbf{M}_{y}$
+\end{enumerate}
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$
+$$\mathbf{M}_{x} \mathbf{M}_{y}=\frac{1}{2}\left[\begin{array}{lll}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{array}\right]\left[\begin{array}{lll}{0} & {-1} & {0} \\ {i} & {0} & {-i} \\ {0} & {i} & {0}\end{array}\right]= \frac{1}{2}\left[\begin{array}{ccc}{i} & {0} & {-i} \\ {0} & {0} & {0} \\ {i} & {0} & {-i}\end{array}\right]$$
+
+$$\mathbf{M}_{y} \mathbf{M}_{x}=\frac{1}{2}\left[\begin{array}{ccc}{0} & {-i} & {0} \\ {i} & {0} & {-i} \\ {0} & {i} & {0}\end{array}\right]\left[\begin{array}{ccc}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{array}\right]=\frac{1}{2}\left[\begin{array}{ccc}{-i} & {0} & {-i} \\ {0} & {0} & {0} \\ {i} & {0} & {i}\end{array}\right]$$
+
+
+$$\mathbf{M}_{x} \mathbf{M}_{y}-\mathbf{M}_y \mathbf{M}_{x}=\frac{1}{2}\left[\begin{array}{ccc}{i} & {0} & {i} \\ {0} & {0} & {0} \\ {-i} & {0} & {-i}\end{array}\right]+\frac{1}{2}\left[\begin{array}{ccc}{i} & {0} & {i} \\ {0} & {0} & {0} \\ {-i} & {0} & {-i}\end{array}\right]$$
+$$\mathbf{M}_{x} \mathbf{M}_{y}-\mathbf{M}_y \mathbf{M}_{x}=\left[\begin{array}{rrr}{1} & {0} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {-1}\end{array}\right]$$
+
+$$\mathbf{M}_{x} \mathbf{M}_{y}-\mathbf{M}_y \mathbf{M}_{x}=\mathbf{M}_{z}$$
+
+
+$\boxed{\textbf{Solution}}$  For $(b)$
+$$\mathbf{M}_{x}^{2}=\frac{1}{2}\left[\begin{array}{ccc}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{array}\right]\left[\begin{array}{ccc}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{array}\right]=\frac{1}{2}\left[\begin{array}{ccc}{1} & {0} & {1} \\ {0} & {2} & {0} \\ {1} & {0} & {1}\end{array}\right]$$
+$$\mathbf{M}_z^2 = \left[\begin{array}{ccc}{1} & {0} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {1}\end{array}\right] \quad \mathbf{M}_y^2 = \dfrac{1}{2}\left[\begin{array}{ccc}{1} & {0} & {-1} \\ {0} & {2} & {0} \\ {-1} & {0} & {1}\end{array}\right]$$
+Now
+$$\mathbf{M}_x^2 + \mathbf{M}_y^2 + \mathbf{M}_z^2 = 2\mathbf{I}$$
+$\boxed{\textbf{Solution}}$  $(c)$ we substitute
+$$
+\mathbf{M}^{2}=\left(\begin{array}{lll}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{array}\right), \quad \mathbf{M}_{x}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 1 & 0 \\
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{array}\right)
+$$
+and
+$$
+\left[\mathbf{M}^{2}, \mathbf{M}_{x}\right]=\mathbf{M}^{2} \mathbf{M}_{x}-\mathbf{M}_{x} \mathbf{M}^{2}
+$$
+$$
+\mathbf{M}^{2} \mathbf{M}_{x}=\left(\begin{array}{lll}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{array}\right) \times \frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 1 & 0 \\
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{array}\right)=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+2 & 0 & 2 \\
+0 & 2 & 0
+\end{array}\right)
+$$
+$$
+\mathbf{M}_{x} \mathbf{M}^{2}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 1 & 0 \\
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{array}\right) \times\left(\begin{array}{lll}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{array}\right)=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+2 & 0 & 2 \\
+0 & 2 & 0
+\end{array}\right)
+$$
+$$
+\left[\mathbf{M}^{2}, \mathbf{M}_{x}\right]=\mathbf{M}^{2} \mathbf{M}_{x}-\mathbf{M}_{x} \mathbf{M}^{2}=0
+$$
+Therefore, $\left[\mathbf{M}^{2}, \mathbf{M}_{i}\right]=0$
+Now, we substitute 
+$$
+\mathbf{M}_{z}=\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -1
+\end{array}\right)
+$$
+and
+$$
+\mathbf{L}^{+}=\mathbf{M}_{x}+i \mathbf{M}_{y}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right)
+$$
+$$
+\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right]=\mathbf{M}_{z} \mathbf{L}^{+}-\mathbf{L}^{+} \mathbf{M}_{z}
+$$
+$$
+\mathbf{M}_{z} \mathbf{L}^{+}=\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -1
+\end{array}\right) \times \frac{1}{\sqrt{2}}\left(\begin{array}{ccc}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right)=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{array}\right)
+$$
+$$
+\mathbf{L}^{+} \mathbf{M}_{z}=\frac{1}{\sqrt{2}}\left(\begin{array}{ccc}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right) \times\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -1
+\end{array}\right)=0
+$$
+$$
+\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right]=\mathbf{M}_{z} \mathbf{L}^{+}-\mathbf{L}^{+} \mathbf{M}_{z}=\frac{1}{\sqrt{2}}\left(\begin{array}{ccc}
+0 & 2 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{array}\right)=\mathbf{L}^{+}
+$$
+$$
+\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right]=\mathbf{M}_{z} \mathbf{L}^{+}-\mathbf{L}^{+} \mathbf{M}_{z}=\mathbf{L}^{+}
+$$
+Now, substitute 
+$$
+\mathbf{L}^{+}=\mathbf{M}_{x}+i \mathbf{M}_{y}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right)
+$$
+and
+$$
+\mathbf{L}^{-}=\mathbf{M}_{x}-i \mathbf{M}_{y}=\frac{1}{\sqrt{2}}\left(\begin{array}{ccc}
+0 & 0 & 0 \\
+2 & 0 & 0 \\
+0 & 2 & 0
+\end{array}\right)
+$$
+$$
+\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right]=\mathbf{L}^{+} \mathbf{L}^{-}-\mathbf{L}^{-} \mathbf{L}^{+}
+$$
+$$
+\mathbf{L}^{+} \mathbf{L}^{-}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right) \times \frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 0 & 0 \\
+2 & 0 & 0 \\
+0 & 2 & 0
+\end{array}\right)=\left(\begin{array}{lll}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 0
+\end{array}\right)
+$$
+
+$$
+\mathbf{L}^{-} \mathbf{L}^{+}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 0 & 0 \\
+2 & 0 & 0 \\
+0 & 2 & 0
+\end{array}\right) \times \frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right)=\left(\begin{array}{lll}
+0 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{array}\right)
+$$
+
+$$
+\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right]=\mathbf{L}^{+} \mathbf{L}^{-}-\mathbf{L}^{-} \mathbf{L}^{+}=\left(\begin{array}{ccc}
+2 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -2
+\end{array}\right)=2 \mathbf{M}_{z}
+$$
+Therefore, $\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right]=\mathbf{L}^{+} \mathbf{L}^{-}-\mathbf{L}^{-} \mathbf{L}^{+}=2 \mathbf{M}_{z}$
+
+
+
+
+
+
+
+
+
+
+
+\begin{greenbox}{2.2.13}
+Repeat Exercise $2.2 .12,$ using the matrices for a spin of $3 / 2,$
+
+$$
+\mathbf{M}_{x}=\frac{1}{2}\left(\begin{array}{cccc}
+0 & \sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & 2 & 0 \\
+0 & 2 & 0 & \sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right), \ \ \mathbf{M}_{y}=\frac{i}{2}\left(\begin{array}{cccc}
+0 & -\sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & -2 & 0 \\
+0 & 2 & 0 & -\sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right)
+$$
+and
+$$
+\mathbf{M}_{z}=\frac{1}{2}\left(\begin{array}{rrrr}
+3 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -3
+\end{array}\right)
+$$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$ we consider that $\left[\mathbf{M}_{x}, \mathbf{M}_{y}\right]$
+$$
+=\frac{i}{4}\left[\begin{array}{cccc}
+0 & \sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & 2 & 0 \\
+0 & 2 & 0 & \sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]\left[\begin{array}{cccc}
+0 & -\sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & -2 & 0 \\
+0 & 2 & 0 & -\sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]-$$
+$$\frac{i}{4}\left[\begin{array}{cccc}
+0 & -\sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & -2 & 0 \\
+0 & 2 & 0 & -\sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]\left[\begin{array}{cccc}
+0 & \sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & 2 & 0 \\
+0 & 2 & 0 & \sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]
+$$
+$$
+=\frac{i}{2}\left[\begin{array}{cccc}
+3 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -3
+\end{array}\right]
+$$
+$$
+=i \mathbf{M}_{z}
+$$
+Similarly we can show that $\left[\mathbf{M}_{y}, \mathbf{M}_{z}\right]=i \mathbf{M}_{x}$ and $\left[\mathbf{M}_{z}, \mathbf{M}_{x}\right]=i \mathbf{M}_{y}$
+Thus, $\left[\mathbf{M}_{i}, \mathbf{M}_{j}\right]=i \sum_{k} \varepsilon_{i j k} \mathbf{M}_{k}$ where $i, j, k$ can take values 1,2,3 or $x, y, z$.
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ we consider that 
+$$
+\mathbf{M}^{2} \equiv \mathbf{M}_{x}^{2}+\mathbf{M}_{y}^{2}+\mathbf{M}_{z}^{2}
+$$
+$$
+=\frac{1}{4}\left[\begin{array}{cccc}
+0 & \sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & 2 & 0 \\
+0 & 2 & 0 & \sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]^{2}-\frac{1}{4}\left[\begin{array}{cccc}
+0 & -\sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & -2 & 0 \\
+0 & 2 & 0 & -\sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]^{2}+\frac{1}{4}\left[\begin{array}{cccc}
+3 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -3
+\end{array}\right]^{2}
+$$
+$$
+\begin{array}{l}
+=2\left[\begin{array}{lll}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}\right] \\
+=21_{3}
+\end{array}
+$$
+
+$\boxed{\textbf{Solution}}$ For $(c)$ we obtain the result from the previous part 
+$$
+\begin{aligned}
+\left[\mathbf{M}^{2}, \mathbf{M}_{i}\right] &=\left[21_{3}, \mathbf{M}_{i}\right] \\
+&=21_{3} \mathbf{M}_{i}-2 \mathbf{M}_{i} 1_{3} \\
+&=2 \mathbf{M}_{i}-2 \mathbf{M}_{i} \\
+&=0
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right] &=\left[\mathbf{M}_{z}, \mathbf{M}_{x}+i \mathbf{M}_{y}\right] \\
+&=\left[\mathbf{M}_{z}, \mathbf{M}_{x}\right]-\left[i \mathbf{M}_{y}, \mathbf{M}_{z}\right] \\
+&=\left[\mathbf{M}_{z}, \mathbf{M}_{x}\right]-i\left[\mathbf{M}_{y}, \mathbf{M}_{z}\right] \\
+&=i \mathbf{M}_{y}-i\left(i \mathbf{M}_{x}\right)
+\end{aligned}
+$$
+$$
+\begin{array}{l}
+=i \mathbf{M}_{y}+\mathbf{M}_{x} \\
+=\mathbf{M}_{x}+i \mathbf{M}_{y} \\
+=\mathbf{L}^{+}
+\end{array}
+$$
+And finally
+$$
+\begin{aligned}
+\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right] &=\left[\mathbf{M}_{x}+i \mathbf{M}_{y}, \mathbf{M}_{x}-i \mathbf{M}_{y}\right] \\
+&=\left[\mathbf{M}_{x}, \mathbf{M}_{x}\right]-\left[\mathbf{M}_{x}, i \mathbf{M}_{y}\right]+\left[i \mathbf{M}_{y}, \mathbf{M}_{x}\right]-\left[i \mathbf{M}_{y}, i \mathbf{M}_{y}\right], \\
+&=0-i\left[\mathbf{M}_{x}, \mathbf{M}_{y}\right]-\left[\mathbf{M}_{x}, i \mathbf{M}_{y}\right]-0 \\
+&=-2 i\left(i \mathbf{M}_{z}\right) \\
+&=2 \mathbf{M}_{z}
+\end{aligned}
+$$
+
+
+
+
+\begin{greenbox}{2.2.14}
+If $\mathbf{A}$ is a diagonal matrix, with all diagonal elements different, and $\mathbf{A}$ and $\mathbf{B}$ commute,
+show that $\mathbf{B}$ is diagonal.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ Given matrix $\mathbf{A}$ is diagonal matrix
+$$\mathbf{A}=\text{diag}(a_1, a_2, a_3, ... a_n)$$
+and $B = (b_{ij})$. Here $\mathbf{A}$ and $\mathbf{B}$ matrix conmute $\mathbf{A}\mathbf{B}=\mathbf{BA}$, so
+$$(a_i-a_j)b_{kl} = 0 \quad \text{for} \ k\neq l$$
+$$b_{kl} = 0\quad \text{for} \ k\neq l$$
+Hence from the above statement we can say that is also a diagonal matrix
+
+
+
+\begin{greenbox}{2.2.15}
+If $\mathbf{A}$ and $\mathbf{B}$ are diagonal, show that $\mathbf{A}$ and $\mathbf{B}$ commute.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$  consider two $n\times n$ matrices $\mathbf{A}$ and $\mathbf{B}$, which are diagonal.
+$$\mathbf{A}=\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right], \quad \mathbf{B}=\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]$$
+$$\mathbf{A} \mathbf{B}=\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right]\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]=\left[\begin{array}{cc}{a_{1} b_{1}} & {0} \\ {0} & {a_{2} b_{2}}\end{array}\right]$$
+$$\mathbf{B} \mathbf{A}=\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right]=\left[\begin{array}{lll}{b_{1} a_{1}} & {0} \\ {0} & {b_{2} a_{2}}\end{array}\right]$$
+Commutative properts of addition:
+$$\mathbf{A}+\mathbf{B}=\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right]+\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]=\left[\begin{array}{ccc}{a_{1}+b_{1}} & {0} \\ {0} & {a_{2}+b_{2}}\end{array}\right]$$
+$$\mathbf{B}+\mathbf{A}=\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]+\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right]=\left[\begin{array}{cc}{b_{1}+a_{1}} & {0} \\ {0} & {b_{2}+a_{2}}\end{array}\right]$$
+Hence, diagonal matrices, when added commute.
+
+
+\begin{greenbox}{2.2.16}
+Show that $\text{Tr}(\mathbf{ABC})=$ $\text{Tr}(\mathbf{CBA})$ if any two of the three matrices commute.
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$  The trace of a matrix is the sum of its diagonal elements. Therefore, the trace of the product of three matrices $\mathbf{A}, \mathbf{B},$ and $\mathbf{C}$ is
+given by
+$$
+\operatorname{Tr}(\mathbf{A} \mathbf{B} \mathbf{C})=\sum_{i j k} \mathbf{A}_{i j} \mathbf{B}_{j k} \mathbf{C}_{k i}
+$$
+By using the fact that $i, j,$ and $k$ are dummy summation indices
+with the same range, this sum can be written in the equivalent
+forms
+$$
+\sum_{i j k} \mathbf{A}_{i j} \mathbf{B}_{j k} \mathbf{C}_{k i}=\sum_{i j k} \mathbf{C}_{k i} \mathbf{A}_{i j} \mathbf{B}_{j k}=\sum_{i j k} \mathbf{B}_{j k} \mathbf{C}_{k i} \mathbf{A}_{i j}
+$$
+But the second and third of these are
+$$
+\sum_{i j k} \mathbf{C}_{k i} \mathbf{A}_{i j} \mathbf{B}_{j k}=\operatorname{Tr}(\mathbf{C} \mathbf{A} \mathbf{B})
+$$
+and
+$$
+\sum_{i j k} \mathbf{B}_{j k} \mathbf{C}_{k i} \mathbf{A}_{i j}=\operatorname{Tr}(\mathbf{B} \mathbf{C} \mathbf{A})
+$$
+respectively. Thus, we obtain the relation
+$$
+\operatorname{Tr}(\mathbf{A} \mathbf{B} \mathbf{C})=\operatorname{Tr}(\mathbf{C} \mathbf{A} \mathbf{B})=\operatorname{Tr}(\mathbf{B} \mathbf{C} \mathbf{A})
+$$
+
+
+\begin{greenbox}{2.2.17}
+Angular momentum matrices satisfy a commutation relation
+$$[\mathbf{M}_j,\mathbf{M}_k]=i\mathbf{M}_l \quad j,k,l \ \text{cyclic}$$
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$  Taking the trace of both sides of the given expression, we have
+$$
+\operatorname{Tr}\left(i \mathbf{M}_{k}\right)=\operatorname{Tr}\left(\mathbf{M}_{i} \mathbf{M}_{j}-\mathbf{M}_{j} \mathbf{M}_{i}\right)
+$$
+Hence
+$$
+i \operatorname{Tr}\left(\mathbf{M}_{k}\right)=\operatorname{Tr}\left(\mathbf{M}_{i} \mathbf{M}_{j}\right)-\operatorname{Tr}\left(\mathbf{M}_{j} \mathbf{M}_{i}\right)
+$$
+since $\operatorname{Tr}(\mathbf{A}\mathbf{B})=\operatorname{Tr}(\mathbf{B}\mathbf{A}),$ we see that $\operatorname{Tr}\left(\mathbf{M}_{k}\right)=0$ for any $k .$
+
+
+
+\begin{greenbox}{2.2.18}
+$\mathbf{A}$ and $\mathbf{B}$ anticommute: $\mathbf{A}\mathbf{B}=-\mathbf{B}\mathbf{A}$. Also, $\mathbf{A}^{2}=1, \mathbf{B}^{2}=1 .$ Show that $\text{Tr}(\mathbf{A})=$
+$\text{Tr}(\mathbf{B})=0 .$
+Note. The Pauli and Dirac matrices are specific examples.
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ Since $\mathbf{B}^{2}=I, \mathbf{B}$ is non-singular and its inverse exists. Therefore, $\mathbf{A}=-\mathbf{B}^{-1} \mathbf{AB}$. Taking the trace, we get
+$$
+\operatorname{Tr}(\mathbf{A})=-\operatorname{Tr}\left(\mathbf{B}^{-1} \mathbf{AB}\right)=-\operatorname{Tr}\left(\mathbf{ABB}^{-1}\right)=-\operatorname{Tr}(\mathbf{A})
+$$
+We see that $\operatorname{Tr}(\mathbf{A})=0 .$ Similarly, we find $\operatorname{Tr}(\mathbf{B})=0$
+
+
+
+
+
+
+\begin{greenbox}{2.2.19}
+\begin{enumerate}[$(a)$]
+\item If two nonsingular matrices anticommute, show that the trace of each one is zero.
+(Nonsingular means that the determinant of the matrix is nonzero.)
+\item For the conditions of part $(a)$ to hold, $\mathbf{A}$ and $\mathbf{B}$ must be $n \times n$ matrices with $n$ even.
+Show that if $n$ is odd, a contradiction results.
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ if the matrices are non-singular, then writing $\mathbf{A}=-\mathbf{B} \mathbf{A} \mathbf{B}^{-1}$ and taking the trace, we get $\operatorname{Tr} \mathbf{A}=-\operatorname{Tr} \mathbf{A} .$ Hence $\operatorname{Tr} \mathbf{A}=0,$ and the procedure for $\mathbf{B}$ is analogous.
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ now, we compute the determinant of both sides of $\mathbf{A} \mathbf{B}=-\mathbf{B} \mathbf{A}$ : this yields det $\mathbf{A}$ det $\mathbf{B}=(-1)^{N}$ det $\mathbf{B}$ det $\mathbf{A},$ where $N$ stands for size of matrices. Now since the $\mathbf{A}, \mathbf{B}$ are non-singular, both sides of the equality are non-zero and the equality is possible only for even $N .$
+
+
+
+
+\begin{greenbox}{2.2.20}
+If $\mathbf{A}^{-1}$ has elements
+$$
+\left(\mathbf{A}^{-1}\right)_{i j}=a_{i j}^{(-1)}=\frac{\mathbf{C}_{j i}}{|\mathbf{A}|}
+$$
+where $\mathbf{C}_{j i}$ is the $j i$ th cofactor of $|\mathbf{A}|,$ show that
+$$
+\mathbf{A}^{-1} \mathbf{A}=\mathbf{I}
+$$
+Hence $\mathbf{A}^{-1}$ is the inverse of $\mathbf{A}$ (if $|\mathbf{A}| \neq 0$ ).
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ We have to consider that
+$$
+\left(A^{-1} A\right)_{i j}=\sum_{k} a_{i k}^{-1} a_{k j}
+$$
+
+$$=\sum_{k} \frac{C_{k i}}{|A|} a_{k j}$$
+$$=\frac{1}{|A|} \sum_{k} C_{k i} a_{k j}$$
+$$=\frac{1}{|A|}|A| \delta_{i j}$$
+$$=\delta_{i j}$$
+Thus, $A^{-1} A=1$. Hence, by definition of inverse of a matrix $A^{-1}$ is the inverse of $A($ if $|A| \neq 0)$. 
+
+
+
+
+
+
+
+
+
+\begin{greenbox}{2.2.21}
+Find the matrices $\mathbf{M}_{L}$ such that the product $\mathbf{M}_{L} \mathbf{A}$ will be $\mathbf{A}$ but with:
+\begin{enumerate}[$(a)$]
+\item The $i$ th row multiplied by a constant $k\left(a_{i j} \rightarrow k a_{i j}, j=1,2,3, \ldots\right)$
+\item The $i$ th row replaced by the original $i$ th row minus a multiple of the $m^{\text{th}}$ row
+$\left(a_{i j} \rightarrow a_{i j}-K a_{m j}, i=1,2,3, \ldots\right)$
+\item The $i$ th and $m$ th rows interchanged $\left(a_{i j} \rightarrow a_{m j}, a_{m j} \rightarrow a_{i j}, j=1,2,3, \ldots\right)$
+
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$  For $(a)$ Here $\mathbf{M}_{L}$ will be the identity matrix the $i$ th row multiplied by $k$, i.e., $\mathbf{M}_{L}$ is given by
+$$\begin{bmatrix}{1} & {0} & {\cdots} & {0} & {\cdots} & {0} \\ {0} & {1} & {\cdots} & {0} & {\cdots} & {0} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} & {\ddots} & {\vdots} \\ {0} & {0} & {\cdots} & {k} & {\cdots} & {0} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} & {\ddots} & {\vdots} \\ {0} & {0} & {\cdots} & {0} & {\cdots} & {1}\end{bmatrix}$$
+
+$\boxed{\textbf{Solution}}$ For $(b)$ Here $\mathbf{M}_{L}$ will be the identity matrix with a change which is that the entry in the $i$ th row and $m^{\text{th}}$ column will be $-k$ instead of $0$. Note that, we have obtained this matrix from the identity matrix by replacing the ith row by the original ith row minus a multiple of the mth row.
+
+$$\begin{bmatrix}
+1 & 0 & \cdots & 0 & \cdots & 0&\cdots&0 \\ 
+0 & 1 & \cdots  & 0 & \cdots &0&\cdots& 0\\ 
+\vdots & \vdots & \ddots & \vdots & \ddots &\vdots&\ddots &\vdots\\ 
+0 & 0 & \cdots & 1 &\cdots & -k &\cdots &0 \\ 
+\vdots & \vdots & \ddots & \vdots  &\ddots &\vdots &\ddots &\vdots\\
+0&0&\dots&0&\cdots&0&\cdots&1
+\end{bmatrix}$$
+
+$\boxed{\textbf{Solution}}$  For $(c)$ Here we obtain the matrix $\mathbf{M}_{L}$ from the identity matrix by just inter changing the ith row and mth row.
+$$\begin{bmatrix}
+1& 0  &\cdots  & 0 & \cdots & 0 & \cdots &0 \\ 
+0&1  &\cdots  &0  & \cdots & 0 & \cdots & 0\\ 
+\vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\ 
+0 & 0 & \cdots &0  &\cdots  & 1 & \cdots & 0\\ 
+ \vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\ 
+0 & 0 & \cdots &1  &\cdots  & 0 & \cdots & 0\\ 
+ \vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\  
+0 & 0 & \cdots &0  &\cdots  & 0 & \cdots & 1\\ 
+\end{bmatrix}$$
+
+
+
+
+
+\begin{greenbox}{2.2.22}
+Find the matrices $\mathbf{M}_{R}$ such that the product AM $_{R}$ will be A but with:
+
+\begin{enumerate}[$(a)$]
+\item The $i$ th column multiplied by a constant $k\left(a_{j i} \rightarrow k a_{j i}, j=1,2,3, \ldots\right)$
+\item The $i$ th column replaced by the original $i$ th column minus a multiple of the $m^{\text{th}}$ column $\left(a_{j i} \rightarrow a_{j i}-k a_{j m}, j=1,2,3, \ldots\right)$
+\item The $i$ th and $m$ th columns interchanged $\left(a_{j i} \rightarrow a_{j m}, a_{j m} \rightarrow a_{j i}, j=1,2,3, \ldots\right)$
+\end{enumerate}
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$  For $(a)$, here $\mathbf{M}_{L}$ will be the identity matrix the $i$ th row multiplied by k, i.e., $\mathbf{M}_{L}$ is given by
+$$\begin{bmatrix}{1} & {0} & {\cdots} & {0} & {\cdots} & {0} \\ {0} & {1} & {\cdots} & {0} & {\cdots} & {0} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} & {\ddots} & {\vdots} \\ {0} & {0} & {\cdots} & {k} & {\cdots} & {0} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} & {\ddots} & {\vdots} \\ {0} & {0} & {\cdots} & {0} & {\cdots} & {1}\end{bmatrix}$$
+
+
+
+
+$\boxed{\textbf{Solution}}$  For $(b)$, here $\mathbf{M}_{L}$ will be the identity matrix with a change which is that the entry in the $i$ th row and $m^{\text{th}}$ column will be $-k$ instead of $0$. Note that, we have obtained this matrix from the identity matrix by replacing the ith row by the original ith row minus a multiple of the mth row.
+
+$$\begin{bmatrix}
+1 & 0 & \cdots & 0 & \cdots & 0&\cdots&0 \\ 
+0 & 1 & \cdots  & 0 & \cdots &0&\cdots& 0\\ 
+\vdots & \vdots & \ddots & \vdots & \ddots &\vdots&\ddots &\vdots\\ 
+0 & 0 & \cdots & 1 &\cdots & -k &\cdots &0 \\ 
+\vdots & \vdots & \ddots & \vdots  &\ddots &\vdots &\ddots &\vdots\\
+0&0&\dots&0&\cdots&0&\cdots&1
+\end{bmatrix}$$
+
+
+
+
+$\boxed{\textbf{Solution}}$  For $(c)$, here we obtain the matrix $\mathbf{M}_{L}$ from the identity matrix by just inter changing the ith row and mth row.
+$$\begin{bmatrix}
+1& 0  &\cdots  & 0 & \cdots & 0 & \cdots &0 \\ 
+0&1  &\cdots  &0  & \cdots & 0 & \cdots & 0\\ 
+\vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\ 
+0 & 0 & \cdots &0  &\cdots  & 1 & \cdots & 0\\ 
+ \vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\ 
+0 & 0 & \cdots &1  &\cdots  & 0 & \cdots & 0\\ 
+ \vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\  
+0 & 0 & \cdots &0  &\cdots  & 0 & \cdots & 1\\ 
+\end{bmatrix}$$
+
+
+
+
+
+\begin{greenbox}{2.2.23}
+Find the inverse of
+$$
+\mathbf{A}=\begin{bmatrix}{3} & {2} & {1} \\ {2} & {2} & {1} \\ {1} & {1} & {4}\end{bmatrix}
+$$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ Calculating $\mathbf{A}^{-1}$
+
+
+$$\mathbf{A}^{-1}=\frac{1}{7}\begin{bmatrix}{7} & {-7} & {0} \\ {-7} & {11} & {-1} \\ {0} & {-1} & {2}\end{bmatrix}$$
+
+
+\begin{greenbox}{2.2.24}
+Matrices are far too useful to remain the exclusive property of physicists. They may
+appear wherever there are linear relations. For instance, in a study of population move-
+ment the initial fraction of a fixed population in each of $n$ areas (or industries or
+religions, etc.) is represented by an $n$ -component column vector $\mathbf{P} .$ 
+
+The movement of people from one area to another in a given time is described by an $n \times n$ (stochastic) matrix $\mathbf{T}$. Here $\mathbf{T}_{i j}$ is the fraction of the population in the $j$ th area that moves to the $i^{\text{th}}$ area. (Those not moving are covered by $i=j.$) With $\mathbf{P}$ describing the initial population distribution, the final population distribution is given by the matrix equation $\mathbf{TP}=\mathbf{Q}$. From its definition, $\sum_{i=1}^{n} \mathbf{P}_{i}=1$
+
+\begin{enumerate}[$(a)$]
+\item Show that conservation of people requires that
+$$
+\sum_{i=1}^{n} \mathbf{T}_{i j}=1, \quad j=1,2, \ldots, n
+$$
+\item Prove that
+$$
+\sum_{i=1}^{n} \mathbf{Q}_{i}=1
+$$
+continues the conservation of people.
+\end{enumerate}
+\end{greenbox}
+
+
+
+
+$\boxed{\textbf{Solution}}$  For $(a)$ The equation of part states that $\mathbf{T}$ moves people from area $j$ but
+does not change their total number. 
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ Write the component equation $\sum_{j} \mathbf{T}_{i j} \mathbf{P}_{j}=\mathbf{Q}_{i}$ and sum over $i.$ This summation replaces $\mathbf{T}_{i j}$ by unity, leaving that the sum pver $\mathbf{P}_{j}$ equals the sum over $\mathbf{Q}_{i},$ hence conserving people.
+
+
+
+\begin{greenbox}{2.2.25}
+Given a $6 \times 6$ matrix A with elements $a_{i j}=0.5^{|i-j|}, i, j=0,1,2, \ldots, 5, \text { find } \mathbf{A}^{-1}$
+
+$$\mathbf{A}=\begin{bmatrix}
+1 & 0.5 & 0.5^2 & 0.5^3 & 0.5^4 & 0.5^5 \\ 
+0.5 & 1 & 0.5 & 0.5^2 & 0.5^3 & 0.5^4 \\ 
+0.5^2 & 0.5 & 1 & 0.5 & 0.5^2 & 0.5^3\\ 
+0.5^3 & 0.5^2 & 0.5 & 1 & 0.5 & 0.5^2\\ 
+0.5^4 & 0.5^3 & 0.5^2 & 0.5 & 1 & 0.5\\ 
+0.5^5 & 0.5^4 & 0.5^3 & 0.5^2 & 0.5 & 1
+\end{bmatrix}$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$
+
+$$\mathbf{A}^{-1}=\frac{1}{3}\begin{bmatrix}{4} & {-2} & {0} & {0} & {0} & {0} \\ {-2} & {5} & {-2} & {0} & {0} & {0} \\ {0} & {-2} & {5} & {-2} & {0} & {0} \\ {0} & {0} & {-2} & {5} & {-2} & {0} \\ {0} & {0} & {0} & {-2} & {5} & {-2} \\ {0} & {0} & {0} & {0} & {-2} & {4}\end{bmatrix}$$
+
+
+
+
+
+
+
+
+
+\begin{greenbox}{2.2.26}
+Show that the product of two orthogonal matrices is orthogonal.
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ Let $Q$ and $P$ be orthogonal matrices. Therefore $\mathbf{Q}^{T} Q=I$ and $\mathbf{P}^{T} P=I .$
+We have that
+$$
+(P Q)^{T}(P Q)=\mathbf{Q}^{T} \mathbf{P}^{T} P I Q=\mathbf{Q}^{T} Q=I
+$$
+Therefore, a product of two orthogonal matrix is an orthogonal matrix.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{greenbox}{2.2.27}
+If A is orthogonal, show that its determinant $=\pm 1 .$
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ We know that
+$$\ \text{det} \mathbf{A}^T = \ \text{det} \mathbf{A}$$
+$$\mathbf{A}^T\mathbf{A}=I$$
+$$\ \text{det} \mathbf{A}^T = \text{det}I = 1$$
+$$\ \text{det} \mathbf{A}^T\mathbf{A} \ \text{det} \mathbf{A}^T \ \text{det} \mathbf{A}$$
+$$(\text{det} \mathbf{A})^2 = \ \text{det} \mathbf{A} \ \text{det} \mathbf{A}^T = \ \text{det} \mathbf{A}^T \ \text{det} \mathbf{A} = \ \text{det} \mathbf{A}^TA = 1$$
+So we must have
+$$\text{det}\mathbf{A} = \pm 1$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{greenbox}{2.2.28}
+Show that the trace of the product of a symmetric and an antisymmetric matrix is zero.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$  
+If $\tilde{\mathbf{A}}=-\mathbf{A}, \tilde{\mathbf{S}}=\mathbf{S},$ then
+
+$$\text{Tr}(\widetilde{\mathbf{SA}})=\text{Tr}(\mathbf{SA})=\text{Tr}(\tilde{\mathbf{A}} \tilde{\mathbf{S}})=-\text{Tr}(\mathbf{AS})$$
+
+
+
+
+
+\begin{greenbox}{2.2.29}
+$\mathbf{A}$ is $2 \times 2$ and orthogonal. Find the most general form of
+$$
+\mathbf{A}=\begin{bmatrix}{a} & {b} \\ {c} & {d}\end{bmatrix}
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$  From $\tilde{\mathbf{A}}=\mathbf{A}^{-1}$ and $\operatorname{det}(\mathbf{A})=1$ we have
+$$
+\mathbf{A}^{-1}=\begin{bmatrix}{a_{22}} & {-a_{12}} \\ {-a_{21}} & {a_{11}}\end{bmatrix}=\tilde{\mathbf{A}}=\begin{bmatrix}{a_{11}} & {a_{21}} \\ {a_{12}} & {a_{22}}\end{bmatrix}
+$$
+This gives det $(\mathbf{A})=a_{11}^{2}+a_{12}^{2}=1,$ hence 
+$$a_{11}=\cos \theta=a_{22},\quad  a_{12}=\sin \theta=-a_{21},$$
+the standard $2 \times 2$ rotation matrix.
+
+
+
+
+
+
+
+\begin{greenbox}{2.2.30}
+Show that
+$$
+\operatorname{det}\left(\mathbf{A}^{*}\right)=(\operatorname{det} \mathbf{A})^{*}=\operatorname{det}\left(\mathbf{A}^{\dagger}\right)
+$$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$  We calculate the determinant of $\mathbf{A}^{*}$
+
+$$\operatorname{det}\left(\mathbf{A}^{*}\right)=\sum_{i_{k}} \varepsilon_{i_{1} i_{2} \ldots i_{n}} a_{1 i_{1}}^{*} a_{2 i_{2}}^{*} \cdots a_{n i_{n}}^{*}=\left(\sum_{i_{k}} \varepsilon_{i_{1} i_{2} \ldots i_{n}} a_{1 i_{1}} a_{2 i_{2}} \cdots a_{n i_{n}}\right)$$
+Because, for any $\mathbf{A},$ 
+$$\operatorname{det}(\mathbf{A})=\operatorname{det}(\tilde{\mathbf{A}}), \operatorname{det}\left(\mathbf{A}^{*}\right)=\operatorname{det}\left(\mathbf{A}^{\dagger}\right)$$
+
+
+
+\begin{greenbox}{2.2.31}
+Three angular momentum matrices satisfy the basic commutation relation
+$$[\mathbf{J}_x, \mathbf{J}_y] = i\mathbf{J}_z$$
+(and cyclic permutation of indices). If two of the matrices have real elements, show that
+the elements of the third must be pure imaginary.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ We know that basic commutation relation is $\left[\mathbf{J}_{i}, \mathbf{J}_{j}\right]=i \mathbf{J}_{k}$, where $i$ $j$ and $k$ are indices in cyclic permutation.
+Here it is clear that $\mathbf{J}_{x}, \mathbf{J}_{y}$ are real, so also must be their commutator. So according to
+commutator rule it requires that $\mathbf{J}_{z}$ be pure imaginary.
+
+
+
+\begin{greenbox}{2.2.32}
+Show that $(\mathbf{A}\mathbf{B})^{\dagger}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}$
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ 
+$$(\mathbf{A}\mathbf{B})^{\dagger}=\widetilde{\mathbf{A}^{*} \mathbf{B}^{*}}=\tilde{\mathbf{B}}^{*} \tilde{\mathbf{A}}^{*}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}$$
+
+
+
+\begin{greenbox}{2.2.33}
+A matrix $\mathbf{C}=\mathbf{S}^{\dagger} \mathbf{S}$. Show that the trace is positive definite unless $\mathbf{S}$ is the null matrix, in which case $\text{Tr}(\mathbf{C})=0 .$
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ As
+$$\mathbf{C}_{j k}=\sum_{n} \boldsymbol{S}_{n j}^{*} \boldsymbol{S}_{n k}$$
+$$\text{Tr}(\mathbf{C})=\sum_{n j}\left|\boldsymbol{S}_{n j}\right|^{2}$$
+
+
+
+\begin{greenbox}{2.2.34}
+If $\mathbf{A}$ and $\mathbf{B}$ are Hermitian matrices, show that $(\mathbf{A}\mathbf{B}+\mathbf{BA})$ and $i(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})$ are also Hermitian.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$  If $\mathbf{A}^{\dagger}=\mathbf{A}, \mathbf{B}^{\dagger}=B,$ then
+$$(\mathbf{A}\mathbf{B}+\mathbf{BA})^{\dagger}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}+\mathbf{A}^{\dagger} \mathbf{B}^{\dagger}=\mathbf{AB}+\mathbf{BA}$$
+$$-i\left(\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}-\mathbf{A}^{\dagger} \mathbf{B}^{\dagger}\right)=i(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})$$
+
+
+
+
+
+
+
+\begin{greenbox}{2.2.35}
+The matrix $\mathbf{C}$ is not Hermitian. Show that then $\mathbf{C}+\mathbf{C}^{\dagger}$ and $i\left(\mathbf{C}-\mathbf{C}^{\dagger}\right)$ are Hermitian.
+This means that a non-Hermitian matrix may be resolved into two Hermitian parts,
+$$
+\mathbf{C}=\frac{1}{2}\left(\mathbf{C}+\mathbf{C}^{\dagger}\right)+\frac{1}{2 i} i\left(\mathbf{C}-\mathbf{C}^{\dagger}\right)
+$$
+This decomposition of a matrix into two Hermitian matrix parts parallels the decompo-
+sition of a complex number $z$ into $x+i y,$ where $x=\left(z+z^{*}\right) / 2$ and $y=\left(z-z^{*}\right) / 2 i$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ If $\mathbf{C}^{\dagger} \neq \mathbf{C},$ then 
+$$\left(i \mathbf{C}_{-}\right)^{\dagger} \equiv\left(\mathbf{C}^{\dagger}-\mathbf{C}\right)^{\dagger}=\mathbf{C}-\mathbf{C}^{\dagger}=-i \mathbf{C}_{-}^{\dagger},$$
+$$\left(\mathbf{C}_{-}\right)^{\dagger}=\mathbf{C}_{-}$$
+$$\mathbf{C}_{+}^{\dagger}=\mathbf{C}_{+}=\mathbf{C}+\mathbf{C}^{\dagger}$$
+
+
+
+
+\begin{greenbox}{2.2.36}
+A and $\mathbf{B}$ are two noncommuting Hermitian matrices:
+$$
+\mathbf{AB}-\mathbf{B}\mathbf{A}=i \mathbf{C}
+$$
+Prove that $\mathbf{C}$ is Hermitian.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ Let's consider
+
+$$-i \mathbf{C}^{\dagger}=(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})^{\dagger}$$
+$$-i \mathbf{C}^{\dagger}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}-\mathbf{A}^{\dagger} \mathbf{B}^{\dagger}$$
+$$-i \mathbf{C}^{\dagger}=B \mathbf{A}-\mathbf{A}\mathbf{B}$$
+$$-i \mathbf{C}^{\dagger}=-i \mathbf{C}$$
+
+
+
+\begin{greenbox}{2.2.37}
+Two matrices $\mathbf{A}$ and $\mathbf{B}$ are each Hermitian. Find a necessary and sufficient condition for
+their product $\mathbf{AB}$ to be Hermitian.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$(\mathbf{A}\mathbf{B})^{\dagger}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}=\mathbf{B} \mathbf{A}=\mathbf{AB}$$
+With this, we can say that $[\mathbf{A}, \mathbf{B}] = 0$
+
+
+
+\begin{greenbox}{2.2.38}
+Show that the reciprocal (that is, inverse) of a unitary matrix is unitary.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$\left( \mathbf{U}^{\dagger}\right)^{\dagger}=\mathbf{U}$$
+$$\left( \mathbf{U}^{\dagger}\right)^{\dagger}=\left( \mathbf{U}^{-1}\right)^{\dagger}$$
+
+
+\begin{greenbox}{2.2.39}
+Prove that the direct product of two unitary matrices is unitary.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ 
+
+$$\left( \mathbf{U}_{1}  \mathbf{U}_{2}\right)^{\dagger}= \mathbf{U}_{2}^{\dagger}  \mathbf{U}_{1}^{\dagger}$$
+$$\left( \mathbf{U}_{1}  \mathbf{U}_{2}\right)^{\dagger}= \mathbf{U}_{2}^{-1}  \mathbf{U}_{1}^{-1}$$
+$$\left( \mathbf{U}_{1}  \mathbf{U}_{2}\right)^{\dagger}=\left( \mathbf{U}_{1}  \mathbf{U}_{2}\right)^{-1}$$
+
+
+
+\begin{greenbox}{2.2.40}
+If $\sigma$ is the vector with the $\sigma_{i}$ as components given in Eq. $(2.61),$ and $p$ is an ordinary vector, show that
+$$(\sigma \cdot p)^{2}=p^{2} \hat{1}_{2}$$
+where $\hat{1}_{2}$ is a $2 \times 2$ unit matrix.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$(\mathbf{p} \cdot \boldsymbol{\sigma})^{2}=\left(p_{x} \sigma_{1}+p_{y} \sigma_{2}+p_{z} \sigma_{3}\right)^{2}$$
+$$p_{x}^{2} \sigma_{1}^{2}+p_{y}^{2} \sigma_{2}^{2}+p_{z}^{2} \sigma_{3}^{2}+p_{x} p_{y}\left(\sigma_{1} \sigma_{2}+\sigma_{2} \sigma_{1}\right)+p_{x} p_{z}\left(\sigma_{1} \sigma_{3}+\sigma_{3} \sigma_{1}\right)$$
+$$+p_{y} p_{z}\left(\sigma_{1} \sigma_{2}+\sigma_{2} \sigma_{1}\right)=p_{x}^{2}+p_{y}^{2}+p_{z}^{2}=\mathbf{p}^{2}$$
+
+
+
+\begin{greenbox}{2.2.41}
+Use the equations for the properties of direct products, Eqs. (2.57) and $(2.58),$ to show
+that the four matrices $\gamma^{\mu}, \mu=0,1,2,3,$ satisfy the conditions listed in Eqs. (2.74) and $(2.75) .$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$  Writing $\gamma^{0}=\sigma_{3} \otimes \mathbf{1}$ and $\gamma^{i}=\gamma \otimes \sigma_{i}(i=1,2,3),$ where
+$$
+\gamma=\begin{bmatrix}{0} & {1} \\ {-1} & {0}\end{bmatrix}
+$$
+and noting fron Eq. (2.57) that if $\mathbf{C}=\mathbf{A} \otimes B$ and $\mathbf{C}'=\mathbf{A}' \otimes B'$ then
+$\mathbf{C} \mathbf{C}'=\mathbf{A} \mathbf{A}' \otimes B B'$
+$$\left(\gamma^{0}\right)^{2}=\sigma_{3}^{2} \otimes \mathbf{1}_{2}^{2}=\hat{1}_{2} \otimes \mathbf{1}_{2}=\hat{1}_{4}, \quad\left(\gamma^{i}\right)^{2}=\gamma^{2} \otimes \sigma_{i}^{2}=\left(-\hat{1}_{2}\right) \otimes \mathbf{1}_{2}=-\hat{1}_{4}$$
+$$\gamma^{0} \gamma^{i}=\sigma_{3} \gamma \otimes \mathbf{1}_{2} \sigma_{i}=\sigma_{1} \otimes \sigma_{i}, \quad \gamma^{i} \gamma^{0}=\gamma \sigma_{3} \otimes \sigma_{i} \mathbf{1}_{2}=\left(-\sigma_{1}\right) \otimes \sigma_{i}$$
+$$\gamma^{i} \gamma^{j}=\gamma^{2} \otimes \sigma_{i} \sigma_{j} \quad \gamma^{j} \gamma^{i}=\gamma^{2} \otimes \sigma_{j} \sigma_{i}$$
+It is obvious from the second line of the above equation set that $\gamma^{0} \gamma^{i}+$
+$\gamma^{i} \gamma^{0}=0 ;$ from the third line of the equation set we find $\gamma^{i} \gamma^{j}+\gamma^{j} \gamma^{i}$ is zero if $j \neq i$ because then $\sigma_{j} \sigma_{i}=-\sigma_{i} \sigma_{j}$
+
+\begin{greenbox}{2.2.42}
+Show that $\gamma^{5}$, Eq. (2.76), anticommutes with all four $\gamma^{\mu}$.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$
+\gamma^{0}=\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}, \quad \gamma^{1}=\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{bmatrix}, \gamma^{2}=\begin{bmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{3}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\quad \text { and }\quad \gamma^{5}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{0} \gamma^{5}=\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+-1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{5} \gamma^{0}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}=\begin{bmatrix}
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{1} \gamma^{5}=\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & -1 \\
+0 & 0 & -1 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{5} \gamma^{1}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{2} \gamma^{5}=\begin{bmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & -i & 0 & 0 \\
+i & 0 & 0 & 0 \\
+0 & 0 & 0 & i \\
+0 & 0 & -i & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{5} \gamma^{2}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0 \\
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{3} \gamma^{5}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+$$
+\gamma^{5} \gamma^{3}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}
+$$
+This shows that $\gamma^{5}$ anticommutes with all four $\gamma^{\mu}(\mu=0,1,2,3)$
+
+
+
+
+\begin{greenbox}{2.2.43}
+In this problem, the summations are over $\mu=0,1,2,3 .$ Define $g_{\mu v}=g^{\mu v}$ by the relations
+$$
+g_{00}=1 ; \quad g_{k k}=-1, \quad k=1,2,3 ; \quad g_{\mu v}=0, \quad \mu \neq v
+$$
+and define $\gamma_{\mu}$ as $\sum g_{v \mu} \gamma^{\mu} .$ Using these definitions, show that
+\begin{enumerate}[$(a)$]
+\item $\sum \gamma_{\mu} \gamma^{\alpha} \gamma^{\mu}=-2 \gamma^{\alpha}$
+\item $\sum \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \gamma^{\mu}=4 g^{\alpha \beta}$
+\item $\sum \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \gamma^{v} \gamma^{\mu}=-2 \gamma^{v} \gamma^{\beta} \gamma^{\alpha}$
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+
+\begin{greenbox}{2.2.44}
+If $\mathbf{M}=\frac{1}{2}\left(1+\gamma^{5}\right),$ where $\gamma^{5}$ is given in Eq. $(2.76),$ show that
+$$
+\mathbf{M}^{2}=\mathbf{M}
+$$
+Note that this equation is still satisfied if $\gamma$ is replaced by any other Dirac matrix listed in Eq. (2.76) 
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ Consider $\mathbf{M}^{2}=\left[\frac{1}{2}\left(1+\gamma^{5}\right)\right]^{2}$
+$$
+\begin{array}{l}
+=\dfrac{1}{4}\left(\hat{1}_{4}+2 \gamma^{5}+\left(\gamma^{5}\right)^{2}\right)\vspace{3mm} \\
+=\dfrac{1}{4}\left(\hat{1}_{4}+2 \gamma^{5}+\hat{1}_{4}\right) \vspace{3mm}\\
+=\dfrac{1}{4}\left(2\hat{1}_{4}+2 \gamma^{5}\right) \vspace{3mm}\\
+=\dfrac{1}{2}\left(\hat{1}_{4}+\gamma^{5}\right) \vspace{3mm}\\
+=\mathbf{M}
+\end{array}
+$$
+Thus, $\mathbf{M}^2 = \mathbf{M}$
+ 
+
+\begin{greenbox}{2.2.45}
+Prove that the 16 Dirac matrices form a linearly independent set.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+
+\newpage
+
+\begin{greenbox}{2.2.46}
+If we assume that a given $4 \times 4$ matrix $\mathbf{A}$ (with constant elements) can be written as a linear combination of the 16 Dirac matrices (which we denote here as $\Gamma_{i}$ )
+$$
+\mathbf{A}=\sum_{i=1}^{16} c_{i} \Gamma_{i}
+$$
+show that
+$$
+c_{i} \sim \operatorname{trace}\left(\mathbf{A} \Gamma_{i}\right)
+$$
+The matrix $\mathbf{C}=i \gamma^{2} \gamma^{0}$ is sometimes called the charge conjugation matrix. Show that $\mathbf{C} \boldsymbol{\gamma}^{\mu} \mathbf{C}^{-1}=-\left(\boldsymbol{\gamma}^{\mu}\right)^{T}$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+\begin{greenbox}{2.2.47}
+The matrix $\mathbf{C}=i \gamma^{2} \gamma^{0}$ is sometimes called the charge conjugation matrix. Show that $\mathbf{C} \boldsymbol{\gamma}^{\mu} \mathbf{C}^{-1}=-\left(\boldsymbol{\gamma}^{\mu}\right)^{T}$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ Here
+$$
+\gamma^{0}=\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}, \quad \gamma^{1}=\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{bmatrix}, \gamma^{2}=\begin{bmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{3}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}
+$$
+Consider $\mathbf{C} \gamma^{0} \mathbf{C}^{-1}=i \gamma^{2} \gamma^{0} \gamma^{0}\left(i \gamma^{2} \gamma^{0}\right)^{-1}$
+$$
+\begin{array}{l}
+=\gamma^{2} \gamma^{0} \gamma^{0}\left(\gamma^{0}\right)^{-1}\left(\gamma^{2}\right)^{-1} \\
+=-\gamma^{0} \\
+=-\left(\gamma^{0}\right)^{T} \\
+\mathbf{C} \gamma^{1} \mathbf{C}^{-1}=i \gamma^{2} \gamma^{0} \gamma^{1}\left(i \gamma^{2} \gamma^{0}\right)^{-1} \\
+=\gamma^{2} \gamma^{0} \gamma^{1}\left(\gamma^{0}\right)^{-1}\left(\gamma^{2}\right)^{-1} \\
+=\gamma^{1} \\
+=-\left(\gamma^{1}\right)^{T}
+\end{array}
+$$
+$$
+\begin{aligned}
+\mathbf{C} \gamma^{2} \mathbf{C}^{-1} &=i \gamma^{2} \gamma^{0} \gamma^{2}\left(i \gamma^{2} \gamma^{0}\right)^{-1} \\
+&=\gamma^{2} \gamma^{0} \gamma^{2}\left(\gamma^{0}\right)^{-1}\left(\gamma^{2}\right)^{-1} \\
+&=-\gamma^{2} \\
+&=-\left(\gamma^{2}\right)^{T} \\
+\mathbf{C} \gamma^{3} \mathbf{C}^{-1} &=i \gamma^{2} \gamma^{0} \gamma^{3}\left(i \gamma^{2} \gamma^{0}\right)^{-1} \\
+&=\gamma^{2} \gamma^{0} \gamma^{3}\left(\gamma^{0}\right)^{-1}\left(\gamma^{2}\right)^{-1} \\
+&=\gamma^{3} \\
+&=-\left(\gamma^{3}\right)^{T}
+\end{aligned}
+$$
+Thus, $\mathbf{C} \gamma^{\mu} \mathbf{C}^{-1}=-\left(\gamma^{\mu}\right)^{T}(\mu=0,1,2,3)$
+
+
+
+\begin{greenbox}{2.2.48}
+\begin{enumerate}[$(a)$]
+\item Show that, by substitution of the definitions of the $\gamma^{\mu}$ matrices from Eqs. ( 2.70 ) and $(2.72),$ that the Dirac equation, Eq. ( 2.73$),$ takes the following form when written as $2 \times 2$ blocks (with $\psi_{L}$ and $\psi_{S}$ column vectors of dimension 2 ). Here $L$ and $S$ stand, respectively, for "large" and "small" because of their relative size in the nonrelativistic limit):
+$$
+\begin{bmatrix}
+m c^{2}-E & c\left(\sigma_{1} p_{1}+\sigma_{2} p_{2}+\sigma_{3} p_{3}\right) \\
+-c\left(\sigma_{1} p_{1}+\sigma_{2} p_{2}+\sigma_{3} p_{3}\right) & -m c^{2}-E
+\end{bmatrix}\begin{bmatrix}
+\psi_{L} \\
+\psi_{S}
+\end{bmatrix}=0
+$$
+\item To reach the nonrelativistic limit, make the substitution $\mathbf{E}=m c^{2}+\varepsilon$ and approximate $-2 m c^{2}-\varepsilon$ by $-2 m c^{2}$. Then write the matrix equation as two simultaneous two-component equations and show that they can be rearranged to yield
+$$
+\frac{1}{2 m}\left(p_{1}^{2}+p_{2}^{2}+p_{3}^{2}\right) \psi_{L}=\varepsilon \psi_{L}
+$$
+which is just the Schrödinger equation for a free particle.
+\item Explain why is it reasonable to call $\psi_{L}$ and $\psi_{S}$ "large" and "small."
+\end{enumerate}
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+
+
+
+\begin{greenbox}{2.2.49}
+Show that it is consistent with the requirements that they must satisfy to take the Dirac gamma matrices to be (in $2 \times 2$ block form)
+$$
+\gamma^{0}=\begin{bmatrix}
+0 & \mathbf{1}_{2} \\
+\mathbf{1}_{2} & 0
+\end{bmatrix}, \quad \gamma^{i}=\begin{bmatrix}
+0 & \sigma_{i} \\
+-\sigma_{i} & 0
+\end{bmatrix}, \quad(i=1,2,3)
+$$
+This choice for the gamma matrices is called the Weyl representation.
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ If $\mathbf{C}=\mathbf{A} \otimes B$ and $\mathbf{C}'=\mathbf{A}' \otimes B'$ then $\mathbf{C} \mathbf{C}'=\mathbf{A} \mathbf{A}' \otimes B B'$ we have
+$$
+\begin{array}{l}
+\left(\gamma^{0}\right)^{2}=\sigma_{2}^{2} \otimes \hat{1}_{2}^{2} \\
+=\hat{1}_{2} \otimes \hat{1}_{2} \quad \text { as } \sigma_{i}^{2}=1 \\
+=\hat{1}_{4} \\
+=1
+\end{array}
+$$
+as $\gamma^{2}=\begin{bmatrix}-1 & 0 \\ 0 & -1\end{bmatrix}=-\hat{1}_{2}$
+
+$$
+\begin{array}{l}
+\left(\gamma'\right)^{2}=\gamma^{2} \otimes \sigma_{i}^{2} \\
+=\left(-\hat{1}_{2}\right) \otimes \hat{1}_{2} \\
+=-\hat{1}_{4} \\
+=-1
+\end{array}
+$$
+as $\sigma_{1} \gamma=\begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix}\begin{bmatrix}0 & 1 \\ -1 & 0\end{bmatrix}=\begin{bmatrix}-1 & 0 \\ 0 & 1\end{bmatrix}=-\sigma_{3}$
+$$
+\begin{aligned}
+\gamma^{0} \gamma^{i} &=\sigma_{1} \gamma \otimes \mathbf{l}_{2} \sigma_{i} \\
+&=\left(-\sigma_{3}\right) \otimes \sigma_{i} \\
+\gamma^{i} \gamma^{0} &=\gamma \sigma_{1} \otimes \sigma_{i} \mathbf{l}_{2} \\
+&=\sigma_{3} \otimes \sigma_{i}
+\end{aligned}
+$$
+as $\gamma \sigma_{1}=\begin{bmatrix}0 & 1 \\ -1 & 0\end{bmatrix}\begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix}=\begin{bmatrix}1 & 0 \\ 0 & -1\end{bmatrix}=\sigma_{3}$
+Thus $\gamma^{0} \gamma^{i}+\gamma' \gamma^{0}=0$
+$$
+\begin{array}{l}
+\gamma^{i} \gamma^{j}=\gamma^{2} \otimes \sigma_{i} \sigma_{j} \\
+\gamma^{j} \gamma^{i}=\gamma^{2} \otimes \sigma_{j} \sigma_{i}=\gamma^{2} \otimes\left(-\sigma_{i} \sigma_{j}\right)
+\end{array}
+$$
+as $\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=0$. Thus, $\gamma^{i} \gamma^{j}+\gamma^{j} \gamma^{i}=0$ if $j \neq i$
+
+
+
+\begin{greenbox}{2.2.50}
+Show that the Dirac equation separates into independent $2 \times 2$ blocks in the Weyl representation (see Exercise 2.2 .49 ) in the limit that the mass $m$ approaches zero. This observation is important in the ultra relativistic regime where the rest mass is inconsequential, or for particles of negligible mass (e.g., neutrinos).
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ In the Weyl representation, the matrices $\gamma^{0}, \alpha_{i}$ and the wave function $\psi$ written as
+$2 \times 2$ blocks take the forms
+$$
+\gamma^{0}=\begin{bmatrix}
+0 & \hat{1}_{2} \\
+\hat{1}_{2} & 0
+\end{bmatrix}, \quad \alpha_{i}=\begin{bmatrix}
+-\sigma_{i} & 0 \\
+0 & \sigma_{i}
+\end{bmatrix} \quad \text { and } \quad \psi=\begin{bmatrix}
+\psi_{1} \\
+\psi_{2}
+\end{bmatrix}
+$$
+In block form $\left[\gamma^{0} m c^{2}+\alpha \cdot p\right] \psi=E \psi$ becomes
+$$
+\left[\begin{bmatrix}
+0 & m c^{2} \\
+m c^{2} & 0
+\end{bmatrix}+\begin{bmatrix}
+-\sigma \cdot p & 0 \\
+0 & \sigma \cdot p
+\end{bmatrix}\right]\begin{bmatrix}
+\psi_{1} \\
+\psi_{2}
+\end{bmatrix}=E\begin{bmatrix}
+\psi_{1} \\
+\psi_{2}
+\end{bmatrix}
+$$
+If $m$ is zero, this matrix equation becomes two independent equations, one for $\psi_{1}$, and one for
+$\psi_{2}$ In this limit, one set of solutions will be with $\psi_{2}=0$ and $\psi_{1}$ a solution to $-\sigma \cdot p \psi_{1}=E \psi_{1}$ and a second set of solutions will have $\psi_{1}=0$ and a set of $\psi_{2}$ identical to the previously found set of $\psi_{1}$ but with values of $E$ of the opposite sign.
+
+
+\begin{greenbox}{2.2.51}
+\begin{enumerate}[$(a)$]
+\item Given $\mathbf{r}'=\mathbf{Ur},$ with $\mathbf{U}$ a unitary matrix and $\mathbf{r}$ a (column) vector with complex elements, show that the magnitude of $\mathbf{r}$ is invariant under this operation. 	
+\item The matrix $\mathbf{U}$ transforms any column vector $\mathbf{r}$ with complex elements into $\mathbf{r}'$, leaving the magnitude invariant: $\mathbf{r}^{\dagger} \mathbf{r}=\mathbf{r}^{\prime \dagger} \mathbf{r}'$. Show that $\mathbf{U}$ is unitary.
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ We show that the magnitude of $r$ is invariant i.e. $\mathbf{r}'^{\dagger} \mathbf{r}'=\mathbf{r}^{\dagger} r$. Consider $\mathbf{r}'^{\dagger} \mathbf{r}'=(\mathbf{U} \mathbf{r})^{\dagger} \mathbf{U} \mathbf{r}$
+$$
+\begin{array}{l}
+=\mathbf{r}^{\dagger}  \mathbf{U}^{\dagger} \mathbf{U} \mathbf{r} \\
+=\mathbf{r}^{\dagger} 1 \mathbf{r} \\
+=\mathbf{r}^{\dagger} \mathbf{r}
+\end{array}
+$$
+This shows that the magnitude of $r$ is invariant under this operation.
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ all $r, \quad \mathbf{r}'^{\dagger} \mathbf{r}'=\mathbf{r}^{\dagger} r$
+$$
+\begin{array}{l}
+(\mathbf{U} \mathbf{r})^{\dagger} \mathbf{U} \mathbf{r}=\mathbf{r}^{\dagger} r \\
+\mathbf{r}^{\dagger}  \mathbf{U}^{\dagger} \mathbf{U} \mathbf{r}=\mathbf{r}^{\dagger} 1 r \\
+ \mathbf{U}^{\dagger} \mathbf{U}=1
+\end{array}
+$$
+This shows that $U$ is unitary.
+
+
+
+
+\newpage
+
+\chapter*{Chapter 3.2 \\ Vectors in 3D-Space}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 3.2: Vectors in 3D-Space}
+
+\begin{greenbox}{3.2.1}
+If $\mathbf{P}=\hat{\mathbf{e}}_{x} P_{x}+\hat{\mathbf{e}}_{y} P_{y}$ and $\mathbf{Q}=\hat{\mathbf{e}}_{x} Q_{x}+\hat{\mathbf{e}}_{y} Q_{y}$ are any two nonparallel (Also nonantiparallectors in the $x y$ -plane, show that $\mathbf{P} \times \mathbf{Q}$ is in the $z$ -direction.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ We write the $P$ and $Q$ vectors as
+$$\mathbf{P} = \langle P_x, P_y,0\rangle \quad Q = \langle Q_x, Q_y,0\rangle$$
+So
+$$\mathbf{P} \times \mathbf{Q} = \begin{vmatrix}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z}\\ 
+P_{x} & P_{y} & 0\\ 
+Q_{x} & Q_{y} & 0
+\end{vmatrix} =  (P_{x} Q_{y} - Q_{x} P_{y})\hat{\mathbf{e}}_{z}$$
+
+
+\begin{greenbox}{3.2.2}
+Prove that $(\mathbf{A} \times \mathbf{B}) \cdot(\mathbf{A} \times \mathbf{B})=(\mathbf{A} \mathbf{B})^{2}-(\mathbf{A} \cdot \mathbf{B})^{2}$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$
+$$(\mathbf{A} \times \mathbf{B})^{2}=(|\mathbf{A}||\mathbf{B}| \sin \theta)^{2}$$
+$$(\mathbf{A} \times \mathbf{B})^{2}=\mathbf{A}^{2} \times \mathbf{B}^{2} \times \sin ^{2} \theta$$
+$$(\mathbf{A} \times \mathbf{B})^{2}=\mathbf{A}^{2} \times \mathbf{B}^{2} \times\left(1-\cos ^{2} \theta\right)$$
+$$(\mathbf{A} \times \mathbf{B})^{2}=\mathbf{A}^{2} \times \mathbf{B}^{2}-\mathbf{A}^{2} \times \mathbf{B}^{2} \times\left(\cos ^{2} \theta\right)$$
+$$(\mathbf{A} \times \mathbf{B})^{2}=\mathbf{A}^{2} \mathbf{B}^{2}-(\mathbf{A} \cdot \mathbf{B})^{2}$$
+
+
+
+\begin{greenbox}{3.2.3}
+Using the vectors
+$$\mathbf{P}=\hat{\mathbf{e}}_{x} \cos \theta+\hat{\mathbf{e}}_{y} \sin \theta$$
+$$\mathbf{Q}=\hat{\mathbf{e}}_{x} \cos \varphi-\hat{\mathbf{e}}_{y} \sin \varphi$$
+$$\mathbf{R}=\hat{\mathbf{e}}_{x} \cos \varphi+\hat{\mathbf{e}}_{y} \sin \varphi$$
+prove the familiar trigonometric identities
+$$
+\begin{aligned} \sin (\theta+\varphi) &=\sin \theta \cos \varphi+\cos \theta \sin \varphi \\ \cos (\theta+\varphi) &=\cos \theta \cos \varphi-\sin \theta \sin \varphi \end{aligned}
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Consider $\mathbf{P}\cdot \mathbf{Q}$ as
+$$\mathbf{P}\cdot \mathbf{Q} = (\hat{x} \cos \theta+\hat{y} \sin \theta) \cdot\left(\hat{x} \cos \varphi-\hat{y} \sin \varphi\right)+\hat{y} \sin \theta \hat{x} \cos \varphi-\hat{y} \sin \theta \sin \varphi$$
+$$\mathbf{P}\cdot \mathbf{Q} = (1 \times \cos \theta \cos \varphi)-(0 \times \cos \theta \sin \varphi)+(0 \times \sin \theta \cos \varphi) - (1\times \sin \theta \sin \varphi)$$
+$$\mathbf{P}\cdot \mathbf{Q} = \cos \theta \cos \varphi-\sin \theta \sin \varphi$$
+And by the product rule, $\mathbf{P}\cdot \mathbf{Q} = \cos(\theta + \varphi)$
+$$\cos (\theta+\varphi)=\cos \theta \cos \varphi-\sin \theta \sin \varphi$$
+
+
+
+ 
+\begin{greenbox}{3.2.4}
+\begin{enumerate}[$(a)$]
+\item Find a vector $\mathbf{A}$ that is perpendicular to
+$$\mathbf{U}=2 \hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}-\hat{\mathbf{e}}_{z}$$
+$$\mathbf{V}=\hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{y}+\hat{\mathbf{e}}_{z}$$
+\item What is $\mathbf{A}$ if, in addition to this requirement, we demand that it have unit
+magnitude?
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ we have $\mathbf{U}=2 \hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}-\hat{\mathbf{e}}_{z}, V=\hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{y}+\hat{\mathbf{e}}_{z}$
+$$
+\mathbf{U} \times \mathbf{V}=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+2 & 1 & -1 \\
+1 & -1 & 1
+\end{array}\right|=\hat{\mathbf{e}}_{x}(1-1)-\hat{\mathbf{e}}_{y}(2+1)+\hat{\mathbf{e}}_{z}(-2-1)
+$$
+$$
+\mathbf{U} \times \mathbf{V}=-\hat{\mathbf{e}}_{y}(3)+\hat{\mathbf{e}}_{z}(-3)=-3 \hat{\mathbf{e}}_{y}-3 \hat{\mathbf{e}}_{z}
+$$
+
+$\boxed{\textbf{Solution}}$ For $(b)$ We know $\mathbf{A}$ is $-3 \hat{\mathbf{e}}_{y}-3 \hat{\mathbf{e}}_{z}$, so the magnitude of $\mathbf{A}$ is
+$$|\mathbf{A}|=\sqrt{3^{2}+3^{2}}=\sqrt{18}=3 \sqrt{2}$$
+From this 
+$$\mathbf{A}=\frac{-3 \hat{\mathbf{e}}_{y}-3 \hat{\mathbf{e}}_{z}}{3 \sqrt{2}}=\frac{-\hat{\mathbf{e}}_{y}-\hat{\mathbf{e}}_{z}}{\sqrt{2}}$$
+
+
+\begin{greenbox}{3.2.5}
+If four vectors $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$, and $\mathbf{d}$ all lie in the same plane, show that
+$$
+(\mathbf{a} \times \mathbf{b}) \times(\mathbf{c} \times \mathbf{d})=0
+$$
+Hint. Consider the directions of the cross-product vectors.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Since all four vectors lie in the same plane, the cross product of any two of them would be orthogonal to the plane. Thus:
+$$\mathbf{v}_1 = (\mathbf{a} \times \mathbf{b})$$
+$$\mathbf{v}_2 = (\mathbf{c} \times \mathbf{d})$$
+By definition, it $\mathbf{v}_1$ and $\mathbf{v}_2$ are parallel, so $\mathbf{v}_1 \times \mathbf{v}_2 = 0$
+
+
+
+
+
+\begin{greenbox}{3.2.6}
+Derive the law of sines (see Fig. $3.4):$
+$$
+\dfrac{\sin \alpha}{|\mathbf{A}|}=\dfrac{\sin \beta}{|\mathbf{B}|}=\dfrac{\sin \gamma}{|\mathbf{C}|}
+$$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ We have $\mathbf{A}-\mathbf{B}-\mathbf{C}=0$ so we cross both sides by $\mathbf{A}$ 
+
+
+
+$$\mathbf{A} \times \mathbf{A}-\mathbf{A} \times \mathbf{B}-\mathbf{A} \times \mathbf{C}=\mathbf{A} \times 0$$
+$$ 0-\mathbf{A} \times \mathbf{B}-\mathbf{A} \times \mathbf{C}=0$$
+$$-\mathbf{A} \times \mathbf{B}-\mathbf{A} \times \mathbf{C}=0$$
+$$-\mathbf{A} \times \mathbf{C}=\mathbf{A} \times \mathbf{B}$$
+$$ \mathbf{C} \times \mathbf{A}=\mathbf{A} \times \mathbf{B}$$
+$$|\mathbf{C}||\mathbf{A}| \sin \beta=|\mathbf{A}| \mathbf{B} \mid \sin \gamma$$
+
+Again, we cross both sides of $\mathbf{A}-\mathbf{B}-\mathbf{C}=0$ by $\mathbf{B}$
+$$\mathbf{B} \times \mathbf{A}-\mathbf{B} \times \mathbf{B}-\mathbf{B} \times \mathbf{C}=\mathbf{B} \times 0$$
+$$ \mathbf{B} \times \mathbf{A}-\mathbf{B} \times \mathbf{C}=0$$
+$$ \mathbf{B} \times \mathbf{A}=\mathbf{B} \times C$$
+$$|\mathbf{B} \| A| \sin \gamma=|\mathbf{B}||\mathbf{C}| \sin \alpha$$
+$$|\mathbf{A}| \sin \gamma=|\mathbf{C}| \sin \alpha$$
+$$ \frac{\sin \gamma}{|\mathbf{C}|}=\frac{\sin \alpha}{|\mathbf{A}|} $$
+
+
+
+
+
+
+\begin{greenbox}{3.2.7}
+The magnetic induction $\mathbf{B}$ is defined by the Lorentz force equation,
+$$
+\mathbf{F}=q(\mathbf{v} \times \mathbf{B})
+$$
+Carrying out three experiments, we find that if
+$$
+\begin{array}{l}{\mathbf{v}=\hat{\mathbf{e}}_{x}, \quad \dfrac{\mathbf{F}}{q}=2 \hat{\mathbf{e}}_{z}-4 \hat{\mathbf{e}}_{y}}\vspace{3mm} \\ {\mathbf{v}=\hat{\mathbf{e}}_{y}, \quad \dfrac{\mathbf{F}}{q}=4 \hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{z}} \vspace{3mm}\\ {\mathbf{v}=\hat{\mathbf{e}}_{z}, \quad \dfrac{\mathbf{F}}{q}=\hat{\mathbf{e}}_{y}-2 \hat{\mathbf{e}}_{x}}\end{array}
+$$
+From the results of these three separate experiments calculate the magnetic induction $\mathbf{B}$.
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ From the first condition $\mathbf{v}=\hat{\mathbf{e}}_{x}, \dfrac{F}{q}=2 \hat{\mathbf{e}}_{z}-4 \hat{\mathbf{e}}_{\dot{y}}$
+
+$$
+\mathbf{v} \times \mathbf{B}=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+1 & 0 & 0 \\
+\mathbf{B}_{x} & \mathbf{B}_{y} & \mathbf{B}_{z}
+\end{array}\right|=\hat{\mathbf{e}}_{x}(0)-\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{z}\right)+\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{y}\right)=-\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{z}\right)+\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{y}\right)
+$$
+
+$$\frac{\mathbf{F}}{q}=2 \hat{\mathbf{e}}_{z}-4 \hat{\mathbf{e}}_{j},$$
+$$ \mathbf{v} \times \mathbf{B}=-\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{z}\right)+\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{y}\right)$$
+$$\mathbf{B}_{z}=4, \mathbf{B}_{y}=2$$
+
+Now, from the second condition $\mathbf{v}=\hat{\mathbf{e}}_{y}, \dfrac{F}{q}=4 \hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{z}$
+
+$$
+\mathbf{v} \times \mathbf{B}=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+0 & 1 & 0 \\
+\mathbf{B}_{x} & \mathbf{B}_{y} & \mathbf{B}_{z}
+\end{array}\right|=\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{z}\right)-\hat{\mathbf{e}}_{y}(0)-\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{x}\right)=\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{z}\right)-\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{x}\right)
+$$
+$$\frac{\mathbf{F}}{q}=4 \hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{z}$$
+$$ \mathbf{v} \times \mathbf{B}=\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{z}\right)-\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{x}\right)$$
+$$\mathbf{B}_{z}=4, \mathbf{B}_{x}=1$$
+From the third condition 
+$$
+\mathbf{v}=\hat{\mathbf{e}}_{z}$$
+$$ \frac{\mathbf{F}}{q}=\hat{\mathbf{e}}_{y}-2 \hat{\mathbf{e}}_{x}
+$$
+$$
+\mathbf{v} \times \mathbf{B}=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+0 & 0 & 1 \\
+\mathbf{B}_{x} & \mathbf{B}_{y} & \mathbf{B}_{z}
+\end{array}\right|=\hat{\mathbf{e}}_{x}\left(-\mathbf{B}_{y}\right)-\hat{\mathbf{e}}_{y}\left(-\mathbf{B}_{x}\right)-\hat{\mathbf{e}}_{z}(0)=-\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{y}\right)+\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{x}\right)
+$$
+$$\mathbf{v} \times \mathbf{B}=-\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{y}\right)+\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{x}\right)$$
+$$ \frac{\mathbf{F}}{q}=\hat{\mathbf{e}}_{y}-2 \hat{\mathbf{e}}_{x}$$
+$$\mathbf{B}_{y}=2, \mathbf{B}_{x}=1$$
+
+
+\begin{greenbox}{3.2.8}
+You are given the three vectors $\mathbf{A}, \mathbf{B},$ and $\mathbf{C},$
+$$
+\begin{array}{l}{\mathbf{A}=\hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}} \\ {\mathbf{B}=\hat{\mathbf{e}}_{y}+\hat{\mathbf{e}}_{z}} \\ {\mathbf{C}=\hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{z}}\end{array}
+$$
+
+Therefore, from above three conditions magnetic induction is given by $ \mathbf{B} = \hat { x } + 2 \hat { y } + 4 \hat { z }$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$, $\mathbf{A} \cdot \mathbf{B} \times \mathbf{C}=0 .$ Because $\mathbf{A}$ is the plane of $\mathbf{B}$ and $\mathbf{C}$. The parallelepiped has zero height above the $BC$ plane. So therefore volume will be zero.
+Therefore, the scalar triple product is zero.
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ 
+$$
+(\mathbf{B} \times \mathbf{C})=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+0 & 1 & 1 \\
+1 & 0 & -1
+\end{array}\right|=\hat{\mathbf{e}}_{x}(-1)-\hat{\mathbf{e}}_{y}(-1)+\hat{\mathbf{e}}_{z}(-1)=-\hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}-\hat{\mathbf{e}}_{z}
+$$
+$$
+\mathbf{A} \times(\mathbf{B} \times \mathbf{C})=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+1 & 1 & 0 \\
+-1 & 1 & -1
+\end{array}\right|=\hat{\mathbf{e}}_{x}(-1)-\hat{\mathbf{e}}_{y}(-1)+\hat{\mathbf{e}}_{z}(1+1)=-\hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}+2 \hat{\mathbf{e}}_{z}
+$$
+
+
+
+
+\begin{greenbox}{3.2.9}
+Prove Jacobi's identity for vector products:
+$$
+\mathbf{a} \times(\mathbf{b} \times \mathbf{c})+\mathbf{b} \times(\mathbf{c} \times \mathbf{a})+\mathbf{c} \times(\mathbf{a} \times \mathbf{b})=0
+$$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ From $\mathbf{BA}\mathbf{C}-\mathbf{C}\mathbf{AB}$ rule $\mathbf{a}\times(\mathbf{b} \times \mathbf{c})=\mathbf{b}(\mathbf{a}\cdot \mathbf{c})-\mathbf{c}(\mathbf{a} \cdot \mathbf{b}).$ The entire equation an written as
+$$
+\mathbf{a}\times(\mathbf{b} \times \mathbf{c})+\mathbf{b} \times(\mathbf{c} \times \mathbf{a})+\mathbf{c} \times(\mathbf{a} \times \mathbf{b})$$
+$$=[\mathbf{b}(\mathbf{a} \cdot \mathbf{c})-\mathbf{c}(\mathbf{a} \cdot \mathbf{b})]+[(\mathbf{b} \cdot \mathbf{a}) \mathbf{c}-(\mathbf{b} \cdot \mathbf{c}) \mathbf{a}]+[(\mathbf{c} \cdot \mathbf{b}) \mathbf{a}-(\mathbf{c} \cdot \mathbf{a}) \mathbf{b}]
+$$
+since the dot product is commutative so they becomes zero.
+Therefore, $$ \mathbf{a}\times(\mathbf{b} \times \mathbf{c})+\mathbf{b} \times(\mathbf{c} \times \mathbf{a})+\mathbf{c} \times(\mathbf{a} \times \mathbf{b})=0$$
+
+
+
+
+\begin{greenbox}{3.2.10}
+A vector $\mathbf{A}$ is decomposed into a radial vector $\mathbf{A}_{r}$ and a tangential vector $\mathbf{A}_{t} .$ If $\hat{\mathbf{r}}$ is a unit vector in the radial direction, show that
+$(a)$ $\mathbf{A}_{r}=\hat{\mathbf{r}}(\mathbf{A} \cdot \hat{\mathbf{r}})$ and
+$(b)$ $\mathbf{A}_{t}=-\hat{\mathbf{r}} \times(\hat{\mathbf{r}} \times \mathbf{A})$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ Let $\mathbf{A}=\mathbf{A}_{r} \hat{\mathbf{r}}+\mathbf{A}_{i} \hat{\theta}$
+$$
+\mathbf{A} \cdot \hat{\mathbf{r}}=\mathbf{A}_{r}, \text { as } \ \hat{\mathbf{r}} \cdot \hat{\mathbf{r}}=1
+$$
+The left-hand side is:
+$$\mathbf{A}_{r}=\mathbf{A}_{r} \hat{\mathbf{r}}$$ since $\hat{\mathbf{r}}$ is the unit vector.
+The right-hand side is:
+$$
+\hat{\mathbf{r}}(\mathbf{A} \cdot \hat{\mathbf{r}})=\hat{\mathbf{r}}\left(\mathbf{A}_{r}\right)=\mathbf{A}_{r} \hat{\mathbf{r}}
+$$
+For $(b)$, taking dot product of both sides of the equation $\mathbf{A}_{t}=-\hat{\mathbf{r}} \times(\hat{\mathbf{r}} \times \mathbf{A})$ by $\hat{\mathbf{r}}$ we get
+$$
+\mathbf{A}_{t} \cdot \hat{\mathbf{r}}=[-\hat{\mathbf{r}} \times(\hat{\mathbf{r}} \times \mathbf{A})] \cdot \hat{\mathbf{r}}
+$$
+The left-hand side is:
+$$
+\mathbf{A}_{t} \cdot \hat{\mathbf{r}}=\mathbf{A}_{t} \hat{\theta} \cdot \hat{\mathbf{r}}=0
+$$
+
+$$
+\begin{aligned}
+[-\hat{\mathbf{r}} \times(\hat{\mathbf{r}} \times \mathbf{A})] \cdot \hat{\mathbf{r}}&=[\hat{\mathbf{r}} \times(\mathbf{A} \times \hat{\mathbf{r}})] \cdot \hat{\mathbf{r}} \\
+&=[\mathbf{A}(\hat{\mathbf{r}} \cdot \hat{\mathbf{r}})-\hat{\mathbf{r}}(\mathbf{A} \cdot \hat{\mathbf{r}})] \cdot \hat{\mathbf{r}} \\
+&=\left[\mathbf{A}-\hat{\mathbf{r}} \mathbf{A}_{r}\right] \cdot \hat{\mathbf{r}} \\
+&=\mathbf{A} \cdot \hat{\mathbf{r}}-\mathbf{A}_{r} \hat{\mathbf{r}} \cdot \hat{\mathbf{r}} \\
+&=\mathbf{A}_{r}-\mathbf{A}_{r}\\
+&=0
+\end{aligned}
+$$
+
+\begin{greenbox}{3.2.11}
+Prove that a necessary and sufficient condition for the three (nonvanishing) vectors $\mathbf{A},$ $\mathbf{B},$ and $\mathbf{C}$ to be coplanar is the vanishing of the scalar triple product
+$$
+\mathbf{A} \cdot \mathbf{B} \times \mathbf{C}=0
+$$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ It should be keep in mind that scalar triple product can also be represent as the volume of
+parallelepiped which is formed by three vectors. So we can say that if scalar triple product is equal to zero then vectors are coplanar as the parallelepipeds have no volume.
+
+
+
+
+\begin{greenbox}{3.2.12}
+Three vectors $\mathbf{A}, \mathbf{B},$ and $\mathbf{C}$ are given by
+$$
+\begin{array}{l}{\mathbf{A}=3 \hat{\mathbf{e}}_{x}-2 \hat{\mathbf{e}}_{y}+2 \hat{\mathbf{z}}} \\ {\mathbf{B}=6 \hat{\mathbf{e}}_{x}+4 \hat{\mathbf{e}}_{y}-2 \hat{\mathbf{z}}} \\ {\mathbf{C}=-3 \hat{\mathbf{e}}_{x}-2 \hat{\mathbf{e}}_{y}-4 \hat{\mathbf{z}}}\end{array}
+$$
+Compute the values of $\mathbf{A} \cdot \mathbf{B} \times \mathbf{C}$ and $\mathbf{A} \times(\mathbf{B} \times \mathbf{C}), \mathbf{C} \times(\mathbf{A} \times \mathbf{B})$ and $\mathbf{B} \times(\mathbf{C} \times \mathbf{A})$
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ First we can find $B\times C$ and then can permorm dot product
+
+$$\mathbf{B} \times \mathbf{C}=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ 6 & 4 & -2 \\ -3 & -2 & -4\end{array}\right|=\hat{x}(-16-4)-\hat{y}(-24-6)+\hat{z}(-12+12)=-20 \hat{x}+30 \hat{y}$$
+$$\mathbf{A} \cdot(\mathbf{B} \times \mathbf{C})=(3 \hat{x}-2 \hat{y}+2 \hat{z}) \cdot(-20 \hat{x}+30 \hat{y})=-60-60=-120$$
+With this, $\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C})=-120$
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ we have that the vector $\mathbf{A}$
+
+$$\mathbf{A}=(3 \hat{x}-2 \hat{y}+2 \hat{z})$$
+$$\mathbf{A} \times(\mathbf{B} \times \mathbf{C})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ 3 & -2 & 2 \\ -20 & 30 & 0\end{array}\right|=\hat{x}(-60)-\hat{y}(40)+\hat{z}(50)$$
+With this, $$\mathbf{A} \times(\mathbf{B} \times \mathbf{C})=(-60) \hat{x}-(40) \hat{y}+(50) \hat{z}$$
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(c)$ 
+$$(\mathbf{A} \times \mathbf{B})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ 3 & -2 & 2 \\ 6 & 4 & -2\end{array}\right|=\hat{x}(-4)-\hat{y}(-18)+\hat{z}(24)$$
+$$\mathbf{C} \times(\mathbf{A} \times \mathbf{B})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ -3 & -2 & -4 \\ -4 & 18 & 24\end{array}\right|=\hat{x}(26)-\hat{y}(-88)+\hat{z}(-62)$$
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(d)$ 
+$$(\mathbf{C} \times \mathbf{A})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ -3 & -2 & -4 \\ 3 & -2 & 2\end{array}\right|=\hat{x}(-12)-\hat{y}(6)+\hat{z}(12)$$
+$$\mathbf{B} \times(\mathbf{C} \times \mathbf{A})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ 6 & 4 & -2 \\ -12 & -6 & 12\end{array}\right|=\hat{x}(36)-\hat{y}(48)+\hat{z}(12)$$
+
+
+
+\begin{greenbox}{3.2.13}
+Show that
+$$
+(\mathbf{A} \times \mathbf{B}) \cdot(\mathbf{C} \times \mathbf{D})=(\mathbf{A} \cdot \mathbf{C})(\mathbf{B} \cdot \mathbf{D})-(\mathbf{A} \cdot \mathbf{D})(\mathbf{B} \cdot \mathbf{C})
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Let $\mathbf{C} \times \mathbf{D}=m$.
+Now, consider the scalar triple product $(\mathbf{A} \times \mathbf{B}) \cdot \mathbf{m}$.
+since cross and dot product can be interchanged, we have,
+$$
+(\mathbf{A} \times \mathbf{B}) \cdot \mathbf{m}=\mathbf{A} \cdot(\mathbf{B} \times \mathbf{m})
+$$
+Resubstituting $m$ we get
+$$\begin{aligned}(\mathbf{A} \times \mathbf{B}) \cdot(\mathbf{C} \times \mathbf{D}) &=\mathbf{A} \cdot[\mathbf{B} \times(\mathbf{C} \times \mathbf{D})] \\ &=\mathbf{A} \cdot[(\mathbf{B} \cdot \mathbf{D}) \mathbf{C}-(\mathbf{B} \cdot \mathbf{C})\mathbf{D}] \\ &=(\mathbf{A} \cdot \mathbf{C})(\mathbf{B} \cdot \mathbf{D})-(\mathbf{A} \cdot \mathbf{D})(\mathbf{B} \cdot \mathbf{C}) \end{aligned}$$
+Thus, $(\mathbf{A} \times \mathbf{B}) \cdot(\mathbf{C} \times \mathbf{D})=(\mathbf{A} \cdot \mathbf{C})(\mathbf{B} \cdot \mathbf{D})-(\mathbf{A} \cdot \mathbf{D})(\mathbf{B} \cdot \mathbf{C})$
+
+
+
+
+\begin{greenbox}{3.2.14}
+Show that
+$(\mathbf{A} \times \mathbf{B}) \times(\mathbf{C} \times \mathbf{D})=(\mathbf{A} \cdot \mathbf{B} \times \mathbf{D}) \mathbf{C}-(\mathbf{A} \cdot \mathbf{B} \times \mathbf{C}) \mathbf{D}$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ Let $\mathbf{A} \times \mathbf{B}=\mathbf{m}$
+$$(\mathbf{A} \times \mathbf{B}) \times(\mathbf{C} \times \mathbf{D})=\mathbf{m} \times(\mathbf{C} \times \mathbf{D})$$
+$$=(\mathbf{m} \cdot \mathbf{D}) \mathbf{C}-(\mathbf{m} \cdot \mathbf{C})\mathbf{D}$$
+$$=((\mathbf{A} \times \mathbf{B}) \cdot \mathbf{D}) \mathbf{C}-((\mathbf{A} \times \mathbf{B}) \cdot \mathbf{C})\mathbf{D}$$
+$$=(\mathbf{A} \cdot(\mathbf{B} \times \mathbf{D})) \mathbf{C}-(\mathbf{A} \cdot(\mathbf{B} \times \mathbf{C}))\mathbf{D}$$
+
+
+
+\begin{greenbox}{3.2.15}
+An electric charge $q_{1}$ moving with velocity $\mathbf{v}_{1}$ produces a magnetic induction $\mathbf{B}$
+given by
+$$
+\mathbf{B}=\frac{\mu_{0}}{4 \pi} q_{1} \frac{\mathbf{v}_{1} \times \hat{\mathbf{r}}}{r^{2}} \quad \text { (mks units), }
+$$
+where $\hat{\mathbf{r}}$ is a unit vector that points from $q_{1}$ to the point at which $\mathbf{B}$ is measured (Biot and Savart law).
+
+\begin{enumerate}[$(a)$]
+\item Show that the magnetic force exerted by $q_{1}$ on a second charge $q_{2},$ velocity $\mathbf{v}_{2},$ is
+given by the vector triple product
+$$
+\mathbf{F}_{2}=\frac{\mu_{0}}{4 \pi} \frac{q_{1} q_{2}}{r^{2}} \mathbf{v}_{2} \times\left(\mathbf{v}_{1} \times \hat{\mathbf{r}}\right)
+$$
+\item Write out the corresponding magnetic force $\mathbf{F}_{1}$ that $q_{2}$ exerts on $q_{1} .$ Define your
+unit radial vector. How do $\mathbf{F}_{1}$ and $\mathbf{F}_{2}$ compare?
+\item Calculate $\mathbf{F}_{1}$ and $\mathbf{F}_{2}$ for the case of $q_{1}$ and $q_{2}$ moving along parallel trajectories side by side.
+\end{enumerate}
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$ The magnetic force $\mathbf{F}_{2}$ is defined by the Lorentz force equation,
+$$
+\begin{aligned}
+\mathbf{F}_{2} &=q_{2}\left(\mathbf{v}_{2} \times \mathbf{B}_{1}\right) \\
+&=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}_{2} \times\left(\mathbf{v}_{1} \times \hat{\mathbf{r}}\right)}{r^{2}}
+\end{aligned}
+$$
+and 
+$$
+\mathbf{B}_{1}=\frac{\mu_{0}}{4 \pi} q_{1} \frac{\mathbf{v}_{1} \times \hat{\mathbf{r}}}{r^{2}}
+$$
+
+For $(b)$ The magnetic force $\mathbf{F}_{1}$ is defined by the Lorentz force equation,
+$$
+\begin{aligned}
+\mathbf{F}_{1} &=q_{1}\left(\mathbf{v}_{1} \times \mathbf{B}_{2}\right) \\
+&=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}_{1} \times\left(\mathbf{v}_{2} \times \hat{\mathbf{r}}\right)}{r^{2}}
+\end{aligned}
+$$
+and
+$$
+\mathbf{B}_{2}=\frac{\mu_{0}}{4 \pi} q_{2} \frac{\mathbf{v}_{2} \times(-\hat{\mathbf{r}})}{r^{2}}
+$$
+From part we have, 
+$$ \mathbf{F}_{2}=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}_{2} \times\left(\mathbf{v}_{1} \times \hat{\mathbf{r}}\right)}{r^{2}}$$
+since $-\mathbf{v}_{1} \times\left(\mathbf{v}_{2} \times \hat{\mathbf{r}}\right) \neq \mathbf{v}_{2} \times\left(\mathbf{v}_{1} \times \hat{\mathbf{r}}\right), \quad \mathbf{F}_{1} \neq \mathbf{F}_{2}$
+For $(c)$ we have that
+$$
+\begin{aligned}
+\mathbf{F}_{1} &=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v} \times(\mathbf{v} \times \hat{\mathbf{r}})}{r^{2}} \\
+&=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}(\mathbf{v} \cdot \hat{\mathbf{r}})-\hat{\mathbf{r}}(\mathbf{v} \cdot v)}{r^{2}} \\
+&=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{0-\hat{\mathbf{r}}(\mathbf{v} \cdot v)}{r^{2}} \\
+&=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}^{2} \hat{\mathbf{r}}}{r^{2}}
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+\mathbf{F}_{2} &=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v} \times(\mathbf{v} \times \hat{\mathbf{r}})}{r^{2}} \\
+&=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}(\mathbf{v} \cdot \hat{\mathbf{r}})-\hat{\mathbf{r}}(\mathbf{v} \cdot v)}{r^{2}} \\
+&=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{0-\hat{\mathbf{r}}(\mathbf{v} \cdot v)}{r^{2}} \\
+&=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}^{2} \hat{\mathbf{r}}}{r^{2}}
+\end{aligned}
+$$
+Thus, $\mathbf{F}_1 = -\mathbf{F}_2$
+
+
+\newpage
+
+
+\chapter*{Chapter 3.3 \\ Coordinate Transformation}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 3.3: Coordinate Transformation}
+
+
+\begin{greenbox}{3.3.1}
+A rotation $\varphi_{1}+\varphi_{2}$ about the $z$ -axis is carried out as two successive rotations $\varphi_{1}$ and $\varphi_{2},$ each about the $z$-axis. Use the matrix representation of the rotations to derive the trigonometric identities
+\end{greenbox}
+$\boxed{\textbf{Solution}}$
+$$
+\begin{aligned} \cos \left(\varphi_{1}+\varphi_{2}\right) &=\cos \varphi_{1} \cos \varphi_{2}-\sin \varphi_{1} \sin \varphi_{2} \\ \sin \left(\varphi_{1}+\varphi_{2}\right) &=\sin \varphi_{1} \cos \varphi_{2}+\cos \varphi_{1} \sin \varphi_{2} \end{aligned}
+$$
+$$\begin{bmatrix}{\cos \left(\varphi_{1}+\varphi_{2}\right) \sin \left(\varphi_{1}+\varphi_{2}\right)} \\ {-\sin \left(\varphi_{1}+\varphi_{2}\right) \cos \left(\varphi_{1}+\varphi_{2}\right)}\end{bmatrix}=\begin{bmatrix}{\cos \varphi_{2} \sin \varphi_{2}} \\ {-\sin \varphi_{2} \cos \varphi_{2}}\end{bmatrix}\begin{bmatrix}{\cos \varphi_{1} \sin \varphi_{1}} \\ {-\sin \varphi_{1} \cos \varphi_{1}}\end{bmatrix}$$
+$$=\begin{bmatrix}{\cos \varphi_{1} \cos \varphi_{2}-\sin \varphi_{1} \sin \varphi_{2}} & {\sin \varphi_{1} \cos \varphi_{2}+\cos \varphi_{1} \sin \varphi_{2}} \\ {-\cos \varphi_{1} \sin \varphi_{2}-\sin \varphi_{1} \cos \varphi_{2}} & {-\sin \varphi_{1} \sin \varphi_{2}+\cos \varphi_{1} \cos \varphi_{2}}\end{bmatrix}$$
+
+
+\begin{greenbox}{3.3.2}
+A corner reflector is formed by three mutually perpendicular reflecting suffices. Show that a a ay of light incident tupon the cometor (striking all three surfaces) is reflected back along a line parallel to the line of incidence. Hint. Consider the effect of a reflection on the components of a vector describing the direction of the light ray.
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ Here we are asked prove that the ray of light incident upon the corner reflector is reflected of back along line parallel to line of incidence.
+So for this align the reflecting surfaces with $xy$, $xz$, and $yz$ planes. If an incoming ray strikes the $xy$ plane, the $z$ component of its direction of propagation is reversed. A strike on the $xz$ plane
+reverses its $y$ component, and a strike on $yz$ plane reverses its $x$ component.
+
+\begin{greenbox}{3.3.3}
+Let $x$ and $y$ be column vectors. Under an orthogonal transformation $S$, they become
+$x'=S x$ and $y'=S y .$ Show that $\left(x'\right)^{T} y'=x^{T} y,$ a result equivalent to the invariance of the dot product under a rotational transformation.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ It is given that $S$ is orthogonal, if so its transpose is also its inverse.
+From this
+$$
+\left(x'\right)^{T}=(S x)^{T}=x^{T} \mathbf{S}^{T}=x^{T} \mathbf{S}^{-1}
+$$
+Then
+$$
+\left(x'\right)^{T} y'=x^{T} \mathbf{S}^{-1} S y=x^{T} y
+$$
+Therefore $\left(x'\right)^{T} y'=x^{T} y$
+
+
+\newpage
+
+\begin{greenbox}{3.3.4}
+Given the orthogonal transformation matrix $S$ and vectors a and $\mathbf{b}$, 
+$$S=\begin{bmatrix}{0.80} & {0.60} & {0.00} \\ {-0.48} & {0.64} & {0.60} \\ {0.36} & {-0.48} & {0.80}\end{bmatrix} \quad \mathbf{a}=\begin{bmatrix}{1} \\ {0} \\ {1}\end{bmatrix}, \quad \mathbf{b}=\begin{bmatrix}{0} \\ {2} \\ {-1}\end{bmatrix}$$
+\begin{enumerate}[$(a)$]
+\item Calculate $\text{det}(S)$.
+\item Verify that $\mathbf{a}\cdot \mathbf{b}$ is invariant under application of $\mathbf{S}$ to $\mathbf{a}$ and $\mathbf{b}$.
+\item Determine what happens to $\mathbf{a}\times \mathbf{b}$ under application of $\mathbf{S}$ to $\mathbf{a}$ and $\mathbf{b}$. Is this what is expected?
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ given 
+$$
+S=\begin{bmatrix}
+0.80 & 0.60 & 0.00 \\
+-0.48 & 0.64 & 0.60 \\
+0.36 & -0.48 & 0.80
+\end{bmatrix}
+$$
+$$
+\operatorname{det}(S)=\operatorname{det}\begin{bmatrix}
+0.80 & 0.60 & 0.00 \\
+-0.48 & 0.64 & 0.60 \\
+0.36 & -0.48 & 0.80
+\end{bmatrix}=1
+$$
+$\boxed{\textbf{Solution}}$ For $(b)$ we show that $a \cdot b$ is invariant under application of $\mathbf{S}$ to $a$ and $b$.
+$$
+\begin{aligned}
+\mathbf{a}' &=\mathbf{S} \mathbf{a} \\
+&=\begin{bmatrix}
+0.80 & 0.60 & 0.00 \\
+-0.48 & 0.64 & 0.60 \\
+0.36 & -0.48 & 0.80
+\end{bmatrix}\begin{bmatrix}
+1 \\
+0 \\
+1
+\end{bmatrix} \\
+&=\begin{bmatrix}
+0.80 \\
+0.12 \\
+1.16
+\end{bmatrix}
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\mathbf{b}' &=\mathbf{S} \mathbf{b} \\
+&=\begin{bmatrix}
+0.80 & 0.60 & 0.00 \\
+-0.48 & 0.64 & 0.60 \\
+0.36 & -0.48 & 0.80
+\end{bmatrix}\begin{bmatrix}
+0 \\
+2 \\
+-1
+\end{bmatrix} \\
+&=\begin{bmatrix}
+1.20 \\
+0.68 \\
+-1.76
+\end{bmatrix}
+\end{aligned}
+$$
+$$
+a \cdot b=\begin{bmatrix}
+1 & 0 & 1
+\end{bmatrix} \cdot\begin{bmatrix}
+0 \\
+2 \\
+-1
+\end{bmatrix}=-1
+$$
+$$
+a' \cdot b'=\begin{bmatrix}
+0.80 & 0.12 & 1.16
+\end{bmatrix}\begin{bmatrix}
+1.20 \\
+0.68 \\
+-1.76
+\end{bmatrix}=-1
+$$
+Thus, $a \cdot b$ is invariant under application of $\mathbf{S}$ to $a$ and $b$.
+
+$\boxed{\textbf{Solution}}$ For $(c)$ we find $\mathbf{a} \times \mathbf{b}$
+$$
+\begin{aligned}
+\mathbf{a} \times \mathbf{b}=\left|\begin{array}{ccc}
+i & j & k \\
+1 & 0 & 1 \\
+0 & 2 & -1
+\end{array}\right| &=\begin{bmatrix}
+-2 \\
+1 \\
+2
+\end{bmatrix} \\
+\mathbf{S}(\mathbf{a} \times \mathbf{b})=&\begin{bmatrix}
+0.80 & 0.60 & 0.00 \\
+-0.48 & 0.64 & 0.60 \\
+0.36 & -0.48 & 0.80
+\end{bmatrix}\begin{bmatrix}
+-2 \\
+1 \\
+2
+\end{bmatrix} \\
+=&\begin{bmatrix}
+-1 \\
+2.8 \\
+0.4
+\end{bmatrix}
+\end{aligned}
+$$
+$$
+\mathbf{a}' \times \mathbf{b}'=\left|\begin{array}{ccc}
+i & j & k \\
+0.80 & 0.12 & 1.16 \\
+1.20 & 0.68 & -1.76
+\end{array}\right|=\begin{bmatrix}
+-1 \\
+2.8 \\
+0.4
+\end{bmatrix}
+$$
+Thus, $\mathbf{S}(\mathbf{a} \times \mathbf{b})=\mathbf{a}' \times \mathbf{b}'$ and hence $\mathbf{a} \times \mathbf{b}$ is a vector.
+
+
+
+\begin{greenbox}{3.3.5}
+Using $\mathbf{a}$ and $\mathbf{b}$ as defined in Exercise 3.3.5 but with
+
+$$S=\begin{bmatrix}{0.60} & {0.00} & {0.80} \\ {-0.64} & {-0.60} & {0.48} \\ {-0.48} & {0.80} & {0.36}\end{bmatrix} \quad \text{and} \quad \mathbf{c}=\begin{bmatrix}{2} \\ {1} \\ {3}\end{bmatrix}$$
+
+\begin{enumerate}[$(a)$]
+\item Calculate $\text{det}(S)$.
+\item $\mathbf{a}\times \mathbf{b}$
+\item $(\mathbf{a}\times \mathbf{b}) \cdot \mathbf{c}$
+\item $\mathbf{a}\times (\mathbf{b}\times \mathbf{c})$
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ Given that
+$$S=\begin{bmatrix}0.60 & 0.00 & 0.80 \\ -0.64 & -0.60 & 0.48 \\ -0.48 & 0.80 & 0.36\end{bmatrix}$$
+Then
+$$
+\operatorname{det}(S)=\operatorname{det}\begin{bmatrix}
+0.60 & 0.00 & 0.80 \\
+-0.64 & -0.60 & 0.48 \\
+-0.48 & 0.80 & 0.36
+\end{bmatrix}=1
+$$
+Apply $\mathbf{S}$ to $\mathbf{a}, \mathbf{b},$ and $c$.
+$$
+\begin{aligned}
+\mathbf{a}' &=\mathbf{S} \mathbf{a} \\
+&=\begin{bmatrix}
+0.60 & 0.00 & 0.80 \\
+-0.64 & -0.60 & 0.48 \\
+-0.48 & 0.80 & 0.36
+\end{bmatrix}\begin{bmatrix}
+1 \\
+0 \\
+1
+\end{bmatrix} \\
+&=\begin{bmatrix}
+1.40 \\
+-0.16 \\
+-0.12
+\end{bmatrix}
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\mathbf{b}' &=\mathbf{S} \mathbf{b} \\
+&=\begin{bmatrix}
+0.60 & 0.00 & 0.80 \\
+-0.64 & -0.60 & 0.48 \\
+-0.48 & 0.80 & 0.36
+\end{bmatrix}\begin{bmatrix}
+0 \\
+2 \\
+-1
+\end{bmatrix} \\
+&=\begin{bmatrix}
+-0.80 \\
+-1.68 \\
+1.24
+\end{bmatrix}
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\mathbf{c}' &=\mathbf{S} \mathbf{c} \\
+&=\begin{bmatrix}
+0.60 & 0.00 & 0.80 \\
+-0.64 & -0.60 & 0.48 \\
+-0.48 & 0.80 & 0.36
+\end{bmatrix}\begin{bmatrix}
+2 \\
+1 \\
+3
+\end{bmatrix} \\
+&=\begin{bmatrix}
+3.60 \\
+-0.44 \\
+0.92
+\end{bmatrix}
+\end{aligned}
+$$
+Now, we determine what happen to $\mathbf{a} \times \mathbf{b}$ under application of $\mathbf{S}$ to $\mathbf{a}, \mathbf{b}, \mathbf{c}$.
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$
+$$(a\times b)=\begin{bmatrix}
+-2 \\
+1 \\
+2
+\end{bmatrix}$$
+
+$$
+\begin{aligned}
+\mathbf{S}(\mathbf{a} \times \mathbf{b}) &=\begin{bmatrix}
+0.60 & 0.00 & 0.80 \\
+-0.64 & -0.60 & 0.48 \\
+-0.48 & 0.80 & 0.36
+\end{bmatrix}\begin{bmatrix}
+-2 \\
+1 \\
+2
+\end{bmatrix} \\
+&=\begin{bmatrix}
+0.40 \\
+1.64 \\
+2.48
+\end{bmatrix}
+\end{aligned}
+$$
+
+$$
+\mathbf{a}' \times \mathbf{b}'=\left|\begin{array}{ccc}
+i & j & k \\
+1.40 & -0.16 & -0.12 \\
+-0.80 & -1.68 & 1.24
+\end{array}\right|=\begin{bmatrix}
+-0.40 \\
+-1.64 \\
+-2.48
+\end{bmatrix}
+$$
+Thus, $\mathbf{S}(\mathbf{a} \times \mathbf{b})=\mathbf{a}' \times \mathbf{b}'$
+
+$\boxed{\textbf{Solution}}$ For $(c)
+$ we determine what happen to $(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c}$ under application of $\mathbf{S}$ to $\mathbf{a}, \mathbf{b}, \mathbf{c}$
+$$
+(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c}=\begin{bmatrix}
+-2 & 1 & 2
+\end{bmatrix} \cdot\begin{bmatrix}
+2 \\
+1 \\
+3
+\end{bmatrix}=-4+1+6=3
+$$
+$$
+\left(\mathbf{a}' \times \mathbf{b}'\right) \cdot \mathbf{c}'=\begin{bmatrix}
+-0.40 & -1.64 & -2.48
+\end{bmatrix} \cdot\begin{bmatrix}
+3.60 \\
+-0.44 \\
+0.92
+\end{bmatrix}=-3
+$$
+Thus, $(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c}=-\left(\mathbf{a}' \times \mathbf{b}'\right) \cdot \mathbf{c}'$
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(d)$ We now determine what happen to $\mathbf{a}\times(\mathbf{b} \times \mathbf{c})$ under application of $\mathbf{S}$ to $\mathbf{a}, \mathbf{b}, \mathbf{c}$.
+$$
+\mathbf{a}\times(\mathbf{b} \times \mathbf{c})=\left|\begin{array}{ccc}
+1 & 0 & 1 \\
+0 & 2 & -1 \\
+2 & 1 & 3
+\end{array}\right|=\begin{bmatrix}
+2 \\
+11 \\
+-2
+\end{bmatrix}
+$$
+$$
+\mathbf{S}(\mathbf{a}\times(\mathbf{b} \times \mathbf{c}))=\begin{bmatrix}
+0.60 & 0.00 & 0.80 \\
+-0.64 & -0.60 & 0.48 \\
+-0.48 & 0.80 & 0.36
+\end{bmatrix}\begin{bmatrix}
+2 \\
+11 \\
+-2
+\end{bmatrix}=\begin{bmatrix}
+-0.40 \\
+-8.84 \\
+7.12
+\end{bmatrix}
+$$
+$$
+\mathbf{a}' \times\left(\mathbf{b}' \times \mathbf{c}'\right)=\left|\begin{array}{ccc}
+1.40 & -0.16 & -0.12 \\
+-0.80 & -1.68 & 1.24 \\
+3.60 & -0.44 & 0.92
+\end{array}\right|=\begin{bmatrix}
+-0.40 \\
+-8.84 \\
+7.12
+\end{bmatrix}
+$$
+Thus, $\quad \mathbf{S}(\mathbf{a}\times(\mathbf{b} \times \mathbf{c}))=\mathbf{a}' \times\left(\mathbf{b}' \times \mathbf{c}'\right)$
+
+
+\newpage
+
+
+\chapter*{Chapter 3.4 \\ Rotations in R$^3$}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 3.4: Rotations in R$^3$}
+
+
+\begin{greenbox}{3.4.1}
+Another set of Euler rotations in common use is
+\begin{enumerate}[$(a)$]
+\item a rotation about the $x_{3}$ -axis through an angle $\varphi$, counterclockwise,
+\item a rotation about the $x_{1}'$ -axis through an angle $\theta,$ counterclockwise,
+\item a rotation about the $x_{3}^{\prime \prime}$ -axis through an angle $\psi,$ counterclockwise.
+\end{enumerate}
+If 
+$$
+\begin{array}{l}
+\alpha=\varphi-\pi / 2 \\
+\beta=\theta \\
+\gamma=\psi+\pi / 2
+\end{array}
+$$
+or
+$$
+\begin{array}{l}
+\varphi=\alpha+\pi / 2 \\
+\theta=\beta \\
+\psi=\gamma-\pi / 2
+\end{array}
+$$
+show that the final systems are identical.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ The Euler rotations given in the text is:
+\begin{enumerate}
+\item a rotation about the $x_{3}-$ axis through an angle $\alpha,$ counterclockwise
+\item a rotation about the $x_{2}'$ - axis through an angle $\beta$, counterclockwise
+\item a rotation about the $x_{3}^{\prime \prime}$ -axis through an angle $\gamma$, counterclockwise.
+\end{enumerate}
+The Euler rotation defined here differ from those in the text in that the inclination of the polar axis is about that $x_{1}'-$axis rather than the $x_{2}'-$ axis. Therefore, to achieve the same polar orientation, we must place the $x_{1}'-$axis where the $x_{2}'-$axis was using the text rotation. This requires an additional first rotation of $\frac{\pi}{2}$. After inclining the polar axis, the rotational position
+is now $\frac{\pi}{2}$ greater than form the text rotation, so the third Euler angle must be $\frac{\pi}{2}$ less than its original value.
+
+
+
+\begin{greenbox}{3.4.2}
+Suppose the Earth is moved (rotated) so that the north pole goes to $30^{\circ}$ north, $20^{\circ}$ west (original latitude and longitude system) and the $10^{\circ}$ west meridian points due south (also in the original system).
+(a) What are the Euler angles describing this rotation?
+(b) Find the corresponding direction cosines.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+
+
+\begin{greenbox}{3.4.3}
+Verify that the Euler angle rotation matrix, Eq. (3.37), is invariant under the transformation
+$$
+\alpha \rightarrow \alpha+\pi, \quad \beta \rightarrow-\beta, \quad \gamma \rightarrow \gamma-\pi
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ The Euler rotation matrix $\mathbf{S}(\alpha, \beta, \gamma)$ is :
+$$
+\mathbf{S}(\alpha, \beta, \gamma)=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & \cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\cos \gamma \sin \beta \\
+-\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \gamma \sin \beta \\
+\sin \beta \cos \alpha & \sin \beta \sin \alpha & \cos \beta
+\end{bmatrix}
+$$
+Using the transformation $\alpha \rightarrow \alpha+\pi, \beta \rightarrow-\beta, \gamma \rightarrow \gamma-\pi$ we get,
+$$
+\mathbf{S}(\alpha+\pi,-\beta, \gamma-\pi)=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & \cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\cos \gamma \sin \beta \\
+-\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \gamma \sin \beta \\
+\sin \beta \cos \alpha & \sin \beta \sin \alpha & \cos \beta
+\end{bmatrix}
+$$
+as $\cos \alpha \rightarrow-\cos \alpha, \sin \alpha \rightarrow-\sin \alpha ; \cos \beta \rightarrow \cos \beta, \sin \beta \rightarrow-\sin \beta ; \sin \gamma \rightarrow-\sin \gamma$, $\cos \gamma \rightarrow-\cos \gamma$
+Thus, $\mathbf{S}(\alpha, \beta, \gamma)=\mathbf{S}(\alpha+\pi,-\beta, \gamma-\pi)$
+Hence, $\mathbf{S}(\alpha, \beta, \gamma)$ is invariant under the transformation
+$\alpha \rightarrow \alpha+\pi, \beta \rightarrow-\beta, \gamma \rightarrow \gamma-\pi$
+
+
+
+
+\begin{greenbox}{3.4.4}
+Show that the Euler angle rotation matrix $\mathbf{S}(\alpha, \beta, \gamma)$ satisfies the following relations:
+\begin{enumerate}[$(a)$]
+\item $\mathbf{S}^{-1}(\alpha, \beta, \gamma)=\tilde{\mathbf{S}}(\alpha, \beta, \gamma)$
+\item $\mathbf{S}^{-1}(\alpha, \beta, \gamma)=\mathbf{S}(-\gamma,-\beta,-\alpha)$
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ The three Euler rotations $\boldsymbol{S}_{1}(\alpha), \boldsymbol{S}_{2}(\beta), \boldsymbol{S}_{3}(\gamma)$ are an orthogonal matrix.
+So, $\mathbf{S}(\alpha, \beta, \gamma)=\boldsymbol{S}_{3}(\gamma) \boldsymbol{S}_{2}(\beta) \boldsymbol{S}_{1}(\alpha)$ must also be orthogonal. Therefore $\mathbf{S}^{-1}(\alpha, \beta, \gamma)=\tilde{\mathbf{S}}(\alpha, \beta, \gamma)$, by the definition of an orthogonal matrix.
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ we have 
+$$
+\mathbf{S}(\alpha, \beta, \gamma)=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & \cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\cos \gamma \sin \beta \\
+-\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \gamma \sin \beta \\
+\sin \beta \cos \alpha & \sin \beta \sin \alpha & \cos \beta
+\end{bmatrix}
+$$
+$$
+\mathbf{S}(-\gamma,-\beta,-\alpha)=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & -\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & \sin \beta \cos \alpha \\
+\cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \beta \sin \alpha \\
+-\cos \gamma \sin \beta & \sin \gamma \sin \beta & \cos \beta
+\end{bmatrix}
+$$
+
+$$
+\begin{aligned}
+\mathbf{S}^{-1}(\alpha, \beta, \gamma) &=\tilde{\mathbf{S}}(\alpha, \beta, \gamma) \\
+&=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & -\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & \sin \beta \cos \alpha \\
+\cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \beta \sin \alpha \\
+-\cos \gamma \sin \beta & \sin \gamma \sin \beta & \cos \beta
+\end{bmatrix}
+\end{aligned}
+$$
+
+Thus, $\mathbf{S}^{-1}(\alpha, \beta, \gamma)=\mathbf{S}(-\gamma,-\beta,-\alpha)$
+
+
+
+\begin{greenbox}{3.4.5}
+The coordinate system $(x, y, z)$ is rotated through an angle $\Phi$ counterclockwise about an axis defined by the unit vector $\hat{\mathbf{n}}$ into system $\left(x', y', z'\right) .$ In terms of the new coordinates the radius vector becomes
+$$
+\mathbf{r}'=\mathbf{r} \cos \Phi+\mathbf{r} \times \mathbf{n} \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)
+$$
+\begin{enumerate}[$(a)$]
+\item Derive this expression from geometric considerations.
+\item Show that it reduces as expected for $\hat{\mathbf{n}}=\hat{\mathbf{e}}_{z} .$ The answer, in matrix form, appears in Eq. (3.35)
+\item Verify that $r'^{2}=r^{2}$.
+\end{enumerate}
+\end{greenbox}
+
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$ the projection of $r$ on the rotation axis is not changed by the rotation; it is $(\mathbf{r} \cdot \hat{\mathbf{n}}) \hat{\mathbf{n}}$.
+The portion of $r$ perpendicular to the rotation axis can be written $r-(\mathbf{r} \cdot \hat{\mathbf{n}}) \hat{\mathbf{n}}$.
+Upon rotation through an angle $\Phi$, this vector perpendicular to the rotation axis will consist of a vector in its original direction $(r-(\mathbf{r} \cdot \hat{\mathbf{n}}) \hat{\mathbf{n}}) \cos \Phi$ plus a vector perpendicular both to it and to $\hat{\mathbf{n}}$ given by $(r-(\mathbf{r} \cdot \hat{\mathbf{n}}) \hat{\mathbf{n}}) \sin \Phi \times \hat{\mathbf{n}} ;$ this reduces to $\mathbf{r} \times \hat{\mathbf{n}} \sin \Phi$
+Adding these contributions, we get the required result.
+
+$\boxed{\textbf{Solution}}$ For $(b)$ if $\hat{\mathbf{n}}=\hat{\mathbf{e}}_{z},$ the formula $\mathbf{r}'=\mathbf{r} \cos \Phi+\mathbf{r} \times n \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)$ becomes
+$$
+\begin{aligned}
+\mathbf{r}' &=\left(x \hat{\mathbf{e}}_{x}+y \hat{\mathbf{e}}_{y}+z \hat{\mathbf{e}}_{z}\right) \cos \Phi+\left(y \hat{\mathbf{e}}_{x}-x \hat{\mathbf{e}}_{y}\right) \sin \Phi+\hat{\mathbf{e}}_{z}\left(z \hat{\mathbf{e}}_{z}\right)(1-\cos \Phi) \\
+&=\left(x \hat{\mathbf{e}}_{x}+y \hat{\mathbf{e}}_{y}+z \hat{\mathbf{e}}_{z}\right) \cos \Phi+\left(y \hat{\mathbf{e}}_{x}-x \hat{\mathbf{e}}_{y}\right) \sin \Phi+z(1-\cos \Phi) \hat{\mathbf{e}}_{z} \\
+&=x \cos \Phi \hat{\mathbf{e}}_{x}+y \cos \Phi \hat{\mathbf{e}}_{y}+z \cos \Phi \hat{\mathbf{e}}_{z}+y \sin \Phi \hat{\mathbf{e}}_{x}-x \sin \Phi \hat{\mathbf{e}}_{y}+z(1-\cos \Phi) \hat{\mathbf{e}}_{z}
+\end{aligned}
+$$
+as $r=x \hat{\mathbf{e}}_{x}+y \hat{\mathbf{e}}_{y}+z \hat{\mathbf{e}}_{z}, \quad \mathbf{r} \times n=\mathbf{r} \times \hat{\mathbf{e}}_{z}=y \hat{\mathbf{e}}_{x}-x \hat{\mathbf{e}}_{y}$ and
+Simplifying, this reduces to
+$$
+\mathbf{r}'=(x \cos \Phi+y \sin \Phi) \hat{\mathbf{e}}_{x}+(y \cos \Phi-x \sin \Phi) \hat{\mathbf{e}}_{y}+z \hat{\mathbf{e}}_{z}
+$$
+This corresponds to the rotational transformation whose matrix form is
+$$
+\boldsymbol{S}_{1}(\alpha)=\begin{bmatrix}
+\cos \alpha & \sin \alpha & 0 \\
+-\sin \alpha & \cos \alpha & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+
+$\boxed{\textbf{Solution}}$ For $(c)$ we expand $r'^{2}$, recognizing that the second term of
+
+$$
+\mathbf{r}'=\mathbf{r} \cos \Phi+\mathbf{r} \times n \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)
+$$
+$$
+\begin{aligned}
+r'^{2} &=\mathbf{r}' \cdot \mathbf{r}' \\
+&=(\mathbf{r} \cos \Phi+\mathbf{r} \times \hat{\mathbf{n}} \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)) \cdot(\mathbf{r} \cos \Phi+\mathbf{r} \times \hat{\mathbf{n}} \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)) \\
+&=r^{2} \cos ^{2} \Phi+(\mathbf{r} \cdot \mathbf{r} \times \hat{\mathbf{n}}) \sin \Phi \cos \Phi+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi) \cos \Phi+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r}) \sin \Phi \cos \Phi \\
+&+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}}) \sin ^{2} \Phi+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \hat{\mathbf{n}})(\hat{\mathbf{n}} \cdot \mathbf{r}) \sin \Phi(1-\cos \Phi)+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi) \cos \Phi \\
+&+(\hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}})(\hat{\mathbf{n}} \cdot \mathbf{r}) \sin \Phi(1-\cos \Phi)+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi)^{2}
+\end{aligned}
+$$
+$$
+r'^{2}=r^{2} \cos ^{2} \Phi+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}}) \sin ^{2} \Phi+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi)^{2}+2(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi) \cos \Phi
+$$
+as $(\mathbf{r} \cdot \mathbf{r} \times \hat{\mathbf{n}})=(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r})=(\mathbf{r} \times \hat{\mathbf{n}} \cdot \hat{\mathbf{n}})=(\hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}})(\hat{\mathbf{n}} \cdot \mathbf{r})=0$
+$$
+\begin{aligned}
+r'^{2} &=r^{2} \cos ^{2} \Phi+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}}) \sin ^{2} \Phi+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi)^{2}+2(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi) \cos \Phi \\
+&=r^{2}+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}\left(-\sin ^{2} \Phi+1+\cos ^{2} \Phi-2 \cos ^{2} \Phi\right) \\
+&=r^{2}
+\end{aligned}
+$$
+
+
+
+\newpage
+
+
+\chapter*{Chapter 13.1 \\ Gamma function}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 13.1: Gamma function}
+
+\begin{greenbox}{13.1.1}
+Derive the recurrence relations
+$$
+\Gamma(z+1)=z \Gamma(z)
+$$
+from the Euler integral, Eq. (13.5),
+$$
+\Gamma(z)=\int_{0}^{\infty} e^{-t} t^{z-1} d t
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Consider the Euler integral 
+$$\Gamma z=\int_{0}^{\infty} e^{-t} t^{z-1} d t$$
+Put, $z=z+1$
+$$
+\begin{aligned}
+\Gamma(z+1) &=\int_{0}^{\infty} e^{-t} t^{z+1-1} d t \\
+&=\int_{0}^{\infty} e^{-t} t^{z} d t \\
+&=t^{z} \int_{0}^{\infty} e^{-t} d t-\int_{0}^{\infty} \frac{d t^{z}}{d x} \int e^{-t} d t \\
+=&-t^{z} e^{-t}\Big|_{0} ^{\infty}+z \int_{0}^{\infty} e^{-t} t^{z-1} d t \\
+=& z \Gamma(z)
+\end{aligned}
+$$
+
+\begin{greenbox}{13.1.2}
+In a power-series solution for the Legendre functions of the second kind we encounter the expression
+$$
+\frac{(n+1)(n+2)(n+3) \cdots(n+2 s-1)(n+2 s)}{2 \cdot 4 \cdot 6 \cdot 8 \cdots(2 s-2)(2 s) \cdot(2 n+3)(2 n+5)(2 n+7) \cdots(2 n+2 s+1)}
+$$
+in which $s$ is a positive integer.
+\begin{enumerate}[$(a)$]
+\item Rewrite this expression in terms of factorials.
+\item Rewrite this expression using Pochhammer symbols; see Eq. (1.72).
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ Notice that
+$$\frac{(n+1)(n+2)(n+3) \cdots(n+2 s-1)(n+2 s)}{2.4 .6 .8 \cdot \cdots(2 s-2)(2 s) \cdot(2 n+3)(2 n+5)(2 n+7) \cdots(2 n+2 s+1)}$$
+$$=\frac{[n !(n+1)(n+2)(n+3) \cdots(n+2 s-1)(n+2 s)]}{n ! s ! 2^{s} \cdot(2 n+3)(2 n+5)(2 n+7) \cdots(2 n+2 s+1)}$$
+$$=\frac{(n+2 s) !(2 n+1) !}{n ! s ! 2^{s} \cdot[(2 n+1) !(2 n+3)(2 n+5)(2 n+7) \cdots(2 n+2 s+1)}$$
+$$
+=\frac{(n+2 s) !(2 n+1) ![(2 n+2)(2 n+4)(2 n+6) \cdots(2 n+2 s)]}{n ! s ! 2^{s} \cdot[(2 n+1) !(2 n+3)(2 n+4)(2 n+5)(2 n+6)(2 n+7) \cdots(2 n+2 s)(2 n+2 s+1)]}
+$$
+$$
+=\frac{(n+2 s) !(2 n+1) ! 2^{s}[(n+1)(n+2)(n+3) \cdots(n+s)]}{n ! s ! 2^{s} \cdot[(2 n+1) !(2 n+3)(2 n+4)(2 n+5)(2 n+6)(2 n+7) \cdots(2 n+2 s)(2 n+2 s+1)]}
+$$
+$$
+=\frac{(n+2 s) !(2 n+1) ![n !(n+1)(n+2)(n+3) \cdots(n+s)]}{n ! s ! n ![(2 n+1) !(2 n+3)(2 n+4)(2 n+5)(2 n+6)(2 n+7) \cdots(2 n+2 s)(2 n+2 s+1)]}
+$$
+$$
+=\frac{(n+2 s) !(2 n+1) !(n+s) !}{n ! n ! s !(2 n+2 s+1) !}
+$$
+$\boxed{\textbf{Solution}}$ For $(b)$ we notice that
+$$
+\frac{(n+1)(n+2)(n+3) \cdots(n+2 s-1)(n+2 s)}{2\cdot 4 \cdot 6 \cdot 8 \cdots \cdot(2 s-2)(2 s) \cdot(2 n+3)(2 n+5)(2 n+7) \cdots(2 n+2 s+1)}
+$$
+$$
+=\frac{(n+1)(n+2)(n+3) \cdots[(n+1)+(2 s-2)][(n+1)+(2 s-1)]}{\left(2^{s}[1 \cdot 2 \cdot 3 \cdot \cdots \cdot(s-1) s]\right) \cdot[(2 n+3)(2 n+5)(2 n+7) \cdots(2 n+2 s+1)]}
+$$
+$$
+=\frac{(n+1)_{(2 s-1)+1} \cdot[(2 n+2)(2 n+4)(2 n+6) \cdots(2 n+2 s)]}{\left(2^{s}[1 \cdot 2 \cdot 3 \cdot \cdots \cdot\{1+(s-2)\}\{1+(s-1)\}) \cdot[(2 n+2)(2 n+3)(2 n+4)(2 n+5) \cdots(2 n+2 s)(2 n+2 s+1)]\right.}
+$$	
+$$
+=\frac{(n+1)_{2 s} \cdot[(n+1)(n+2)(n+3) \cdots(n+s)] \cdot 2^{s}}{2^{s}(1)_{(s-1)+1} \cdot[(2 n+2)(2 n+3)(2 n+4) \cdots\{(2 n+2)+(2 s-1)\}]}
+$$
+$$
+=\frac{(n+1)_{2 s} \cdot[(n+1)(n+2)(n+3) \cdots\{(n+1)+(s-1)\}]}{(1)_{s} \cdot(2 n+2)_{(2 s-1)+1}}
+$$
+$$=\frac{(n+1)_{2 s} \cdot(n+1)_{(s-1)+1}}{(1)_{s} \cdot(2 n+2)_{2 s}}$$
+$$=\frac{(n+1)_{2 s} \cdot(n+1)_{s}}{(1)_{s} \cdot(2 n+2)_{2 s}}$$
+
+\begin{greenbox}{13.1.3}
+Show that $\Gamma(z)$ may be written
+$$\Gamma(z)=2 \int_{0}^{\infty} e^{-t^{2}} t^{2 z-1} d t, \quad \operatorname{Re}(z)>0$$
+$$\Gamma(z)=\int_{0}^{1}\left[\ln \left(\frac{1}{t}\right)\right]^{z-1} d t, \quad \Re e(z)>0$$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ Changing variables $t=u^{2}$ and $d t=2 u d u$ we have
+$$
+\begin{aligned}
+\Gamma z &=\int_{0}^{\infty} e^{-u^{2}} u^{2 z-2} u d u \\
+&=\int_{0}^{\infty} e^{-u^{2}} u^{2 z-1} d u \\
+&=\int_{0}^{\infty} e^{-t^{2}} t^{2 z-1} d t
+\end{aligned}
+$$
+as $t \rightarrow 0$ to $\infty u \rightarrow 0$ to 1 the equation takes the form of 
+$$
+\begin{aligned}
+\Gamma z &=\int_{0}^{1} e^{-\ln \frac{1}{u}}\left(\ln \frac{1}{u}\right)^{z-1} u d u \\
+&=\int_{0}^{1} u\left(\ln \frac{1}{u}\right)^{z-1} u d u \\
+&=\int_{0}^{1}\left(\ln \frac{1}{u}\right)^{z-1} d u \\
+&=\int_{0}^{1}\left(\ln \frac{1}{t}\right)^{z-1} d t
+\end{aligned}
+$$
+
+\begin{greenbox}{13.1.4}
+In a Maxwellian distribution the fraction of particles of mass $m$ with speed between $v$ and $v+d v$ is
+$$
+\frac{d N}{N}=4 \pi\left(\frac{m}{2 \pi k T}\right)^{3 / 2} \exp \left(-\frac{m v^{2}}{2 k T}\right) v^{2} d v
+$$
+where $N$ is the total number of particles, $k$ is Boltzmann's constant, and $T$ is the absolute temperature. The average or expectation value of $v^{n}$ is defined as $\left\langle v^{n}\right\rangle=$ $N^{-1} \int v^{n} d N .$ Show that
+$$
+\left\langle v^{n}\right\rangle=\left(\frac{2 k T}{m}\right)^{n / 2} \frac{\Gamma\left(\frac{n+3}{2}\right)}{\Gamma\left(\frac{3}{2}\right)}
+$$
+This is an extension of Example $13.1 .1,$ in which the distribution was in kinetic energy $E=m v^{2} / 2,$ with $d E=m v d v$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ 
+$$\left\langle v^{n}\right\rangle=N^{-1} \int v^{n} d N$$
+$$=\int v^{n} \frac{d N}{N}$$
+$$=\int_{0}^{\infty} v^{n} \cdot 4 \pi\left(\frac{m}{2 \pi k T}\right)^{\frac{3}{2}} e^{\frac{m^{2}}{2 k T}} v^{2} d v$$
+$$=4 \pi\left(\frac{m}{2 \pi k T}\right)^{\frac{3}{2}} \int_{0}^{\infty} v^{n} e^{\frac{m^{2}}{2 k T}} v^{n+1} v d v$$
+
+Let $\frac{m v^{2}}{2 k T}=u^{2} .$ Then $v=\left(\frac{2 k T}{m}\right)^{\frac{1}{2}} u$ and $v d v=\frac{2 k T}{m} u d u$. As $v \rightarrow 0, u \rightarrow 0$ and as $v \rightarrow \infty, u \rightarrow \infty$. Then the above integral becomes
+$$
+\left\langle v^{n}\right\rangle=4 \pi\left(\frac{m}{2 \pi k T}\right)^{\frac{3}{2}} \int_{0}^{\infty} e^{-u^{2}} u^{n+1}\left(\frac{2 k T}{m}\right)^{\frac{n+1}{2}} \cdot \frac{2 k T}{m} u d u
+$$
+$$
+=4 \pi\left(\frac{m}{2 \pi k T}\right)^{\frac{3}{2}} \cdot\left(\frac{2 k T}{m}\right)^{\frac{n+3}{2}} \int_{0}^{\infty} e^{-u^{2}} u^{n+2} d u
+$$
+Let $u^{2}=t \cdot$ Then $2 u d u=d t$ As $u \rightarrow 0, t \rightarrow 0$ and as $u \rightarrow \infty, t \rightarrow \infty$. As $u \rightarrow 0, t \rightarrow 0$ and as $u \rightarrow \infty, t \rightarrow \infty$.
+$$
+\left\langle v^{n}\right\rangle=4 \pi\left(\frac{m}{2 \pi k T}\right)^{\frac{3}{2}} \cdot\left(\frac{2 k T}{m}\right)^{\frac{n+3}{2}} \int_{0}^{\infty} e^{-t} t^{\frac{n+1}{2}} \frac{d t}{2}
+$$
+$$
+=2 \pi\left(\frac{m}{2 \pi k T}\right)^{\frac{3}{2}} \cdot\left(\frac{2 k T}{m}\right)^{\frac{n+3}{2}} \int_{0}^{\infty} e^{-t} t^{\frac{n+3}{2}} d t
+$$
+$$
+=\frac{2 \pi}{\pi \sqrt{\pi}}\left(\frac{2 k T}{m}\right)^{\frac{n+3}{2}-\frac{3}{2}} \Gamma\left(\frac{n+3}{2}\right)
+$$
+$$
+=\frac{2}{\sqrt{\pi}}\left(\frac{2 k T}{m}\right)^{\frac{n}{2}} \Gamma\left(\frac{n+3}{2}\right)
+$$
+$$
+=\left(\frac{2 k T}{m}\right)^{\frac{n}{2}} \frac{\Gamma\left(\frac{n+3}{2}\right)}{\Gamma\left(\frac{3}{2}\right)}
+$$
+
+
+since $\Gamma\left(\dfrac{3}{2}\right)=\dfrac{\sqrt{\pi}}{2}$. Hence 
+$$\left\langle v^{n}\right\rangle=\left(\dfrac{2 k T}{m}\right)^{\frac{n}{2}} \frac{\Gamma\left(\frac{n+3}{2}\right)}{\Gamma\left(\frac{3}{2}\right)}$$
+
+
+
+\begin{greenbox}{13.1.5}
+By transforming the integral into a gamma function, show that
+$$
+-\int_{0}^{1} x^{k} \ln x d x=\frac{1}{(k+1)^{2}}, \quad k>-1
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Put $x=e^{t} .$ Then $t=\ln x$ and $d x=e^{\prime} d t$. As $x \rightarrow 0, t \rightarrow \infty$ and as $x \rightarrow 1, t \rightarrow 0$.
+$$-\int_{0}^{1} x^{k} \ln x d x$$
+$$=-\int_{\infty}^{0} e^{k t} t e^{\prime} d t$$
+$$=\int_{0}^{\infty} e^{(k+1) t} t d t$$
+Now put $-(k+1) t=z .$ Then 
+$$d t=-\frac{d z}{(k+1)} $$
+As $t \rightarrow 0, z \rightarrow 0$ and as $t \rightarrow \infty, z \rightarrow 0$. Then
+$$-\int_{0}^{1} x^{k} \ln x d x$$
+$$=\int_{0}^{\infty} e^{(k+1) t} t d t$$
+$$=\int_{0}^{\infty} e^{-z}\left(\frac{z}{-(k+1)}\right)\left(\frac{d z}{-(k+1)}\right)$$
+$$=\frac{1}{(k+1)^{2}} \int_{0}^{\infty} z e^{-z} d z$$
+$$=\frac{1}{(k+1)^{2}} \int_{0}^{\infty} z^{2-1} e^{-z} d z$$
+$$=\frac{1}{(k+1)^{2}} \Gamma(2)$$
+$$=\frac{1}{(k+1)^{2}} \cdot 1 !$$
+$$=\frac{1}{(k+1)^{2}}$$
+Hence
+$$
+-\int_{0}^{1} x^{k} \ln x d x=\frac{1}{(k+1)^{2}}, \quad k>-1
+$$
+
+
+\begin{greenbox}{13.1.6}
+Show that
+$$
+\int_{0}^{\infty} e^{-x^{4}} d x=\Gamma\left(\frac{5}{4}\right)
+$$
+\end{greenbox}
+
+$\textbf{\textbf{Solution}}$ Consider $x^{4}=t$ and put $4x^3 dx = dt$ as $t \rightarrow 0$ to $\infty x \rightarrow 0$ to $\infty$ and using
+$$
+\int_{0}^{\infty} e^{-t} t^{z-1} d t=\Gamma z
+$$
+and
+$$
+z \Gamma z=\Gamma(z+1)
+$$
+the integral takes the form of
+
+$$\begin{aligned} \frac{1}{4} \int_{0}^{\infty} e^{-t} t^{-3 / 4} d t &=\frac{1}{4} \int_{0}^{\infty} e^{-t} t^{1 / 4-1} d t \\ &=\frac{1}{4} \Gamma\left(\frac{1}{4}\right) \\ &=\Gamma\left(\frac{5}{4}\right) \end{aligned}$$
+
+
+
+\begin{greenbox}{13.1.7}
+Show that
+$$
+\lim _{x \rightarrow 0} \frac{\Gamma(a x)}{\Gamma(x)}=\frac{1}{a}
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ 
+
+$$=\lim _{x \rightarrow 0} \frac{\left(\frac{a x \Gamma(a x)}{a x}\right)}{\left(\frac{x \Gamma(x)}{x}\right)}$$
+$$=\lim _{x \rightarrow 0}\left(\frac{\Gamma(a x+1)}{\Gamma(x+1)} \cdot \frac{x}{a x}\right)$$
+$$=\frac{1}{a} \lim _{x \rightarrow 0} \frac{\Gamma(a x+1)}{\Gamma(x+1)}$$
+$$=\frac{1}{a} \frac{\Gamma(1)}{\Gamma(1)}$$
+$$=\frac{1}{a}$$
+
+
+\begin{greenbox}{13.1.8}
+Locate the poles of $\Gamma(z)$. Show that they are simple poles and determine the residues.
+\end{greenbox}
+$\boxed{\textbf{Solution}}$
+Recall that 
+$$\Gamma(z)=\lim _{n \rightarrow \infty} \frac{1 \cdot 2 \cdot 3 \cdot \cdots n}{z(z+1)(z+2) \cdots(z+n)} \cdot n^{2},$$ where $z \neq 0,-1,-2,-3, \cdots$. The denominator shows that $\Gamma(z)$ has simple poles at $z=0,-1,-2,-3, \cdots$
+$$\Gamma(z)=\int_{0}^{\infty} e^{-t} t^{z-1} d t$$
+$$=\int_{0}^{1} e^{-t} t^{z-1} d t+\int_{1}^{\infty} e^{-t} t^{z-1} d t$$
+$$=\int_{0}^{1} t^{z-1} \sum_{n=0}^{\infty} \frac{(-t)^{n}}{n !} d t+\int_{1}^{\infty} e^{-t} t^{z-1} d t$$
+$$=\sum_{n=0}^{\infty} \frac{(-1)^{n}}{n !} \int_{0}^{1} t^{n+z-1} d t+\int_{1}^{\infty} e^{-t} t^{z-1} d t$$
+$$=\sum_{n=0}^{\infty} \frac{(-1)^{n}}{n !} \cdot\left[\frac{t^{n+z}}{n+z}\right]_{0}^{1}+\int_{1}^{\infty} e^{-t} t^{z-1} d t$$
+$$=\sum_{n=0}^{\infty} \frac{(-1)^{n}}{n !} \cdot\left[\frac{1}{n+z}-0\right]+\int_{1}^{\infty} e^{-t} t^{z-1} d t$$
+$$=\sum_{n=0}^{\infty} \frac{(-1)^{n}}{n !(n+z)}+\int_{1}^{\infty} e^{-t} t^{z-1} d t$$
+The series 
+$$\sum_{n=0}^{\infty} \frac{(-1)^{n}}{n !(n+z)}$$ 
+shows that the first order poles at all negative integers $z=-n$ has respective residues 
+$$\frac{(-1)^{n}}{n !}$$
+
+
+\begin{greenbox}{13.1.10}
+Show that, for integer $s$
+\begin{enumerate}[$(a)$]
+\item $$\int_{0}^{\infty} x^{2 s+1} \exp \left(-a x^{2}\right) d x=\frac{s !}{2 a^{s+1}}$$
+\item $$\int_{0}^{\infty} x^{2 s} \exp \left(-a x^{2}\right) d x=\frac{\Gamma\left(s+\frac{1}{2}\right)}{2 a^{s+1 / 2}}=\frac{(2 s-1) ! !}{2^{s+1} a^{s}} \sqrt{\frac{\pi}{a}}$$
+\end{enumerate}
+
+
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ For $(a)$ Put $a x^{2}=z \cdot$ Then $2 a x d x=d z$. This implies
+$$
+d x=\frac{d z}{2 \sqrt{a z}}
+$$
+As $x \rightarrow 0, z \rightarrow 0$ and as $x \rightarrow \infty, z \rightarrow \infty$.
+The given integral is
+$$
+\int_{0}^{\infty} x^{2 s+1} \exp \left(-a x^{2}\right) d x
+$$
+$$
+=\int_{0}^{\infty}\left(\sqrt{\frac{z}{a}}\right)^{2 s+1} e^{-z} \frac{d z}{2 \sqrt{a z}}
+$$
+$$
+=\frac{1}{2 \sqrt{a}} \int_{0}^{\infty}\left(\frac{z}{a}\right)^{\frac{2 s+1}{2}} e^{-z} z^{-\frac{1}{2}} d z
+$$
+$$
+=\frac{1}{2 a^{\frac{1}{2}}} \cdot \frac{1}{a^{\frac{2 s+1}{2}}} \int_{0}^{\infty} e^{-z} z^{\frac{2 s+1}{2}-\frac{1}{2}} d z
+$$
+$$
+=\frac{1}{2 a^{s+1}} \int_{0}^{\infty} e^{-z} z^{s} d z
+$$
+$$
+=\frac{1}{2 a^{s+1}} \int_{0}^{\infty} e^{-z} z^{(s+1)-1} d z
+$$
+$$
+=\frac{1}{2 a^{s+1}} \Gamma(s+1)
+$$
+since $s$ is an integer, therefore $\Gamma(s+1)=s !$. Hence 
+$$\int_{0}^{\infty} x^{2 s+1} \exp \left(-a x^{2}\right) d x=\frac{s !}{2 a^{s+1}}$$ 
+
+$\boxed{\textbf{Solution}}$ For $(b)$ Put $a x^{2}=z \cdot$ Then $2 a x d x=d z$. This implies
+$$
+d x=\frac{d z}{2 \sqrt{a z}}
+$$
+As $x \rightarrow 0, z \rightarrow 0$ and as $x \rightarrow \infty, z \rightarrow \infty$.
+The given integral is
+$$
+\int_{0}^{\infty} x^{2 s} \exp \left(-a x^{2}\right) d x
+$$
+$$
+=\int_{0}^{\infty}\left(\sqrt{\frac{z}{a}}\right)^{2 s} e^{-z} \frac{d z}{2 \sqrt{a z}}
+$$
+$$
+=\frac{1}{2 \sqrt{a}} \int_{0}^{\infty}\left(\frac{z}{a}\right)^{s} e^{-z} z^{-\frac{1}{2}} d z
+$$
+$$
+=\frac{1}{2 a^{\frac{1}{2}}} \cdot \frac{1}{a^{s}} \int_{0}^{\infty} e^{-z} z^{s-\frac{1}{2}} d z
+$$
+$$
+=\frac{1}{2 a^{s+\frac{1}{2}}} \int_{0}^{\infty} e^{-z} z^{\left(s+\frac{3}{2}\right)-1} d z
+$$
+$$
+=\frac{1}{2 a^{s+\frac{1}{2}}} \Gamma\left(s+\frac{3}{2}\right)
+$$
+since 
+$$\Gamma\left(s+\frac{1}{2}\right)=\frac{\sqrt{\pi}}{2^{s}} \cdot(2 s-1) ! !$$
+$$
+=\frac{(2 s-1) ! !}{2^{s+1} a^{s}} \sqrt{\frac{\pi}{a}}
+$$
+Thus
+$$
+\int_{0}^{\infty} x^{2 s} \exp \left(-a x^{2}\right) d x=\frac{\Gamma\left(s+\frac{1}{2}\right)}{2 a^{s+\frac{1}{2}}}=\frac{(2 s-1) ! !}{2 a^{s+1} a^{s}} \sqrt{\frac{\pi}{a}}
+$$
+
+\begin{greenbox}{13.1.11}
+Express the coefficient of the $n$ th term of the expansion of $(1+x)^{1 / 2}$ in powers of $x$
+\begin{enumerate}[$(a)$]
+\item in terms of factorials of integers,
+\item in terms of the double factorial (!!) functions.
+\end{enumerate} 
+$$
+A N S . \ a_{n}=(-1)^{n+1} \frac{(2 n-3) !}{2^{2 n-2} n !(n-2) !}=(-1)^{n+1} \frac{(2 n-3) ! !}{(2 n) ! !},\quad n=2,3, \ldots
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ the $n$ th term of the expansion of $(1+x)^{1 / 2}$ in powers of $x$ is:
+$$a_{n}=\left(\begin{array}{c}\frac{1}{2} \\ n-1\end{array}\right)$$
+$$=\frac{\frac{1}{2}\left(\frac{1}{2}-1\right)\left(\frac{1}{2}-2\right)\left(\frac{1}{2}-3\right) \cdots\left(\frac{1}{2}-(n-1)\right)}{n !}$$
+$$=\frac{\left(\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{3}{2}\right)\left(-\frac{5}{2}\right) \cdots\left(-\frac{2 n-3}{2}\right)}{n !}$$
+$$=\frac{(-1)^{n-1}}{n ! 2^{n}}[1.3 .5 \ldots \cdot(2 n-3)]$$
+$$=\frac{(-1)^{n+1}}{n ! 2^{n}}\left[\frac{1.2 .3 .4 .5 .6 \cdots \cdot(2 n-4) \cdot(2 n-3)}{2.4 .6 . \cdots .(2 n-4)}\right]$$
+$$=\frac{(-1)^{n}}{n ! 2^{n}} \cdot \frac{(2 n-3) !}{(n-2) ! 2^{n-2}}$$
+$$=(-1)^{n+1} \cdot \frac{(2 n-3) !}{2^{2 n-2} \cdot n !(n-2) !}$$
+Therefore, 
+$$
+a_{n}=(-1)^{n+1} \cdot \frac{(2 n-3) !}{2^{2 n-2} n !(n-2) !}, \quad  n=1,2,3, \cdots
+$$
+
+$\boxed{\textbf{Solution}}$ For $(b)$ the $n$ th term expansion of $(1+x)^{1 / 2}$ 
+$$a_{n}=\left(\begin{array}{c}-\frac{1}{2} \\ n-1\end{array}\right)$$
+$$=\frac{\frac{1}{2}\left(\frac{1}{2}-1\right)\left(\frac{1}{2}-2\right)\left(\frac{1}{2}-3\right) \cdots\left(\frac{1}{2}-(n-1)\right)}{n !}$$
+$$=\frac{\left(\frac{1}{2}\right)\left(-\frac{1}{2}\right)\left(-\frac{3}{2}\right)\left(-\frac{5}{2}\right) \cdots\left(-\frac{2 n-3}{2}\right)}{n !}$$
+$$=\frac{(-1)^{n-1}}{n ! 2^{n}}[1.3 .5 \cdot \cdots \cdot(2 n-3)]$$
+$$=(-1)^{n+1} \cdot\left[\frac{1.3 .5 \cdots \cdot(2 n-3)}{2.4 .6 \cdot \cdots .2 n}\right]$$
+$$=(-1)^{n+1} \cdot \frac{(2 n-3) ! !}{(2 n) ! !}$$
+Therefore
+$$
+a_{n}=(-1)^{n+1} \cdot \frac{(2 n-3) ! !}{(2 n) ! !}, \quad \text { for } n=1,2,3, \cdots
+$$
+
+\begin{greenbox}{13.1.12}
+Express the coefficient of the $n$ th term of the expansion of $(1+x)^{-1 / 2}$ in powers of $x$
+\begin{enumerate}[$(a)$]
+\item in terms of the factorials of integers,
+\item in terms of the double factorial
+(!!) functions.
+\end{enumerate}
+$$
+A N S . \quad a_{n}=(-1)^{n} \frac{(2 n) !}{2^{2 n}(n !)^{2}}=(-1)^{n} \frac{(2 n-1) ! !}{(2 n) ! !}, \quad n=1,2,3 \ldots
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ the $n$ th term of the expansion of $(1+x)^{-1 / 2}$ in powers of $x$ is:
+$$
+a_{n}=\left(\begin{array}{c}
+-\frac{1}{2} \\
+n-1
+\end{array}\right)
+$$
+$$
+=\frac{-\frac{1}{2}\left(-\frac{1}{2}-1\right)\left(-\frac{1}{2}-2\right)\left(-\frac{1}{2}-3\right) \cdots\left(-\frac{1}{2}-(n-1)\right)}{n !}
+$$
+$$
+=\frac{\left(-\frac{1}{2}\right)\left(-\frac{3}{2}\right)\left(-\frac{5}{2}\right) \cdots\left(-\frac{2 n-1}{2}\right)}{n !}
+$$
+$$
+=\frac{(-1)^{n}}{n ! 2^{n}}[1.3 .5 . \cdots .(2 n-1)]
+$$
+$$
+=\frac{(-1)^{n}}{n ! 2^{n}}\left[\frac{1.2 .3 .4 .5 .6 . \cdots .(2 n-1) \cdot 2 n}{2.4 .6 . \cdots .2 n}\right]
+$$
+$$=\frac{(-1)^{n}}{n ! 2^{n}} \cdot \frac{(2 n) !}{n ! 2^{n}}$$
+$$=(-1)^{n} \cdot \frac{(2 n) !}{2^{2 n} \cdot(n !)^{2}}$$
+Therefore, 
+$$
+a_{n}=(-1)^{n} \cdot \frac{(2 n) !}{2^{2 n} \cdot(n !)^{2}}, \quad \text { for } n=1,2,3, \cdots
+$$
+
+$\boxed{\textbf{Solution}}$ For $(b)$ the $n$ th term expansion of $(1+x)^{-1 / 2}$ in powers of $x$ in terms of the double factorial $(!!)$ functions.
+$$
+a_{n}=\left(\begin{array}{c}
+-\frac{1}{2} \\
+n-1
+\end{array}\right)
+$$
+$$
+=\frac{-\frac{1}{2}\left(-\frac{1}{2}-1\right)\left(-\frac{1}{2}-2\right)\left(-\frac{1}{2}-3\right) \cdots\left(-\frac{1}{2}-(n-1)\right)}{n !}
+$$
+$$
+=\frac{\left(-\frac{1}{2}\right)\left(-\frac{3}{2}\right)\left(-\frac{5}{2}\right) \cdots\left(-\frac{2 n-1}{2}\right)}{n !}
+$$
+$$=\frac{(-1)^{n}}{n ! 2^{n}}[1.3 .5 \ldots .(2 n-1)]$$
+$$=(-1)^{n} \cdot\left[\frac{1.3 .5 \ldots .(2 n-1)}{2.4 .6 . \cdots .2 n}\right]$$
+$$=(-1)^{n} \cdot \frac{(2 n-1) ! !}{(2 n) ! !}$$
+Therefore
+$$
+a_{n}=(-1)^{n} \cdot \frac{(2 n-1) ! !}{(2 n) ! !}, \quad \text { for } n=1,2,3, \cdots
+$$
+
+\begin{greenbox}{13.1.14}
+\begin{enumerate}[$(a)$]
+\item Show that $\Gamma\left(\frac{1}{2}-n\right) \Gamma\left(\frac{1}{2}+n\right)=(-1)^{n} \pi,$ where $n$ is an integer. 
+\item Express $\Gamma\left(\frac{1}{2}+n\right)$ and $\Gamma\left(\frac{1}{2}-n\right)$ separately in terms of $\pi^{1 / 2}$ and a double factorial function.
+\end{enumerate}
+$$
+A N S . \quad \Gamma\left(\frac{1}{2}+n\right)=\frac{(2 n-1) ! !}{2^{n}} \pi^{1 / 2}
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ recall that 
+$$\Gamma(z) \Gamma(1-z)=\frac{\pi}{\sin \pi z}$$
+Putting $z=\frac{1}{2}+n$ in the above relation, it becomes
+$$
+\Gamma\left(\frac{1}{2}+n\right) \Gamma\left(1-\frac{1}{2}-n\right)=\frac{\pi}{\sin \left[\pi\left(\frac{1}{2}+n\right)\right]}
+$$
+$$
+=\frac{\pi}{\cos (n \pi)}
+$$
+$$
+=\frac{\pi}{(-1)^{n}}
+$$
+since $\cos (n \pi)=(-1)^{n}$ and
+$$
+=(-1)^{n} \pi
+$$
+Therefore 
+$$\Gamma\left(\frac{1}{2}-n\right) \Gamma\left(\frac{1}{2}+n\right)=(-1)^{n} \pi$$ where $n$ is an integer.
+
+$\boxed{\textbf{Solution}}$ For $(b)$ recall the Legendre's duplication formula,
+$$\Gamma(1+z) \Gamma\left(z+\frac{1}{2}\right)=2^{-2 z} \sqrt{\pi} \Gamma(2 z+1)$$
+Putting $z=n$ in the above relation, it becomes
+$$\Gamma(1+n) \Gamma\left(n+\frac{1}{2}\right)=2^{-2 n} \sqrt{\pi} \Gamma(2 n+1)$$
+$$\Gamma\left(n+\frac{1}{2}\right)=\frac{2^{-2 n} \sqrt{\pi} \Gamma(2 n+1)}{\Gamma(1+n)}$$
+$$\Gamma\left(n+\frac{1}{2}\right)=\frac{\sqrt{\pi}}{2^{2 n}} \cdot \frac{(2 n) !}{n !}$$
+$$\Gamma\left(n+\frac{1}{2}\right)=\frac{\sqrt{\pi}}{2^{2 n}} \cdot \frac{(1.2 .3 .4 .5 \ldots . .2 n)}{(1.2 .3 \ldots n)}$$
+$$\Gamma\left(n+\frac{1}{2}\right)=\frac{\sqrt{\pi}}{2^{n}} \cdot \frac{(1.2 .3 .4 .5 \ldots . .2 n)}{(2.4 .6 \ldots . .2 n)}$$
+$$\Gamma\left(n+\frac{1}{2}\right)=\frac{\sqrt{\pi}}{2^{n}} \cdot[1.3 .5 \ldots \ldots(2 n-1)]$$
+$$
+\Gamma\left(\frac{1}{2}+n\right)=\frac{\sqrt{\pi}}{2^{n}} \cdot(2 n-1) ! ! \cdots
+$$
+From part $(a)$ 
+$$
+\Gamma\left(\frac{1}{2}-n\right) \Gamma\left(\frac{1}{2}+n\right)=(-1)^{n} \pi
+$$
+$$\Gamma\left(\frac{1}{2}-n\right)=\frac{(-1)^{n} \pi}{\Gamma\left(\frac{1}{2}+n\right)}$$
+$$\Gamma\left(\frac{1}{2}-n\right)=\frac{(-1)^{n} \pi}{\left(\frac{\sqrt{\pi}}{2^{n}} \cdot(2 n-1) ! !\right)}$$
+$$
+\Gamma\left(\frac{1}{2}-n\right)=\frac{(-1)^{n} \cdot 2^{n} \sqrt{\pi}}{(2 n-1) ! !}
+$$
+$$
+\Gamma\left(\frac{1}{2}+n\right)=\frac{\sqrt{\pi}}{2^{n}} \cdot(2 n-1) ! ! \text { and } \Gamma\left(\frac{1}{2}-n\right)=\frac{(-1)^{n} \cdot 2^{n} \sqrt{\pi}}{(2 n-1) ! !}
+$$
+
+\begin{greenbox}{13.1.6}
+Prove that 
+$$|\Gamma(\alpha+i \beta)|=|\Gamma(\alpha)| \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(\alpha+n)^{2}}\right]^{-1 / 2}$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Recall 
+$$
+\frac{1}{\Gamma(z)}=z e^{\gamma z} \prod_{n=1}^{\infty}\left(1+\frac{z}{n}\right) e^{-\frac{z}{n}}
+$$
+Putting $z=\alpha+i \beta$ and $z=\alpha-i \beta$ successively in the above relation, it becomes
+$$
+\frac{1}{\Gamma(\alpha+i \beta)}=(\alpha+i \beta) e^{\gamma(\alpha+i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha+i \beta}{n}\right) e^{-\frac{a+i \beta}{n}}
+$$
+and 
+$$
+\frac{1}{\Gamma(\alpha-i \beta)}=(\alpha-i \beta) e^{\gamma(\alpha-i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{a-i \beta}{n}}
+$$
+Multiplying these equations it becomes
+$$
+\frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)}$$
+$$\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right]
+$$
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right]
+$$
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{\frac{2 a}{n} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+
+$$
+=\left(\frac{\alpha^{2}+\beta^{2}}{\alpha^{2}}\right)\left(\alpha e^{\gamma \alpha} \prod_{n=1}^{\infty}\left[e^{-\frac{a}{n}} \cdot\left(1+\frac{\alpha}{n}\right)\right]\right)^{2} \prod_{n=1}^{\infty}\left[\frac{\left(1+\frac{2 \alpha}{n}+\frac{\alpha^{2}+\beta^{2}}{n^{2}}\right)}{\frac{(n+\alpha)^{2}}{n^{2}}}\right]
+$$
+
+
+$$
+=\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \frac{1}{\Gamma(\alpha)^{2}} \prod_{n=1}^{\infty}\left[\frac{\left(1+2 \alpha n+\alpha^{2}+\beta^{2}\right)}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[\frac{(n+\alpha)^{2}+\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+Hence
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|}=\frac{1}{|\Gamma(\alpha)|} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]^{\frac{1}{2}}
+$$
+
+$$
+|\Gamma(\alpha+i \beta)|=|\Gamma(\alpha)| \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(\alpha+n)^{2}}\right]^{-\frac{1}{2}}
+$$
+
+
+
+
+\begin{greenbox}{13.1.17}
+
+Show that for $n$, a positive integer,
+$$
+|\Gamma(n+i b+1)|=\left(\frac{\pi b}{\sinh \pi b}\right)^{1 / 2} \prod_{s=1}^{n}\left(s^{2}+b^{2}\right)^{1 / 2}
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Recall 
+$$
+\frac{1}{\Gamma(z)}=z e^{\gamma z} \prod_{n=1}^{\infty}\left(1+\frac{z}{n}\right) e^{-\frac{z}{n}}
+$$
+Putting $z=\alpha+i \beta$ and $z=\alpha-i \beta$ successively in the above relation, it becomes
+$$
+\frac{1}{\Gamma(\alpha+i \beta)}=(\alpha+i \beta) e^{\gamma(\alpha+i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha+i \beta}{n}\right) e^{-\frac{a+i \beta}{n}}
+$$
+and 
+$$
+\frac{1}{\Gamma(\alpha-i \beta)}=(\alpha-i \beta) e^{\gamma(\alpha-i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{a-i \beta}{n}}
+$$
+Multiplying these equations it becomes
+$$
+\frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)}$$
+$$\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right]
+$$
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right]
+$$
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{\frac{2 a}{n} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+
+$$
+=\left(\frac{\alpha^{2}+\beta^{2}}{\alpha^{2}}\right)\left(\alpha e^{\gamma \alpha} \prod_{n=1}^{\infty}\left[e^{-\frac{a}{n}} \cdot\left(1+\frac{\alpha}{n}\right)\right]\right)^{2} \prod_{n=1}^{\infty}\left[\frac{\left(1+\frac{2 \alpha}{n}+\frac{\alpha^{2}+\beta^{2}}{n^{2}}\right)}{\frac{(n+\alpha)^{2}}{n^{2}}}\right]
+$$
+
+
+$$
+=\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \frac{1}{\Gamma(\alpha)^{2}} \prod_{n=1}^{\infty}\left[\frac{\left(1+2 \alpha n+\alpha^{2}+\beta^{2}\right)}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[\frac{(n+\alpha)^{2}+\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+Hence
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+Now put $\alpha=1$ and $\beta=b$ in the above identity. Then it becomes
+$$
+\frac{1}{|\Gamma(1+i b)|^{2}}=\frac{1}{\Gamma(1)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{b^{2}}{(n+1)^{2}}\right]
+$$
+$$
+=\prod_{n=0}^{\infty}\left[1+\frac{b^{2}}{(n+1)^{2}}\right], \quad \text { as } \quad \Gamma(1)=1
+$$
+
+$$
+=\prod_{n=0}^{\infty}\left[1-\frac{(i b \pi)^{2}}{(n+1)^{2} \pi^{2}}\right]
+$$
+
+$$
+=\prod_{n=1}^{\infty}\left[1-\frac{(i b \pi)^{2}}{n^{2} \pi^{2}}\right]
+$$
+$$
+=\frac{1}{(i b \pi)}\left\{(i b \pi) \prod_{n=1}^{\infty}\left[1-\frac{(i b \pi)^{2}}{n^{2} \pi^{2}}\right]\right\}
+$$
+$$
+=\frac{1}{i b \pi} \cdot \sin (i b \pi)
+$$
+Using the identy
+$$
+\sin z=z \prod_{n=1}^{\infty}\left[1-\frac{z^{2}}{n^{2} \pi^{2}}\right] \quad \text{for} z=ib\pi
+$$
+$$=\frac{1}{i b \pi} \cdot i \sinh (b \pi)$$
+$$=\frac{\sinh (b \pi)}{b \pi}$$
+$$\frac{1}{|\Gamma(1+i b)|^{2}}=\frac{\sinh (b \pi)}{b \pi}$$
+$$|\Gamma(1+i b)|^{2}=\frac{b \pi}{\sinh (b \pi)} .$$
+since $n$ is an integer, therefore
+$$\Gamma(n+i b+1)=\Gamma(\{1+i b+(n-1)\}+1)$$
+$$=\{1+i b+(n-1)\} \Gamma(\{1+i b+(n-1)\})$$
+$$
+(1+i b)(2+i b)(3+i b) \cdots(n+i b) \Gamma(1+i b)
+$$
+$$
+\Gamma(n+i b+1)=(1+i b)(2+i b)(3+i b) \cdots(n+i b) \Gamma(1+i b)
+$$
+$$
+\Gamma(n-i b+1)=(1-i b)(2-i b)(3-i b) \cdots(n-i b) \Gamma(1-i b)
+$$
+$$|\Gamma(n+i b+1)|^{2}$$
+$$=\Gamma(n+i b+1) \Gamma(n-i b+1)$$
+$$=(1+i b)(2+i b)(3+i b) \cdots(n+i b) \Gamma(1+i b) \times(1-i b)(2-i b)(3-i b) \cdots(n-i b) \Gamma(1-i b)$$
+$$=\{(1+i b)(1-i b)\}\{(2+i b)(2-i b)\}\{(3+i b)(3-i b)\} \cdots\{(n+i b)(n-i b)\} \Gamma(1+i b) \Gamma(1-i b)$$
+$$=\left(1^{2}+b^{2}\right)\left(2^{2}+b^{2}\right)\left(3^{2}+b^{2}\right) \cdots\left(n^{2}+b^{2}\right)|\Gamma(1+i b)|^{2}$$
+$$
+=\prod_{s=1}^{n}\left(s^{2}+b^{2}\right) \times \frac{b \pi}{\sinh (b \pi)}
+$$
+Hence 
+$$|\Gamma(n+i b+1)|^{2}=\prod_{s=1}^{n}\left(s^{2}+b^{2}\right) \times \frac{b \pi}{\sinh (b \pi)}$$
+This gives 
+$$|\Gamma(n+i b+1)|=\left(\frac{b \pi}{\sinh (b \pi)}\right)^{\frac{1}{2}} \prod_{s=1}^{n}\left(s^{2}+b^{2}\right)^{\frac{1}{2}} $$
+
+
+
+\begin{greenbox}{13.1.18}
+Show that for all real values of $x$ and $y,|\Gamma(x)| \geq|\Gamma(x+i y)|$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ Recall 
+$$
+\frac{1}{\Gamma(z)}=z e^{\gamma z} \prod_{n=1}^{\infty}\left(1+\frac{z}{n}\right) e^{-\frac{z}{n}}
+$$
+Putting $z=\alpha+i \beta$ and $z=\alpha-i \beta$ successively in the above relation, it becomes
+$$
+\frac{1}{\Gamma(\alpha+i \beta)}=(\alpha+i \beta) e^{\gamma(\alpha+i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha+i \beta}{n}\right) e^{-\frac{a+i \beta}{n}}
+$$
+and 
+$$
+\frac{1}{\Gamma(\alpha-i \beta)}=(\alpha-i \beta) e^{\gamma(\alpha-i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{a-i \beta}{n}}
+$$
+Multiplying these equations it becomes
+$$
+\frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)}$$
+$$\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right]
+$$
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right]
+$$
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{\frac{2 a}{n} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+
+$$
+=\left(\frac{\alpha^{2}+\beta^{2}}{\alpha^{2}}\right)\left(\alpha e^{\gamma \alpha} \prod_{n=1}^{\infty}\left[e^{-\frac{a}{n}} \cdot\left(1+\frac{\alpha}{n}\right)\right]\right)^{2} \prod_{n=1}^{\infty}\left[\frac{\left(1+\frac{2 \alpha}{n}+\frac{\alpha^{2}+\beta^{2}}{n^{2}}\right)}{\frac{(n+\alpha)^{2}}{n^{2}}}\right]
+$$
+
+
+$$
+=\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \frac{1}{\Gamma(\alpha)^{2}} \prod_{n=1}^{\infty}\left[\frac{\left(1+2 \alpha n+\alpha^{2}+\beta^{2}\right)}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[\frac{(n+\alpha)^{2}+\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+Hence
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+Now put $\alpha=x$ and $\beta=y$ in the above identity. Then it becomes
+$$
+\frac{1}{|\Gamma(x+i y)|^{2}}=\frac{1}{\Gamma(x)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+x)^{2}}\right]
+$$
+$$
+\left|\frac{\Gamma(x)}{\Gamma(x+i y)}\right|^{2}=\prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+x)^{2}}\right]
+$$
+$$
+\left|\frac{\Gamma(x)}{\Gamma(x+i y)}\right|^{2} \geq 1, \quad \text { since }\quad 1+\frac{\beta^{2}}{(n+x)^{2}} \geq 1
+$$
+$$\left|\frac{\Gamma(x)}{\Gamma(x+i y)}\right| \geq 1$$
+$$|\Gamma(x)| \geq|\Gamma(x+i y)|$$
+Hence is proved
+
+
+
+
+
+
+
+
+\begin{greenbox}{13.1.19}
+Show that 
+$$\left|\Gamma(\frac{1}{2}+i y)\right|^{2}=\frac{\pi}{\cosh \pi y}$$
+\end{greenbox}
+
+
+$\boxed{\textbf{Solution}}$ Recall 
+$$
+\frac{1}{\Gamma(z)}=z e^{\gamma z} \prod_{n=1}^{\infty}\left(1+\frac{z}{n}\right) e^{-\frac{z}{n}}
+$$
+Putting $z=\alpha+i \beta$ and $z=\alpha-i \beta$ successively in the above relation, it becomes
+$$
+\frac{1}{\Gamma(\alpha+i \beta)}=(\alpha+i \beta) e^{\gamma(\alpha+i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha+i \beta}{n}\right) e^{-\frac{a+i \beta}{n}}
+$$
+and 
+$$
+\frac{1}{\Gamma(\alpha-i \beta)}=(\alpha-i \beta) e^{\gamma(\alpha-i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{a-i \beta}{n}}
+$$
+Multiplying these equations it becomes
+$$
+\frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)}$$
+$$\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right]
+$$
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right]
+$$
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{\frac{2 a}{n} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+
+$$
+=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right]
+$$
+
+$$
+=\left(\frac{\alpha^{2}+\beta^{2}}{\alpha^{2}}\right)\left(\alpha e^{\gamma \alpha} \prod_{n=1}^{\infty}\left[e^{-\frac{a}{n}} \cdot\left(1+\frac{\alpha}{n}\right)\right]\right)^{2} \prod_{n=1}^{\infty}\left[\frac{\left(1+\frac{2 \alpha}{n}+\frac{\alpha^{2}+\beta^{2}}{n^{2}}\right)}{\frac{(n+\alpha)^{2}}{n^{2}}}\right]
+$$
+
+
+$$
+=\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \frac{1}{\Gamma(\alpha)^{2}} \prod_{n=1}^{\infty}\left[\frac{\left(1+2 \alpha n+\alpha^{2}+\beta^{2}\right)}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[\frac{(n+\alpha)^{2}+\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+$$
+=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+Hence
+$$
+\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+$$
+
+Now put $\alpha=\frac{1}{2}$ and $\beta=y$ in the above identity. Then it becomes
+$$
+\frac{1}{\left|\Gamma\left(\frac{1}{2}+i y\right)\right|^{2}}=\frac{1}{\Gamma\left(\frac{1}{2}\right)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{y^{2}}{\left(n+\frac{1}{2}\right)^{2}}\right]
+$$
+$$
+\frac{1}{\left|\Gamma\left(\frac{1}{2}+i y\right)\right|^{2}}=\frac{1}{\pi} \prod_{n=0}^{\infty}\left[1+\frac{y^{2}}{\left(n+\frac{1}{2}\right)^{2}}\right]
+$$
+since $\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}$
+$$
+\frac{1}{\left|\Gamma\left(\frac{1}{2}+i y\right)\right|^{2}}=\frac{1}{\pi} \prod_{n=0}^{\infty}\left[1+\frac{y^{2}}{\left(n+\frac{1}{2}\right)^{2}}\right]
+$$
+Recall
+$$
+\cos z=\prod_{n=1}^{\infty}\left[1-\frac{z^{2}}{\left(n-\frac{1}{2}\right)^{2} \pi^{2}}\right]
+$$
+and putting $z=i \pi y$ it becomes
+$$
+\cos (i \pi y)=\prod_{n=1}^{\infty}\left[1-\frac{i^{2} \pi^{2} y^{2}}{\left(n-\frac{1}{2}\right)^{2} \pi^{2}}\right]
+$$
+$$
+\cosh (\pi y)=\prod_{n=1}^{\infty}\left[1+\frac{y^{2}}{\left(n-\frac{1}{2}\right)^{2}}\right]
+$$
+$$
+\cosh (\pi y)=\prod_{n=0}^{\infty}\left[1+\frac{y^{2}}{\left(n+1-\frac{1}{2}\right)^{2}}\right]
+$$
+$$
+\cosh (\pi y)=\prod_{n=0}^{\infty}\left[1+\frac{y^{2}}{\left(n+\frac{1}{2}\right)^{2}}\right]
+$$
+$$
+\frac{1}{\left|\Gamma\left(\frac{1}{2}+i y\right)\right|^{2}}=\frac{1}{\pi} \cosh (\pi y)
+$$
+
+\begin{greenbox}{13.1.20}
+The probability density associated with the normal distribution of statistics is given by
+$$
+f(x)=\frac{1}{\sigma(2 \pi)^{1 / 2}} \exp \left[-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\right]
+$$
+with $(-\infty, \infty)$ for the range of $x$. Show that
+(a) 
+\begin{enumerate}[$(a)$]
+\item $\langle x\rangle,$ the mean value of $x,$ is equal to $\mu$
+\item the standard deviation $\left(\left\langle x^{2}\right\rangle-\langle x\rangle^{2}\right)^{1 / 2}$ is given by $\sigma$.
+\end{enumerate}
+
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ For the mean
+$$
+\langle x\rangle=\int_{-\infty}^{\infty} x f(x) d x
+$$
+$$
+=\int_{-\infty}^{\infty} x \cdot \frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \exp \left[-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\right] d x
+$$
+$$
+=\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} x e^{\frac{(x-\mu)^{2}}{2 \sigma^{2}}} d x
+$$
+Put $x-\mu=y .$ Then $d x=d y .$ As $x \rightarrow 0, y \rightarrow 0$ and $x \rightarrow \infty, y \rightarrow \infty$.
+$$
+\langle x\rangle=\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} x e^{\frac{(x-\mu)^{2}}{2 \sigma^{2}}} d x
+$$
+$$
+=\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty}(\mu+y) e^{-\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+$$
+=\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty}(\mu+y) e^{\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+$$
+=\frac{\mu}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y+\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} y e^{-\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+since $e^{-\frac{y^{2}}{2 \sigma^{2}}}$ is an even function, therefore 
+$$\int_{-\infty}^{\infty} e^{\frac{y^{2}}{2 \sigma^{2}}} d y=2 \int_{0}^{\infty} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y$$
+and since $y e^{-\frac{y^{2}}{2 \sigma^{2}}}$ is an odd
+function, therefore 
+$$\int_{-\infty}^{\infty} y e^{\frac{y^{2}}{2 \sigma^{2}}} d y=0$$
+Therefore, the integral becomes
+$$
+\langle x\rangle=\frac{2 \mu}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+Put $\frac{y^{2}}{2 \sigma^{2}}=z,$ then $2 y d y=2 \sigma^{2} d z \cdot$ This implies $d y=\frac{\sigma^{2}}{y} d z,$ that is, $d y=\frac{\sigma}{\sqrt{2}} z^{-\frac{1}{2}} d z$
+As $y \rightarrow 0, z \rightarrow 0$ and $y \rightarrow \infty, z \rightarrow \infty$. Therefore
+$$\langle x\rangle=\frac{2 \mu}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} e^{\frac{y^{2}}{2 \sigma^{2}}} d y$$
+$$=\frac{2 \mu}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} e^{-z} \frac{\sigma}{\sqrt{2}} z^{-\frac{1}{2}} d z$$
+$$=\frac{2 \mu}{\sigma(2 \pi)^{\frac{1}{2}}} \cdot \frac{\sigma}{\sqrt{2}} \int_{0}^{\infty} e^{-z} z^{\frac{1}{2}-1} d z$$
+$$=\frac{2 \mu}{\sigma(2 \pi)^{\frac{1}{2}}} \cdot \frac{\sigma}{\sqrt{2}} \Gamma\left(\frac{1}{2}\right)$$
+$$=\frac{2 \mu}{\sigma(2 \pi)^{\frac{1}{2}}} \cdot \frac{\sigma}{\sqrt{2}} \sqrt{\pi}$$
+$$=\frac{2 \mu}{\sigma(2 \pi)^{\frac{1}{2}}} \cdot \frac{\sigma}{\sqrt{2}} \sqrt{\pi}$$
+$$=\mu$$
+$\boxed{\textbf{Solution}}$ For $(b)$ we start saying
+$$
+\left\langle x^{2}\right\rangle=\int_{0}^{\infty} x^{2} f(x) d x
+$$
+$$
+=\int_{-\infty}^{\infty} x^{2} \cdot \frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \exp \left[-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\right] d x
+$$
+$$
+=\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} x^{2} e^{\frac{(x-\mu)^{2}}{2 \sigma^{2}}} d x
+$$
+Put $x-\mu=y .$ Then $d x=d y .$ As $x \rightarrow 0, y \rightarrow 0$ and $x \rightarrow \infty, y \rightarrow \infty$.
+$$
+\left\langle x^{2}\right\rangle=\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} x^{2} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} d x
+$$
+$$
+=\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty}(\mu+y)^{2} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+$$
+=\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty}\left(\mu^{2}+2 \mu y+y^{2}\right) e^{\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+$$
+=\frac{\mu^{2}}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y+\frac{2 \mu}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} y e^{-\frac{y^{2}}{2 \sigma^{2}}} d y+\frac{1}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{-\infty}^{\infty} y^{2} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+since $e^{-\frac{y^{2}}{2 \sigma^{2}}}$ is an even function, therefore
+$$
+\int_{-\infty}^{\infty} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y=2 \int_{0}^{\infty} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+since $y e^{-\frac{y^{2}}{2 \sigma^{2}}}$ is an odd function, therefore
+$$
+\int_{-\infty}^{\infty} y e^{-\frac{y^{2}}{2 \sigma^{2}}} d y=0
+$$
+since $y e^{-\frac{y^{2}}{2 \sigma^{2}}}$ is an odd function, therefore
+$$
+\int_{-\infty}^{\infty} y^{2} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y=2 \int_{0}^{\infty} y^{2} e^{-\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+Therefore the above integral becomes
+$$
+\left\langle x^{2}\right\rangle=\frac{2 \mu^{2}}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} e^{\frac{y^{2}}{2 \sigma^{2}}} d y+\frac{2}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} y^{2} e^{\frac{y^{2}}{2 \sigma^{2}}} d y
+$$
+Put $\frac{y^{2}}{2 \sigma^{2}}=z,$ then $2 y d y=2 \sigma^{2} d z$. This implies $d y=\frac{\sigma^{2}}{y} d z,$ that is, $d y=\frac{\sigma}{\sqrt{2}} z^{-\frac{1}{2}} d z$
+As $y \rightarrow 0, z \rightarrow 0$ and $y \rightarrow \infty, z \rightarrow \infty$. Therefore
+$$\left\langle x^{2}\right\rangle=\frac{2 \mu^{2}}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} e^{\frac{y^{2}}{2 \sigma^{2}}} d y+\frac{2}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} y^{2} e^{\frac{y^{2}}{2 \sigma^{2}}} d y$$
+$$=\frac{2 \mu^{2}}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} e^{-z} \cdot \frac{\sigma}{\sqrt{2}} z^{\frac{1}{2}} d z+\frac{2}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} 2 \sigma^{2} z e^{-z} \cdot \frac{\sigma}{\sqrt{2}} z^{-\frac{1}{2}} d z$$
+$$=\frac{2 \mu^{2}}{\sigma(2 \pi)^{\frac{1}{2}}} \cdot \frac{\sigma}{\sqrt{2}} \int_{0}^{\infty} e^{-z} z^{\frac{1}{2}} d z+\frac{2 \sqrt{2} \sigma^{3}}{\sigma(2 \pi)^{\frac{1}{2}}} \int_{0}^{\infty} e^{-z} z^{\frac{1}{2}} d z$$
+$$=\frac{\mu^{2}}{\sqrt{\pi}} \int_{0}^{\infty} e^{-z} z^{\frac{1}{2}-1} d z+\frac{2 \sigma^{2}}{\sqrt{\pi}} \int_{0}^{\infty} e^{-z} z^{\frac{3}{2}-1} d z$$
+$$=\frac{\mu^{2}}{\sqrt{\pi}} \Gamma\left(\frac{1}{2}\right)+\frac{2 \sigma^{2}}{\sqrt{\pi}} \Gamma\left(\frac{3}{2}\right)$$
+$$=\frac{\mu^{2}}{\sqrt{\pi}} \cdot \sqrt{\pi}+\frac{2 \sigma^{2}}{\sqrt{\pi}} \cdot \frac{1}{2} \sqrt{\pi}$$
+$$=\mu^{2}+\sigma^{2}$$
+So the standard deviation 
+$$\left(\left\langle x^{2}\right\rangle-\langle x\rangle^{2}\right)^{\frac{1}{2}}=\left(\mu^{2}+\sigma^{2}-\mu^{2}\right)^{\frac{1}{2}}$$
+$$\left(\left\langle x^{2}\right\rangle-\langle x\rangle^{2}\right)^{\frac{1}{2}}=\sqrt{\sigma^{2}}$$
+$$\left(\left\langle x^{2}\right\rangle-\langle x\rangle^{2}\right)^{\frac{1}{2}}=\sigma$$
+
+
+
+\begin{greenbox}{13.1.21}
+For the gamma distribution
+$$
+f(x)=\left\{\begin{array}{ll}
+\frac{1}{\beta^{\alpha} \Gamma(\alpha)} x^{\alpha-1} e^{-x / \beta}, & x>0 \\
+0, & x \leq 0
+\end{array}\right.
+$$
+\begin{enumerate}[$(a)$]
+\item $\langle x\rangle,$ the mean value of $x,$ is equal to $\alpha \beta$
+\item $\sigma^{2},$ its variance, defined as $\left\langle x^{2}\right\rangle-\langle x\rangle^{2},$ has the value $\alpha \beta^{2}$
+\end{enumerate}
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ the mean
+$$
+\langle x\rangle=\int_{0}^{\infty} x f(x) d x
+$$
+$$=\int_{0}^{\infty} x \cdot \frac{1}{\beta^{a} \Gamma(\alpha)} x^{a-1} e^{-\frac{x}{\beta}} d x$$
+$$=\frac{1}{\Gamma(\alpha)} \int_{0}^{\infty}\left(\frac{x}{\beta}\right)^{a} e^{-\frac{x}{\beta}} d x$$
+Put $\frac{x}{\beta}=z .$ Then $d x=\beta d z .$ As $x \rightarrow 0, z \rightarrow 0$ and $x \rightarrow \infty, z \rightarrow \infty$.
+$$
+\langle x\rangle=\frac{1}{\Gamma(\alpha)} \int_{0}^{\infty} z^{a} e^{-z} \beta d z
+$$
+$$=\frac{\beta}{\Gamma(\alpha)} \int_{0}^{\infty} z^{(a+1)-1} e^{-z} d z$$
+$$=\frac{\beta}{\Gamma(\alpha)} \Gamma(\alpha+1)$$
+$$=\frac{\beta}{\Gamma(\alpha)} \cdot \alpha \Gamma(\alpha)$$
+$$=\alpha \beta$$
+
+$\boxed{\textbf{Solution}}$ For $(b)$ 
+$$
+\left\langle x^{2}\right\rangle=\int_{0}^{\infty} x^{2} f(x) d x
+$$
+$$=\int_{0}^{\infty} x^{2} \cdot \frac{1}{\beta^{a} \Gamma(\alpha)} x^{\alpha-1} e^{-\frac{x}{\beta}} d x$$
+$$=\frac{\beta}{\Gamma(\alpha)} \int_{0}^{\infty}\left(\frac{x}{\beta}\right)^{\alpha+1} e^{-\frac{x}{\beta}} d x$$
+Put $\frac{x}{\beta}=z .$ Then $d x=\beta d z .$ As $x \rightarrow 0, z \rightarrow 0$ and $x \rightarrow \infty, z \rightarrow \infty$
+$$
+\left\langle x^{2}\right\rangle=\frac{\beta}{\Gamma(\alpha)} \int_{0}^{\infty} z^{a+1} e^{-z} \beta d z
+$$
+$=\frac{\beta^{2}}{\Gamma(\alpha)} \int_{0}^{\infty} z^{(\alpha+2)-1} e^{-z} d z$
+$$=\frac{\beta^{2}}{\Gamma(\alpha)} \Gamma(\alpha+2)$$
+$$=\frac{\beta^{2}}{\Gamma(\alpha)} \cdot(\alpha+1) \alpha \Gamma(\alpha)$$
+$$=\alpha(\alpha+1) \beta^{2}$$
+$$=\alpha^{2} \beta^{2}+\alpha \beta^{2}$$
+Hence variance, $\sigma^{2}=\left\langle x^{2}\right\rangle-\langle x\rangle^{2}$
+$$=\alpha^{2} \beta^{2}+\alpha \beta^{2}-\alpha^{2} \beta^{2}$$
+$$=\alpha \beta^{2}$$
+
+
+\newpage
+
+
+\chapter*{Chapter 13.4 \\ Stirling's Series}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 13.4: Stirling's Series}
+
+\begin{greenbox}{13.4.1}
+Rewrite Stirling's series to give $\Gamma(z+1)$ instead of $\ln \Gamma(z+1)$
+$$
+\text { ANS. } \quad \Gamma(z+1)=\sqrt{2 \pi} z^{z+1 / 2} e^{-z}\left(1+\frac{1}{12 z}+\frac{1}{288 z^{2}}-\frac{139}{51,840 z^{3}}+\cdots\right)
+$$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ Consider the Stirling's formula: 
+$$\ln \Gamma(z+1)=\frac{1}{2} \ln 2 \pi+\left(z+\frac{1}{2}\right) \ln z-z+\sum_{n=1}^{\infty} \frac{B_{2 n}}{2 n(2 n-1) z^{2 n-1}}$$
+Where $B_{2 n}$ are the Bernoulli's numbers. Use the first few Bernoulli's numbers and rewrite the above Stirling's formula as equivalent to
+$$\ln \Gamma(z+1) \sim \frac{1}{2} \ln (2 \pi)+\left(z+\frac{1}{2}\right) \ln z-z+\frac{1}{12 z}-\frac{1}{360 z^{2}}+\frac{1}{1260 z^{3}}-\ldots$$
+The Stirling's formula can be rewritten using Gamma function as follows.
+Let us take exponential form and collect similar terms to get equivalent form as follows.
+$$
+\Gamma(z+1) \sim \sqrt{2 \pi}+z^{\left(z+\frac{1}{2}\right)} e^{-z}\left(1+\frac{1}{12 z}+\frac{1}{288 z^{2}}-\frac{139}{51840 z^{3}}+\ldots\right)
+$$
+Hence, the required result is $$\Gamma(z+1) \sim \sqrt{2 \pi}+z^{\left(z+\frac{1}{2}\right)} e^{-z}\left(1+\frac{1}{12 z}+\frac{1}{288 z^{2}}-\frac{139}{51840 z^{3}}+\ldots\right)$$
+
+
+\begin{greenbox}{13.4.5}
+Test the convergence
+$$
+\sum_{p=0}^{\infty}\left[\frac{\Gamma\left(p+\frac{1}{2}\right)}{p !}\right]^{2} \frac{2 p+1}{2 p+2}=\pi \sum_{p=0}^{\infty} \frac{(2 p-1) ! !(2 p+1) ! !}{(2 p) ! !(2 p+2) ! !}
+$$
+This series arises in an attempt to describe the magnetic field created by and enclosed by a current loop.
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ Consider the series obtained in the magnetic field created by and enclosed by a current loop:
+$$
+\sum_{p=0}^{\infty} \frac{\Gamma\left(p+\frac{1}{2}\right)}{p !}\left(\frac{2 p+1}{2 p+2}\right)=\pi \sum_{p=0}^{\infty} \frac{(2 p-1) ! !(2 p+1) ! !}{(2 p) ! !(2 p+2) ! !}
+$$
+Now, we will test the convergence of the series using Stirling asymptotic formula given by
+$$
+\Gamma(z+1) \sim \sqrt{2 \pi} z^{z+\frac{1}{2}} e^{-z}
+$$
+$$
+\frac{\Gamma\left(p+\frac{1}{2}\right)}{\Gamma(p+1)} \sim \sqrt{e} \frac{\left(\frac{p+\frac{1}{2}}{p+1}\right)^{p+\frac{1}{2}}}{\Gamma(p+1)}
+$$
+$$
+=\frac{\text { constant }}{\Gamma(p+1)}
+$$
+Hence, the series converges.
+
+
+
+\begin{greenbox}{13.4.6}
+Show that 
+$$\lim _{x \rightarrow \infty} x^{b-a} \frac{\Gamma(x+a+1)}{\Gamma(x+b+1)}=1$$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ For a large $\mathrm{n}$, the Stirling asymptotic formula can be taken to the $\mathrm{n}$ arbitrary closed to infinite
+Then the expression has asymptotic limit.
+$$\ln \left[\left(x^{b-a}\right) \frac{\Gamma(x+a+1)}{\Gamma(x+b+1)}\right]$$
+$$=(b-a) \ln x\left(\frac{\Gamma(x+a+1)}{\Gamma(x+b+1)}\right)$$
+$$=(b-a) \ln (x)+\ln \left(\frac{\Gamma(x+a+1)}{\Gamma(x+b+1)}\right)$$
+$$=(b-a) \ln (x)+\ln \Gamma(x+a+1)-\ln \Gamma(x+b+1)$$
+Now we use 
+$$
+\ln \Gamma(z+1)=\left(z+\frac{1}{z}\right) \ln z-z
+$$
+Now, $(b-a) \ln (x)+\ln \Gamma(x+a+1)-\ln \Gamma(x+b+1)$ it reduces to
+$$
+(b-a) \ln (x)+\ln \Gamma(x+a+1)-\ln \Gamma(x+b+1)
+$$
+$$
+-(x+a)-\left(x+b+\frac{1}{2}\right) \ln (x+b)+(x+b)
+$$
+$$
+=(b-a) \ln (x)+(a-b) \ln (x)
+$$
+Rewrite the $\ln (x+a)$ as follows.
+$$
+\begin{aligned}
+\ln (a+x) &=\ln x\left(1+\frac{a}{x}\right) \\
+&=\ln x+\ln \left(1+\frac{a}{x}\right) \\
+&=\ln x+\frac{a}{x}+\ldots
+\end{aligned}
+$$
+Now rewrite the $\ln (x+b)$
+$$
+\begin{aligned}
+\ln (b+x) &=\ln x\left(1+\frac{b}{x}\right) \\
+&=\ln x+\ln \left(1+\frac{b}{x}\right) \\
+&=\ln x+\frac{b}{x}+\ldots
+\end{aligned}
+$$
+For large $x$, make all the terms to exponential form. So, that $\exp (0)=1$. Hence, the limit tends to $1 .$
+$$
+\lim _{x \rightarrow \infty} x^{b-a} \frac{\Gamma(x+a+1)}{\Gamma(x+b+1)}=1
+$$
+
+
+
+
+
+
+
+
+
+
+\begin{greenbox}{13.4.7}
+Show that 
+$$\lim _{n \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{1 / 2}=\pi^{-1 / 2}$$
+\end{greenbox}
+$\boxed{\textbf{Solution}}$ Write the limit expression in factorial notations. Then it is easy to apply the Stirling formula
+$$
+\lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}=\lim _{x \rightarrow \infty} \frac{(2 n) !}{2^{2 n}(n !)^{2}} n^{\frac{1}{2}}
+$$
+Take logarithm for the limit
+$$
+\ln \left(\lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}\right)=\ln \left(\lim _{x \rightarrow \infty} \frac{(2 n) !}{2^{2 n}(n !)^{2}} n^{\frac{1}{2}}\right)
+$$
+Consider the right hand side of the above equation and solve.
+$$\ln \lim _{n \rightarrow \infty} \frac{(2 n) ! n^{\frac{1}{2}}}{2^{2 n}(n !)^{2}}$$
+$$=\lim _{n \rightarrow \infty} \ln (2 n) !+\frac{1}{2} \ln n-2 n \ln 2-2 \ln (n !)$$
+$$\quad \frac{\ln (2 \pi)}{2}+\left(2 n+\frac{1}{2}\right) \ln (2 n)-2 n+\frac{\ln n}{2}$$
+$$
+\approx -2 n \ln 2-\ln (2 \pi)-2\left(n+\frac{1}{2}\right) \ln n+2 n+\ldots
+$$
+$$\sim-\frac{1}{2} \ln \pi$$
+$$=\ln \pi^{-\frac{1}{2}}$$
+Substitute the value of right hand side limit
+$$\ln \left(\lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}\right)=\ln \pi^{-\frac{1}{2}}$$
+$$\quad \lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}=\pi^{-\frac{1}{2}}$$
+Hence, the limit tends to
+$$
+\lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}=\pi^{-\frac{1}{2}}
+$$
+
+
+
+\begin{greenbox}{5.1.7}
+Starting from 
+$$I=\left\langle f-\sum_{i} a_{i} \varphi_{i} \mid f-\sum_{j} a_{j} \varphi_{j}\right\rangle \geq 0$$
+derive Bessel's inequality, 
+$$\langle f \mid f\rangle \geq \sum_{n}\left|a_{n}\right|^{2}$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ The functions $\phi_{j}$ are assumed to be orthonormal.
+Expand the value of $I,$ we have
+$$\begin{aligned} I &=\left\langle f-\sum_{i} a_{i} \phi_{i} \mid f-\sum_{j} a_{j} \phi_{j}\right\rangle \\ &=\langle f \mid f\rangle-\sum_{i} a_{i} *\left\langle\phi_{i} \mid f\right\rangle-\sum_{i} a_{i} *\left\langle f \mid \phi_{i}\right\rangle+\sum_{i} a_{i} * a_{j}\left\langle\phi_{i} \mid \phi_{j}\right\rangle \\ & \geq 0 \end{aligned}$$
+Hence, the result of Bessel's inequality is derived.
+
+\begin{greenbox}{5.1.8}
+Expand the function $\sin \pi x$ in a series of functions $\varphi_{i}$ that are orthogonal (but not normalized) on the range $0 \leq x \leq 1$ when the scalar product has definition
+$$
+\langle f \mid g\rangle=\int_{0}^{1} f^{*}(x) g(x) d x
+$$
+Keep the first four terms of the expansion. The first four $\varphi_{i}$ are:
+$$
+\varphi_{0}=1, \quad \varphi_{1}=2 x-1, \quad \varphi_{2}=6 x^{2}-6 x+1, \quad \varphi_{3}=20 x^{3}-30 x^{2}+12 x-1
+$$
+Note. The integrals that are needed are the subject of Example 1.10 .5 .
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Consider the function:
+$\sin (\pi x)$
+Expand the function $\sin (\pi x)$ in a series of functions $\phi_{i}$ which are orthogonal. Write the function $\sin (\pi x)$ in a series of functions $\phi_{i}$ as,
+$$
+\sin (\pi x)=\sum_{i} \frac{\left\langle\phi_{i} \mid \sin \pi x\right\rangle}{\left\langle\phi_{i}, \phi_{i}\right\rangle} \phi_{i}(x)
+$$
+Here, $\phi_{0}=1, \phi_{1}=2 x-1, \phi_{2}=6 x^{2}-6 x+1, \phi_{3}=20 x^{3}-30 x^{2}+12 x-1$
+The integrals are calculated as,
+$$
+\begin{aligned}
+\left\langle\phi_{0} \mid \phi_{0}\right\rangle &=\int_{0}^{1} d x \\
+&=(x)_{0}^{1} \\
+&=1
+\end{aligned}
+$$
+$$
+\left\langle\phi_{1} \mid \phi_{1}\right\rangle=\int_{0}^{1}(2 x-1)^{2} d x
+$$
+$$\left\langle\phi_{1} \mid \phi_{1}\right\rangle=\int_{0}^{1}\left(4 x^{2}-4 x+1\right) d x$$
+$$\left\langle\phi_{1} \mid \phi_{1}\right\rangle=\left(\frac{4 x^{3}}{3}-2 x^{2}+x\right)_{0}^{1}$$
+$$\left\langle\phi_{1} \mid \phi_{1}\right\rangle=\left(\frac{4}{3}-2+1\right)$$
+$$\left\langle\phi_{1} \mid \phi_{1}\right\rangle=\frac{1}{3}$$
+$$
+\begin{aligned}
+\left\langle\phi_{2} \mid \phi_{2}\right\rangle &=\int_{0}^{1}\left(6 x^{2}-6 x+1\right)^{2} d x \\
+&=\int_{0}^{1}\left(36 x^{4}-72 x^{3}+48 x^{2}-12 x+1\right) d x \\
+&=\left(\frac{36 x^{5}}{5}-18 x^{4}+16 x^{3}-6 x^{2}+x\right)_{0}^{1} \\
+&=\frac{36}{5}-18+16-6+1 \\
+&=\frac{1}{5}
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\left\langle\phi_{3} \mid \phi_{3}\right\rangle &=\int_{0}^{1}\left(20 x^{3}-30 x^{2}+12 x-1\right)^{2} d x \\
+&=\int_{0}^{1}\left(400 x^{6}-1200 x^{5}+1380 x^{4}-760 x^{3}+204 x^{2}-24 x+1\right) d x \\
+&=\left(\frac{400 x^{7}}{7}-200 x^{6}+276 x^{5}-190 x^{4}+68 x^{3}-12 x^{2}+x\right)_{0}^{1} \\
+&=\frac{400}{7}-200+276-190+68-12+1 \\
+&=\frac{1}{7}
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\left\langle\phi_{0} \mid f\right\rangle &=\int_{0}^{1} \sin \pi x d x \\
+&=\left(\frac{-\cos \pi x}{\pi}\right)_{0}^{1} \\
+&=-\left(\frac{\cos \pi(1)}{\pi}-\frac{\cos \pi(0)}{\pi}\right) \\
+&=-\left(\frac{-1}{\pi}-\frac{1}{\pi}\right) \\
+&=\frac{2}{\pi}
+\end{aligned}
+$$
+The value of $\left\langle\phi_{1} \mid f\right\rangle$ is,
+$$\langle\phi \mid f\rangle=\int_{0}^{1}(2 x-1) \sin (\pi x) d x$$
+$$\quad=\left(\frac{2 \sin (\pi x)+(\pi-2 \pi x) \cos (\pi x)}{\pi^{2}}\right)_{0}^{1}$$
+Using $\int_{0}^{1}(2 x-1) \sin (\pi x) d x=\frac{2 \sin (\pi x)+(\pi-2 \pi x) \cos (\pi x)}{\pi^{2}}$
+$$=\frac{2 \sin (\pi \cdot 1)+(\pi-2 \pi \cdot 1) \cos (\pi \cdot 1)}{\pi^{2}}-$$
+$$=\frac{2 \sin (\pi \cdot 0)+(\pi-2 \pi \cdot 0) \cos (\pi \cdot 0)}{\pi^{2}}$$
+$$=\frac{2(0)+(-\pi) \cdot 1}{\pi^{2}}-\left(\frac{2(0)+(-\pi) 1}{\pi^{2}}\right)$$
+$$=0$$
+$$
+\left\langle\varphi_{2} \mid f\right\rangle=\frac{2}{\pi}-\frac{24}{\pi^{3}}
+$$
+$$
+\left\langle\varphi_{3} \mid f\right\rangle=0
+$$
+$$
+\sin \pi x=\frac{2 / \pi}{1} \varphi_{0}+\frac{2 / \pi-24 / \pi^{3}}{1 / 5} \varphi_{2}+\cdots
+$$
+$$\sin(\pi x) =0.6366-0.6871\left(6 x^{2}-6 x+1\right)+\cdots $$
+
+
+\begin{greenbox}{5.1.9}
+Expand the function $e^{-x}$ in Laguerre polynomials $L_{n}(x),$ which are orthonormal on the range $0 \leq x<\infty$ with scalar product
+$$
+\langle f \mid g\rangle=\int_{0}^{\infty} f^{*}(x) g(x) e^{-x} d x
+$$
+Keep the first four terms of the expansion. The first four $L_{n}(x)$ are
+$$
+L_{0}=1, \quad L_{1}=1-x, \quad L_{2}=\frac{2-4 x+x^{2}}{2}, \quad L_{3}=\frac{6-18 x+9 x^{2}-x^{3}}{6}
+$$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ The value of $a_0$ is
+$$
+\begin{aligned}
+a_{0} &=\int_{0}^{\infty} L_{0}(x) e^{-2 x} d x \\
+&=\int_{0}^{\infty} e^{-2 x} d x \\
+&=\left(\frac{e^{-2 x}}{-2}\right)_{0}^{\infty} \\
+&=\frac{-1}{2}\left(e^{-2(\alpha)}-e^{0}\right) \\
+=& \frac{-1}{2}(0-1) \\
+=& \frac{1}{2}
+\end{aligned}
+$$
+The value of $a_1$ is
+$$
+\begin{aligned}
+a_{1} &=\int_{0}^{\infty} L_{1}(x) e^{-2 x} d x \\
+&=\int_{0}^{\infty}(1-x) e^{-2 x} d x \\
+&=\left(\frac{1}{4} e^{-2 x}(2 x-1)\right)_{0}^{\infty}
+\end{aligned}
+$$
+$$
+=\frac{1}{4}\left(e^{-2(\infty)}(2(\infty)-1)-e^{0}(2(0)-1)\right)
+$$
+$$=\frac{1}{4}(0+1)$$
+$$=\frac{1}{4}$$
+The value of $a_2$ is
+$$
+\begin{aligned}
+a_{2} &=\int_{0}^{\infty} L_{2}(x) e^{-2 x} d x \\
+&=\int_{0}^{\infty}\left(\frac{2-4 x+x^{2}}{2}\right) e^{-2 x} d x \\
+&=\left(\frac{-1}{8} e^{-2 x}\left(1-6 x+2 x^{2}\right)\right)_{0}^{\infty}
+\end{aligned}
+$$
+The value of $a_{3}$ is,
+$$
+\begin{aligned}
+a_{3} &=\int_{0}^{\infty} L_{3}(x) e^{-2 x} d x \\
+&=\int_{0}^{\infty}\left(\frac{6-18 x+9 x^{2}-x^{3}}{6}\right) e^{-2 x} d x
+\end{aligned}
+$$
+$$
+=\left(\frac{1}{48} e^{-2 x}\left(4 x^{3}-30 x^{2}+42 x-3\right)\right)_{0}^{\infty}
+$$
+$$=\frac{3}{48}$$
+$$=\frac{1}{16}$$
+Thus, the expansion of $e^{-x}$ is
+$$
+e^{-x}=a_{0} L_{0}(x)+a_{1} L_{1}(x)+a_{2} L_{2}(x)+a_{3} L_{3}(x)+\cdots
+$$
+$$
+=\frac{1}{2}(1)+\frac{1}{4}(1-x)+\frac{1}{8}\left(\frac{2-4 x+x^{2}}{2}\right)+\frac{1}{16}\left(\frac{6-18 x+9 x^{2}-x^{3}}{6}\right)+\cdots
+$$
+
+
+
+\begin{greenbox}{5.1.10}
+The explicit form of a function $f$ is not known, but the coefficients $a_{n}$ of its expansion in the orthonormal set $\varphi_{n}$ are available. Assuming that the $\varphi_{n}$ and the members of another orthonormal set, $\chi_{n},$ are available, use Dirac notation to obtain a formula for the coefficients for the expansion of $f$ in the $\chi_{n}$ set.
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ The coefficients of $f$ in the $\phi$ basis are $a_{i}=\left\langle\phi_{i} \mid f\right\rangle,$ so the above equation is equivalent to,
+$$
+f=\sum_{j} b_{j} \chi_{j}
+$$
+Here, $b_{j}=\sum_{j}\left\langle\chi_{j} \mid \phi_{i}\right\rangle a_{i}$
+
+
+\begin{greenbox}{5.1.11}
+Using conventional vector notation, evaluate $\sum_{j}\left|\hat{\mathbf{e}}_{j}\right\rangle\left\langle\hat{\mathbf{e}}_{j} \mid \mathbf{a}\right\rangle,$ where a is an arbitrary vector in the space spanned by the $\hat{\mathbf{e}}_{j}$
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$  We assume the unit vectors are orthogonal. Then,
+$$
+\sum_{j}\left|\hat{\mathbf{e}}_{j}\right\rangle\left\langle\hat{\mathbf{e}}_{j} \mid \mathbf{a}\right\rangle=\sum_{j}\left(\hat{\mathbf{e}}_{j} \cdot \mathbf{a}\right) \hat{\mathbf{e}}_{j}
+$$
+This expression is a component decomposition of a.
+
+\begin{greenbox}{5.1.12}
+Letting a $=a_{1} \hat{\mathrm{e}}_{1}+a_{2} \hat{\mathrm{e}}_{2}$ and $\mathbf{b}=b_{1} \hat{\mathrm{e}}_{1}+b_{2} \hat{\mathrm{e}}_{2}$ be vectors in $\mathbb{R}^{2},$ for what values of $k,$ if
+any, is
+$$
+\langle\mathbf{a} \mid \mathbf{b}\rangle=a_{1} b_{1}-a_{1} b_{2}-a_{2} b_{1}+k a_{2} b_{2}
+$$
+a valid definition of a scalar product?
+\end{greenbox}
+
+$\boxed{\textbf{Solution}}$ Consider the two vectors:
+$$\mathbf{a}=a_{1} \mathbf{e}_{1}+a_{2} \mathbf{e}_{2}$$ 
+and 
+$$b=b_{1} \mathbf{e}_{1}+b_{2} \mathbf{e}_{2}$$
+The objective is to for what values of $k$ the scalar product 
+$$\langle\mathbf{a} \mid \mathbf{b}\rangle=a_{1} b_{1}-a_{1} b_{2}-a_{2} b_{1}+k a_{2} b_{2}$$
+is valid. The scalar product $\langle\mathbf{a} \mid \mathbf{a}\rangle$ must be positive for every non-zero vector in the space. If we write
+$\langle\mathbf{a} \mid \mathbf{a}\rangle$ in the form,
+$$
+\begin{aligned}
+\langle\mathbf{a} \mid \mathbf{a}\rangle &=a_{1} a_{1}-a_{1} a_{2}-a_{2} a_{1}+k a_{2} a_{2} \\
+&=a_{1}^{2}-2 a_{1} a_{2}+k a_{2}^{2} \\
+&=\left(a_{1}^{2}-2 a_{1} a_{2}+a_{2}^{2}\right)-a_{2}^{2}+k a_{2}^{2} \\
+&=\left(a_{1}-a_{2}\right)^{2}-a_{2}^{2}+k a_{2}^{2}
+\end{aligned}
+$$
+$$
+=\left(a_{1}-a_{2}\right)^{2}+(k-1) a_{2}^{2}
+$$
+This condition is violated for some non-zero vector a unless $k>1$.
+Therefore, the scalar product is valid when $k>1$.
+
+
+
+
+
+
+
+
+
+\end{document}
+

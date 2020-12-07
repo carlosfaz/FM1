@@ -1,0 +1,7 @@
+\babel@toc {english}{}
+\contentsline {subsection}{\numberline {}Chapter 2.2: Matrices}{1}{chapter*.2}%
+\contentsline {subsection}{\numberline {}Chapter 3.2: Vectors in 3D-Space}{25}{chapter*.3}%
+\contentsline {subsection}{\numberline {}Chapter 3.3: Coordinate Transformation}{33}{chapter*.4}%
+\contentsline {subsection}{\numberline {}Chapter 3.4: Rotations in R$^3$}{39}{chapter*.5}%
+\contentsline {subsection}{\numberline {}Chapter 13.1: Gamma function}{43}{chapter*.6}%
+\contentsline {subsection}{\numberline {}Chapter 13.4: Stirling's Series}{65}{chapter*.7}%
