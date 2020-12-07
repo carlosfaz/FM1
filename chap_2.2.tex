@@ -1,0 +1,1752 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{bbm}
+\usepackage{enumerate}
+\pagestyle{plain}
+\usepackage{yfonts}
+\usepackage{ragged2e}
+
+
+\usepackage{titling}
+\setlength{\droptitle}{-7em} 
+
+
+\def\Tiny{\fontsize{4pt}{4pt}\selectfont}
+\newcommand*{\eqdef}{\ensuremath{\overset{\mathclap{\text{\Tiny def}}}{=}}}
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={160mm,257mm},
+ left=24mm,
+ top=20mm,
+ }
+ 
+ \usepackage{tcolorbox}
+\newtcolorbox{mybox}[1]{colback=blue!5!white,colframe=blue!42!black,fonttitle=\bfseries,title=Problem #1}
+ 
+
+\title{Title}
+\author{Carlos Faz}
+\date{ \ }
+
+\begin{document}
+
+\maketitle
+
+\begin{flushleft}
+
+
+\begin{mybox}{2.2.1}
+Show that matrix multiplication is associative, $(\mathbf{A}\mathbf{B}) \mathbf{C}=\mathbf{A}(\mathbf{B}\mathbf{C})$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ The product $\mathbf{BC}$ is defined because the column of $\mathbf{B}$ and rows of $\mathbf{C}$ are same.
+Suppose $\mathbf{D}=\mathbf{BC}$
+Then element of $\mathbf{D}$ is of the form
+$$d_{ik}=\sum_{j} b_{ij} c_{j k}$$
+Now the product $\mathbf{AD}$ is defined because the column of $\mathbf{A}$ and rows of $\mathbf{D}$ are same. Then element of $\mathbf{E}$ is of the form
+$$e_{l k}=\sum_{k} a_{l i}\left(\sum_{j} b_{i j} c_{j k}\right)$$
+Therefore, the matrix $\mathbf{E}=\mathbf{A}(\mathbf{B} \mathbf{C})$ have the elements $e_{lk}$. The product $\mathbf{AB}$ is defined because the column of $\mathbf{A}$ and rows of $\mathbf{B}$ are same. Let, $\mathbf{D}=\mathbf{AB}$. Then element of $\mathbf{D}$ is of the form
+$$d_{l j}=\sum_{i} a_{li} b_{i j}$$
+Now the product $\mathbf{D C}$ is defined because the column of $\mathbf{D}$ and rows of $\mathbf{C}$ are same. Let, $\mathbf{E}=\mathbf{D C}$. Then element of $\mathbf{D}$ is of the form
+$$e_{lk}=\sum_{j}\left(\sum_{i} a_{li} b_{i j}\right) c_{j k}$$
+Therefore, the matrix $\mathbf{E}=(\mathbf{A} \mathbf{B}) \mathbf{C}$ have the elements $e_{lk}$
+Therefore,
+$$\mathbf{A}(\mathbf{B} \mathbf{C})=(\mathbf{A} \mathbf{B}) \mathbf{C}$$
+Hence, matrix multiplication is associative.
+
+
+\begin{mybox}{2.2.2}
+Show that
+$$
+(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=\mathbf{A}^{2}-\mathbf{B}^{2}
+$$
+if and only if $\mathbf{A}$ and $\mathbf{B}$ commute
+$$[\mathbf{A}, \mathbf{B}]=0$$
+\end{mybox}
+$\boxed{\textbf{Solution}}$ 
+$$(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=(\mathbf{A}-\mathbf{B})(\mathbf{A}+\mathbf{B})=\mathbf{A}(\mathbf{A}+\mathbf{B})-\mathbf{B}(\mathbf{A}+\mathbf{B})$$
+$$(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=\mathbf{A}^2+\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A}-\mathbf{B}^2$$
+$$(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=\mathbf{A}^2-\mathbf{B}^2+(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})$$
+Because $\mathbf{A}$ and $\mathbf{B}$ conmute, the term $(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})$ equals to zero, hence is proved.
+$$(\mathbf{A}+\mathbf{B})(\mathbf{A}-\mathbf{B})=\mathbf{A}^2 -\mathbf{B}^2$$
+
+
+
+
+
+
+\begin{mybox}{2.2.3}
+\begin{enumerate}[$(a)$]
+\item Complex numbers, $a+i b,$ with $a$ and $b$ real, may be represented by (or are isomorphic with) $2 \times 2$ matrices:
+$$
+a+i b \longleftrightarrow\begin{bmatrix}{a} & {b} \\ {-b} & {a}\end{bmatrix}
+$$
+Show that this matrix representation is valid for 
+\begin{enumerate}[(i)]
+\item addition
+\item multiplication
+\end{enumerate}
+\item Find the matrix corresponding to $(a+i b)^{-1}$.
+\end{enumerate}
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$  $(a)$ Let us start with addition. For complex numbers, we have (straightforwardly)
+$$
+(a+i b)+(c+i d)=(a+c)+i(b+d)
+$$
+whereas, if we used matrices we would get
+$$\begin{bmatrix}{a} & {b} \\ {-b} & {a}\end{bmatrix}+\begin{bmatrix}{c} & {d} \\ {-d} & {c}\end{bmatrix}=\begin{bmatrix}{(a+c)} & {(b+d)} \\ {-(b+d)} & {(a+c)}\end{bmatrix}$$
+which shows that the sum of matrices yields the proper representation of the complex number $(a+c)+i(b+d)$. We now handle multiplication in the same manner. First, we have
+$$(a+i b)(c+i d)=(a c-b d)+i(a d+b c)$$
+while matrix multiplication gives
+$$
+\begin{bmatrix}{a} & {b} \\ {-b} & {a}\end{bmatrix}\begin{bmatrix}{c} & {d} \\ {-d} & {c}\end{bmatrix}=\begin{bmatrix}{(a c-b d)} & {(a d+b c)} \\ {-(a d+b c)} & {(a c-b d)}\end{bmatrix}
+$$
+which is again the correct result.
+
+
+
+
+$\boxed{\textbf{Solution}}$  $(b)$ Find the matrix oorresponding to $(a+i b)^{-1}$ We can find the matrix in two ways. We first do standand complex arithmetic
+$$
+(a+i b)^{-1}=\frac{1}{a+i b}=\frac{a-i b}{(a+i b)(a-i b)}=\frac{1}{a^{2}+b^{2}}(a-i b)
+$$
+This corresponds to the $2 \times 2$ matrix
+$$
+(a+i b)^{-1} \longleftrightarrow \frac{1}{a^{2}+b^{2}}\begin{bmatrix}{a} & {-b} \\ {b} & {a}\end{bmatrix}
+$$
+Alternatively, we first convert to a matrix representation, and then find the inverse
+matrix
+$$
+(a+i b)^{-1} \leftrightarrow\begin{bmatrix}{a} & {b} \\ {-b} & {a}\end{bmatrix}^{-1}=\frac{1}{a^{2}+b^{2}}\begin{bmatrix}{a} & {-b} \\ {b} & {a}\end{bmatrix}
+$$
+Either way, we obtain the same result.
+
+\newpage
+
+
+
+\begin{mybox}{2.2.4}
+If $\mathbf{A}$ is an $n \times n$ matrix, show that
+$$
+\operatorname{det}(-\mathbf{A})=(-1)^{n} \text { det } \mathbf{A}.
+$$
+\end{mybox}
+$\boxed{\textbf{Solution}}$ 
+An elementary deinition of the determinant of a matrix $\mathbf{A}=(a_{i,j})$ is given by the expression 
+$$\det(\mathbf{A})=\sum_{\pi}s(\pi)a_{1,\pi(1)}\cdots a_{n,\pi(n)}$$
+where the sum is extended over all permutations of the set ${1,...,n}$ and $s(\pi)=\pm 1$ is the sign of the permutation $\pi$. Since each summand is the product of exactly $n$ of the entries of the matrix, if you reverse all the signs each summand--and so the whole sum-will be altered by a factor of $(-1)^{n}.$
+
+
+
+
+\begin{mybox}{2.2.5}
+\begin{enumerate}[$(a)$]
+\item The matrix equation $\mathbf{A}^{2}=0$ does not imply $\mathbf{A}=0 .$ Show that the most general
+$2 \times 2$ matrix whose square is zero may be written as
+$$
+\begin{bmatrix}{a b} & {b^{2}} \\ {-a^{2}} & {-a b}\end{bmatrix}
+$$
+where $a$ and $b$ are real or complex numbers.
+\item If $\mathbf{C}=\mathbf{A}+\mathbf{B}$, in general
+$$
+\text { det } \mathbf{C}\neq \operatorname{det} \mathbf{A}+\text { det } \mathbf{B} \text.
+$$
+Construct a specific numerical example to illustrate this inequality.
+\end{enumerate}
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$ first we check the condition
+$$
+\left(\begin{array}{cc}
+a b & b^{2} \\
+-a^{2} & -a b
+\end{array}\right) \times\left(\begin{array}{cc}
+a b & b^{2} \\
+-a^{2} & -a b
+\end{array}\right)=\left(\begin{array}{cc}
+a^{2} b^{2}-a^{2} b^{2} & a b^{3}-a b^{3} \\
+-a^{3} b+a^{3} b & -a^{2} b^{2}+a^{2} b^{2}
+\end{array}\right)=0
+$$
+Therefore, the $2\times 2$ matrix square is zero
+
+$\boxed{\textbf{Solution}}$ For $(b)$ we know $\mathrm{C}=\mathrm{A}+\mathrm{B},$ let us consider following matrices to show that
+$$
+\operatorname{det} C \neq \operatorname{det} A+\operatorname{det} B
+$$
+Now, let
+$$
+A=\left(\begin{array}{ll}
+1 & 0 \\
+0 & 1
+\end{array}\right), B=\left(\begin{array}{ll}
+1 & 0 \\
+0 & 1
+\end{array}\right)
+$$
+then 
+$$
+C=\left(\begin{array}{ll}
+2 & 0 \\
+0 & 2
+\end{array}\right)
+$$
+$$
+\begin{array}{l}
+\operatorname{det} A=1-0=1 \\
+\operatorname{det} B=1-0=1 \\
+\operatorname{det} C=4-0=4
+\end{array}
+$$
+From this
+$$
+\begin{array}{l}
+\operatorname{det} C \neq \operatorname{det} A+\operatorname{det} B \\
+4 \neq 2
+\end{array}
+$$
+Therefore, the following matrix satisfies the condition
+
+
+\begin{mybox}{2.2.6}
+Given
+$$
+\mathbf{K}=\begin{bmatrix}{0} & {0} & {i} \\ {-i} & {0} & {0} \\ {0} & {-1} & {0}\end{bmatrix}
+$$
+show that
+$$
+\mathbf{K}^{n}=\mathbf{KKK} \ \cdots \ (n \text { factors})=1
+$$
+(with the proper choice of $n, n \neq 0$ ).
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ We calculate for different $n$
+$$\mathbf{K}^2 = \begin{bmatrix}{0} & {-i} & {0} \\ {0} & {0} & {1} \\ {i} & {0} & {0}\end{bmatrix} \quad \mathbf{K}^3=\begin{bmatrix}{-1} & {0} & {0} \\ {0} & {-1} & {0} \\ {0} & {0} & {-1}\end{bmatrix} \quad \mathbf{K}^4 = \begin{bmatrix}{0} & {0} & {-i} \\ {i} & {0} & {0} \\ {0} & {1} & {0}\end{bmatrix}$$
+$$\mathbf{K}^5 = \begin{bmatrix}{0} & {i} & {0} \\ {0} & {0} & {-1} \\ {-i} & {0} & {0}\end{bmatrix} \quad \mathbf{K}^6 = \begin{bmatrix}{1} & {0} & {0} \\ {0} & {1} & {0} \\ {0} & {0} & {1}\end{bmatrix}$$
+With this, the answer is $n=6$
+
+
+
+\begin{mybox}{2.2.7}
+Verify the Jacobi identity,
+$$[\mathbf{A},[\mathbf{B}, \mathbf{C}]]=[\mathbf{B},[\mathbf{A}, \mathbf{C}]]-[\mathbf{C},[\mathbf{A}, \mathbf{B}]]$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ 
+
+$$
+\begin{aligned}
+[\mathbf{A}[\mathbf{B}, \mathbf{C}]]&=[\mathbf{A}, \mathbf{B} \mathbf{C}-\mathbf{C} \mathbf{B}]=\mathbf{A}(\mathbf{B} \mathbf{C}-\mathbf{C} \mathbf{B})-(\mathbf{B} \mathbf{C}-\mathbf{C} \mathbf{B}) \mathbf{A} \\
+[\mathbf{A}[\mathbf{B}, \mathbf{C}]]&=\mathbf{A}(\mathbf{B} \mathbf{C})-\mathbf{A}(\mathbf{C} \mathbf{B})-(\mathbf{B} \mathbf{C}) \mathbf{A}+(\mathbf{C} \mathbf{B}) \mathbf{A} \\
+[\mathbf{B}[\mathbf{C}, \mathbf{A}]]&=[\mathbf{B}, \mathbf{C} \mathbf{A}-\mathbf{A} \mathbf{C}]=\mathbf{B}(\mathbf{C A}-\mathbf{A} \mathbf{C})-(\mathbf{C A}-\mathbf{A} \mathbf{C}) \mathbf{B} \\
+[\mathbf{B}[\mathbf{C}, \mathbf{A}]]&=\mathbf{B}(\mathbf{C} \mathbf{A})-\mathbf{B}(\mathbf{A} \mathbf{C})-(\mathbf{C} \mathbf{A}) \mathbf{B}+(\mathbf{A} \mathbf{C}) \mathbf{B} \\
+[\mathbf{C}[\mathbf{A}, \mathbf{B}]]&=[\mathbf{C}, \mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A}]=\mathbf{C}(\mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A})-(\mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A}) \mathbf{C} \\
+[\mathbf{C}[\mathbf{A}, \mathbf{B}]]&=\mathbf{C}(\mathbf{A} \mathbf{B})-\mathbf{C}(\mathbf{B} \mathbf{A})-(\mathbf{A} \mathbf{B}) \mathbf{C}+(\mathbf{B} \mathbf{A}) \mathbf{C} \\
+\end{aligned}
+$$
+
+$\mathbf{A}, \mathbf{B}, \mathbf{C}$ are obey associative law $ \mathbf{C}(\mathbf{A} \mathbf{B})=(\mathbf{C} \mathbf{A}) \mathbf{B},$ $\mathbf{C}(\mathbf{B} \mathbf{A})=(\mathbf{C} \mathbf{B}) \mathbf{A},$ $(\mathbf{A} \mathbf{B}) \mathbf{C}=\mathbf{A}(\mathbf{B} \mathbf{C})$ and $(\mathbf{B} \mathbf{A}) \mathbf{C}=\mathbf{B}(\mathbf{A} \mathbf{C})$
+$$
+\begin{aligned}
+[\mathbf{C}[\mathbf{A}, \mathbf{B}]]&=(\mathbf{C} \mathbf{A}) \mathbf{B}-(\mathbf{C} \mathbf{B}) \mathbf{A}-\mathbf{A}(\mathbf{B} \mathbf{C})+\mathbf{B}(\mathbf{A} \mathbf{C}) \\
+[\mathbf{C}[\mathbf{A}, \mathbf{B}]]&=[\mathbf{A},[\mathbf{B}, \mathbf{C}]]+[\mathbf{B}[\mathbf{C}, \mathbf{A}]]+[\mathbf{C}[\mathbf{A}, \mathbf{B}]] \\
+&=(\mathbf{A}(\mathbf{B} \mathbf{C})-\mathbf{A}(\mathbf{C} \mathbf{B})-(\mathbf{B} \mathbf{C}) \mathbf{A}+(\mathbf{C} \mathbf{B}) \mathbf{A})+(\mathbf{B}(\mathbf{C} \mathbf{A})-\mathbf{B}(\mathbf{A} \mathbf{C})-(\mathbf{C} \mathbf{A}) \mathbf{B} \\
+&+(\mathbf{A} \mathbf{C}) \mathbf{B})+(\mathbf{C} \mathbf{A}) \mathbf{B}-(\mathbf{C} \mathbf{B}) \mathbf{A}-\mathbf{A}(\mathbf{B} \mathbf{C})+\mathbf{B}(\mathbf{A} \mathbf{C})=0
+\end{aligned}
+$$
+
+\begin{mybox}{2.2.8}
+Show that the matrices
+$$\mathbf{A}=\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}, \quad \mathbf{B}=\begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix}, \quad \mathbf{C}=\begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}$$
+satisfy the commutation relations
+$$
+[\mathbf{A}, \mathbf{B}]=\mathbf{C}, \quad[\mathbf{A}, \mathbf{C}]=0, \quad \text { and } \quad[\mathbf{B}, \mathbf{C}]=0
+$$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ We simply multiply the matrices
+$$\mathbf{C}=[\mathbf{A}, \mathbf{B}] = \mathbf{\mathbf{AB}}- \mathbf{BA}$$
+$$\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix} \begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix} - \begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix}\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix} = C$$
+
+$$[\mathbf{A}, \mathbf{C}] = A\mathbf{C}-\mathbf{C}\mathbf{A} = 0$$
+
+$$\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix} \begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}- \begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}\begin{bmatrix}{0} & {1} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix} = 0$$
+
+$$[\mathbf{B}, \mathbf{C}] = \mathbf{BC}-\mathbf{C}\mathbf{B} = 0$$
+
+$$\begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix}\begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}- \begin{bmatrix}{0} & {0} & {1} \\ {0} & {0} & {0} \\ {0} & {0} & {0}\end{bmatrix}\begin{bmatrix}{0} & {0} & {0} \\ {0} & {0} & {1} \\ {0} & {0} & {0}\end{bmatrix} = 0 $$
+
+\begin{mybox}{2.2.9}
+Let
+$$
+i=\begin{bmatrix}{0} & {1} & {0} & {0} \\ {-1} & {0} & {0} & {0} \\ {0} & {0} & {0} & {1} \\ {0} & {0} & {-1} & {0}\end{bmatrix}, \quad j=\begin{bmatrix}{0} & {0} & {0} & {-1} \\ {0} & {0} & {-1} & {0} \\ {0} & {1} & {0} & {0} \\ {1} & {0} & {0} & {0}\end{bmatrix} \quad k=\begin{bmatrix}{0} & {0} & {-1} & {0} \\ {0} & {0} & {0} & {1} \\ {1} & {0} & {0} & {0} \\ {0} & {-1} & {0} & {0}\end{bmatrix}
+$$
+
+\begin{enumerate}[$(a)$]
+\item $i^{2}=j^{2}=k^{2}=-I,$ where $\mathbf{I}$ is the unit matrix. 
+\item $ij=-ji=k$, $jk=-k j=i$, $ki=-ik=j$
+\end{enumerate}
+
+These three matrices $(i, j,$ and $k)$ plus the unit matrix 1 form a basis for quaternions. An alternate basis is provided by the four 2 $\times 2$ matrices, $i \sigma_{1}, i \sigma_{2},-i \sigma_{3},$ and $1,$ where the $\sigma_{i}$ are the Pauli spin matrices of Example 2.2.1.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$i^2=j^2 = k^2 =\begin{bmatrix}{-1} & {0} & {0} & {0} \\ {0} & {-1} & {0} & {0} \\ {0} & {0} & {-1} & {0} \\ {0} & {0} & {0} & {-1}\end{bmatrix}$$
+$$ij = -ij = k =\begin{bmatrix}{0} & {0} & {-1} & {0} \\ {0} & {0} & {0} & {1} \\ {1} & {0} & {0} & {0} \\ {0} & {-1} & {0} & {0}\end{bmatrix} $$
+$$jk=-kj=i=\begin{bmatrix}{0} & {1} & {0} & {0} \\ {-1} & {0} & {0} & {0} \\ {0} & {0} & {0} & {1} \\ {0} & {0} & {-1} & {0}\end{bmatrix}$$
+$$ki=-ik=j = \begin{bmatrix}{0} & {0} & {0} & {-1} \\ {0} & {0} & {-1} & {0} \\ {0} & {1} & {0} & {0} \\ {1} & {0} & {0} & {0}\end{bmatrix}$$
+
+\newpage
+
+
+\begin{mybox}{2.2.10}
+A matrix with elements $a_{i j}=0$ for $j<i$ may be called upper right triangular. The
+elements in the lower left (below and to the left of the main diagonal) vanish. Show that
+the product of two uper right triangular matrices is an upper right triangular matrix. 
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ We build 2 matrix with terms $a,b,c,x,y,z$ that can take any number
+$$\begin{bmatrix}{a} & {b} & {c} \\ {0} & {d} & {e} \\ {0} & {0} & {0}\end{bmatrix} \times\begin{bmatrix}{x} & {y} & {z} \\ {0} & {u} & {w} \\ {0} & {0} & {0}\end{bmatrix}=\begin{bmatrix}{a\times x} & {b \times u+a\times y} & {b \times w+a\times z} \\ {0} & {d \times u} & {d \times w} \\ {0} & {0} & {0}\end{bmatrix}$$
+Hence is demostrated that the product of two upper right triangular matrices is an upper right triagular matrix.
+
+
+\begin{mybox}{2.2.11}
+The three Pauli spin matrices are
+$$
+\sigma_{1}=\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}, \quad \sigma_{2}=\begin{bmatrix}{0} & {-i} \\ {i} & {0}\end{bmatrix}, \quad \text { and } \quad \sigma_{3}=\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}
+$$
+Show that
+
+\begin{enumerate}[$(a)$]
+\item $\left(\sigma_{i}\right)^{2}=\hat{1}_{2}$
+\item $\sigma_{i} \sigma_{j}=i \sigma_{k},(i, j, k)=(1,2,3)$ or a cyclic permutation thereof,
+\item $\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=2 \delta_{i j} \hat{1}_{2} ; \quad \hat{1}_{2}$ is the $2 \times 2$ unit matrix.
+\end{enumerate}
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ For $i=1, j=2, k=3$
+$$\sigma_{i} \sigma_{j} = \sigma_{1} \sigma_{2} = \begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}\begin{bmatrix}{0} & {-1} \\ {1} & {0}\end{bmatrix}=\begin{bmatrix}{i} & {0} \\ {0} & {-i}\end{bmatrix}=i\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}= i\sigma_3 = i\sigma_k$$
+For $i=2, j=3, k=1$
+$$\sigma_{i} \sigma_{j}=\sigma_{2} \sigma_{3}=\begin{bmatrix}{0} & {i} \\ {i} & {0}\end{bmatrix}\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}=\begin{bmatrix}{0} & {i} \\ {i} & {0}\end{bmatrix}=i\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix} = i\sigma_3 = i\sigma_k$$
+For $i=2, j=3, k=1$
+$$\sigma_{i}\sigma_j = \sigma_3\sigma_1=\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}=\begin{bmatrix}{0} & {1} \\ {-1} & {0}\end{bmatrix}=i\begin{bmatrix}{0} & {-i} \\ {i} & {0}\end{bmatrix}=i\sigma_2 = i\sigma_k$$
+So, we conclude that $\sigma_1\sigma_j = i\sigma_k$
+
+
+
+
+$\boxed{\textbf{Solution}}$  $(c)$ For this proof we need only to work out the commutation relation and use the proofs done in part $(a)$ and $(b)$
+$$\sigma_{2} \sigma_{1}=\begin{bmatrix}{0} & {-i} \\ {i} & {0}\end{bmatrix}\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}=\begin{bmatrix}{-1} & {0} \\ {0} & {i}\end{bmatrix}=-i\begin{bmatrix}{1} & {0} \\ {0} & {1}\end{bmatrix} = -i\sigma_3$$
+$$\sigma_{1} \sigma_{3}=\begin{bmatrix}{0} & {1} \\ {1} & {0}\end{bmatrix}\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}=\begin{bmatrix}{0} & {-1} \\ {1} & {0}\end{bmatrix}=-i\begin{bmatrix}{0} & {i} \\ {-i} & {0}\end{bmatrix}=-i \sigma_{2}$$
+$$\sigma_{3} \cdot \sigma_{2}=\begin{bmatrix}{1} & {0} \\ {0} & {-1}\end{bmatrix}\begin{bmatrix}{0} & {-i} \\ {i} & {0}\end{bmatrix}=\begin{bmatrix}{0} & {-i} \\ {-i} & {0}\end{bmatrix}=-i\begin{bmatrix}{0} & {i} \\ {1} & {0}\end{bmatrix} = -i\sigma_1$$
+$$\left.\begin{array}{l}{\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=\sigma_{i} \sigma_{j}-\sigma_{i} \sigma_{j}=0} \vspace{3mm} \\ {\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=2 \sigma_{i}^{2}}\end{array}\right\} \begin{array}{l}{\text { for } j \neq i} \\ {\text { for } j=i}\end{array}$$
+since $\sigma_{i}^{2}=1$ and using the kronecker delta we have
+$$\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=2 \delta_{i j} 1$$
+
+
+
+\begin{mybox}{2.2.12}
+One description of spin$-$1 particles uses the matrices
+$$
+\mathbf{M}_{x}=\frac{1}{\sqrt{2}}\begin{bmatrix}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{bmatrix}, \quad \mathbf{M}_{y}=\frac{1}{\sqrt{2}}\begin{bmatrix}{0} & {-i} & {0} \\ {i} & {0} & {-i} \\ {0} & {i} & {0}\end{bmatrix}
+$$
+and
+$$\mathbf{M}_{z}=\begin{bmatrix}{1} & {0} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {-1}\end{bmatrix}$$
+
+\begin{enumerate}[$(a)$]
+\item $\left[\mathbf{M}_{x}, \mathbf{M}_{y}\right]=i \mathbf{M}_{z},$ and so on (cyclic permutation of indices). Using the Levi-Civita
+symbol, we may write
+$$
+\left[\mathbf{M}_{i}, \mathbf{M}_{j}\right]=i \sum_{k} \varepsilon_{i j k} \mathbf{M}_{k}
+$$
+\item $\mathbf{M}^{2} \equiv \mathbf{M}_{x}^{2}+\mathbf{M}_{y}^{2}+\mathbf{M}_{z}^{2}=2 \mathbf{I}_{3},$ where $\mathbf{I}_{3}$ is the $3 \times 3$ unit matrix.
+\item $\left[\mathbf{M}^{2}, \mathbf{M}_{i}\right]=0$
+$\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right]=\mathbf{L}^{+}$
+$\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right]=2 \mathbf{M}_{z}$
+where $\mathbf{L}^{+} \equiv \mathbf{M}_{x}+i \mathbf{M}_{y}$ and $\mathbf{L}^{-} \equiv \mathbf{M}_{x}-i \mathbf{M}_{y}$
+\end{enumerate}
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$
+$$\mathbf{M}_{x} \mathbf{M}_{y}=\frac{1}{2}\left[\begin{array}{lll}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{array}\right]\left[\begin{array}{lll}{0} & {-1} & {0} \\ {i} & {0} & {-i} \\ {0} & {i} & {0}\end{array}\right]= \frac{1}{2}\left[\begin{array}{ccc}{i} & {0} & {-i} \\ {0} & {0} & {0} \\ {i} & {0} & {-i}\end{array}\right]$$
+
+$$\mathbf{M}_{y} \mathbf{M}_{x}=\frac{1}{2}\left[\begin{array}{ccc}{0} & {-i} & {0} \\ {i} & {0} & {-i} \\ {0} & {i} & {0}\end{array}\right]\left[\begin{array}{ccc}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{array}\right]=\frac{1}{2}\left[\begin{array}{ccc}{-i} & {0} & {-i} \\ {0} & {0} & {0} \\ {i} & {0} & {i}\end{array}\right]$$
+
+
+$$\mathbf{M}_{x} \mathbf{M}_{y}-\mathbf{M}_y \mathbf{M}_{x}=\frac{1}{2}\left[\begin{array}{ccc}{i} & {0} & {i} \\ {0} & {0} & {0} \\ {-i} & {0} & {-i}\end{array}\right]+\frac{1}{2}\left[\begin{array}{ccc}{i} & {0} & {i} \\ {0} & {0} & {0} \\ {-i} & {0} & {-i}\end{array}\right]$$
+$$\mathbf{M}_{x} \mathbf{M}_{y}-\mathbf{M}_y \mathbf{M}_{x}=\left[\begin{array}{rrr}{1} & {0} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {-1}\end{array}\right]$$
+
+$$\mathbf{M}_{x} \mathbf{M}_{y}-\mathbf{M}_y \mathbf{M}_{x}=\mathbf{M}_{z}$$
+
+
+$\boxed{\textbf{Solution}}$  For $(b)$
+$$\mathbf{M}_{x}^{2}=\frac{1}{2}\left[\begin{array}{ccc}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{array}\right]\left[\begin{array}{ccc}{0} & {1} & {0} \\ {1} & {0} & {1} \\ {0} & {1} & {0}\end{array}\right]=\frac{1}{2}\left[\begin{array}{ccc}{1} & {0} & {1} \\ {0} & {2} & {0} \\ {1} & {0} & {1}\end{array}\right]$$
+$$\mathbf{M}_z^2 = \left[\begin{array}{ccc}{1} & {0} & {0} \\ {0} & {0} & {0} \\ {0} & {0} & {1}\end{array}\right] \quad \mathbf{M}_y^2 = \dfrac{1}{2}\left[\begin{array}{ccc}{1} & {0} & {-1} \\ {0} & {2} & {0} \\ {-1} & {0} & {1}\end{array}\right]$$
+Now
+$$\mathbf{M}_x^2 + \mathbf{M}_y^2 + \mathbf{M}_z^2 = 2\mathbf{I}$$
+$\boxed{\textbf{Solution}}$  $(c)$ we substitute
+$$
+\mathbf{M}^{2}=\left(\begin{array}{lll}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{array}\right), \quad \mathbf{M}_{x}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 1 & 0 \\
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{array}\right)
+$$
+and
+$$
+\left[\mathbf{M}^{2}, \mathbf{M}_{x}\right]=\mathbf{M}^{2} \mathbf{M}_{x}-\mathbf{M}_{x} \mathbf{M}^{2}
+$$
+$$
+\mathbf{M}^{2} \mathbf{M}_{x}=\left(\begin{array}{lll}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{array}\right) \times \frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 1 & 0 \\
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{array}\right)=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+2 & 0 & 2 \\
+0 & 2 & 0
+\end{array}\right)
+$$
+$$
+\mathbf{M}_{x} \mathbf{M}^{2}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 1 & 0 \\
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{array}\right) \times\left(\begin{array}{lll}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{array}\right)=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+2 & 0 & 2 \\
+0 & 2 & 0
+\end{array}\right)
+$$
+$$
+\left[\mathbf{M}^{2}, \mathbf{M}_{x}\right]=\mathbf{M}^{2} \mathbf{M}_{x}-\mathbf{M}_{x} \mathbf{M}^{2}=0
+$$
+Therefore, $\left[\mathbf{M}^{2}, \mathbf{M}_{i}\right]=0$
+Now, we substitute 
+$$
+\mathbf{M}_{z}=\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -1
+\end{array}\right)
+$$
+and
+$$
+\mathbf{L}^{+}=\mathbf{M}_{x}+i \mathbf{M}_{y}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right)
+$$
+$$
+\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right]=\mathbf{M}_{z} \mathbf{L}^{+}-\mathbf{L}^{+} \mathbf{M}_{z}
+$$
+$$
+\mathbf{M}_{z} \mathbf{L}^{+}=\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -1
+\end{array}\right) \times \frac{1}{\sqrt{2}}\left(\begin{array}{ccc}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right)=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{array}\right)
+$$
+$$
+\mathbf{L}^{+} \mathbf{M}_{z}=\frac{1}{\sqrt{2}}\left(\begin{array}{ccc}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right) \times\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -1
+\end{array}\right)=0
+$$
+$$
+\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right]=\mathbf{M}_{z} \mathbf{L}^{+}-\mathbf{L}^{+} \mathbf{M}_{z}=\frac{1}{\sqrt{2}}\left(\begin{array}{ccc}
+0 & 2 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{array}\right)=\mathbf{L}^{+}
+$$
+$$
+\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right]=\mathbf{M}_{z} \mathbf{L}^{+}-\mathbf{L}^{+} \mathbf{M}_{z}=\mathbf{L}^{+}
+$$
+Now, substitute 
+$$
+\mathbf{L}^{+}=\mathbf{M}_{x}+i \mathbf{M}_{y}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right)
+$$
+and
+$$
+\mathbf{L}^{-}=\mathbf{M}_{x}-i \mathbf{M}_{y}=\frac{1}{\sqrt{2}}\left(\begin{array}{ccc}
+0 & 0 & 0 \\
+2 & 0 & 0 \\
+0 & 2 & 0
+\end{array}\right)
+$$
+$$
+\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right]=\mathbf{L}^{+} \mathbf{L}^{-}-\mathbf{L}^{-} \mathbf{L}^{+}
+$$
+$$
+\mathbf{L}^{+} \mathbf{L}^{-}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right) \times \frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 0 & 0 \\
+2 & 0 & 0 \\
+0 & 2 & 0
+\end{array}\right)=\left(\begin{array}{lll}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 0
+\end{array}\right)
+$$
+
+$$
+\mathbf{L}^{-} \mathbf{L}^{+}=\frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 0 & 0 \\
+2 & 0 & 0 \\
+0 & 2 & 0
+\end{array}\right) \times \frac{1}{\sqrt{2}}\left(\begin{array}{lll}
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+0 & 0 & 0
+\end{array}\right)=\left(\begin{array}{lll}
+0 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{array}\right)
+$$
+
+$$
+\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right]=\mathbf{L}^{+} \mathbf{L}^{-}-\mathbf{L}^{-} \mathbf{L}^{+}=\left(\begin{array}{ccc}
+2 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -2
+\end{array}\right)=2 \mathbf{M}_{z}
+$$
+Therefore, $\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right]=\mathbf{L}^{+} \mathbf{L}^{-}-\mathbf{L}^{-} \mathbf{L}^{+}=2 \mathbf{M}_{z}$
+
+
+
+
+
+
+
+
+
+
+
+\begin{mybox}{2.2.13}
+Repeat Exercise $2.2 .12,$ using the matrices for a spin of $3 / 2,$
+
+$$
+\mathbf{M}_{x}=\frac{1}{2}\left(\begin{array}{cccc}
+0 & \sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & 2 & 0 \\
+0 & 2 & 0 & \sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right), \ \ \mathbf{M}_{y}=\frac{i}{2}\left(\begin{array}{cccc}
+0 & -\sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & -2 & 0 \\
+0 & 2 & 0 & -\sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right)
+$$
+and
+$$
+\mathbf{M}_{z}=\frac{1}{2}\left(\begin{array}{rrrr}
+3 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -3
+\end{array}\right)
+$$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$ we consider that $\left[\mathbf{M}_{x}, \mathbf{M}_{y}\right]$
+$$
+=\frac{i}{4}\left[\begin{array}{cccc}
+0 & \sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & 2 & 0 \\
+0 & 2 & 0 & \sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]\left[\begin{array}{cccc}
+0 & -\sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & -2 & 0 \\
+0 & 2 & 0 & -\sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]-$$
+$$\frac{i}{4}\left[\begin{array}{cccc}
+0 & -\sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & -2 & 0 \\
+0 & 2 & 0 & -\sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]\left[\begin{array}{cccc}
+0 & \sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & 2 & 0 \\
+0 & 2 & 0 & \sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]
+$$
+$$
+=\frac{i}{2}\left[\begin{array}{cccc}
+3 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -3
+\end{array}\right]
+$$
+$$
+=i \mathbf{M}_{z}
+$$
+Similarly we can show that $\left[\mathbf{M}_{y}, \mathbf{M}_{z}\right]=i \mathbf{M}_{x}$ and $\left[\mathbf{M}_{z}, \mathbf{M}_{x}\right]=i \mathbf{M}_{y}$
+Thus, $\left[\mathbf{M}_{i}, \mathbf{M}_{j}\right]=i \sum_{k} \varepsilon_{i j k} \mathbf{M}_{k}$ where $i, j, k$ can take values 1,2,3 or $x, y, z$.
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ we consider that 
+$$
+\mathbf{M}^{2} \equiv \mathbf{M}_{x}^{2}+\mathbf{M}_{y}^{2}+\mathbf{M}_{z}^{2}
+$$
+$$
+=\frac{1}{4}\left[\begin{array}{cccc}
+0 & \sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & 2 & 0 \\
+0 & 2 & 0 & \sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]^{2}-\frac{1}{4}\left[\begin{array}{cccc}
+0 & -\sqrt{3} & 0 & 0 \\
+\sqrt{3} & 0 & -2 & 0 \\
+0 & 2 & 0 & -\sqrt{3} \\
+0 & 0 & \sqrt{3} & 0
+\end{array}\right]^{2}+\frac{1}{4}\left[\begin{array}{cccc}
+3 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -3
+\end{array}\right]^{2}
+$$
+$$
+\begin{array}{l}
+=2\left[\begin{array}{lll}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}\right] \\
+=21_{3}
+\end{array}
+$$
+
+$\boxed{\textbf{Solution}}$ For $(c)$ we obtain the result from the previous part 
+$$
+\begin{aligned}
+\left[\mathbf{M}^{2}, \mathbf{M}_{i}\right] &=\left[21_{3}, \mathbf{M}_{i}\right] \\
+&=21_{3} \mathbf{M}_{i}-2 \mathbf{M}_{i} 1_{3} \\
+&=2 \mathbf{M}_{i}-2 \mathbf{M}_{i} \\
+&=0
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\left[\mathbf{M}_{z}, \mathbf{L}^{+}\right] &=\left[\mathbf{M}_{z}, \mathbf{M}_{x}+i \mathbf{M}_{y}\right] \\
+&=\left[\mathbf{M}_{z}, \mathbf{M}_{x}\right]-\left[i \mathbf{M}_{y}, \mathbf{M}_{z}\right] \\
+&=\left[\mathbf{M}_{z}, \mathbf{M}_{x}\right]-i\left[\mathbf{M}_{y}, \mathbf{M}_{z}\right] \\
+&=i \mathbf{M}_{y}-i\left(i \mathbf{M}_{x}\right)
+\end{aligned}
+$$
+$$
+\begin{array}{l}
+=i \mathbf{M}_{y}+\mathbf{M}_{x} \\
+=\mathbf{M}_{x}+i \mathbf{M}_{y} \\
+=\mathbf{L}^{+}
+\end{array}
+$$
+And finally
+$$
+\begin{aligned}
+\left[\mathbf{L}^{+}, \mathbf{L}^{-}\right] &=\left[\mathbf{M}_{x}+i \mathbf{M}_{y}, \mathbf{M}_{x}-i \mathbf{M}_{y}\right] \\
+&=\left[\mathbf{M}_{x}, \mathbf{M}_{x}\right]-\left[\mathbf{M}_{x}, i \mathbf{M}_{y}\right]+\left[i \mathbf{M}_{y}, \mathbf{M}_{x}\right]-\left[i \mathbf{M}_{y}, i \mathbf{M}_{y}\right], \\
+&=0-i\left[\mathbf{M}_{x}, \mathbf{M}_{y}\right]-\left[\mathbf{M}_{x}, i \mathbf{M}_{y}\right]-0 \\
+&=-2 i\left(i \mathbf{M}_{z}\right) \\
+&=2 \mathbf{M}_{z}
+\end{aligned}
+$$
+
+
+
+
+\begin{mybox}{2.2.14}
+If $\mathbf{A}$ is a diagonal matrix, with all diagonal elements different, and $\mathbf{A}$ and $\mathbf{B}$ commute,
+show that $\mathbf{B}$ is diagonal.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ Given matrix $\mathbf{A}$ is diagonal matrix
+$$\mathbf{A}=\text{diag}(a_1, a_2, a_3, ... a_n)$$
+and $B = (b_{ij})$. Here $\mathbf{A}$ and $\mathbf{B}$ matrix conmute $\mathbf{A}\mathbf{B}=\mathbf{BA}$, so
+$$(a_i-a_j)b_{kl} = 0 \quad \text{for} \ k\neq l$$
+$$b_{kl} = 0\quad \text{for} \ k\neq l$$
+Hence from the above statement we can say that is also a diagonal matrix
+
+
+
+\begin{mybox}{2.2.15}
+If $\mathbf{A}$ and $\mathbf{B}$ are diagonal, show that $\mathbf{A}$ and $\mathbf{B}$ commute.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$  consider two $n\times n$ matrices $\mathbf{A}$ and $\mathbf{B}$, which are diagonal.
+$$\mathbf{A}=\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right], \quad \mathbf{B}=\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]$$
+$$\mathbf{A} \mathbf{B}=\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right]\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]=\left[\begin{array}{cc}{a_{1} b_{1}} & {0} \\ {0} & {a_{2} b_{2}}\end{array}\right]$$
+$$\mathbf{B} \mathbf{A}=\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right]=\left[\begin{array}{lll}{b_{1} a_{1}} & {0} \\ {0} & {b_{2} a_{2}}\end{array}\right]$$
+Commutative properts of addition:
+$$\mathbf{A}+\mathbf{B}=\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right]+\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]=\left[\begin{array}{ccc}{a_{1}+b_{1}} & {0} \\ {0} & {a_{2}+b_{2}}\end{array}\right]$$
+$$\mathbf{B}+\mathbf{A}=\left[\begin{array}{ll}{b_{1}} & {0} \\ {0} & {b_{2}}\end{array}\right]+\left[\begin{array}{ll}{a_{1}} & {0} \\ {0} & {a_{2}}\end{array}\right]=\left[\begin{array}{cc}{b_{1}+a_{1}} & {0} \\ {0} & {b_{2}+a_{2}}\end{array}\right]$$
+Hence, diagonal matrices, when added commute.
+
+
+\begin{mybox}{2.2.16}
+Show that $\text{Tr}(\mathbf{ABC})=$ $\text{Tr}(\mathbf{CBA})$ if any two of the three matrices commute.
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$  The trace of a matrix is the sum of its diagonal elements. Therefore, the trace of the product of three matrices $\mathbf{A}, \mathbf{B},$ and $\mathbf{C}$ is
+given by
+$$
+\operatorname{Tr}(\mathbf{A} \mathbf{B} \mathbf{C})=\sum_{i j k} \mathbf{A}_{i j} \mathbf{B}_{j k} \mathbf{C}_{k i}
+$$
+By using the fact that $i, j,$ and $k$ are dummy summation indices
+with the same range, this sum can be written in the equivalent
+forms
+$$
+\sum_{i j k} \mathbf{A}_{i j} \mathbf{B}_{j k} \mathbf{C}_{k i}=\sum_{i j k} \mathbf{C}_{k i} \mathbf{A}_{i j} \mathbf{B}_{j k}=\sum_{i j k} \mathbf{B}_{j k} \mathbf{C}_{k i} \mathbf{A}_{i j}
+$$
+But the second and third of these are
+$$
+\sum_{i j k} \mathbf{C}_{k i} \mathbf{A}_{i j} \mathbf{B}_{j k}=\operatorname{Tr}(\mathbf{C} \mathbf{A} \mathbf{B})
+$$
+and
+$$
+\sum_{i j k} \mathbf{B}_{j k} \mathbf{C}_{k i} \mathbf{A}_{i j}=\operatorname{Tr}(\mathbf{B} \mathbf{C} \mathbf{A})
+$$
+respectively. Thus, we obtain the relation
+$$
+\operatorname{Tr}(\mathbf{A} \mathbf{B} \mathbf{C})=\operatorname{Tr}(\mathbf{C} \mathbf{A} \mathbf{B})=\operatorname{Tr}(\mathbf{B} \mathbf{C} \mathbf{A})
+$$
+
+
+\begin{mybox}{2.2.17}
+Angular momentum matrices satisfy a commutation relation
+$$[\mathbf{M}_j,\mathbf{M}_k]=i\mathbf{M}_l \quad j,k,l \ \text{cyclic}$$
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$  Taking the trace of both sides of the given expression, we have
+$$
+\operatorname{Tr}\left(i \mathbf{M}_{k}\right)=\operatorname{Tr}\left(\mathbf{M}_{i} \mathbf{M}_{j}-\mathbf{M}_{j} \mathbf{M}_{i}\right)
+$$
+Hence
+$$
+i \operatorname{Tr}\left(\mathbf{M}_{k}\right)=\operatorname{Tr}\left(\mathbf{M}_{i} \mathbf{M}_{j}\right)-\operatorname{Tr}\left(\mathbf{M}_{j} \mathbf{M}_{i}\right)
+$$
+since $\operatorname{Tr}(\mathbf{A}\mathbf{B})=\operatorname{Tr}(\mathbf{B}\mathbf{A}),$ we see that $\operatorname{Tr}\left(\mathbf{M}_{k}\right)=0$ for any $k .$
+
+
+
+\begin{mybox}{2.2.18}
+$\mathbf{A}$ and $\mathbf{B}$ anticommute: $\mathbf{A}\mathbf{B}=-\mathbf{B}\mathbf{A}$. Also, $\mathbf{A}^{2}=1, \mathbf{B}^{2}=1 .$ Show that $\text{Tr}(\mathbf{A})=$
+$\text{Tr}(\mathbf{B})=0 .$
+Note. The Pauli and Dirac matrices are specific examples.
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ Since $\mathbf{B}^{2}=I, \mathbf{B}$ is non-singular and its inverse exists. Therefore, $\mathbf{A}=-\mathbf{B}^{-1} \mathbf{AB}$. Taking the trace, we get
+$$
+\operatorname{Tr}(\mathbf{A})=-\operatorname{Tr}\left(\mathbf{B}^{-1} \mathbf{AB}\right)=-\operatorname{Tr}\left(\mathbf{ABB}^{-1}\right)=-\operatorname{Tr}(\mathbf{A})
+$$
+We see that $\operatorname{Tr}(\mathbf{A})=0 .$ Similarly, we find $\operatorname{Tr}(\mathbf{B})=0$
+
+
+
+
+
+
+\begin{mybox}{2.2.19}
+\begin{enumerate}[$(a)$]
+\item If two nonsingular matrices anticommute, show that the trace of each one is zero.
+(Nonsingular means that the determinant of the matrix is nonzero.)
+\item For the conditions of part $(a)$ to hold, $\mathbf{A}$ and $\mathbf{B}$ must be $n \times n$ matrices with $n$ even.
+Show that if $n$ is odd, a contradiction results.
+\end{enumerate}
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ if the matrices are non-singular, then writing $\mathbf{A}=-\mathbf{B} \mathbf{A} \mathbf{B}^{-1}$ and taking the trace, we get $\operatorname{Tr} \mathbf{A}=-\operatorname{Tr} \mathbf{A} .$ Hence $\operatorname{Tr} \mathbf{A}=0,$ and the procedure for $\mathbf{B}$ is analogous.
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ now, we compute the determinant of both sides of $\mathbf{A} \mathbf{B}=-\mathbf{B} \mathbf{A}$ : this yields det $\mathbf{A}$ det $\mathbf{B}=(-1)^{N}$ det $\mathbf{B}$ det $\mathbf{A},$ where $N$ stands for size of matrices. Now since the $\mathbf{A}, \mathbf{B}$ are non-singular, both sides of the equality are non-zero and the equality is possible only for even $N .$
+
+
+
+
+\begin{mybox}{2.2.20}
+If $\mathbf{A}^{-1}$ has elements
+$$
+\left(\mathbf{A}^{-1}\right)_{i j}=a_{i j}^{(-1)}=\frac{\mathbf{C}_{j i}}{|\mathbf{A}|}
+$$
+where $\mathbf{C}_{j i}$ is the $j i$ th cofactor of $|\mathbf{A}|,$ show that
+$$
+\mathbf{A}^{-1} \mathbf{A}=\mathbf{I}
+$$
+Hence $\mathbf{A}^{-1}$ is the inverse of $\mathbf{A}$ (if $|\mathbf{A}| \neq 0$ ).
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ We have to consider that
+$$
+\left(A^{-1} A\right)_{i j}=\sum_{k} a_{i k}^{-1} a_{k j}
+$$
+
+$$=\sum_{k} \frac{C_{k i}}{|A|} a_{k j}$$
+$$=\frac{1}{|A|} \sum_{k} C_{k i} a_{k j}$$
+$$=\frac{1}{|A|}|A| \delta_{i j}$$
+$$=\delta_{i j}$$
+Thus, $A^{-1} A=1$. Hence, by definition of inverse of a matrix $A^{-1}$ is the inverse of $A($ if $|A| \neq 0)$. 
+
+
+
+
+
+
+
+
+
+\begin{mybox}{2.2.21}
+Find the matrices $\mathbf{M}_{L}$ such that the product $\mathbf{M}_{L} \mathbf{A}$ will be $\mathbf{A}$ but with:
+\begin{enumerate}[$(a)$]
+\item The $i$ th row multiplied by a constant $k\left(a_{i j} \rightarrow k a_{i j}, j=1,2,3, \ldots\right)$
+\item The $i$ th row replaced by the original $i$ th row minus a multiple of the $m^{\text{th}}$ row
+$\left(a_{i j} \rightarrow a_{i j}-K a_{m j}, i=1,2,3, \ldots\right)$
+\item The $i$ th and $m$ th rows interchanged $\left(a_{i j} \rightarrow a_{m j}, a_{m j} \rightarrow a_{i j}, j=1,2,3, \ldots\right)$
+
+\end{enumerate}
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$  For $(a)$ Here $\mathbf{M}_{L}$ will be the identity matrix the $i$ th row multiplied by $k$, i.e., $\mathbf{M}_{L}$ is given by
+$$\begin{bmatrix}{1} & {0} & {\cdots} & {0} & {\cdots} & {0} \\ {0} & {1} & {\cdots} & {0} & {\cdots} & {0} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} & {\ddots} & {\vdots} \\ {0} & {0} & {\cdots} & {k} & {\cdots} & {0} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} & {\ddots} & {\vdots} \\ {0} & {0} & {\cdots} & {0} & {\cdots} & {1}\end{bmatrix}$$
+
+$\boxed{\textbf{Solution}}$ For $(b)$ Here $\mathbf{M}_{L}$ will be the identity matrix with a change which is that the entry in the $i$ th row and $m^{\text{th}}$ column will be $-k$ instead of $0$. Note that, we have obtained this matrix from the identity matrix by replacing the ith row by the original ith row minus a multiple of the mth row.
+
+$$\begin{bmatrix}
+1 & 0 & \cdots & 0 & \cdots & 0&\cdots&0 \\ 
+0 & 1 & \cdots  & 0 & \cdots &0&\cdots& 0\\ 
+\vdots & \vdots & \ddots & \vdots & \ddots &\vdots&\ddots &\vdots\\ 
+0 & 0 & \cdots & 1 &\cdots & -k &\cdots &0 \\ 
+\vdots & \vdots & \ddots & \vdots  &\ddots &\vdots &\ddots &\vdots\\
+0&0&\dots&0&\cdots&0&\cdots&1
+\end{bmatrix}$$
+
+$\boxed{\textbf{Solution}}$  For $(c)$ Here we obtain the matrix $\mathbf{M}_{L}$ from the identity matrix by just inter changing the ith row and mth row.
+$$\begin{bmatrix}
+1& 0  &\cdots  & 0 & \cdots & 0 & \cdots &0 \\ 
+0&1  &\cdots  &0  & \cdots & 0 & \cdots & 0\\ 
+\vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\ 
+0 & 0 & \cdots &0  &\cdots  & 1 & \cdots & 0\\ 
+ \vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\ 
+0 & 0 & \cdots &1  &\cdots  & 0 & \cdots & 0\\ 
+ \vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\  
+0 & 0 & \cdots &0  &\cdots  & 0 & \cdots & 1\\ 
+\end{bmatrix}$$
+
+
+
+
+
+\begin{mybox}{2.2.22}
+Find the matrices $\mathbf{M}_{R}$ such that the product AM $_{R}$ will be A but with:
+
+\begin{enumerate}[$(a)$]
+\item The $i$ th column multiplied by a constant $k\left(a_{j i} \rightarrow k a_{j i}, j=1,2,3, \ldots\right)$
+\item The $i$ th column replaced by the original $i$ th column minus a multiple of the $m^{\text{th}}$ column $\left(a_{j i} \rightarrow a_{j i}-k a_{j m}, j=1,2,3, \ldots\right)$
+\item The $i$ th and $m$ th columns interchanged $\left(a_{j i} \rightarrow a_{j m}, a_{j m} \rightarrow a_{j i}, j=1,2,3, \ldots\right)$
+\end{enumerate}
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$  For $(a)$, here $\mathbf{M}_{L}$ will be the identity matrix the $i$ th row multiplied by k, i.e., $\mathbf{M}_{L}$ is given by
+$$\begin{bmatrix}{1} & {0} & {\cdots} & {0} & {\cdots} & {0} \\ {0} & {1} & {\cdots} & {0} & {\cdots} & {0} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} & {\ddots} & {\vdots} \\ {0} & {0} & {\cdots} & {k} & {\cdots} & {0} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} & {\ddots} & {\vdots} \\ {0} & {0} & {\cdots} & {0} & {\cdots} & {1}\end{bmatrix}$$
+
+
+
+
+$\boxed{\textbf{Solution}}$  For $(b)$, here $\mathbf{M}_{L}$ will be the identity matrix with a change which is that the entry in the $i$ th row and $m^{\text{th}}$ column will be $-k$ instead of $0$. Note that, we have obtained this matrix from the identity matrix by replacing the ith row by the original ith row minus a multiple of the mth row.
+
+$$\begin{bmatrix}
+1 & 0 & \cdots & 0 & \cdots & 0&\cdots&0 \\ 
+0 & 1 & \cdots  & 0 & \cdots &0&\cdots& 0\\ 
+\vdots & \vdots & \ddots & \vdots & \ddots &\vdots&\ddots &\vdots\\ 
+0 & 0 & \cdots & 1 &\cdots & -k &\cdots &0 \\ 
+\vdots & \vdots & \ddots & \vdots  &\ddots &\vdots &\ddots &\vdots\\
+0&0&\dots&0&\cdots&0&\cdots&1
+\end{bmatrix}$$
+
+
+
+
+$\boxed{\textbf{Solution}}$  For $(c)$, here we obtain the matrix $\mathbf{M}_{L}$ from the identity matrix by just inter changing the ith row and mth row.
+$$\begin{bmatrix}
+1& 0  &\cdots  & 0 & \cdots & 0 & \cdots &0 \\ 
+0&1  &\cdots  &0  & \cdots & 0 & \cdots & 0\\ 
+\vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\ 
+0 & 0 & \cdots &0  &\cdots  & 1 & \cdots & 0\\ 
+ \vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\ 
+0 & 0 & \cdots &1  &\cdots  & 0 & \cdots & 0\\ 
+ \vdots& \vdots & \ddots & \vdots & \ddots & \vdots & \ddots& \vdots\\  
+0 & 0 & \cdots &0  &\cdots  & 0 & \cdots & 1\\ 
+\end{bmatrix}$$
+
+
+
+
+
+\begin{mybox}{2.2.23}
+Find the inverse of
+$$
+\mathbf{A}=\begin{bmatrix}{3} & {2} & {1} \\ {2} & {2} & {1} \\ {1} & {1} & {4}\end{bmatrix}
+$$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ Calculating $\mathbf{A}^{-1}$
+
+
+$$\mathbf{A}^{-1}=\frac{1}{7}\begin{bmatrix}{7} & {-7} & {0} \\ {-7} & {11} & {-1} \\ {0} & {-1} & {2}\end{bmatrix}$$
+
+
+\begin{mybox}{2.2.24}
+Matrices are far too useful to remain the exclusive property of physicists. They may
+appear wherever there are linear relations. For instance, in a study of population move-
+ment the initial fraction of a fixed population in each of $n$ areas (or industries or
+religions, etc.) is represented by an $n$ -component column vector $\mathbf{P} .$ 
+
+The movement of people from one area to another in a given time is described by an $n \times n$ (stochastic) matrix $\mathbf{T}$. Here $\mathbf{T}_{i j}$ is the fraction of the population in the $j$ th area that moves to the $i^{\text{th}}$ area. (Those not moving are covered by $i=j.$) With $\mathbf{P}$ describing the initial population distribution, the final population distribution is given by the matrix equation $\mathbf{TP}=\mathbf{Q}$. From its definition, $\sum_{i=1}^{n} \mathbf{P}_{i}=1$
+
+\begin{enumerate}[$(a)$]
+\item Show that conservation of people requires that
+$$
+\sum_{i=1}^{n} \mathbf{T}_{i j}=1, \quad j=1,2, \ldots, n
+$$
+\item Prove that
+$$
+\sum_{i=1}^{n} \mathbf{Q}_{i}=1
+$$
+continues the conservation of people.
+\end{enumerate}
+\end{mybox}
+
+
+
+
+$\boxed{\textbf{Solution}}$  For $(a)$ The equation of part states that $\mathbf{T}$ moves people from area $j$ but
+does not change their total number. 
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ Write the component equation $\sum_{j} \mathbf{T}_{i j} \mathbf{P}_{j}=\mathbf{Q}_{i}$ and sum over $i.$ This summation replaces $\mathbf{T}_{i j}$ by unity, leaving that the sum pver $\mathbf{P}_{j}$ equals the sum over $\mathbf{Q}_{i},$ hence conserving people.
+
+
+
+\begin{mybox}{2.2.25}
+Given a $6 \times 6$ matrix A with elements $a_{i j}=0.5^{|i-j|}, i, j=0,1,2, \ldots, 5, \text { find } \mathbf{A}^{-1}$
+
+$$\mathbf{A}=\begin{bmatrix}
+1 & 0.5 & 0.5^2 & 0.5^3 & 0.5^4 & 0.5^5 \\ 
+0.5 & 1 & 0.5 & 0.5^2 & 0.5^3 & 0.5^4 \\ 
+0.5^2 & 0.5 & 1 & 0.5 & 0.5^2 & 0.5^3\\ 
+0.5^3 & 0.5^2 & 0.5 & 1 & 0.5 & 0.5^2\\ 
+0.5^4 & 0.5^3 & 0.5^2 & 0.5 & 1 & 0.5\\ 
+0.5^5 & 0.5^4 & 0.5^3 & 0.5^2 & 0.5 & 1
+\end{bmatrix}$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$
+
+$$\mathbf{A}^{-1}=\frac{1}{3}\begin{bmatrix}{4} & {-2} & {0} & {0} & {0} & {0} \\ {-2} & {5} & {-2} & {0} & {0} & {0} \\ {0} & {-2} & {5} & {-2} & {0} & {0} \\ {0} & {0} & {-2} & {5} & {-2} & {0} \\ {0} & {0} & {0} & {-2} & {5} & {-2} \\ {0} & {0} & {0} & {0} & {-2} & {4}\end{bmatrix}$$
+
+
+
+
+
+
+
+
+
+\begin{mybox}{2.2.26}
+Show that the product of two orthogonal matrices is orthogonal.
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ Let $Q$ and $P$ be orthogonal matrices. Therefore $\mathbf{Q}^{T} Q=I$ and $\mathbf{P}^{T} P=I .$
+We have that
+$$
+(P Q)^{T}(P Q)=\mathbf{Q}^{T} \mathbf{P}^{T} P I Q=\mathbf{Q}^{T} Q=I
+$$
+Therefore, a product of two orthogonal matrix is an orthogonal matrix.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{mybox}{2.2.27}
+If A is orthogonal, show that its determinant $=\pm 1 .$
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ We know that
+$$\ \text{det} \mathbf{A}^T = \ \text{det} \mathbf{A}$$
+$$\mathbf{A}^T\mathbf{A}=I$$
+$$\ \text{det} \mathbf{A}^T = \text{det}I = 1$$
+$$\ \text{det} \mathbf{A}^T\mathbf{A} \ \text{det} \mathbf{A}^T \ \text{det} \mathbf{A}$$
+$$(\text{det} \mathbf{A})^2 = \ \text{det} \mathbf{A} \ \text{det} \mathbf{A}^T = \ \text{det} \mathbf{A}^T \ \text{det} \mathbf{A} = \ \text{det} \mathbf{A}^TA = 1$$
+So we must have
+$$\text{det}\mathbf{A} = \pm 1$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{mybox}{2.2.28}
+Show that the trace of the product of a symmetric and an antisymmetric matrix is zero.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$  
+If $\tilde{\mathbf{A}}=-\mathbf{A}, \tilde{\mathbf{S}}=\mathbf{S},$ then
+
+$$\text{Tr}(\widetilde{\mathbf{SA}})=\text{Tr}(\mathbf{SA})=\text{Tr}(\tilde{\mathbf{A}} \tilde{\mathbf{S}})=-\text{Tr}(\mathbf{AS})$$
+
+
+
+
+
+\begin{mybox}{2.2.29}
+$\mathbf{A}$ is $2 \times 2$ and orthogonal. Find the most general form of
+$$
+\mathbf{A}=\begin{bmatrix}{a} & {b} \\ {c} & {d}\end{bmatrix}
+$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$  From $\tilde{\mathbf{A}}=\mathbf{A}^{-1}$ and $\operatorname{det}(\mathbf{A})=1$ we have
+$$
+\mathbf{A}^{-1}=\begin{bmatrix}{a_{22}} & {-a_{12}} \\ {-a_{21}} & {a_{11}}\end{bmatrix}=\tilde{\mathbf{A}}=\begin{bmatrix}{a_{11}} & {a_{21}} \\ {a_{12}} & {a_{22}}\end{bmatrix}
+$$
+This gives det $(\mathbf{A})=a_{11}^{2}+a_{12}^{2}=1,$ hence 
+$$a_{11}=\cos \theta=a_{22},\quad  a_{12}=\sin \theta=-a_{21},$$
+the standard $2 \times 2$ rotation matrix.
+
+
+
+
+
+
+
+\begin{mybox}{2.2.30}
+Show that
+$$
+\operatorname{det}\left(\mathbf{A}^{*}\right)=(\operatorname{det} \mathbf{A})^{*}=\operatorname{det}\left(\mathbf{A}^{\dagger}\right)
+$$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$  We calculate the determinant of $\mathbf{A}^{*}$
+
+$$\operatorname{det}\left(\mathbf{A}^{*}\right)=\sum_{i_{k}} \varepsilon_{i_{1} i_{2} \ldots i_{n}} a_{1 i_{1}}^{*} a_{2 i_{2}}^{*} \cdots a_{n i_{n}}^{*}=\left(\sum_{i_{k}} \varepsilon_{i_{1} i_{2} \ldots i_{n}} a_{1 i_{1}} a_{2 i_{2}} \cdots a_{n i_{n}}\right)$$
+Because, for any $\mathbf{A},$ 
+$$\operatorname{det}(\mathbf{A})=\operatorname{det}(\tilde{\mathbf{A}}), \operatorname{det}\left(\mathbf{A}^{*}\right)=\operatorname{det}\left(\mathbf{A}^{\dagger}\right)$$
+
+
+
+\begin{mybox}{2.2.31}
+Three angular momentum matrices satisfy the basic commutation relation
+$$[\mathbf{J}_x, \mathbf{J}_y] = i\mathbf{J}_z$$
+(and cyclic permutation of indices). If two of the matrices have real elements, show that
+the elements of the third must be pure imaginary.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ We know that basic commutation relation is $\left[\mathbf{J}_{i}, \mathbf{J}_{j}\right]=i \mathbf{J}_{k}$, where $i$ $j$ and $k$ are indices in cyclic permutation.
+Here it is clear that $\mathbf{J}_{x}, \mathbf{J}_{y}$ are real, so also must be their commutator. So according to
+commutator rule it requires that $\mathbf{J}_{z}$ be pure imaginary.
+
+
+
+\begin{mybox}{2.2.32}
+Show that $(\mathbf{A}\mathbf{B})^{\dagger}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}$
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ 
+$$(\mathbf{A}\mathbf{B})^{\dagger}=\widetilde{\mathbf{A}^{*} \mathbf{B}^{*}}=\tilde{\mathbf{B}}^{*} \tilde{\mathbf{A}}^{*}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}$$
+
+
+
+\begin{mybox}{2.2.33}
+A matrix $\mathbf{C}=\mathbf{S}^{\dagger} \mathbf{S}$. Show that the trace is positive definite unless $\mathbf{S}$ is the null matrix, in which case $\text{Tr}(\mathbf{C})=0 .$
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ As
+$$\mathbf{C}_{j k}=\sum_{n} \boldsymbol{S}_{n j}^{*} \boldsymbol{S}_{n k}$$
+$$\text{Tr}(\mathbf{C})=\sum_{n j}\left|\boldsymbol{S}_{n j}\right|^{2}$$
+
+
+
+\begin{mybox}{2.2.34}
+If $\mathbf{A}$ and $\mathbf{B}$ are Hermitian matrices, show that $(\mathbf{A}\mathbf{B}+\mathbf{BA})$ and $i(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})$ are also Hermitian.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$  If $\mathbf{A}^{\dagger}=\mathbf{A}, \mathbf{B}^{\dagger}=B,$ then
+$$(\mathbf{A}\mathbf{B}+\mathbf{BA})^{\dagger}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}+\mathbf{A}^{\dagger} \mathbf{B}^{\dagger}=\mathbf{AB}+\mathbf{BA}$$
+$$-i\left(\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}-\mathbf{A}^{\dagger} \mathbf{B}^{\dagger}\right)=i(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})$$
+
+
+
+
+
+
+
+\begin{mybox}{2.2.35}
+The matrix $\mathbf{C}$ is not Hermitian. Show that then $\mathbf{C}+\mathbf{C}^{\dagger}$ and $i\left(\mathbf{C}-\mathbf{C}^{\dagger}\right)$ are Hermitian.
+This means that a non-Hermitian matrix may be resolved into two Hermitian parts,
+$$
+\mathbf{C}=\frac{1}{2}\left(\mathbf{C}+\mathbf{C}^{\dagger}\right)+\frac{1}{2 i} i\left(\mathbf{C}-\mathbf{C}^{\dagger}\right)
+$$
+This decomposition of a matrix into two Hermitian matrix parts parallels the decompo-
+sition of a complex number $z$ into $x+i y,$ where $x=\left(z+z^{*}\right) / 2$ and $y=\left(z-z^{*}\right) / 2 i$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ If $\mathbf{C}^{\dagger} \neq \mathbf{C},$ then 
+$$\left(i \mathbf{C}_{-}\right)^{\dagger} \equiv\left(\mathbf{C}^{\dagger}-\mathbf{C}\right)^{\dagger}=\mathbf{C}-\mathbf{C}^{\dagger}=-i \mathbf{C}_{-}^{\dagger},$$
+$$\left(\mathbf{C}_{-}\right)^{\dagger}=\mathbf{C}_{-}$$
+$$\mathbf{C}_{+}^{\dagger}=\mathbf{C}_{+}=\mathbf{C}+\mathbf{C}^{\dagger}$$
+
+
+
+
+\begin{mybox}{2.2.36}
+A and $\mathbf{B}$ are two noncommuting Hermitian matrices:
+$$
+\mathbf{AB}-\mathbf{B}\mathbf{A}=i \mathbf{C}
+$$
+Prove that $\mathbf{C}$ is Hermitian.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ Let's consider
+
+$$-i \mathbf{C}^{\dagger}=(\mathbf{A}\mathbf{B}-\mathbf{B}\mathbf{A})^{\dagger}$$
+$$-i \mathbf{C}^{\dagger}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}-\mathbf{A}^{\dagger} \mathbf{B}^{\dagger}$$
+$$-i \mathbf{C}^{\dagger}=B \mathbf{A}-\mathbf{A}\mathbf{B}$$
+$$-i \mathbf{C}^{\dagger}=-i \mathbf{C}$$
+
+
+
+\begin{mybox}{2.2.37}
+Two matrices $\mathbf{A}$ and $\mathbf{B}$ are each Hermitian. Find a necessary and sufficient condition for
+their product $\mathbf{AB}$ to be Hermitian.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$(\mathbf{A}\mathbf{B})^{\dagger}=\mathbf{B}^{\dagger} \mathbf{A}^{\dagger}=\mathbf{B} \mathbf{A}=\mathbf{AB}$$
+With this, we can say that $[\mathbf{A}, \mathbf{B}] = 0$
+
+
+
+\begin{mybox}{2.2.38}
+Show that the reciprocal (that is, inverse) of a unitary matrix is unitary.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$\left( \mathbf{U}^{\dagger}\right)^{\dagger}=\mathbf{U}$$
+$$\left( \mathbf{U}^{\dagger}\right)^{\dagger}=\left( \mathbf{U}^{-1}\right)^{\dagger}$$
+
+
+\begin{mybox}{2.2.39}
+Prove that the direct product of two unitary matrices is unitary.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ 
+
+$$\left( \mathbf{U}_{1}  \mathbf{U}_{2}\right)^{\dagger}= \mathbf{U}_{2}^{\dagger}  \mathbf{U}_{1}^{\dagger}$$
+$$\left( \mathbf{U}_{1}  \mathbf{U}_{2}\right)^{\dagger}= \mathbf{U}_{2}^{-1}  \mathbf{U}_{1}^{-1}$$
+$$\left( \mathbf{U}_{1}  \mathbf{U}_{2}\right)^{\dagger}=\left( \mathbf{U}_{1}  \mathbf{U}_{2}\right)^{-1}$$
+
+
+
+\begin{mybox}{2.2.40}
+If $\sigma$ is the vector with the $\sigma_{i}$ as components given in Eq. $(2.61),$ and $p$ is an ordinary vector, show that
+$$(\sigma \cdot p)^{2}=p^{2} \hat{1}_{2}$$
+where $\hat{1}_{2}$ is a $2 \times 2$ unit matrix.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$(\mathbf{p} \cdot \boldsymbol{\sigma})^{2}=\left(p_{x} \sigma_{1}+p_{y} \sigma_{2}+p_{z} \sigma_{3}\right)^{2}$$
+$$p_{x}^{2} \sigma_{1}^{2}+p_{y}^{2} \sigma_{2}^{2}+p_{z}^{2} \sigma_{3}^{2}+p_{x} p_{y}\left(\sigma_{1} \sigma_{2}+\sigma_{2} \sigma_{1}\right)+p_{x} p_{z}\left(\sigma_{1} \sigma_{3}+\sigma_{3} \sigma_{1}\right)$$
+$$+p_{y} p_{z}\left(\sigma_{1} \sigma_{2}+\sigma_{2} \sigma_{1}\right)=p_{x}^{2}+p_{y}^{2}+p_{z}^{2}=\mathbf{p}^{2}$$
+
+
+
+\begin{mybox}{2.2.41}
+Use the equations for the properties of direct products, Eqs. (2.57) and $(2.58),$ to show
+that the four matrices $\gamma^{\mu}, \mu=0,1,2,3,$ satisfy the conditions listed in Eqs. (2.74) and $(2.75) .$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$  Writing $\gamma^{0}=\sigma_{3} \otimes \mathbf{1}$ and $\gamma^{i}=\gamma \otimes \sigma_{i}(i=1,2,3),$ where
+$$
+\gamma=\begin{bmatrix}{0} & {1} \\ {-1} & {0}\end{bmatrix}
+$$
+and noting fron Eq. (2.57) that if $\mathbf{C}=\mathbf{A} \otimes B$ and $\mathbf{C}'=\mathbf{A}' \otimes B'$ then
+$\mathbf{C} \mathbf{C}'=\mathbf{A} \mathbf{A}' \otimes B B'$
+$$\left(\gamma^{0}\right)^{2}=\sigma_{3}^{2} \otimes \mathbf{1}_{2}^{2}=\hat{1}_{2} \otimes \mathbf{1}_{2}=\hat{1}_{4}, \quad\left(\gamma^{i}\right)^{2}=\gamma^{2} \otimes \sigma_{i}^{2}=\left(-\hat{1}_{2}\right) \otimes \mathbf{1}_{2}=-\hat{1}_{4}$$
+$$\gamma^{0} \gamma^{i}=\sigma_{3} \gamma \otimes \mathbf{1}_{2} \sigma_{i}=\sigma_{1} \otimes \sigma_{i}, \quad \gamma^{i} \gamma^{0}=\gamma \sigma_{3} \otimes \sigma_{i} \mathbf{1}_{2}=\left(-\sigma_{1}\right) \otimes \sigma_{i}$$
+$$\gamma^{i} \gamma^{j}=\gamma^{2} \otimes \sigma_{i} \sigma_{j} \quad \gamma^{j} \gamma^{i}=\gamma^{2} \otimes \sigma_{j} \sigma_{i}$$
+It is obvious from the second line of the above equation set that $\gamma^{0} \gamma^{i}+$
+$\gamma^{i} \gamma^{0}=0 ;$ from the third line of the equation set we find $\gamma^{i} \gamma^{j}+\gamma^{j} \gamma^{i}$ is zero if $j \neq i$ because then $\sigma_{j} \sigma_{i}=-\sigma_{i} \sigma_{j}$
+
+\begin{mybox}{2.2.42}
+Show that $\gamma^{5}$, Eq. (2.76), anticommutes with all four $\gamma^{\mu}$.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ 
+$$
+\gamma^{0}=\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}, \quad \gamma^{1}=\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{bmatrix}, \gamma^{2}=\begin{bmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{3}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\quad \text { and }\quad \gamma^{5}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{0} \gamma^{5}=\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+-1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{5} \gamma^{0}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}=\begin{bmatrix}
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{1} \gamma^{5}=\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & -1 \\
+0 & 0 & -1 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{5} \gamma^{1}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{2} \gamma^{5}=\begin{bmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & -i & 0 & 0 \\
+i & 0 & 0 & 0 \\
+0 & 0 & 0 & i \\
+0 & 0 & -i & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{5} \gamma^{2}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0 \\
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{3} \gamma^{5}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+$$
+\gamma^{5} \gamma^{3}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}
+$$
+This shows that $\gamma^{5}$ anticommutes with all four $\gamma^{\mu}(\mu=0,1,2,3)$
+
+
+
+
+\begin{mybox}{2.2.43}
+In this problem, the summations are over $\mu=0,1,2,3 .$ Define $g_{\mu v}=g^{\mu v}$ by the relations
+$$
+g_{00}=1 ; \quad g_{k k}=-1, \quad k=1,2,3 ; \quad g_{\mu v}=0, \quad \mu \neq v
+$$
+and define $\gamma_{\mu}$ as $\sum g_{v \mu} \gamma^{\mu} .$ Using these definitions, show that
+\begin{enumerate}[$(a)$]
+\item $\sum \gamma_{\mu} \gamma^{\alpha} \gamma^{\mu}=-2 \gamma^{\alpha}$
+\item $\sum \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \gamma^{\mu}=4 g^{\alpha \beta}$
+\item $\sum \gamma_{\mu} \gamma^{\alpha} \gamma^{\beta} \gamma^{v} \gamma^{\mu}=-2 \gamma^{v} \gamma^{\beta} \gamma^{\alpha}$
+\end{enumerate}
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+
+\begin{mybox}{2.2.44}
+If $\mathbf{M}=\frac{1}{2}\left(1+\gamma^{5}\right),$ where $\gamma^{5}$ is given in Eq. $(2.76),$ show that
+$$
+\mathbf{M}^{2}=\mathbf{M}
+$$
+Note that this equation is still satisfied if $\gamma$ is replaced by any other Dirac matrix listed in Eq. (2.76) 
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ Consider $\mathbf{M}^{2}=\left[\frac{1}{2}\left(1+\gamma^{5}\right)\right]^{2}$
+$$
+\begin{array}{l}
+=\dfrac{1}{4}\left(\hat{1}_{4}+2 \gamma^{5}+\left(\gamma^{5}\right)^{2}\right)\vspace{3mm} \\
+=\dfrac{1}{4}\left(\hat{1}_{4}+2 \gamma^{5}+\hat{1}_{4}\right) \vspace{3mm}\\
+=\dfrac{1}{4}\left(2\hat{1}_{4}+2 \gamma^{5}\right) \vspace{3mm}\\
+=\dfrac{1}{2}\left(\hat{1}_{4}+\gamma^{5}\right) \vspace{3mm}\\
+=\mathbf{M}
+\end{array}
+$$
+Thus, $\mathbf{M}^2 = \mathbf{M}$
+ 
+
+\begin{mybox}{2.2.45}
+Prove that the 16 Dirac matrices form a linearly independent set.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+
+\newpage
+
+\begin{mybox}{2.2.46}
+If we assume that a given $4 \times 4$ matrix $\mathbf{A}$ (with constant elements) can be written as a linear combination of the 16 Dirac matrices (which we denote here as $\Gamma_{i}$ )
+$$
+\mathbf{A}=\sum_{i=1}^{16} c_{i} \Gamma_{i}
+$$
+show that
+$$
+c_{i} \sim \operatorname{trace}\left(\mathbf{A} \Gamma_{i}\right)
+$$
+The matrix $\mathbf{C}=i \gamma^{2} \gamma^{0}$ is sometimes called the charge conjugation matrix. Show that $\mathbf{C} \boldsymbol{\gamma}^{\mu} \mathbf{C}^{-1}=-\left(\boldsymbol{\gamma}^{\mu}\right)^{T}$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+\begin{mybox}{2.2.47}
+The matrix $\mathbf{C}=i \gamma^{2} \gamma^{0}$ is sometimes called the charge conjugation matrix. Show that $\mathbf{C} \boldsymbol{\gamma}^{\mu} \mathbf{C}^{-1}=-\left(\boldsymbol{\gamma}^{\mu}\right)^{T}$
+\end{mybox}
+$\boxed{\textbf{Solution}}$ Here
+$$
+\gamma^{0}=\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{bmatrix}, \quad \gamma^{1}=\begin{bmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & -1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{bmatrix}, \gamma^{2}=\begin{bmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & i & 0 & 0 \\
+-i & 0 & 0 & 0
+\end{bmatrix}
+$$
+$$
+\gamma^{3}=\begin{bmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{bmatrix}
+$$
+Consider $\mathbf{C} \gamma^{0} \mathbf{C}^{-1}=i \gamma^{2} \gamma^{0} \gamma^{0}\left(i \gamma^{2} \gamma^{0}\right)^{-1}$
+$$
+\begin{array}{l}
+=\gamma^{2} \gamma^{0} \gamma^{0}\left(\gamma^{0}\right)^{-1}\left(\gamma^{2}\right)^{-1} \\
+=-\gamma^{0} \\
+=-\left(\gamma^{0}\right)^{T} \\
+\mathbf{C} \gamma^{1} \mathbf{C}^{-1}=i \gamma^{2} \gamma^{0} \gamma^{1}\left(i \gamma^{2} \gamma^{0}\right)^{-1} \\
+=\gamma^{2} \gamma^{0} \gamma^{1}\left(\gamma^{0}\right)^{-1}\left(\gamma^{2}\right)^{-1} \\
+=\gamma^{1} \\
+=-\left(\gamma^{1}\right)^{T}
+\end{array}
+$$
+$$
+\begin{aligned}
+\mathbf{C} \gamma^{2} \mathbf{C}^{-1} &=i \gamma^{2} \gamma^{0} \gamma^{2}\left(i \gamma^{2} \gamma^{0}\right)^{-1} \\
+&=\gamma^{2} \gamma^{0} \gamma^{2}\left(\gamma^{0}\right)^{-1}\left(\gamma^{2}\right)^{-1} \\
+&=-\gamma^{2} \\
+&=-\left(\gamma^{2}\right)^{T} \\
+\mathbf{C} \gamma^{3} \mathbf{C}^{-1} &=i \gamma^{2} \gamma^{0} \gamma^{3}\left(i \gamma^{2} \gamma^{0}\right)^{-1} \\
+&=\gamma^{2} \gamma^{0} \gamma^{3}\left(\gamma^{0}\right)^{-1}\left(\gamma^{2}\right)^{-1} \\
+&=\gamma^{3} \\
+&=-\left(\gamma^{3}\right)^{T}
+\end{aligned}
+$$
+Thus, $\mathbf{C} \gamma^{\mu} \mathbf{C}^{-1}=-\left(\gamma^{\mu}\right)^{T}(\mu=0,1,2,3)$
+
+
+
+\begin{mybox}{2.2.48}
+\begin{enumerate}[$(a)$]
+\item Show that, by substitution of the definitions of the $\gamma^{\mu}$ matrices from Eqs. ( 2.70 ) and $(2.72),$ that the Dirac equation, Eq. ( 2.73$),$ takes the following form when written as $2 \times 2$ blocks (with $\psi_{L}$ and $\psi_{S}$ column vectors of dimension 2 ). Here $L$ and $S$ stand, respectively, for "large" and "small" because of their relative size in the nonrelativistic limit):
+$$
+\begin{bmatrix}
+m c^{2}-E & c\left(\sigma_{1} p_{1}+\sigma_{2} p_{2}+\sigma_{3} p_{3}\right) \\
+-c\left(\sigma_{1} p_{1}+\sigma_{2} p_{2}+\sigma_{3} p_{3}\right) & -m c^{2}-E
+\end{bmatrix}\begin{bmatrix}
+\psi_{L} \\
+\psi_{S}
+\end{bmatrix}=0
+$$
+\item To reach the nonrelativistic limit, make the substitution $\mathbf{E}=m c^{2}+\varepsilon$ and approximate $-2 m c^{2}-\varepsilon$ by $-2 m c^{2}$. Then write the matrix equation as two simultaneous two-component equations and show that they can be rearranged to yield
+$$
+\frac{1}{2 m}\left(p_{1}^{2}+p_{2}^{2}+p_{3}^{2}\right) \psi_{L}=\varepsilon \psi_{L}
+$$
+which is just the Schrödinger equation for a free particle.
+\item Explain why is it reasonable to call $\psi_{L}$ and $\psi_{S}$ "large" and "small."
+\end{enumerate}
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+
+
+
+\begin{mybox}{2.2.49}
+Show that it is consistent with the requirements that they must satisfy to take the Dirac gamma matrices to be (in $2 \times 2$ block form)
+$$
+\gamma^{0}=\begin{bmatrix}
+0 & \mathbf{1}_{2} \\
+\mathbf{1}_{2} & 0
+\end{bmatrix}, \quad \gamma^{i}=\begin{bmatrix}
+0 & \sigma_{i} \\
+-\sigma_{i} & 0
+\end{bmatrix}, \quad(i=1,2,3)
+$$
+This choice for the gamma matrices is called the Weyl representation.
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ If $\mathbf{C}=\mathbf{A} \otimes B$ and $\mathbf{C}'=\mathbf{A}' \otimes B'$ then $\mathbf{C} \mathbf{C}'=\mathbf{A} \mathbf{A}' \otimes B B'$ we have
+$$
+\begin{array}{l}
+\left(\gamma^{0}\right)^{2}=\sigma_{2}^{2} \otimes \hat{1}_{2}^{2} \\
+=\hat{1}_{2} \otimes \hat{1}_{2} \quad \text { as } \sigma_{i}^{2}=1 \\
+=\hat{1}_{4} \\
+=1
+\end{array}
+$$
+as $\gamma^{2}=\begin{bmatrix}-1 & 0 \\ 0 & -1\end{bmatrix}=-\hat{1}_{2}$
+
+$$
+\begin{array}{l}
+\left(\gamma'\right)^{2}=\gamma^{2} \otimes \sigma_{i}^{2} \\
+=\left(-\hat{1}_{2}\right) \otimes \hat{1}_{2} \\
+=-\hat{1}_{4} \\
+=-1
+\end{array}
+$$
+as $\sigma_{1} \gamma=\begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix}\begin{bmatrix}0 & 1 \\ -1 & 0\end{bmatrix}=\begin{bmatrix}-1 & 0 \\ 0 & 1\end{bmatrix}=-\sigma_{3}$
+$$
+\begin{aligned}
+\gamma^{0} \gamma^{i} &=\sigma_{1} \gamma \otimes \mathbf{l}_{2} \sigma_{i} \\
+&=\left(-\sigma_{3}\right) \otimes \sigma_{i} \\
+\gamma^{i} \gamma^{0} &=\gamma \sigma_{1} \otimes \sigma_{i} \mathbf{l}_{2} \\
+&=\sigma_{3} \otimes \sigma_{i}
+\end{aligned}
+$$
+as $\gamma \sigma_{1}=\begin{bmatrix}0 & 1 \\ -1 & 0\end{bmatrix}\begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix}=\begin{bmatrix}1 & 0 \\ 0 & -1\end{bmatrix}=\sigma_{3}$
+Thus $\gamma^{0} \gamma^{i}+\gamma' \gamma^{0}=0$
+$$
+\begin{array}{l}
+\gamma^{i} \gamma^{j}=\gamma^{2} \otimes \sigma_{i} \sigma_{j} \\
+\gamma^{j} \gamma^{i}=\gamma^{2} \otimes \sigma_{j} \sigma_{i}=\gamma^{2} \otimes\left(-\sigma_{i} \sigma_{j}\right)
+\end{array}
+$$
+as $\sigma_{i} \sigma_{j}+\sigma_{j} \sigma_{i}=0$. Thus, $\gamma^{i} \gamma^{j}+\gamma^{j} \gamma^{i}=0$ if $j \neq i$
+
+
+
+\begin{mybox}{2.2.50}
+Show that the Dirac equation separates into independent $2 \times 2$ blocks in the Weyl representation (see Exercise 2.2 .49 ) in the limit that the mass $m$ approaches zero. This observation is important in the ultra relativistic regime where the rest mass is inconsequential, or for particles of negligible mass (e.g., neutrinos).
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ In the Weyl representation, the matrices $\gamma^{0}, \alpha_{i}$ and the wave function $\psi$ written as
+$2 \times 2$ blocks take the forms
+$$
+\gamma^{0}=\begin{bmatrix}
+0 & \hat{1}_{2} \\
+\hat{1}_{2} & 0
+\end{bmatrix}, \quad \alpha_{i}=\begin{bmatrix}
+-\sigma_{i} & 0 \\
+0 & \sigma_{i}
+\end{bmatrix} \quad \text { and } \quad \psi=\begin{bmatrix}
+\psi_{1} \\
+\psi_{2}
+\end{bmatrix}
+$$
+In block form $\left[\gamma^{0} m c^{2}+\alpha \cdot p\right] \psi=E \psi$ becomes
+$$
+\left[\begin{bmatrix}
+0 & m c^{2} \\
+m c^{2} & 0
+\end{bmatrix}+\begin{bmatrix}
+-\sigma \cdot p & 0 \\
+0 & \sigma \cdot p
+\end{bmatrix}\right]\begin{bmatrix}
+\psi_{1} \\
+\psi_{2}
+\end{bmatrix}=E\begin{bmatrix}
+\psi_{1} \\
+\psi_{2}
+\end{bmatrix}
+$$
+If $m$ is zero, this matrix equation becomes two independent equations, one for $\psi_{1}$, and one for
+$\psi_{2}$ In this limit, one set of solutions will be with $\psi_{2}=0$ and $\psi_{1}$ a solution to $-\sigma \cdot p \psi_{1}=E \psi_{1}$ and a second set of solutions will have $\psi_{1}=0$ and a set of $\psi_{2}$ identical to the previously found set of $\psi_{1}$ but with values of $E$ of the opposite sign.
+
+
+\begin{mybox}{2.2.51}
+\begin{enumerate}[$(a)$]
+\item Given $\mathbf{r}'=\mathbf{Ur},$ with $\mathbf{U}$ a unitary matrix and $\mathbf{r}$ a (column) vector with complex elements, show that the magnitude of $\mathbf{r}$ is invariant under this operation. 	
+\item The matrix $\mathbf{U}$ transforms any column vector $\mathbf{r}$ with complex elements into $\mathbf{r}'$, leaving the magnitude invariant: $\mathbf{r}^{\dagger} \mathbf{r}=\mathbf{r}^{\prime \dagger} \mathbf{r}'$. Show that $\mathbf{U}$ is unitary.
+\end{enumerate}
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ We show that the magnitude of $r$ is invariant i.e. $\mathbf{r}'^{\dagger} \mathbf{r}'=\mathbf{r}^{\dagger} r$. Consider $\mathbf{r}'^{\dagger} \mathbf{r}'=(\mathbf{U} \mathbf{r})^{\dagger} \mathbf{U} \mathbf{r}$
+$$
+\begin{array}{l}
+=\mathbf{r}^{\dagger}  \mathbf{U}^{\dagger} \mathbf{U} \mathbf{r} \\
+=\mathbf{r}^{\dagger} 1 \mathbf{r} \\
+=\mathbf{r}^{\dagger} \mathbf{r}
+\end{array}
+$$
+This shows that the magnitude of $r$ is invariant under this operation.
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ all $r, \quad \mathbf{r}'^{\dagger} \mathbf{r}'=\mathbf{r}^{\dagger} r$
+$$
+\begin{array}{l}
+(\mathbf{U} \mathbf{r})^{\dagger} \mathbf{U} \mathbf{r}=\mathbf{r}^{\dagger} r \\
+\mathbf{r}^{\dagger}  \mathbf{U}^{\dagger} \mathbf{U} \mathbf{r}=\mathbf{r}^{\dagger} 1 r \\
+ \mathbf{U}^{\dagger} \mathbf{U}=1
+\end{array}
+$$
+This shows that $U$ is unitary.
+
+
+
+
+
+\end{flushleft}
+\end{document}

@@ -1,0 +1,484 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{bbm}
+\usepackage{enumerate}
+\pagestyle{plain}
+\usepackage{yfonts}
+\usepackage{ragged2e}
+
+
+\usepackage{titling}
+\setlength{\droptitle}{-7em} 
+
+
+\def\Tiny{\fontsize{4pt}{4pt}\selectfont}
+\newcommand*{\eqdef}{\ensuremath{\overset{\mathclap{\text{\Tiny def}}}{=}}}
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={160mm,257mm},
+ left=24mm,
+ top=20mm,
+ }
+ 
+ \usepackage{tcolorbox}
+\newtcolorbox{mybox}[1]{colback=blue!5!white,colframe=blue!42!black,fonttitle=\bfseries,title=Problem #1}
+ 
+
+\title{Title}
+\author{Carlos Faz}
+\date{ \ }
+
+\begin{document}
+
+\maketitle
+
+\begin{flushleft}
+
+
+\begin{mybox}{3.2.1}
+If $\mathbf{P}=\hat{\mathbf{e}}_{x} P_{x}+\hat{\mathbf{e}}_{y} P_{y}$ and $\mathbf{Q}=\hat{\mathbf{e}}_{x} Q_{x}+\hat{\mathbf{e}}_{y} Q_{y}$ are any two nonparallel (Also nonantiparallectors in the $x y$ -plane, show that $\mathbf{P} \times \mathbf{Q}$ is in the $z$ -direction.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ We write the $P$ and $Q$ vectors as
+$$\mathbf{P} = \langle P_x, P_y,0\rangle \quad Q = \langle Q_x, Q_y,0\rangle$$
+So
+$$\mathbf{P} \times \mathbf{Q} = \begin{vmatrix}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z}\\ 
+P_{x} & P_{y} & 0\\ 
+Q_{x} & Q_{y} & 0
+\end{vmatrix} =  (P_{x} Q_{y} - Q_{x} P_{y})\hat{\mathbf{e}}_{z}$$
+
+
+\begin{mybox}{3.2.2}
+Prove that $(\mathbf{A} \times \mathbf{B}) \cdot(\mathbf{A} \times \mathbf{B})=(\mathbf{A} \mathbf{B})^{2}-(\mathbf{A} \cdot \mathbf{B})^{2}$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$
+$$(\mathbf{A} \times \mathbf{B})^{2}=(|\mathbf{A}||\mathbf{B}| \sin \theta)^{2}$$
+$$(\mathbf{A} \times \mathbf{B})^{2}=\mathbf{A}^{2} \times \mathbf{B}^{2} \times \sin ^{2} \theta$$
+$$(\mathbf{A} \times \mathbf{B})^{2}=\mathbf{A}^{2} \times \mathbf{B}^{2} \times\left(1-\cos ^{2} \theta\right)$$
+$$(\mathbf{A} \times \mathbf{B})^{2}=\mathbf{A}^{2} \times \mathbf{B}^{2}-\mathbf{A}^{2} \times \mathbf{B}^{2} \times\left(\cos ^{2} \theta\right)$$
+$$(\mathbf{A} \times \mathbf{B})^{2}=\mathbf{A}^{2} \mathbf{B}^{2}-(\mathbf{A} \cdot \mathbf{B})^{2}$$
+
+
+
+\begin{mybox}{3.2.3}
+Using the vectors
+$$\mathbf{P}=\hat{\mathbf{e}}_{x} \cos \theta+\hat{\mathbf{e}}_{y} \sin \theta$$
+$$\mathbf{Q}=\hat{\mathbf{e}}_{x} \cos \varphi-\hat{\mathbf{e}}_{y} \sin \varphi$$
+$$\mathbf{R}=\hat{\mathbf{e}}_{x} \cos \varphi+\hat{\mathbf{e}}_{y} \sin \varphi$$
+prove the familiar trigonometric identities
+$$
+\begin{aligned} \sin (\theta+\varphi) &=\sin \theta \cos \varphi+\cos \theta \sin \varphi \\ \cos (\theta+\varphi) &=\cos \theta \cos \varphi-\sin \theta \sin \varphi \end{aligned}
+$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ Consider $\mathbf{P}\cdot \mathbf{Q}$ as
+$$\mathbf{P}\cdot \mathbf{Q} = (\hat{x} \cos \theta+\hat{y} \sin \theta) \cdot\left(\hat{x} \cos \varphi-\hat{y} \sin \varphi\right)+\hat{y} \sin \theta \hat{x} \cos \varphi-\hat{y} \sin \theta \sin \varphi$$
+$$\mathbf{P}\cdot \mathbf{Q} = (1 \times \cos \theta \cos \varphi)-(0 \times \cos \theta \sin \varphi)+(0 \times \sin \theta \cos \varphi) - (1\times \sin \theta \sin \varphi)$$
+$$\mathbf{P}\cdot \mathbf{Q} = \cos \theta \cos \varphi-\sin \theta \sin \varphi$$
+And by the product rule, $\mathbf{P}\cdot \mathbf{Q} = \cos(\theta + \varphi)$
+$$\cos (\theta+\varphi)=\cos \theta \cos \varphi-\sin \theta \sin \varphi$$
+
+
+
+ 
+\begin{mybox}{3.2.4}
+\begin{enumerate}[$(a)$]
+\item Find a vector $\mathbf{A}$ that is perpendicular to
+$$\mathbf{U}=2 \hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}-\hat{\mathbf{e}}_{z}$$
+$$\mathbf{V}=\hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{y}+\hat{\mathbf{e}}_{z}$$
+\item What is $\mathbf{A}$ if, in addition to this requirement, we demand that it have unit
+magnitude?
+\end{enumerate}
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ we have $\mathbf{U}=2 \hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}-\hat{\mathbf{e}}_{z}, V=\hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{y}+\hat{\mathbf{e}}_{z}$
+$$
+\mathbf{U} \times \mathbf{V}=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+2 & 1 & -1 \\
+1 & -1 & 1
+\end{array}\right|=\hat{\mathbf{e}}_{x}(1-1)-\hat{\mathbf{e}}_{y}(2+1)+\hat{\mathbf{e}}_{z}(-2-1)
+$$
+$$
+\mathbf{U} \times \mathbf{V}=-\hat{\mathbf{e}}_{y}(3)+\hat{\mathbf{e}}_{z}(-3)=-3 \hat{\mathbf{e}}_{y}-3 \hat{\mathbf{e}}_{z}
+$$
+
+$\boxed{\textbf{Solution}}$ For $(b)$ We know $\mathbf{A}$ is $-3 \hat{\mathbf{e}}_{y}-3 \hat{\mathbf{e}}_{z}$, so the magnitude of $\mathbf{A}$ is
+$$|\mathbf{A}|=\sqrt{3^{2}+3^{2}}=\sqrt{18}=3 \sqrt{2}$$
+From this 
+$$\mathbf{A}=\frac{-3 \hat{\mathbf{e}}_{y}-3 \hat{\mathbf{e}}_{z}}{3 \sqrt{2}}=\frac{-\hat{\mathbf{e}}_{y}-\hat{\mathbf{e}}_{z}}{\sqrt{2}}$$
+
+
+\begin{mybox}{3.2.5}
+If four vectors $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$, and $\mathbf{d}$ all lie in the same plane, show that
+$$
+(\mathbf{a} \times \mathbf{b}) \times(\mathbf{c} \times \mathbf{d})=0
+$$
+Hint. Consider the directions of the cross-product vectors.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ Since all four vectors lie in the same plane, the cross product of any two of them would be orthogonal to the plane. Thus:
+$$\mathbf{v}_1 = (\mathbf{a} \times \mathbf{b})$$
+$$\mathbf{v}_2 = (\mathbf{c} \times \mathbf{d})$$
+By definition, it $\mathbf{v}_1$ and $\mathbf{v}_2$ are parallel, so $\mathbf{v}_1 \times \mathbf{v}_2 = 0$
+
+
+
+
+
+\begin{mybox}{3.2.6}
+Derive the law of sines (see Fig. $3.4):$
+$$
+\dfrac{\sin \alpha}{|\mathbf{A}|}=\dfrac{\sin \beta}{|\mathbf{B}|}=\dfrac{\sin \gamma}{|\mathbf{C}|}
+$$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ We have $\mathbf{A}-\mathbf{B}-\mathbf{C}=0$ so we cross both sides by $\mathbf{A}$ 
+
+
+
+$$\mathbf{A} \times \mathbf{A}-\mathbf{A} \times \mathbf{B}-\mathbf{A} \times \mathbf{C}=\mathbf{A} \times 0$$
+$$ 0-\mathbf{A} \times \mathbf{B}-\mathbf{A} \times \mathbf{C}=0$$
+$$-\mathbf{A} \times \mathbf{B}-\mathbf{A} \times \mathbf{C}=0$$
+$$-\mathbf{A} \times \mathbf{C}=\mathbf{A} \times \mathbf{B}$$
+$$ \mathbf{C} \times \mathbf{A}=\mathbf{A} \times \mathbf{B}$$
+$$|\mathbf{C}||\mathbf{A}| \sin \beta=|\mathbf{A}| \mathbf{B} \mid \sin \gamma$$
+
+Again, we cross both sides of $\mathbf{A}-\mathbf{B}-\mathbf{C}=0$ by $\mathbf{B}$
+$$\mathbf{B} \times \mathbf{A}-\mathbf{B} \times \mathbf{B}-\mathbf{B} \times \mathbf{C}=\mathbf{B} \times 0$$
+$$ \mathbf{B} \times \mathbf{A}-\mathbf{B} \times \mathbf{C}=0$$
+$$ \mathbf{B} \times \mathbf{A}=\mathbf{B} \times C$$
+$$|\mathbf{B} \| A| \sin \gamma=|\mathbf{B}||\mathbf{C}| \sin \alpha$$
+$$|\mathbf{A}| \sin \gamma=|\mathbf{C}| \sin \alpha$$
+$$ \frac{\sin \gamma}{|\mathbf{C}|}=\frac{\sin \alpha}{|\mathbf{A}|} $$
+
+
+
+
+
+
+\begin{mybox}{3.2.7}
+The magnetic induction $\mathbf{B}$ is defined by the Lorentz force equation,
+$$
+\mathbf{F}=q(\mathbf{v} \times \mathbf{B})
+$$
+Carrying out three experiments, we find that if
+$$
+\begin{array}{l}{\mathbf{v}=\hat{\mathbf{e}}_{x}, \quad \dfrac{\mathbf{F}}{q}=2 \hat{\mathbf{e}}_{z}-4 \hat{\mathbf{e}}_{y}}\vspace{3mm} \\ {\mathbf{v}=\hat{\mathbf{e}}_{y}, \quad \dfrac{\mathbf{F}}{q}=4 \hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{z}} \vspace{3mm}\\ {\mathbf{v}=\hat{\mathbf{e}}_{z}, \quad \dfrac{\mathbf{F}}{q}=\hat{\mathbf{e}}_{y}-2 \hat{\mathbf{e}}_{x}}\end{array}
+$$
+From the results of these three separate experiments calculate the magnetic induction $\mathbf{B}$.
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ From the first condition $\mathbf{v}=\hat{\mathbf{e}}_{x}, \dfrac{F}{q}=2 \hat{\mathbf{e}}_{z}-4 \hat{\mathbf{e}}_{\dot{y}}$
+
+$$
+\mathbf{v} \times \mathbf{B}=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+1 & 0 & 0 \\
+\mathbf{B}_{x} & \mathbf{B}_{y} & \mathbf{B}_{z}
+\end{array}\right|=\hat{\mathbf{e}}_{x}(0)-\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{z}\right)+\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{y}\right)=-\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{z}\right)+\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{y}\right)
+$$
+
+$$\frac{\mathbf{F}}{q}=2 \hat{\mathbf{e}}_{z}-4 \hat{\mathbf{e}}_{j},$$
+$$ \mathbf{v} \times \mathbf{B}=-\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{z}\right)+\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{y}\right)$$
+$$\mathbf{B}_{z}=4, \mathbf{B}_{y}=2$$
+
+Now, from the second condition $\mathbf{v}=\hat{\mathbf{e}}_{y}, \dfrac{F}{q}=4 \hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{z}$
+
+$$
+\mathbf{v} \times \mathbf{B}=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+0 & 1 & 0 \\
+\mathbf{B}_{x} & \mathbf{B}_{y} & \mathbf{B}_{z}
+\end{array}\right|=\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{z}\right)-\hat{\mathbf{e}}_{y}(0)-\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{x}\right)=\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{z}\right)-\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{x}\right)
+$$
+$$\frac{\mathbf{F}}{q}=4 \hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{z}$$
+$$ \mathbf{v} \times \mathbf{B}=\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{z}\right)-\hat{\mathbf{e}}_{z}\left(\mathbf{B}_{x}\right)$$
+$$\mathbf{B}_{z}=4, \mathbf{B}_{x}=1$$
+From the third condition 
+$$
+\mathbf{v}=\hat{\mathbf{e}}_{z}$$
+$$ \frac{\mathbf{F}}{q}=\hat{\mathbf{e}}_{y}-2 \hat{\mathbf{e}}_{x}
+$$
+$$
+\mathbf{v} \times \mathbf{B}=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+0 & 0 & 1 \\
+\mathbf{B}_{x} & \mathbf{B}_{y} & \mathbf{B}_{z}
+\end{array}\right|=\hat{\mathbf{e}}_{x}\left(-\mathbf{B}_{y}\right)-\hat{\mathbf{e}}_{y}\left(-\mathbf{B}_{x}\right)-\hat{\mathbf{e}}_{z}(0)=-\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{y}\right)+\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{x}\right)
+$$
+$$\mathbf{v} \times \mathbf{B}=-\hat{\mathbf{e}}_{x}\left(\mathbf{B}_{y}\right)+\hat{\mathbf{e}}_{y}\left(\mathbf{B}_{x}\right)$$
+$$ \frac{\mathbf{F}}{q}=\hat{\mathbf{e}}_{y}-2 \hat{\mathbf{e}}_{x}$$
+$$\mathbf{B}_{y}=2, \mathbf{B}_{x}=1$$
+
+
+\begin{mybox}{3.2.8}
+You are given the three vectors $\mathbf{A}, \mathbf{B},$ and $\mathbf{C},$
+$$
+\begin{array}{l}{\mathbf{A}=\hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}} \\ {\mathbf{B}=\hat{\mathbf{e}}_{y}+\hat{\mathbf{e}}_{z}} \\ {\mathbf{C}=\hat{\mathbf{e}}_{x}-\hat{\mathbf{e}}_{z}}\end{array}
+$$
+
+Therefore, from above three conditions magnetic induction is given by $ \mathbf{B} = \hat { x } + 2 \hat { y } + 4 \hat { z }$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$, $\mathbf{A} \cdot \mathbf{B} \times \mathbf{C}=0 .$ Because $\mathbf{A}$ is the plane of $\mathbf{B}$ and $\mathbf{C}$. The parallelepiped has zero height above the $BC$ plane. So therefore volume will be zero.
+Therefore, the scalar triple product is zero.
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ 
+$$
+(\mathbf{B} \times \mathbf{C})=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+0 & 1 & 1 \\
+1 & 0 & -1
+\end{array}\right|=\hat{\mathbf{e}}_{x}(-1)-\hat{\mathbf{e}}_{y}(-1)+\hat{\mathbf{e}}_{z}(-1)=-\hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}-\hat{\mathbf{e}}_{z}
+$$
+$$
+\mathbf{A} \times(\mathbf{B} \times \mathbf{C})=\left|\begin{array}{ccc}
+\hat{\mathbf{e}}_{x} & \hat{\mathbf{e}}_{y} & \hat{\mathbf{e}}_{z} \\
+1 & 1 & 0 \\
+-1 & 1 & -1
+\end{array}\right|=\hat{\mathbf{e}}_{x}(-1)-\hat{\mathbf{e}}_{y}(-1)+\hat{\mathbf{e}}_{z}(1+1)=-\hat{\mathbf{e}}_{x}+\hat{\mathbf{e}}_{y}+2 \hat{\mathbf{e}}_{z}
+$$
+
+
+
+
+\begin{mybox}{3.2.9}
+Prove Jacobi's identity for vector products:
+$$
+\mathbf{a} \times(\mathbf{b} \times \mathbf{c})+\mathbf{b} \times(\mathbf{c} \times \mathbf{a})+\mathbf{c} \times(\mathbf{a} \times \mathbf{b})=0
+$$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ From $\mathbf{BA}\mathbf{C}-\mathbf{C}\mathbf{AB}$ rule $\mathbf{a}\times(\mathbf{b} \times \mathbf{c})=\mathbf{b}(\mathbf{a}\cdot \mathbf{c})-\mathbf{c}(\mathbf{a} \cdot \mathbf{b}).$ The entire equation an written as
+$$
+\mathbf{a}\times(\mathbf{b} \times \mathbf{c})+\mathbf{b} \times(\mathbf{c} \times \mathbf{a})+\mathbf{c} \times(\mathbf{a} \times \mathbf{b})$$
+$$=[\mathbf{b}(\mathbf{a} \cdot \mathbf{c})-\mathbf{c}(\mathbf{a} \cdot \mathbf{b})]+[(\mathbf{b} \cdot \mathbf{a}) \mathbf{c}-(\mathbf{b} \cdot \mathbf{c}) \mathbf{a}]+[(\mathbf{c} \cdot \mathbf{b}) \mathbf{a}-(\mathbf{c} \cdot \mathbf{a}) \mathbf{b}]
+$$
+since the dot product is commutative so they becomes zero.
+Therefore, $$ \mathbf{a}\times(\mathbf{b} \times \mathbf{c})+\mathbf{b} \times(\mathbf{c} \times \mathbf{a})+\mathbf{c} \times(\mathbf{a} \times \mathbf{b})=0$$
+
+
+
+
+\begin{mybox}{3.2.10}
+A vector $\mathbf{A}$ is decomposed into a radial vector $\mathbf{A}_{r}$ and a tangential vector $\mathbf{A}_{t} .$ If $\hat{\mathbf{r}}$ is a unit vector in the radial direction, show that
+$(a)$ $\mathbf{A}_{r}=\hat{\mathbf{r}}(\mathbf{A} \cdot \hat{\mathbf{r}})$ and
+$(b)$ $\mathbf{A}_{t}=-\hat{\mathbf{r}} \times(\hat{\mathbf{r}} \times \mathbf{A})$
+\end{mybox}
+
+
+$\boxed{\textbf{Solution}}$ Let $\mathbf{A}=\mathbf{A}_{r} \hat{\mathbf{r}}+\mathbf{A}_{i} \hat{\theta}$
+$$
+\mathbf{A} \cdot \hat{\mathbf{r}}=\mathbf{A}_{r}, \text { as } \ \hat{\mathbf{r}} \cdot \hat{\mathbf{r}}=1
+$$
+The left-hand side is:
+$$\mathbf{A}_{r}=\mathbf{A}_{r} \hat{\mathbf{r}}$$ since $\hat{\mathbf{r}}$ is the unit vector.
+The right-hand side is:
+$$
+\hat{\mathbf{r}}(\mathbf{A} \cdot \hat{\mathbf{r}})=\hat{\mathbf{r}}\left(\mathbf{A}_{r}\right)=\mathbf{A}_{r} \hat{\mathbf{r}}
+$$
+For $(b)$, taking dot product of both sides of the equation $\mathbf{A}_{t}=-\hat{\mathbf{r}} \times(\hat{\mathbf{r}} \times \mathbf{A})$ by $\hat{\mathbf{r}}$ we get
+$$
+\mathbf{A}_{t} \cdot \hat{\mathbf{r}}=[-\hat{\mathbf{r}} \times(\hat{\mathbf{r}} \times \mathbf{A})] \cdot \hat{\mathbf{r}}
+$$
+The left-hand side is:
+$$
+\mathbf{A}_{t} \cdot \hat{\mathbf{r}}=\mathbf{A}_{t} \hat{\theta} \cdot \hat{\mathbf{r}}=0
+$$
+
+$$
+\begin{aligned}
+[-\hat{\mathbf{r}} \times(\hat{\mathbf{r}} \times \mathbf{A})] \cdot \hat{\mathbf{r}}&=[\hat{\mathbf{r}} \times(\mathbf{A} \times \hat{\mathbf{r}})] \cdot \hat{\mathbf{r}} \\
+&=[\mathbf{A}(\hat{\mathbf{r}} \cdot \hat{\mathbf{r}})-\hat{\mathbf{r}}(\mathbf{A} \cdot \hat{\mathbf{r}})] \cdot \hat{\mathbf{r}} \\
+&=\left[\mathbf{A}-\hat{\mathbf{r}} \mathbf{A}_{r}\right] \cdot \hat{\mathbf{r}} \\
+&=\mathbf{A} \cdot \hat{\mathbf{r}}-\mathbf{A}_{r} \hat{\mathbf{r}} \cdot \hat{\mathbf{r}} \\
+&=\mathbf{A}_{r}-\mathbf{A}_{r}\\
+&=0
+\end{aligned}
+$$
+
+\begin{mybox}{3.2.11}
+Prove that a necessary and sufficient condition for the three (nonvanishing) vectors $\mathbf{A},$ $\mathbf{B},$ and $\mathbf{C}$ to be coplanar is the vanishing of the scalar triple product
+$$
+\mathbf{A} \cdot \mathbf{B} \times \mathbf{C}=0
+$$
+\end{mybox}
+$\boxed{\textbf{Solution}}$ It should be keep in mind that scalar triple product can also be represent as the volume of
+parallelepiped which is formed by three vectors. So we can say that if scalar triple product is equal to zero then vectors are coplanar as the parallelepipeds have no volume.
+
+
+
+
+\begin{mybox}{3.2.12}
+Three vectors $\mathbf{A}, \mathbf{B},$ and $\mathbf{C}$ are given by
+$$
+\begin{array}{l}{\mathbf{A}=3 \hat{\mathbf{e}}_{x}-2 \hat{\mathbf{e}}_{y}+2 \hat{\mathbf{z}}} \\ {\mathbf{B}=6 \hat{\mathbf{e}}_{x}+4 \hat{\mathbf{e}}_{y}-2 \hat{\mathbf{z}}} \\ {\mathbf{C}=-3 \hat{\mathbf{e}}_{x}-2 \hat{\mathbf{e}}_{y}-4 \hat{\mathbf{z}}}\end{array}
+$$
+Compute the values of $\mathbf{A} \cdot \mathbf{B} \times \mathbf{C}$ and $\mathbf{A} \times(\mathbf{B} \times \mathbf{C}), \mathbf{C} \times(\mathbf{A} \times \mathbf{B})$ and $\mathbf{B} \times(\mathbf{C} \times \mathbf{A})$
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ First we can find $B\times C$ and then can permorm dot product
+
+$$\mathbf{B} \times \mathbf{C}=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ 6 & 4 & -2 \\ -3 & -2 & -4\end{array}\right|=\hat{x}(-16-4)-\hat{y}(-24-6)+\hat{z}(-12+12)=-20 \hat{x}+30 \hat{y}$$
+$$\mathbf{A} \cdot(\mathbf{B} \times \mathbf{C})=(3 \hat{x}-2 \hat{y}+2 \hat{z}) \cdot(-20 \hat{x}+30 \hat{y})=-60-60=-120$$
+With this, $\mathbf{A} \cdot (\mathbf{B} \times \mathbf{C})=-120$
+
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ we have that the vector $\mathbf{A}$
+
+$$\mathbf{A}=(3 \hat{x}-2 \hat{y}+2 \hat{z})$$
+$$\mathbf{A} \times(\mathbf{B} \times \mathbf{C})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ 3 & -2 & 2 \\ -20 & 30 & 0\end{array}\right|=\hat{x}(-60)-\hat{y}(40)+\hat{z}(50)$$
+With this, $$\mathbf{A} \times(\mathbf{B} \times \mathbf{C})=(-60) \hat{x}-(40) \hat{y}+(50) \hat{z}$$
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(c)$ 
+$$(\mathbf{A} \times \mathbf{B})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ 3 & -2 & 2 \\ 6 & 4 & -2\end{array}\right|=\hat{x}(-4)-\hat{y}(-18)+\hat{z}(24)$$
+$$\mathbf{C} \times(\mathbf{A} \times \mathbf{B})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ -3 & -2 & -4 \\ -4 & 18 & 24\end{array}\right|=\hat{x}(26)-\hat{y}(-88)+\hat{z}(-62)$$
+
+
+
+
+$\boxed{\textbf{Solution}}$ For $(d)$ 
+$$(\mathbf{C} \times \mathbf{A})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ -3 & -2 & -4 \\ 3 & -2 & 2\end{array}\right|=\hat{x}(-12)-\hat{y}(6)+\hat{z}(12)$$
+$$\mathbf{B} \times(\mathbf{C} \times \mathbf{A})=\left|\begin{array}{ccc}\hat{x} & \hat{y} & \hat{z} \\ 6 & 4 & -2 \\ -12 & -6 & 12\end{array}\right|=\hat{x}(36)-\hat{y}(48)+\hat{z}(12)$$
+
+
+
+\begin{mybox}{3.2.13}
+Show that
+$$
+(\mathbf{A} \times \mathbf{B}) \cdot(\mathbf{C} \times \mathbf{D})=(\mathbf{A} \cdot \mathbf{C})(\mathbf{B} \cdot \mathbf{D})-(\mathbf{A} \cdot \mathbf{D})(\mathbf{B} \cdot \mathbf{C})
+$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ Let $\mathbf{C} \times \mathbf{D}=m$.
+Now, consider the scalar triple product $(\mathbf{A} \times \mathbf{B}) \cdot \mathbf{m}$.
+since cross and dot product can be interchanged, we have,
+$$
+(\mathbf{A} \times \mathbf{B}) \cdot \mathbf{m}=\mathbf{A} \cdot(\mathbf{B} \times \mathbf{m})
+$$
+Resubstituting $m$ we get
+$$\begin{aligned}(\mathbf{A} \times \mathbf{B}) \cdot(\mathbf{C} \times \mathbf{D}) &=\mathbf{A} \cdot[\mathbf{B} \times(\mathbf{C} \times \mathbf{D})] \\ &=\mathbf{A} \cdot[(\mathbf{B} \cdot \mathbf{D}) \mathbf{C}-(\mathbf{B} \cdot \mathbf{C})\mathbf{D}] \\ &=(\mathbf{A} \cdot \mathbf{C})(\mathbf{B} \cdot \mathbf{D})-(\mathbf{A} \cdot \mathbf{D})(\mathbf{B} \cdot \mathbf{C}) \end{aligned}$$
+Thus, $(\mathbf{A} \times \mathbf{B}) \cdot(\mathbf{C} \times \mathbf{D})=(\mathbf{A} \cdot \mathbf{C})(\mathbf{B} \cdot \mathbf{D})-(\mathbf{A} \cdot \mathbf{D})(\mathbf{B} \cdot \mathbf{C})$
+
+
+
+
+\begin{mybox}{3.2.14}
+Show that
+$(\mathbf{A} \times \mathbf{B}) \times(\mathbf{C} \times \mathbf{D})=(\mathbf{A} \cdot \mathbf{B} \times \mathbf{D}) \mathbf{C}-(\mathbf{A} \cdot \mathbf{B} \times \mathbf{C}) \mathbf{D}$
+\end{mybox}
+$\boxed{\textbf{Solution}}$ Let $\mathbf{A} \times \mathbf{B}=\mathbf{m}$
+$$(\mathbf{A} \times \mathbf{B}) \times(\mathbf{C} \times \mathbf{D})=\mathbf{m} \times(\mathbf{C} \times \mathbf{D})$$
+$$=(\mathbf{m} \cdot \mathbf{D}) \mathbf{C}-(\mathbf{m} \cdot \mathbf{C})\mathbf{D}$$
+$$=((\mathbf{A} \times \mathbf{B}) \cdot \mathbf{D}) \mathbf{C}-((\mathbf{A} \times \mathbf{B}) \cdot \mathbf{C})\mathbf{D}$$
+$$=(\mathbf{A} \cdot(\mathbf{B} \times \mathbf{D})) \mathbf{C}-(\mathbf{A} \cdot(\mathbf{B} \times \mathbf{C}))\mathbf{D}$$
+
+
+
+\begin{mybox}{3.2.15}
+An electric charge $q_{1}$ moving with velocity $\mathbf{v}_{1}$ produces a magnetic induction $\mathbf{B}$
+given by
+$$
+\mathbf{B}=\frac{\mu_{0}}{4 \pi} q_{1} \frac{\mathbf{v}_{1} \times \hat{\mathbf{r}}}{r^{2}} \quad \text { (mks units), }
+$$
+where $\hat{\mathbf{r}}$ is a unit vector that points from $q_{1}$ to the point at which $\mathbf{B}$ is measured (Biot and Savart law).
+
+\begin{enumerate}[$(a)$]
+\item Show that the magnetic force exerted by $q_{1}$ on a second charge $q_{2},$ velocity $\mathbf{v}_{2},$ is
+given by the vector triple product
+$$
+\mathbf{F}_{2}=\frac{\mu_{0}}{4 \pi} \frac{q_{1} q_{2}}{r^{2}} \mathbf{v}_{2} \times\left(\mathbf{v}_{1} \times \hat{\mathbf{r}}\right)
+$$
+\item Write out the corresponding magnetic force $\mathbf{F}_{1}$ that $q_{2}$ exerts on $q_{1} .$ Define your
+unit radial vector. How do $\mathbf{F}_{1}$ and $\mathbf{F}_{2}$ compare?
+\item Calculate $\mathbf{F}_{1}$ and $\mathbf{F}_{2}$ for the case of $q_{1}$ and $q_{2}$ moving along parallel trajectories side by side.
+\end{enumerate}
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$ The magnetic force $\mathbf{F}_{2}$ is defined by the Lorentz force equation,
+$$
+\begin{aligned}
+\mathbf{F}_{2} &=q_{2}\left(\mathbf{v}_{2} \times \mathbf{B}_{1}\right) \\
+&=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}_{2} \times\left(\mathbf{v}_{1} \times \hat{\mathbf{r}}\right)}{r^{2}}
+\end{aligned}
+$$
+and 
+$$
+\mathbf{B}_{1}=\frac{\mu_{0}}{4 \pi} q_{1} \frac{\mathbf{v}_{1} \times \hat{\mathbf{r}}}{r^{2}}
+$$
+
+For $(b)$ The magnetic force $\mathbf{F}_{1}$ is defined by the Lorentz force equation,
+$$
+\begin{aligned}
+\mathbf{F}_{1} &=q_{1}\left(\mathbf{v}_{1} \times \mathbf{B}_{2}\right) \\
+&=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}_{1} \times\left(\mathbf{v}_{2} \times \hat{\mathbf{r}}\right)}{r^{2}}
+\end{aligned}
+$$
+and
+$$
+\mathbf{B}_{2}=\frac{\mu_{0}}{4 \pi} q_{2} \frac{\mathbf{v}_{2} \times(-\hat{\mathbf{r}})}{r^{2}}
+$$
+From part we have, 
+$$ \mathbf{F}_{2}=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}_{2} \times\left(\mathbf{v}_{1} \times \hat{\mathbf{r}}\right)}{r^{2}}$$
+since $-\mathbf{v}_{1} \times\left(\mathbf{v}_{2} \times \hat{\mathbf{r}}\right) \neq \mathbf{v}_{2} \times\left(\mathbf{v}_{1} \times \hat{\mathbf{r}}\right), \quad \mathbf{F}_{1} \neq \mathbf{F}_{2}$
+For $(c)$ we have that
+$$
+\begin{aligned}
+\mathbf{F}_{1} &=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v} \times(\mathbf{v} \times \hat{\mathbf{r}})}{r^{2}} \\
+&=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}(\mathbf{v} \cdot \hat{\mathbf{r}})-\hat{\mathbf{r}}(\mathbf{v} \cdot v)}{r^{2}} \\
+&=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{0-\hat{\mathbf{r}}(\mathbf{v} \cdot v)}{r^{2}} \\
+&=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}^{2} \hat{\mathbf{r}}}{r^{2}}
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+\mathbf{F}_{2} &=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v} \times(\mathbf{v} \times \hat{\mathbf{r}})}{r^{2}} \\
+&=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}(\mathbf{v} \cdot \hat{\mathbf{r}})-\hat{\mathbf{r}}(\mathbf{v} \cdot v)}{r^{2}} \\
+&=\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{0-\hat{\mathbf{r}}(\mathbf{v} \cdot v)}{r^{2}} \\
+&=-\frac{\mu_{0}}{4 \pi} q_{1} q_{2} \frac{\mathbf{v}^{2} \hat{\mathbf{r}}}{r^{2}}
+\end{aligned}
+$$
+Thus, $\mathbf{F}_1 = -\mathbf{F}_2$
+
+
+
+
+
+
+
+
+\end{flushleft}
+\end{document}

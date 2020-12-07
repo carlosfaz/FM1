@@ -1,0 +1,245 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{bbm}
+\usepackage{enumerate}
+\pagestyle{plain}
+\usepackage{yfonts}
+\usepackage{ragged2e}
+
+
+\usepackage{titling}
+\setlength{\droptitle}{-7em} 
+
+
+\def\Tiny{\fontsize{4pt}{4pt}\selectfont}
+\newcommand*{\eqdef}{\ensuremath{\overset{\mathclap{\text{\Tiny def}}}{=}}}
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={160mm,257mm},
+ left=24mm,
+ top=20mm,
+ }
+ 
+ \usepackage{tcolorbox}
+\newtcolorbox{mybox}[1]{colback=blue!5!white,colframe=blue!42!black,fonttitle=\bfseries,title=Problem #1}
+ 
+
+\title{Title}
+\author{Carlos Faz}
+\date{ \ }
+
+\begin{document}
+
+\maketitle
+
+\begin{flushleft}
+
+
+
+
+\begin{mybox}{3.4.1}
+Another set of Euler rotations in common use is
+\begin{enumerate}[$(a)$]
+\item a rotation about the $x_{3}$ -axis through an angle $\varphi$, counterclockwise,
+\item a rotation about the $x_{1}'$ -axis through an angle $\theta,$ counterclockwise,
+\item a rotation about the $x_{3}^{\prime \prime}$ -axis through an angle $\psi,$ counterclockwise.
+\end{enumerate}
+If 
+$$
+\begin{array}{l}
+\alpha=\varphi-\pi / 2 \\
+\beta=\theta \\
+\gamma=\psi+\pi / 2
+\end{array}
+$$
+or
+$$
+\begin{array}{l}
+\varphi=\alpha+\pi / 2 \\
+\theta=\beta \\
+\psi=\gamma-\pi / 2
+\end{array}
+$$
+show that the final systems are identical.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ The Euler rotations given in the text is:
+\begin{enumerate}
+\item a rotation about the $x_{3}-$ axis through an angle $\alpha,$ counterclockwise
+\item a rotation about the $x_{2}'$ - axis through an angle $\beta$, counterclockwise
+\item a rotation about the $x_{3}^{\prime \prime}$ -axis through an angle $\gamma$, counterclockwise.
+\end{enumerate}
+The Euler rotation defined here differ from those in the text in that the inclination of the polar axis is about that $x_{1}'-$axis rather than the $x_{2}'-$ axis. Therefore, to achieve the same polar orientation, we must place the $x_{1}'-$axis where the $x_{2}'-$axis was using the text rotation. This requires an additional first rotation of $\frac{\pi}{2}$. After inclining the polar axis, the rotational position
+is now $\frac{\pi}{2}$ greater than form the text rotation, so the third Euler angle must be $\frac{\pi}{2}$ less than its original value.
+
+
+
+\begin{mybox}{3.4.2}
+Suppose the Earth is moved (rotated) so that the north pole goes to $30^{\circ}$ north, $20^{\circ}$ west (original latitude and longitude system) and the $10^{\circ}$ west meridian points due south (also in the original system).
+(a) What are the Euler angles describing this rotation?
+(b) Find the corresponding direction cosines.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ No solution yet.
+
+
+\begin{mybox}{3.4.3}
+Verify that the Euler angle rotation matrix, Eq. (3.37), is invariant under the transformation
+$$
+\alpha \rightarrow \alpha+\pi, \quad \beta \rightarrow-\beta, \quad \gamma \rightarrow \gamma-\pi
+$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ The Euler rotation matrix $\mathbf{S}(\alpha, \beta, \gamma)$ is :
+$$
+\mathbf{S}(\alpha, \beta, \gamma)=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & \cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\cos \gamma \sin \beta \\
+-\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \gamma \sin \beta \\
+\sin \beta \cos \alpha & \sin \beta \sin \alpha & \cos \beta
+\end{bmatrix}
+$$
+Using the transformation $\alpha \rightarrow \alpha+\pi, \beta \rightarrow-\beta, \gamma \rightarrow \gamma-\pi$ we get,
+$$
+\mathbf{S}(\alpha+\pi,-\beta, \gamma-\pi)=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & \cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\cos \gamma \sin \beta \\
+-\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \gamma \sin \beta \\
+\sin \beta \cos \alpha & \sin \beta \sin \alpha & \cos \beta
+\end{bmatrix}
+$$
+as $\cos \alpha \rightarrow-\cos \alpha, \sin \alpha \rightarrow-\sin \alpha ; \cos \beta \rightarrow \cos \beta, \sin \beta \rightarrow-\sin \beta ; \sin \gamma \rightarrow-\sin \gamma$, $\cos \gamma \rightarrow-\cos \gamma$
+Thus, $\mathbf{S}(\alpha, \beta, \gamma)=\mathbf{S}(\alpha+\pi,-\beta, \gamma-\pi)$
+Hence, $\mathbf{S}(\alpha, \beta, \gamma)$ is invariant under the transformation
+$\alpha \rightarrow \alpha+\pi, \beta \rightarrow-\beta, \gamma \rightarrow \gamma-\pi$
+
+
+
+
+\begin{mybox}{3.4.4}
+Show that the Euler angle rotation matrix $\mathbf{S}(\alpha, \beta, \gamma)$ satisfies the following relations:
+\begin{enumerate}[$(a)$]
+\item $\mathbf{S}^{-1}(\alpha, \beta, \gamma)=\tilde{\mathbf{S}}(\alpha, \beta, \gamma)$
+\item $\mathbf{S}^{-1}(\alpha, \beta, \gamma)=\mathbf{S}(-\gamma,-\beta,-\alpha)$
+\end{enumerate}
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ For $(a)$ The three Euler rotations $\boldsymbol{S}_{1}(\alpha), \boldsymbol{S}_{2}(\beta), \boldsymbol{S}_{3}(\gamma)$ are an orthogonal matrix.
+So, $\mathbf{S}(\alpha, \beta, \gamma)=\boldsymbol{S}_{3}(\gamma) \boldsymbol{S}_{2}(\beta) \boldsymbol{S}_{1}(\alpha)$ must also be orthogonal. Therefore $\mathbf{S}^{-1}(\alpha, \beta, \gamma)=\tilde{\mathbf{S}}(\alpha, \beta, \gamma)$, by the definition of an orthogonal matrix.
+
+
+$\boxed{\textbf{Solution}}$ For $(b)$ we have 
+$$
+\mathbf{S}(\alpha, \beta, \gamma)=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & \cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\cos \gamma \sin \beta \\
+-\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \gamma \sin \beta \\
+\sin \beta \cos \alpha & \sin \beta \sin \alpha & \cos \beta
+\end{bmatrix}
+$$
+$$
+\mathbf{S}(-\gamma,-\beta,-\alpha)=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & -\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & \sin \beta \cos \alpha \\
+\cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \beta \sin \alpha \\
+-\cos \gamma \sin \beta & \sin \gamma \sin \beta & \cos \beta
+\end{bmatrix}
+$$
+
+$$
+\begin{aligned}
+\mathbf{S}^{-1}(\alpha, \beta, \gamma) &=\tilde{\mathbf{S}}(\alpha, \beta, \gamma) \\
+&=\begin{bmatrix}
+\cos \gamma \cos \beta \cos \alpha-\sin \gamma \sin \alpha & -\sin \gamma \cos \beta \cos \alpha-\cos \gamma \sin \alpha & \sin \beta \cos \alpha \\
+\cos \gamma \cos \beta \sin \alpha+\sin \gamma \cos \alpha & -\sin \gamma \cos \beta \sin \alpha+\cos \gamma \cos \alpha & \sin \beta \sin \alpha \\
+-\cos \gamma \sin \beta & \sin \gamma \sin \beta & \cos \beta
+\end{bmatrix}
+\end{aligned}
+$$
+
+Thus, $\mathbf{S}^{-1}(\alpha, \beta, \gamma)=\mathbf{S}(-\gamma,-\beta,-\alpha)$
+
+
+
+\begin{mybox}{3.4.5}
+The coordinate system $(x, y, z)$ is rotated through an angle $\Phi$ counterclockwise about an axis defined by the unit vector $\hat{\mathbf{n}}$ into system $\left(x', y', z'\right) .$ In terms of the new coordinates the radius vector becomes
+$$
+\mathbf{r}'=\mathbf{r} \cos \Phi+\mathbf{r} \times \mathbf{n} \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)
+$$
+\begin{enumerate}[$(a)$]
+\item Derive this expression from geometric considerations.
+\item Show that it reduces as expected for $\hat{\mathbf{n}}=\hat{\mathbf{e}}_{z} .$ The answer, in matrix form, appears in Eq. (3.35)
+\item Verify that $r'^{2}=r^{2}$.
+\end{enumerate}
+\end{mybox}
+
+
+
+$\boxed{\textbf{Solution}}$ For $(a)$ the projection of $r$ on the rotation axis is not changed by the rotation; it is $(\mathbf{r} \cdot \hat{\mathbf{n}}) \hat{\mathbf{n}}$.
+The portion of $r$ perpendicular to the rotation axis can be written $r-(\mathbf{r} \cdot \hat{\mathbf{n}}) \hat{\mathbf{n}}$.
+Upon rotation through an angle $\Phi$, this vector perpendicular to the rotation axis will consist of a vector in its original direction $(r-(\mathbf{r} \cdot \hat{\mathbf{n}}) \hat{\mathbf{n}}) \cos \Phi$ plus a vector perpendicular both to it and to $\hat{\mathbf{n}}$ given by $(r-(\mathbf{r} \cdot \hat{\mathbf{n}}) \hat{\mathbf{n}}) \sin \Phi \times \hat{\mathbf{n}} ;$ this reduces to $\mathbf{r} \times \hat{\mathbf{n}} \sin \Phi$
+Adding these contributions, we get the required result.
+
+$\boxed{\textbf{Solution}}$ For $(b)$ if $\hat{\mathbf{n}}=\hat{\mathbf{e}}_{z},$ the formula $\mathbf{r}'=\mathbf{r} \cos \Phi+\mathbf{r} \times n \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)$ becomes
+$$
+\begin{aligned}
+\mathbf{r}' &=\left(x \hat{\mathbf{e}}_{x}+y \hat{\mathbf{e}}_{y}+z \hat{\mathbf{e}}_{z}\right) \cos \Phi+\left(y \hat{\mathbf{e}}_{x}-x \hat{\mathbf{e}}_{y}\right) \sin \Phi+\hat{\mathbf{e}}_{z}\left(z \hat{\mathbf{e}}_{z}\right)(1-\cos \Phi) \\
+&=\left(x \hat{\mathbf{e}}_{x}+y \hat{\mathbf{e}}_{y}+z \hat{\mathbf{e}}_{z}\right) \cos \Phi+\left(y \hat{\mathbf{e}}_{x}-x \hat{\mathbf{e}}_{y}\right) \sin \Phi+z(1-\cos \Phi) \hat{\mathbf{e}}_{z} \\
+&=x \cos \Phi \hat{\mathbf{e}}_{x}+y \cos \Phi \hat{\mathbf{e}}_{y}+z \cos \Phi \hat{\mathbf{e}}_{z}+y \sin \Phi \hat{\mathbf{e}}_{x}-x \sin \Phi \hat{\mathbf{e}}_{y}+z(1-\cos \Phi) \hat{\mathbf{e}}_{z}
+\end{aligned}
+$$
+as $r=x \hat{\mathbf{e}}_{x}+y \hat{\mathbf{e}}_{y}+z \hat{\mathbf{e}}_{z}, \quad \mathbf{r} \times n=\mathbf{r} \times \hat{\mathbf{e}}_{z}=y \hat{\mathbf{e}}_{x}-x \hat{\mathbf{e}}_{y}$ and
+Simplifying, this reduces to
+$$
+\mathbf{r}'=(x \cos \Phi+y \sin \Phi) \hat{\mathbf{e}}_{x}+(y \cos \Phi-x \sin \Phi) \hat{\mathbf{e}}_{y}+z \hat{\mathbf{e}}_{z}
+$$
+This corresponds to the rotational transformation whose matrix form is
+$$
+\boldsymbol{S}_{1}(\alpha)=\begin{bmatrix}
+\cos \alpha & \sin \alpha & 0 \\
+-\sin \alpha & \cos \alpha & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+
+$\boxed{\textbf{Solution}}$ For $(c)$ we expand $r'^{2}$, recognizing that the second term of
+
+$$
+\mathbf{r}'=\mathbf{r} \cos \Phi+\mathbf{r} \times n \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)
+$$
+$$
+\begin{aligned}
+r'^{2} &=\mathbf{r}' \cdot \mathbf{r}' \\
+&=(\mathbf{r} \cos \Phi+\mathbf{r} \times \hat{\mathbf{n}} \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)) \cdot(\mathbf{r} \cos \Phi+\mathbf{r} \times \hat{\mathbf{n}} \sin \Phi+\hat{\mathbf{n}}(\hat{\mathbf{n}} \cdot \mathbf{r})(1-\cos \Phi)) \\
+&=r^{2} \cos ^{2} \Phi+(\mathbf{r} \cdot \mathbf{r} \times \hat{\mathbf{n}}) \sin \Phi \cos \Phi+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi) \cos \Phi+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r}) \sin \Phi \cos \Phi \\
+&+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}}) \sin ^{2} \Phi+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \hat{\mathbf{n}})(\hat{\mathbf{n}} \cdot \mathbf{r}) \sin \Phi(1-\cos \Phi)+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi) \cos \Phi \\
+&+(\hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}})(\hat{\mathbf{n}} \cdot \mathbf{r}) \sin \Phi(1-\cos \Phi)+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi)^{2}
+\end{aligned}
+$$
+$$
+r'^{2}=r^{2} \cos ^{2} \Phi+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}}) \sin ^{2} \Phi+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi)^{2}+2(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi) \cos \Phi
+$$
+as $(\mathbf{r} \cdot \mathbf{r} \times \hat{\mathbf{n}})=(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r})=(\mathbf{r} \times \hat{\mathbf{n}} \cdot \hat{\mathbf{n}})=(\hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}})(\hat{\mathbf{n}} \cdot \mathbf{r})=0$
+$$
+\begin{aligned}
+r'^{2} &=r^{2} \cos ^{2} \Phi+(\mathbf{r} \times \hat{\mathbf{n}} \cdot \mathbf{r} \times \hat{\mathbf{n}}) \sin ^{2} \Phi+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi)^{2}+2(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}(1-\cos \Phi) \cos \Phi \\
+&=r^{2}+(\hat{\mathbf{n}} \cdot \mathbf{r})^{2}\left(-\sin ^{2} \Phi+1+\cos ^{2} \Phi-2 \cos ^{2} \Phi\right) \\
+&=r^{2}
+\end{aligned}
+$$
+
+
+
+
+
+\end{flushleft}
+\end{document}
