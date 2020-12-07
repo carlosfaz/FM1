@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.1)  6 DEC 2020 23:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.1)  7 DEC 2020 00:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -588,14 +588,7 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count287
 \l__pdf_internal_box=\box111
 )
-(./chap_2.2.aux
-
-Package babel Warning: Unknown language `english'. Very likely you
-(babel)                requested it in a previous run. Expect some
-(babel)                wrong results in this run, which should vanish
-(babel)                in the next one. Reported on input line 25.
-
-)
+(./chap_2.2.aux)
 \openout1 = `chap_2.2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
@@ -616,7 +609,8 @@ LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
 LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count288
 \scratchdimen=\dimen274
@@ -676,43 +670,39 @@ LaTeX Info: Redefining \selectfont on input line 43.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 45
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 50
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 45.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 45.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 51.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 50.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 51.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 50.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8
 ] [9] [10]
 [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] (./chap_2.2.aux) ) 
 Here is how much of TeX's memory you used:
- 13600 strings out of 481239
- 259217 string characters out of 5920377
- 515400 words of memory out of 5000000
- 28588 multiletter control sequences out of 15000+600000
- 545355 words of font info for 77 fonts, out of 8000000 for 9000
+ 13532 strings out of 481239
+ 258435 string characters out of 5920377
+ 515294 words of memory out of 5000000
+ 28539 multiletter control sequences out of 15000+600000
+ 537218 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,12n,75p,916b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
 <
@@ -723,16 +713,15 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on chap_2.2.pdf (22 pages, 216128 bytes).
+blic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb>
+Output written on chap_2.2.pdf (22 pages, 199975 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 126 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
