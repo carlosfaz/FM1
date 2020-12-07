@@ -58,7 +58,7 @@ $$
 \end{mybox}
 
 $\boxed{\textbf{Solution}}$ Consider the Euler integral 
-$$\Gamma z=\int_{0}^{\infty} e^{-t} t^{z-1} d t$$
+$$\Gamma (z)=\int_{0}^{\infty} e^{-t} t^{z-1} d t$$
 Put, $z=z+1$
 $$
 \begin{aligned}
@@ -129,7 +129,7 @@ $$\Gamma(z)=\int_{0}^{1}\left[\ln \left(\frac{1}{t}\right)\right]^{z-1} d t, \qu
 $\boxed{\textbf{Solution}}$ Changing variables $t=u^{2}$ and $d t=2 u d u$ we have
 $$
 \begin{aligned}
-\Gamma z &=\int_{0}^{\infty} e^{-u^{2}} u^{2 z-2} u d u \\
+\Gamma (z) &=\int_{0}^{\infty} e^{-u^{2}} u^{2 z-2} u d u \\
 &=\int_{0}^{\infty} e^{-u^{2}} u^{2 z-1} d u \\
 &=\int_{0}^{\infty} e^{-t^{2}} t^{2 z-1} d t
 \end{aligned}
@@ -137,7 +137,7 @@ $$
 as $t \rightarrow 0$ to $\infty u \rightarrow 0$ to 1 the equation takes the form of 
 $$
 \begin{aligned}
-\Gamma z &=\int_{0}^{1} e^{-\ln \frac{1}{u}}\left(\ln \frac{1}{u}\right)^{z-1} u d u \\
+\Gamma (z) &=\int_{0}^{1} e^{-\ln \frac{1}{u}}\left(\ln \frac{1}{u}\right)^{z-1} u d u \\
 &=\int_{0}^{1} u\left(\ln \frac{1}{u}\right)^{z-1} u d u \\
 &=\int_{0}^{1}\left(\ln \frac{1}{u}\right)^{z-1} d u \\
 &=\int_{0}^{1}\left(\ln \frac{1}{t}\right)^{z-1} d t
@@ -230,13 +230,13 @@ $$
 $$
 \end{mybox}
 
-$\boxed{\textbf{Solution}}$ Consider $x^{4}=t$ and put $4x^3 dx = dt$ as $t \rightarrow 0$ to $\infty x \rightarrow 0$ to $\infty$ and using
+$\boxed{\textbf{Solution}}$ Consider $x^{4}=t$ and put $4x^3 dx = dt$ as $t \rightarrow 0$ to $\infty, \  x \rightarrow 0$ to $\infty$ and using
 $$
-\int_{0}^{\infty} e^{-t} t^{z-1} d t=\Gamma z
+\int_{0}^{\infty} e^{-t} t^{z-1} d t=\Gamma (z)
 $$
 and
 $$
-z \Gamma z=\Gamma(z+1)
+z \Gamma (z)=\Gamma(z+1)
 $$
 the integral takes the form of
 
