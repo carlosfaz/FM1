@@ -1,0 +1,843 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{bbm}
+\usepackage{enumerate}
+\pagestyle{plain}
+\usepackage{yfonts}
+\usepackage{ragged2e}
+
+
+\usepackage{titling}
+\setlength{\droptitle}{-7em} 
+
+
+\def\Tiny{\fontsize{4pt}{4pt}\selectfont}
+\newcommand*{\eqdef}{\ensuremath{\overset{\mathclap{\text{\Tiny def}}}{=}}}
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={160mm,257mm},
+ left=24mm,
+ top=20mm,
+ }
+ 
+ \usepackage{tcolorbox}
+\newtcolorbox{mybox}[1]{colback=blue!5!white,colframe=blue!42!black,fonttitle=\bfseries,title=Problem #1}
+ 
+
+\begin{document}
+
+
+\begin{flushleft}
+
+
+\begin{mybox}{14.3.1}
+Prove that the Neumann functions $Y_{n}$ (with $n$ an integer) satisfy the recurrence relations
+$$
+\begin{array}{l}
+Y_{n-1}(x)+Y_{n+1}(x)=\frac{2 n}{x} Y_{n}(x) \\
+Y_{n-1}(x)-Y_{n+1}(x)=2 Y_{n}^{\prime}(x)
+\end{array}
+$$
+Hint. These relations may be proved by differentiating the recurrence relations for $J_{v}$ or by using the limit form of $Y_{v}$ but not dividing everything by zero.
+\end{mybox}
+$\boxed{\textbf{Solution}}$ As
+$$
+J_{n-1}(x)+J_{n+1}(x)=\frac{2 n}{x} J_{n}(x)
+$$
+with $n$ as an integer, and
+$$
+Y_{v}(x)=\frac{\cos v \pi J_{v}(x)-J_{-v}(x)}{\sin v \pi}
+$$
+we get that
+$$Y_{n-1}(x)+Y_{n+1}(x)=\lim _{v \rightarrow n} \frac{\cos (v-1) \pi J_{v-1}(x)-J_{-v+1}(x)}{\sin (v-1) \pi}+\lim _{v \rightarrow n} \frac{\cos (v+1) \pi J_{v+1}(x)-J_{-v-1}(x)}{\sin (v+1) \pi}$$
+$$Y_{n-1}(x)-Y_{n+1}(x)=\lim _{v \rightarrow n} \frac{\cos (v-1) \pi J_{v-1}(x)-J_{-v+1}(x)}{\sin (v-1) \pi}-\lim _{v \rightarrow n} \frac{\cos (v+1) \pi J_{v+1}(x)-J_{-v-1}(x)}{\sin (v+1) \pi}$$
+
+As $Y_{n}(x)=\lim _{v \rightarrow n} Y_{v}(x)$ exists and is not identically zero, we get that 
+$$Y_{n-1}(x)+Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos (v-1) \pi J_{v-1}(x)-J_{-v+1}(x)}{\sin (v-1) \pi}+\frac{\cos (v+1) \pi J_{v+1}(x)-J_{-v-1}(x)}{\sin (v+1) \pi}\right)$$
+$$Y_{n-1}(x)-Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos (v-1) \pi J_{v-1}(x)-J_{-v+1}(x)}{\sin (v-1) \pi}-\frac{\cos (v+1) \pi J_{v+1}(x)-J_{-v-1}(x)}{\sin (v+1) \pi}\right)$$
+As $\cos (v-1) \pi=\cos (\pi-v \pi)=-\cos v \pi$, $\cos (v+1) \pi=-\cos v \pi$ $\sin (v-1) \pi=-\sin (\pi-v \pi)=\sin v \pi$ and $\sin (v+1) \pi=-\sin v \pi$
+we get that
+$$Y_{n-1}(x)+Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{-\cos v \pi J_{v-1}(x)-J_{-v+1}(x)}{-\sin v \pi}+\frac{-\cos v \pi J_{v+1}(x)-J_{-v-1}(x)}{-\sin v \pi}\right)$$
+$$Y_{n-1}(x)-Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{-\cos v \pi J_{v-1}(x)-J_{-v+1}(x)}{-\sin v \pi}-\frac{-\cos v \pi J_{v+1}(x)-J_{-v-1}(x)}{-\sin v \pi}\right) $$
+Thus, 
+$$
+Y_{n-1}(x)+Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos v \pi J_{v-1}(x)+J_{-v+1}(x)}{\sin v \pi}+\frac{\cos v \pi J_{v+1}(x)+J_{-v-1}(x)}{\sin v \pi}\right)
+$$
+and
+$$
+Y_{n-1}(x)-Y_{n+1}(x)=\lim _{v \rightarrow \pi}\left(\frac{\cos v \pi J_{v-1}(x)+J_{-v+1}(x)}{\sin v \pi}-\frac{\cos v \pi J_{v+1}(x)+J_{-v-1}(x)}{\sin v \pi}\right)
+$$
+Also, 
+$$
+\frac{\cos v \pi J_{v-1}(x)+J_{-v+1}(x)}{\sin v \pi}+\frac{\cos v \pi J_{v+1}(x)+J_{-v-1}(x)}{\sin v \pi}
+$$
+can be written as
+$$
+\frac{\cos v \pi J_{v-1}(x)+\cos v \pi J_{v+1}(x)+J_{-v+1}(x)+J_{-v-1}(x)}{\sin v \pi}
+$$
+and hence we get that
+$$
+Y_{n-1}(x)+Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos v \pi\left(J_{v-1}(x)+J_{v+1}(x)\right)+\left(J_{-v+1}(x)+J_{-v-1}(x)\right)}{\sin v \pi}\right)
+$$
+Similarly, 
+$$
+\frac{\cos v \pi J_{v-1}(x)+J_{-v+1}(x)}{\sin v \pi}-\frac{\cos v \pi J_{v+1}(x)+J_{-v-1}(x)}{\sin v \pi}
+$$
+can be written as
+$$
+\frac{\cos v \pi J_{v-1}(x)-\cos v \pi J_{v+1}(x)+J_{-v+1}(x)-J_{-v-1}(x)}{\sin v \pi}
+$$
+and hence we get that
+$$
+Y_{n-1}(x)-Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos v \pi\left(J_{v-1}(x)-J_{v+1}(x)\right)-\left(J_{-v-1}(x)-J_{-v+1}(x)\right)}{\sin v \pi}\right)
+$$
+
+We now have to proove that
+$$J_{v-1}(x)+J_{v+1}(x)=\frac{2 v}{x} J_{v}(x)$$
+$$J_{v-1}(x)-J_{v+1}(x)=2 J_{v}^{\prime}(x)$$
+$$\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=\frac{d}{d x}\left(x^{v} \sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{2 s+v}\right)$$
+which implies that
+$$
+\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=\frac{d}{d x}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+2 v}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}\right)
+$$
+$$
+\frac{d}{d x}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+2 v}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}\right)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s+2 v)(x)^{2 s+2 v-1}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}=\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+2 v-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}
+$$
+As 
+$$J_{v-1}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+\gamma-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}$$
+and
+$$
+\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+2 v-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}
+$$
+we get that
+$$
+\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=x^{v}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+\gamma-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}\right)=x^{v} J_{v-1}(x)
+$$
+Similarly, 
+$$
+\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=\frac{d}{d x}\left(x^{-v} \sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{2 s+v}\right)
+$$
+which implies that
+$$
+\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=\frac{d}{d x}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}\right)
+$$
+Also
+$$
+\frac{d}{d x}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s} x^{2 s}}{s ! \  \Gamma(v+s+1) 2^{2 s+\gamma}}\right)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s)(x)^{2 s-1}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}=\sum_{s=1}^{\infty} \frac{(-1)^{s}(s) x^{2 s-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}
+$$
+$$
+\sum_{s=1}^{\infty} \frac{(-1)^{s}(s) x^{2 s-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}=-\sum_{s=1}^{\infty} \frac{(-1)^{s-1} x^{2(s-1)+1}}{(s-1) ! \  \Gamma(v+s-1+1) 2^{2(s-1)+*+1}}=-\sum_{k=0}^{\infty} \frac{(-1)^{k} x^{2 k+1}}{k ! \  \Gamma(v+k+1) 2^{2 k+w+1}}
+$$
+As
+$$
+J_{v+1}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+\gamma+1}}{s ! \  \Gamma(v+s+1) 2^{2 s+v+1}}
+$$
+and
+$$
+\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=-\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+1}}{s ! \  \Gamma(v+s) 2^{2 s+v+1}}
+$$
+we get that
+$$
+\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=-x^{-v}\left(\sum_{x=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+v+1}}{s ! \  \Gamma(v+s) 2^{2 s+v+1}}\right)=-x^{-v} J_{v+1}(x)
+$$
+Then
+$$
+\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=x^{v} \frac{d}{d x}\left(J_{v}(x)\right)+\frac{d}{d x}\left(x^{v}\right) J_{v}(x)=x^{v} J_{v}^{\prime}(x)+v x^{v-1} J_{v}(x)
+$$
+as
+$$
+\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=x^{v} J_{v}^{\prime}(x)+v x^{v-1} J_{v}(x)
+$$
+and
+$$
+\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=x^{v} J_{v-1}(x)
+$$
+we get that
+$$
+x^{v} J_{v}^{\prime}(x)+v x^{v-1} J_{v}(x)=x^{v} J_{v-1}(x)
+$$
+and
+$$
+J_{v}^{\prime}(x)+\frac{v}{x} J_{v}(x)=J_{v-1}(x)
+$$
+Also
+$$
+\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=x^{-v} \frac{d}{d x}\left(J_{v}(x)\right)+\frac{d}{d x}\left(x^{-v}\right) J_{v}(x)=x^{-v} J_{v}^{\prime}(x)-v x^{-v-1} J_{v}(x)
+$$
+$$
+\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=x^{-v} J_{v}^{\prime}(x)-v x^{-\gamma-1} J_{v}(x)
+$$
+and
+$$
+\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=-x^{-v} J_{v+1}(x)
+$$
+we get that
+$$
+x^{-v} J_{v}^{\prime}(x)-v x^{-\gamma-1} J_{v}(x)=-x^{-v} J_{v+1}(x)
+$$
+and
+$$
+J_{v}^{\prime}(x)-\frac{v}{x} J_{v}(x)=-J_{v+1}(x)
+$$
+As $$J_{v}^{\prime}(x)+\frac{v}{x} J_{v}(x)=J_{v-1}(x)$$ 
+and 
+$$J_{v}^{\prime}(x)-\frac{v}{x} J_{v}(x)=-J_{v+1}(x),$$
+we get that
+$$J_{v-1}(x)+J_{v+1}(x)=\frac{2 v}{x} J_{v}(x)$$ and 
+$$J_{v-1}(x)-J_{v+1}(x)=2 J_{v}^{\prime}(x)$$
+As
+$$J_{v-1}(x)+J_{v+1}(x)=\frac{2 v}{x} J_{v}(x)$$
+$$
+Y_{n-1}(x)+Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos v \pi\left(J_{v-1}(x)+J_{v+1}(x)\right)+\left(J_{-v+1}(x)+J_{-v-1}(x)\right)}{\sin v \pi}\right)
+$$
+we get that
+$$
+Y_{n-1}(x)+Y_{n+1}(x)=\lim _{x \rightarrow n}\left(\frac{\cos v \pi\left(\frac{2 v}{x} J_{v}(x)\right)+\left(\frac{2(-v)}{x} J_{-v}(x)\right)}{\sin v \pi}\right)
+$$
+As
+$$
+J_{v-1}(x)-J_{v+1}(x)=2 J_{v}^{\prime}(x)
+$$
+$$
+Y_{n-1}(x)-Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos v \pi\left(J_{v-1}(x)-J_{v+1}(x)\right)-\left(J_{-v-1}(x)-J_{-v+1}(x)\right)}{\sin v \pi}\right)
+$$
+we get that
+$$
+Y_{n-1}(x)-Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos v \pi\left(2 J_{v}^{\prime}(x)\right)-\left(2 J_{-v}^{\prime}(x)\right)}{\sin v \pi}\right)
+$$
+Also
+$$
+\frac{\cos v \pi\left(\frac{2 v}{x} J_{v}(x)\right)+\left(\frac{2(-v)}{x} J_{-v}(x)\right)}{\sin v \pi}=\frac{2 v}{x}\left(\frac{\cos v \pi J_{v}(x)-J_{-v}(x)}{\sin v \pi}\right)
+$$
+$$
+Y_{n-1}(x)+Y_{n+1}(x)=\lim _{v \rightarrow n} \frac{2 v}{x}\left(\frac{\cos v \pi J_{v}(x)-J_{-v}(x)}{\sin v \pi}\right)
+$$
+and
+$$
+Y_{v}(x)=\frac{\cos v \pi J_{v}(x)-J_{-v}(x)}{\sin v \pi}
+$$
+we get that
+$$
+Y_{n-1}(x)+Y_{n+1}(x)=\lim _{v \rightarrow n} \frac{2 v}{x} Y_{v}(x)=\frac{2 n}{x} Y_{n}(x)
+$$
+Also,
+$$
+Y_{n-1}(x)-Y_{n+1}(x)=\lim _{v \rightarrow n}\left(\frac{\cos v \pi\left(2 J_{v}^{\prime}(x)\right)-\left(2 J_{-v}^{\prime}(x)\right)}{\sin v \pi}\right)=2 \lim _{v \rightarrow n}\left(\frac{\cos v \pi J_{v}^{\prime}(x)-J_{-v}^{\prime}(x)}{\sin v \pi}\right)
+$$
+Now,
+$$
+\frac{d}{d x}\left(Y_{v}(x)\right)=\frac{d}{d x}\left(\frac{\cos v \pi J_{v}(x)-J_{-v}(x)}{\sin v \pi}\right)=\frac{\cos v \pi \frac{d}{d x}\left(J_{v}(x)\right)-\frac{d}{d x}\left(J_{-v}(x)\right)}{\sin v \pi}
+$$
+Hence, we get
+$$
+Y_{v}^{\prime}(x)=\frac{\cos v \pi J_{v}^{\prime}(x)-J_{-v}^{\prime}(x)}{\sin v \pi}
+$$
+As
+$$
+Y_{n-1}(x)-Y_{n+1}(x)=2 \lim _{v \rightarrow n}\left(\frac{\cos v \pi J_{v}^{\prime}(x)-J_{-v}^{\prime}(x)}{\sin v \pi}\right)
+$$
+and
+$$
+Y_{n}^{\prime}(x)=\frac{\cos v \pi J_{n}^{\prime}(x)-J_{-n}^{\prime}(x)}{\sin v \pi}
+$$
+we get
+$$
+Y_{n-1}(x)-Y_{n+1}(x)=2 \lim _{v \rightarrow n} Y_{v}^{\prime}(x)=2 Y_{n}^{\prime}(x)
+$$
+Therefore, the recurrence relations are
+$$
+Y_{n-1}(x)+Y_{n+1}(x)=\frac{2 n}{x} Y_{n}(x)
+$$
+$$
+Y_{n-1}(x)-Y_{n+1}(x)=2 Y_{n}^{\prime}(x)
+$$
+are true when $n$ is an integer
+
+
+
+
+
+
+\newpage
+
+
+\begin{mybox}{14.3.2}
+Show that for integer $n$
+$$
+Y_{-n}(x)=(-1)^{n} Y_{n}(x)
+$$
+\end{mybox}
+$\boxed{\textbf{Solution}}$  We know that for an integer $n$, 
+$$Y_{n-1}(x)+Y_{n+1}(x)=\frac{2 n}{x} Y_{n}(x)$$ Clearly, the statement is true for $n=0$. Clearly, for any integer $n$, 
+$$Y_{-n}(x)=(-1)^{n} Y_{n}(x)$$
+can be rewritten as 
+$$(-1)^{-n} Y_{-n}(x)=Y_{n}(x)$$ 
+which implies that 
+$$Y_{-(-n)}(x)=(-1)^{-n} Y_{-n}(x)$$
+This implies that if the statement is true for any positive integer $n$, then it is true for any
+integer $n$. Assume that the statement 
+$$Y_{-n}(x)=(-1)^{n} Y_{n}(x)$$ 
+is true for any non-negative integer $n \leq k$ where $k$ is any arbitrary non-negative integer. Now we have to prove that $Y_{-k-1}(x)=(-1)^{k+1} Y_{k+1}(x)$ i.e. the statement is true for $n=k+1$. Also, by substituting $n=0$ in
+$$
+Y_{n-1}(x)+Y_{n+1}(x)=\frac{2 n}{x} Y_{n}(x)
+$$
+and hence
+$$
+Y_{-1}(x)=-Y_{1}(x)
+$$
+As $Y_{-1}(x)=-Y_{1}(x),$ we get that the statement is true for $n=1$. As the statement is true for $n=0$ and $n=1,$ we can assume that $k \geq 1$
+As the statement $Y_{-n}(x)=(-1)^{n} Y_{n}(x)$ is true for any non-negative integer $n \leq k,$ we get that 
+$$Y_{-k}(x)=(-1)^{k} Y_{k}(x)$$ 
+and 
+$$Y_{-k+1}(x)=(-1)^{k-1} Y_{k-1}(x)$$
+As 
+$$Y_{n-1}(x)+Y_{n+1}(x)=\frac{2 n}{x} Y_{n}(x)$$
+for any integer $n,$ we get that 
+$$Y_{-k-1}(x)+Y_{-k+1}(x)=\frac{2(-k)}{x} Y_{-k}(x)$$ 
+and hence 
+$$Y_{-k-1}(x)=-\frac{2 k}{x} Y_{-k}(x)-Y_{-k+1}(x)$$
+As 
+$$Y_{-k-1}(x)=-\frac{2 k}{x} Y_{-k}(x)-Y_{-k+1}(x), \quad Y_{-k}(x)=(-1)^{k} Y_{k}(x)$$
+and 
+$$Y_{-k+1}(x)=(-1)^{k-1} Y_{k-1}(x)$$
+we get that 
+$$Y_{-k-1}(x)=-\frac{2 k}{x}\left((-1)^{k} Y_{k}(x)\right)-(-1)^{k-1} Y_{k-1}(x)$$
+Also 
+$$Y_{-k-1}(x)=-\frac{2 k}{x}\left((-1)^{k} Y_{k}(x)\right)-(-1)^{k-1} Y_{k-1}(x)=(-1)^{k+1}\left(\frac{2 k}{x} Y_{k}(x)-Y_{k-1}(x)\right)$$
+
+As 
+$$Y_{n-1}(x)+Y_{n+1}(x)=\frac{2 n}{x} Y_{n}(x)$$
+for any integer $n,$ we get that 
+$$Y_{k-1}(x)+Y_{k+1}(x)=\frac{2 k}{x} Y_{k}(x)$$
+and hence 
+$$Y_{k+1}(x)=\frac{2 k}{x} Y_{k}(x)-Y_{k-1}(x)$$
+As 
+$$Y_{k+1}(x)=\frac{2 k}{x} Y_{k}(x)-Y_{k-1}(x)$$
+and 
+$$Y_{-k-1}(x)=(-1)^{k+1}\left(\frac{2 k}{x} Y_{k}(x)-Y_{k-1}(x)\right)$$ 
+we get that
+$$Y_{-k-1}(x)=(-1)^{k+1} Y_{k+1}(x)$$
+Therefore, by Mathematical induction, we get that the statement 
+$$Y_{-n}(x)=(-1)^{n} Y_{n}(x)$$ 
+for any non$-$negative integer $n$.
+
+
+
+\newpage
+
+
+\begin{mybox}{14.4.3}
+Show that
+$$
+Y_{0}^{\prime}(x)=-Y_{1}(x)
+$$
+\end{mybox}
+$\boxed{\textbf{Solution}}$ As 
+$$Y_{n-1}(x)+Y_{n+1}(x)=\frac{2 n}{x} Y_{n}(x)$$ 
+for any integer $n,$ we get that the statement is true for $n=0$ which implies that 
+$$Y_{-1}(x)+Y_{1}(x)=\frac{2(0)}{x} Y_{0}(x)=0$$ and hence $Y_{-1}(x)=-Y_{1}(x)$. As 
+$$Y_{n-1}(x)-Y_{n+1}(x)=2 Y_{n}^{\prime}(x)$$ 
+for any integer $n,$ we get that the statement is true for $n=0$ which implies that 
+$$Y_{-1}(x)-Y_{1}(x)=2 Y_{0}^{\prime}(x)$$
+As 
+$$Y_{-1}(x)=-Y_{1}(x)$$ 
+and 
+$$Y_{-1}(x)-Y_{1}(x)=2 Y_{0}^{\prime}(x)$$ 
+we get that
+$$2 Y_{0}^{\prime}(x)=Y_{-1}(x)-Y_{1}(x)=-Y_{1}(x)-Y_{1}(x)=-2 Y_{1}(x)$$ 
+and hence 
+$$Y_{0}^{\prime}(x)=-Y_{1}(x)$$
+Therefore, the statement 
+$$Y_{0}^{\prime}(x)=-Y_{1}(x)$$ 
+is true.
+
+
+
+
+\newpage
+
+
+
+
+\begin{mybox}{14.3.4}
+If $X$ and $Z$ are any two solutions of Bessel's equation, show that
+$$
+X_{\nu}(x) Z_{v}^{\prime}(x)-X_{v}^{\prime}(x) Z_{v}(x)=\frac{A_{v}}{x}
+$$
+in which $A_{v}$ may depend on $v$ but is independent of $x$. This is a special case of Exercise 7.6.11
+\end{mybox}
+$\boxed{\textbf{Solution}}$ We know that for a linear second order homogeneous ODE of form 
+$$y^{\prime \prime}+P(x) y^{\prime}+Q(x) y=0$$
+and two solutions $y_{1}, y_{2}$ of this ODE, we have that the Wronskian $W$ of $y_{1}$ and $y_{2}$ satisfies the equation 
+$$W(x)=W(a) \exp \left[-\int_{a}^{x} P(t) d t\right]$$
+Thus, the Wronskian $W$ of $X_{v}(x)$ and $Z_{v}(x)$ is satisfies the equation 
+$$W(x)=W(a) \exp \left[-\int_{a}^{x} P(t) d t\right]$$
+As any Bessel's equation is of the form 
+$$x^{2} y^{\prime \prime}+x y^{\prime}+\left(x^{2}-v^{2}\right) y=0,$$ 
+we get that $P(x)=\dfrac{1}{x}$ and hence 
+$$\int_{a}^{x} P(t) d t=\int_{a}^{x} \frac{1}{t} d t=\ln x-\ln a=\ln \frac{x}{a}$$
+Thus, 
+$$W(x)=W(a) \exp \left[-\int_{a}^{x} P(t) d t\right]=W(a) \exp \left[-\ln \frac{x}{a}\right]=W(a) \exp \left[\ln \frac{a}{x}\right]=W(a) \frac{a}{x}$$
+
+Clearly, 
+$$W(a) a=\left(X_{v}(a) Z_{v}^{\prime}(a)-X_{v}^{\prime}(a) Z_{v}(a)\right) a$$
+which implies that $W(a) a$ is a constant
+independent of $x$ but it may depend on $v$. Thus, by taking 
+$$W(a) a=A_{v},$$ 
+we get that 
+$$W(x)=\frac{A_{v}}{x}$$ 
+where $A_{v}$ may depend on $v$ but is independent of $x$. As the Wronskian $W$ of $X_{v}(x)$ and $Z_{v}(x)$ is equal to 
+$$X_{v}(x) Z_{v}^{\prime}(x)-X_{v}^{\prime}(x) Z_{v}(x)$$ 
+and $W(x)=\dfrac{A_{v}}{x},$ we get that 
+$$X_{v}(x) Z_{v}^{\prime}(x)-X_{v}^{\prime}(x) Z_{v}(x)=\frac{A_{v}}{x}$$ 
+where $A_{v}$ may depend on $v$ but
+is independent of $x$. Therefore, the statement  
+$$X_{v}(x) Z_{v}^{\prime}(x)-X_{v}^{\prime}(x) Z_{v}(x)=\frac{A_{v}}{x}$$ 
+in which $A_{v}$, may depend on $v$ but is independent of $x$ is true when $X$ and $Z$ are any two solutions of Bessel's
+equation.
+
+\newpage
+
+
+\begin{mybox}{14.3.5}
+Verify the Wronskian formulas
+$$
+\begin{aligned}
+J_{v}(x) J_{-v+1}(x)+J_{-v}(x) J_{v-1}(x) &=\frac{2 \sin v \pi}{\pi x} \\
+J_{v}(x) Y_{v}^{\prime}(x)-J_{v}^{\prime}(x) Y_{v}(x) &=\frac{2}{\pi x}
+\end{aligned}
+$$
+\end{mybox}
+$\boxed{\textbf{Solution}}$ As 
+$$Y_{v}^{\prime}(x)=\frac{\cos v \pi J_{v}^{\prime}(x)-J_{-v}^{\prime}(x)}{\sin v \pi}$$ 
+and 
+$$Y_{v}(x)=\frac{\cos v \pi J_{v}(x)-J_{-v}(x)}{\sin v x}$$ 
+we get that
+$$J_{v}(x) Y_{v}^{\prime}(x)-J_{v}^{\prime}(x) Y_{v}(x)=J_{v}(x) \frac{\cos v \pi J_{v}^{\prime}(x)-J_{-v}^{\prime}(x)}{\sin v \pi}-J_{v}^{\prime}(x) \frac{\cos v \pi J_{v}(x)-J_{-v}(x)}{\sin v x}$$
+Also 
+$$J_{v}(x) \frac{\cos v \pi J_{v}^{\prime}(x)-J_{-v}^{\prime}(x)}{\sin v \pi}-J_{v}^{\prime}(x) \frac{\cos v \pi J_{v}(x)-J_{-v}(x)}{\sin v x}$$
+is equal to
+$$\frac{-J_{v}(x) J_{-v}^{\prime}(x)+J_{v}^{\prime}(x) J_{-v}(x)}{\sin v x}$$ 
+which implies that
+$$J_{v}(x) Y_{v}^{\prime}(x)-J_{v}^{\prime}(x) Y_{v}(x)=\frac{-J_{v}(x) J_{-v}^{\prime}(x)+J_{v}^{\prime}(x) J_{-v}(x)}{\sin v x}$$
+Clearly, 
+$$\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=\frac{d}{d x}\left(x^{v} \sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{2 s+v}\right)$$ 
+which implies that
+$$\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=\frac{d}{d x}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+2 v}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}\right)$$
+Also 
+$$\frac{d}{d x}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+2 v}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}\right)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s+2 v)(x)^{2 s+2 v-1}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}=\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+2 v-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}$$
+As 
+$$J_{v-1}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+\gamma-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}$$
+and 
+$$\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+2 v-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}},$$ 
+we get that
+$$\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=x^{v}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+\gamma-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}\right)=x^{v} J_{v-1}(x)$$
+Similarly, 
+$$\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=\frac{d}{d x}\left(x^{-v} \sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{2 s+v}\right)$$ 
+which implies that
+$$\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=\frac{d}{d x}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}\right)$$
+Also 
+$$\frac{d}{d x}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s} x^{2 s}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}\right)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s)(x)^{2 s-1}}{s ! \  \Gamma(v+s+1) 2^{2 s+v}}=\sum_{s=1}^{\infty} \frac{(-1)^{s}(s) x^{2 s-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}$$
+Also 
+$$\sum_{s=1}^{\infty} \frac{(-1)^{s}(s) x^{2 s-1}}{s ! \  \Gamma(v+s) 2^{2 s+v-1}}=-\sum_{s=1}^{\infty} \frac{(-1)^{s-1} x^{2(s-1)+1}}{(s-1) ! \  \Gamma(v+s-1+1) 2^{2(s-1)+v+1}}=-\sum_{k=0}^{\infty} \frac{(-1)^{k} x^{2 k+1}}{k ! \  \Gamma(v+k+1) 2^{2 k+v+1}}$$
+As 
+$$J_{v+1}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+v+1}}{s ! \  \Gamma(v+s+1) 2^{2 s+v+1}}$$ 
+and 
+$$\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=-\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+1}}{s ! \  \Gamma(v+s) 2^{2 s+v+1}},$$ 
+we get that
+$$\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=-x^{-v}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}(x)^{2 s+v+1}}{s ! \  \Gamma(v+s) 2^{2 s+v+1}}\right)=-x^{-v} J_{v+1}(x)$$
+Also 
+$$\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=x^{\nu} \frac{d}{d x}\left(J_{v}(x)\right)+\frac{d}{d x}\left(x^{v}\right) J_{v}(x)=x^{v} J_{v}^{\prime}(x)+v x^{v-1} J_{v}(x)$$
+As 
+$$\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=x^{v} J_{v}^{\prime}(x)+v x^{v-1} J_{v}(x)$$ 
+and 
+$$\frac{d}{d x}\left(x^{v} J_{v}(x)\right)=x^{v} J_{v-1}(x),$$
+we get that
+$$x^{v} J_{v}^{\prime}(x)+v x^{v-1} J_{v}(x)=x^{v} J_{v-1}(x)$$ 
+and hence 
+$$J_{v}^{\prime}(x)+\frac{v}{x} J_{v}(x)=J_{v-1}(x)$$
+Also 
+$$\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=x^{-v} \frac{d}{d x}\left(J_{v}(x)\right)+\frac{d}{d x}\left(x^{-v}\right) J_{v}(x)=x^{-v} J_{v}^{\prime}(x)-v x^{-v-1} J_{v}(x)$$
+As 
+$$\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=x^{-v} J_{v}^{\prime}(x)-v x^{-v-1} J_{v}(x)$$ 
+and 
+$$\frac{d}{d x}\left(x^{-v} J_{v}(x)\right)=-x^{-v} J_{v+1}(x),$$ 
+we get that
+$$x^{-v} J_{v}^{\prime}(x)-v x^{-y-1} J_{v}(x)=-x^{-v} J_{v+1}(x)$$ 
+and hence 
+$$J_{v}^{\prime}(x)-\frac{v}{x} J_{v}(x)=-J_{v+1}(x)$$
+As 
+$$J_{v}^{\prime}(x)-\frac{v}{x} J_{v}(x)=-J_{v+1}(x),$$ 
+we get that 
+$$J_{-v}^{\prime}(x)-\frac{-v}{x} J_{-v}(x)=-J_{-v+1}(x)$$
+by substituting
+$-v$ in place of $v$, which implies that 
+$$J_{-v+1}(x)=-J_{-v}^{\prime}(x)-\frac{v}{x} J_{-v}(x)$$
+As 
+$$J_{-v+1}(x)=-J_{-v}^{\prime}(x)-\frac{v}{x} J_{-v}(x)$$ 
+and 
+$$J_{v}^{\prime}(x)+\frac{v}{x} J_{v}(x)=J_{v-1}(x),$$
+we get that
+$$J_{v}(x) J_{-v+1}(x)+J_{-v}(x) J_{v-1}(x)$$ 
+can be written as
+$$J_{v}(x)\left(-J_{-v}^{\prime}(x)-\frac{v}{x} J_{-v}(x)\right)+J_{-v}(x)\left(J_{v}^{\prime}(x)+\frac{v}{x} J_{v}(x)\right)$$
+Also 
+$$J_{v}(x)\left(-J_{-v}^{\prime}(x)-\frac{v}{x} J_{-v}(x)\right)+J_{-v}(x)\left(J_{v}^{\prime}(x)+\frac{v}{x} J_{v}(x)\right)$$ 
+is equal to
+$$-J_{v}(x) J_{-v}^{\prime}(x)-\frac{v}{x} J_{v}(x) J_{-v}(x)+J_{-v}(x) J_{v}^{\prime}(x)+\frac{v}{x} J_{-v}(x) J_{v}(x)$$ 
+which is nothing but
+$$J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)$$
+Thus, 
+$$J_{v}(x) J_{-v+1}(x)+J_{-v}(x) J_{v-1}(x)=J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)$$
+Therefore, we got that 
+$$J_{v}(x) J_{-v+1}(x)+J_{-v}(x) J_{v-1}(x)=J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)$$ 
+and
+$$J_{v}(x) Y_{v}^{\prime}(x)-J_{v}^{\prime}(x) Y_{v}(x)=\frac{-J_{v}(x) J_{-v}^{\prime}(x)+J_{v}^{\prime}(x) J_{-v}(x)}{\sin v x}$$
+As $J_{v}(x)$ and $J_{-v}(x)$ are solutions to the same Bessel's equation, we get that
+$$J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)=\frac{A_{v}}{x}$$ 
+where $A,$ may depend
+on $v$ but is independent of $x$.
+As 
+$$J_{v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{2 s+v},$$
+we get that 
+$$J_{v}^{\prime}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s+v)}{s ! \  \Gamma(v+s+1) 2}\left(\frac{x}{2}\right)^{2 s+v-1}$$
+Similarly, 
+$$J_{-v}(x)=\sum_{x=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(-v+s+1)}\left(\frac{x}{2}\right)^{2 s-v}$$ 
+and hence
+$$J_{-v}^{\prime}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s-v)}{s ! \  \Gamma(-v+s+1) 2}\left(\frac{x}{2}\right)^{2 s-v-1}$$
+
+As 
+$$\frac{1}{\Gamma(v+1)}\left(\frac{x}{2}\right)^{v}$$ 
+is the leading power of 
+$$J_{v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{2 s+v}$$
+and
+$$\frac{(-v)}{\Gamma(-v+1) 2}\left(\frac{x}{2}\right)^{-v-1}$$ 
+is the leading power of 
+$$J_{-v}^{\prime}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s-v)}{s ! \  \Gamma(-v+s+1) 2}\left(\frac{x}{2}\right)^{2 s-\gamma-1},$$ 
+we get
+that 
+$$\frac{1}{\Gamma(v+1)}\left(\frac{x}{2}\right)^{v} \frac{(-v)}{\Gamma(-v+1) 2}\left(\frac{x}{2}\right)^{-v-1}$$
+is the leading power of $J_{v}(x) J_{-v}^{\prime}(x)$
+Similarly, 
+$$\frac{1}{\Gamma(-v+1)}\left(\frac{x}{2}\right)^{-v}$$ 
+is the leading power of 
+$$J_{-v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(-v+s+1)}\left(\frac{x}{2}\right)^{2 s-v}$$ 
+and
+$$\frac{v}{\Gamma(v+1) 2}\left(\frac{x}{2}\right)^{v-1}$$ 
+is the leading power of 
+$$J_{v}^{\prime}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s+v)}{s ! \  \Gamma(v+s+1) 2}\left(\frac{x}{2}\right)^{2 s+\gamma-1},$$ 
+we get that
+$$\frac{1}{\Gamma(-v+1)}\left(\frac{x}{2}\right)^{-v} \frac{v}{\Gamma(v+1) 2}\left(\frac{x}{2}\right)^{v-1}$$ 
+is the leading power of $J_{-v}(x) J_{v}^{\prime}(x)$. Also 
+$$\frac{1}{\Gamma(v+1)}\left(\frac{x}{2}\right)^{v} \frac{(-v)}{\Gamma(-v+1) 2}\left(\frac{x}{2}\right)^{-\gamma-1}=\frac{-v}{\Gamma(v+1) \Gamma(-v+1) x}$$ 
+and
+$$\frac{1}{\Gamma(-v+1)}\left(\frac{x}{2}\right)^{-v} \frac{v}{\Gamma(v+1) 2}\left(\frac{x}{2}\right)^{v-1}=\frac{v}{\Gamma(v+1) \Gamma(-v+1) x}$$
+Thus, we get that 
+$$\frac{-v}{\Gamma(v+1) \Gamma(-v+1) x}$$ 
+is the leading power of 
+$$J_{v}(x) J_{-v}^{\prime}(x)$$ 
+and
+$$\frac{v}{\Gamma(v+1) \Gamma(-v+1) x}$$ 
+is the leading power of 
+$$J_{-v}(x) J_{v}^{\prime}(x)$$ 
+which implies that the coefficient of $x^{-1}$ in 
+$$J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)$$ 
+is equal to 
+$$\frac{2 v}{\Gamma(v+1) \Gamma(1-v) x}$$
+From reflection formula, we get that 
+$$\Gamma(v) \Gamma(1-v)=\frac{\pi}{\sin v \pi}$$
+As 
+$$\Gamma(v+1)=v \Gamma(v)$$ 
+and 
+$$\Gamma(v) \Gamma(1-v)=\frac{\pi}{\sin v \pi},$$
+we get that 
+$$\frac{v}{\Gamma(v+1) \Gamma(1-v)}=\frac{\sin v \pi}{\pi}$$
+Therefore, coefficient of $x^{-1}$ in $J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)$ is equal to $\dfrac{2 \sin v \pi}{\pi x}$. As 
+$$J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)=\frac{A_{v}}{x}$$
+where $A_{v}$, may depend on $v$ but is independent of $x$ and the coefficient of $x^{-1}$ in 
+$$J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)$$
+is equal to 
+$$\frac{2 \sin v \pi}{\pi x},$$
+we get that 
+$$A_{v}=\frac{2 \sin v \pi}{\pi}$$
+and all coefficients of $x$ (except $x^{-1}$) are zero. Therefore, 
+$$J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)=\frac{2 \sin v \pi}{\pi x}$$
+As 
+$$J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)=\frac{2 \sin v \pi}{\pi x}$$ 
+and
+$$J_{v}(x) J_{-v+1}(x)+J_{-v}(x) J_{v-1}(x)=J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x),$$ 
+we get that
+$$J_{v}(x) J_{-v+1}(x)+J_{-v}(x) J_{v-1}(x)=\frac{2 \sin v \pi}{\pi x}$$
+As 
+$$J_{-v}(x) J_{v}^{\prime}(x)-J_{v}(x) J_{-v}^{\prime}(x)=\frac{2 \sin v \pi}{\pi x}$$ 
+and
+$$J_{v}(x) Y_{v}^{\prime}(x)-J_{v}^{\prime}(x) Y_{v}(x)=\frac{-J_{v}(x) J_{-v}^{\prime}(x)+J_{v}^{\prime}(x) J_{-v}(x)}{\sin v x},$$ 
+we get that
+$$J_{v}(x) Y_{v}^{\prime}(x)-J_{v}^{\prime}(x) Y_{v}(x)=\frac{2}{\pi x}$$ 
+and hence the given statements are true.
+\newpage
+
+
+\begin{mybox}{14.3.6}
+As an alternative to letting $x$ approach zero in the evaluation of the Wronskian constant, we may invoke the uniqueness of power-series expansions. The coefficient of $x^{-1}$ in the series expansion of 
+$$u_{v}(x) v_{v}^{\prime}(x)-u_{v}^{\prime}(x) v_{v}(x)$$ is then $A_{v}$  
+Show by series expansion that the coefficients of $x^{0}$ and $x^{1}$ of 
+$$J_{v}(x) J_{-v}^{\prime}(x)-J_{v}^{\prime}(x) J_{-v}(x)$$ 
+are each zero.
+\end{mybox}
+$\boxed{\textbf{Solution}}$ To prove that the coefficients of $x^{0}$ and $x^{1}$ in 
+$$J_{v}(x) J_{-v}^{\prime}(x)-J_{v}^{\prime}(x) J_{-v}(x)$$ 
+are both zero by using power series expansions. As 
+$$J_{v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{2 s+v},$$
+we get that 
+$$J_{v}^{\prime}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s+v)}{s ! \  \Gamma(v+s+1) 2}\left(\frac{x}{2}\right)^{2 s+v-1}$$
+Similarly, 
+$$J_{-v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(-v+s+1)}\left(\frac{x}{2}\right)^{2 s-v}$$
+and hence
+$$J_{-v}^{\prime}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}(2 s-v)}{s ! \  \Gamma(-v+s+1) 2}\left(\frac{x}{2}\right)^{2 s-v-1}$$
+Also 
+$$J_{v}(x) J_{-v}^{\prime}(x)=\sum_{s=0}^{\infty} \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k ! \  \Gamma(v+k+1)}\left(\frac{x}{2}\right)^{2 k+v} \frac{(-1)^{s}(2 s-v)}{s ! \  \Gamma(-v+s+1) 2}\left(\frac{x}{2}\right)^{2 s-v-1}$$ 
+and
+$$J_{v}^{\prime}(x) J_{-v}(x)=\sum_{s=0}^{\infty} \sum_{k=0}^{\infty} \frac{(-1)^{k}(2 k+v)}{k ! \  \Gamma(v+k+1) 2}\left(\frac{x}{2}\right)^{2 k+v-1} \frac{(-1)^{s}}{s ! \  \Gamma(-v+s+1)}\left(\frac{x}{2}\right)^{2 s-v}$$
+As 
+$$J_{v}(x) J_{-v}^{\prime}(x)=\sum_{x=0}^{\infty} \sum_{k=0}^{\infty} \frac{(-1)^{k+s}(2 s-v)}{k ! \  s ! \  \Gamma(v+k+1) \Gamma(-v+s+1) 2}\left(\frac{x}{2}\right)^{2 k+2 s-1}$$ 
+we get that the coefficient of $x^{0}$ in 
+$$J_{v}(x) J_{-v}^{\prime}(x)$$ is equal to zero (as $2 k+2 s-1$ is odd for any $s, k \in \mathbb{Z},$ we get that $2 k+2 s-1$ is never 0 and hence there is no constant term in $J_{v}(x) J_{-v}^{\prime}(x)$) Similarly, as 
+$$J_{v}^{\prime}(x) J_{-v}(x)=\sum_{s=0}^{\infty} \sum_{k=0}^{\infty} \frac{(-1)^{k+s}(2 k+v)}{k ! \  s ! \  \Gamma(v+k+1) \Gamma(-v+s+1) 2}\left(\frac{x}{2}\right)^{2 k+2 s-1}$$ 
+we get that coefficient of $x^{0}$ in 
+$$J_{v}^{\prime}(x) J_{-v}(x)$$ 
+is equal to zero (as $2 k+2 s-1$ is odd for any $s, k \in \mathbb{Z},$ we get that $2 k+2 s-1$ is never 0 and hence there is no constant term in $J_{v}^{\prime}(x) J_{-v}(x)$) As there are constant terms in both $J_{v}^{\prime}(x) J_{-v}(x)$ and $J_{v}(x) J_{-v}^{\prime}(x),$ we get that the coefficient of $x^{0}$ in 
+$$J_{v}(x) J_{-v}^{\prime}(x)-J_{v}^{\prime}(x) J_{-v}(x)$$ 
+is zero. As 
+$$J_{v}(x) J_{-v}^{\prime}(x)=\sum_{s=0}^{\infty} \sum_{k=0}^{\infty} \frac{(-1)^{k+s}(2 s-v)}{k ! \  s ! \  \Gamma(v+k+1) \Gamma(-v+s+1) 2}\left(\frac{x}{2}\right)^{2 k+2 s-1}$$
+we get that the coefficient
+of $x^{1}$ in $J_{v}(x) J_{-v}^{\prime}(x)$ is equal to 
+$$\frac{(-1)^{1+0}(2(0)-v)}{1 ! \  0 ! \  \Gamma(v+(1)+1) \Gamma(-v+(0)+1) 2}\left(\frac{1}{2}\right)+\frac{(-1)^{0+1}(2(1)-v)}{0 ! \  1 ! \  \Gamma(v+(0)+1) \Gamma(-v+(1)+1) 2}\left(\frac{1}{2}\right)$$ 
+when $s, k \in \mathbb{Z},$ we get that $2 k+2 s-1=1$ if and only if $k+s=1$ which implies that either $k=0, s=1$ or $k=1, s=0$. Also 
+$$\frac{(-1)^{1+0}(2(1)+v)}{1 ! \  0 ! \  \Gamma(v+(1)+1) \Gamma(-v+(0)+1) 2}\left(\frac{1}{2}\right)+\frac{(-1)^{0+1}(2(0)+v)}{0 ! \  1 ! \  \Gamma(v+(0)+1) \Gamma(-v+(1)+1) 2}\left(\frac{1}{2}\right)$$
+is equal to 
+$$\frac{-v-2}{\Gamma(v+2) \Gamma(1-v) 4}+\frac{-v}{\Gamma(v+1) \Gamma(2-v)^{4}}$$
+Thus, the coefficient of $x^{1}$ in $J_{v}(x) J_{-v}^{\prime}(x)$ is equal to 
+$$\frac{-v-2}{\Gamma(v+2) \Gamma(1-v)^{4}}+\frac{-v}{\Gamma(v+1) \Gamma(2-v) 4}$$
+
+As the coefficient of $x^{1}$ in $J_{v}(x) J_{-v}^{\prime}(x)$ is equal to 
+$$\frac{-v-2}{\Gamma(v+2) \Gamma(1-v)^{4}}+\frac{-v}{\Gamma(v+1) \Gamma(2-v) 4}$$
+and the coefficient of $x^{1}$ in $J_{v}(x) J_{-v}^{\prime}(x)$ is equal to 
+$$\frac{v}{\Gamma(v+2) \Gamma(1-v) 4}+\frac{v-2}{\Gamma(v+1) \Gamma(2-v) 4}$$
+we get that the coefficient of $x^{1}$ in $J_{v}(x) J_{-v}^{\prime}(x)-J_{v}^{\prime}(x) J_{-v}(x)$ is equal to 
+$$\frac{v}{\Gamma(v+2) \Gamma(1-v) 4}+\frac{v-2}{\Gamma(v+1) \Gamma(2-v) 4}-\left(\frac{-v-2}{\Gamma(v+2) \Gamma(1-v)^{4}}+\frac{-v}{\Gamma(v+1) \Gamma(2-v) 4}\right)$$ 
+which is equal to 
+$$\frac{2 v+2}{\Gamma(v+2) \Gamma(1-v)^{4}}+\frac{2 v-2}{\Gamma(v+1) \Gamma(2-v)^{4}}$$
+Also 
+$$\frac{2 v+2}{\Gamma(v+2) \Gamma(1-v) 4}=\frac{2 v+2}{(v+1) \Gamma(v+1) \Gamma(1-v)^{4}}=\frac{1}{\Gamma(v+1) \Gamma(1-v)^{2}}$$ 
+and
+$$\frac{2 v-2}{\Gamma(v+1) \Gamma(2-v) 4}=\frac{2 v-2}{\Gamma(v+1)(1-v) \Gamma(1-v)^{4}}=\frac{-1}{\Gamma(v+1) \Gamma(1-v)^{2}}$$
+Thus, 
+$$\frac{2 v+2}{\Gamma(v+2) \Gamma(1-v)^{4}}+\frac{2 v-2}{\Gamma(v+1) \Gamma(2-v) 4}=\frac{1}{\Gamma(v+1) \Gamma(1-v) 2}+\frac{-1}{\Gamma(v+1) \Gamma(1-v)^{2}}=0 .$$
+Thus, the coefficient of $x^{1}$ in $J_{v}(x) J_{-v}^{\prime}(x)-J_{v}^{\prime}(x) J_{-v}(x)$ is equal to zero. Therefore, the coefficients of $x^{0}$ and $x^{1}$ in $J_{v}(x) J_{-v}^{\prime}(x)-J_{v}^{\prime}(x) J_{-v}(x)$ are both zero.
+
+\newpage
+
+
+\begin{mybox}{14.3.8}
+Verify the expansion formula for $Y_{n}(x)$ given in Eq. (14.61).
+$$
+\begin{aligned}
+Y_{n}(x)=& \frac{2}{\pi} J_{n}(x) \ln \left(\frac{x}{2}\right)-\frac{1}{\pi} \sum_{k=0}^{n-1} \frac{(n-k-1) ! \ }{k ! \ }\left(\frac{x}{2}\right)^{2 k-n} \\
+&-\frac{1}{\pi} \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k ! \ (n+k) ! \ }[\psi(k+1)+\psi(n+k+1)]\left(\frac{x}{2}\right)^{2 k+n} \quad (14.61)
+\end{aligned}
+$$
+Hint. Start from Eq. (14.60) 
+$$
+Y_{n}(x)=\frac{1}{\pi}\left[\frac{d J_{v}}{d v}-(-1)^{n} \frac{d J_{-v}}{d v}\right]_{v=n} \quad (14.60)
+$$
+
+and perform the indicated differentiations on the powerseries expansions of $J_{v}$ and $J_{-v}$. The digamma functions $\psi$ arise from the differentiation of the gamma function. You will need the identity (not derived in this book) $\lim _{z \rightarrow-n} \psi(z) / \Gamma(z)=(-1)^{n-1} n !,$ where $n$ is a positive integer.
+
+\end{mybox}
+$\boxed{\textbf{Solution}}$ To prove that 
+$$Y_{n}(x)=\frac{2}{\pi} J_{n}(x) \ln \left(\frac{x}{2}\right)-\frac{1}{\pi} \sum_{k=0}^{n-1} \frac{(n-k-1) ! \ }{k ! \ }\left(\frac{x}{2}\right)^{2 k-n}-A$$ 
+where
+$$A=\frac{1}{\pi} \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k ! \ (n+k) ! \ }[\psi(k+1)+\psi(n+k+1)]\left(\frac{x}{2}\right)^{2 k+n}$$
+We know that 
+$$Y_{n}(x)=\frac{1}{\pi}\left[\frac{d J_{v}(x)}{d v}-(-1)^{n} \frac{d J_{-v}(x)}{d v}\right]_{v=n}$$
+As 
+$$J_{v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{v+2 s}$$ 
+we get that 
+$$\frac{d J_{v}(x)}{d v}=\frac{d}{d v}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{v+2 s}\right)$$
+and hence 
+$$\frac{d J_{v}(x)}{d v}=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)} \frac{d}{d v}\left(\frac{x}{2}\right)^{v+2 s}+\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{v+2 s} \frac{d}{d v} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}$$
+Also 
+$$\frac{d}{d v}\left(\frac{x}{2}\right)^{v+2 s}=\left(\frac{x}{2}\right)^{v+2 s} \ln \left(\frac{x}{2}\right)$$ 
+and 
+$$\frac{d}{d v} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}=-\frac{(-1)^{s}}{s ! \ (\Gamma(v+s+1))^{2}} \frac{d \Gamma(v+s+1)}{d v}$$
+Thus, 
+$$\frac{d J_{v}(x)}{d v}=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{v+2 s} \ln \left(\frac{x}{2}\right)-\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{v+2 s} \frac{(-1)^{s}}{s ! \ (\Gamma(v+s+1))^{2}} \frac{d \Gamma(v+s+1)}{d v}$$
+As 
+$$J_{v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{v+2 s},$$ 
+we get that
+$$\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{v+2 s} \ln \left(\frac{x}{2}\right)=\ln \left(\frac{x}{2}\right) \sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{v+2 s}=\ln \left(\frac{x}{2}\right) J_{v}(x)$$
+Therefore, 
+$$\frac{d J_{v}(x)}{d v}=\ln \left(\frac{x}{2}\right) J_{v}(x)-\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{v+2 s} \frac{(-1)^{s}}{s ! \ (\Gamma(v+s+1))^{2}} \frac{d \Gamma(v+s+1)}{d v}$$
+As 
+$$\psi(z+1)=\frac{d \ln \Gamma(z+1)}{d v}=\frac{1}{\Gamma(z+1)} \frac{d \Gamma(z+1)}{d v}$$ 
+where $\psi$ is the digamma function, we get that 
+$$\frac{(-1)^{s}}{s ! \ (\Gamma(v+s+1))^{2}} \frac{d \Gamma(v+s+1)}{d v}=\frac{(-1)^{s} \psi(v+s+1)}{s ! \  \Gamma(v+s+1)}$$
+Thus, 
+$$\frac{d J_{v}(x)}{d v}=\ln \left(\frac{x}{2}\right) J_{v}(x)-\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{v+2 s} \frac{(-1)^{s} \psi(v+s+1)}{s ! \  \Gamma(v+s+1)}$$
+Therefore, 
+$$\left(\frac{d J_{v}(x)}{d v}\right)_{v=n}=\ln \left(\frac{x}{2}\right) J_{n}(x)-\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{n+2 s} \frac{(-1)^{s} \psi(n+s+1)}{s ! \  \Gamma(n+s+1)}$$
+which implies that
+$$\left(\frac{d J_{v}(x)}{d v}\right)_{v=n}=\ln \left(\frac{x}{2}\right) J_{n}(x)-\sum_{s=0}^{\infty} \frac{(-1)^{s} \psi(n+s+1)}{s ! \ (n+s) ! \ }\left(\frac{x}{2}\right)^{n+2 s}$$
+As 
+$$J_{v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(v+s+1)}\left(\frac{x}{2}\right)^{v+2 s},$$
+we get that 
+$$J_{-v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)}\left(\frac{x}{2}\right)^{2 s-v}$$
+Also 
+$$\frac{d J_{-v}(x)}{d v}=\frac{d}{d v}\left(\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)}\left(\frac{x}{2}\right)^{2 s-v}\right)$$ 
+and hence we get that
+$$\frac{d J_{-v}(x)}{d v}=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)} \frac{d}{d v}\left(\frac{x}{2}\right)^{2 s-v}+\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{2 s-v} \frac{d}{d v} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)}$$
+Also 
+$$\frac{d}{d v}\left(\frac{x}{2}\right)^{2 s-v}=\frac{d(2 s-v)}{d v} \frac{d}{d(2 s-v)}\left(\frac{x}{2}\right)^{2 s-v}=-\left(\frac{x}{2}\right)^{2 s-v} \ln \left(\frac{x}{2}\right)$$
+and
+$$\frac{d}{d v} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)}=-\frac{(-1)^{s}}{s ! \ (\Gamma(s-v+1))^{2}} \frac{d \Gamma(s-v+1)}{d v}$$
+Thus, 
+$$\frac{d J_{-v}(x)}{d v}=-\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)}\left(\frac{x}{2}\right)^{2 s-v} \ln \left(\frac{x}{2}\right)-\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{2 s-v} \frac{(-1)^{s}}{s ! \ (\Gamma(s-v+1))^{2}} \frac{d \Gamma(s-v+1)}{d v}$$
+As 
+$$J_{-v}(x)=\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)}\left(\frac{x}{2}\right)^{2 s-v},$$ 
+we get that
+$$\sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)}\left(\frac{x}{2}\right)^{2 s-v} \ln \left(\frac{x}{2}\right)=\ln \left(\frac{x}{2}\right) \sum_{s=0}^{\infty} \frac{(-1)^{s}}{s ! \  \Gamma(s-v+1)}\left(\frac{x}{2}\right)^{2 s-v}=\ln \left(\frac{x}{2}\right) J_{-v}(x)$$
+Therefore, 
+$$\frac{d J_{-v}(x)}{d v}=-\ln \left(\frac{x}{2}\right) J_{-v}(x)-\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{2 s-v} \frac{(-1)^{s}}{s ! \ (\Gamma(s-v+1))^{2}} \frac{d \Gamma(s-v+1)}{d v}$$
+As 
+$$\psi(z+1)=\frac{d \ln \Gamma(z+1)}{d v}=\frac{1}{\Gamma(z+1)} \frac{d \Gamma(z+1)}{d v},$$ 
+we get that
+$$\frac{(-1)^{s}}{s ! \ (\Gamma(s-v+1))^{2}} \frac{d \Gamma(s-v+1)}{d v}=\frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}$$ 
+and hence
+$$\frac{d J_{-v}(x)}{d v}=-\ln \left(\frac{x}{2}\right) J_{-v}(x)-\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{2 s-v} \frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}$$
+Thus, 
+$$\left(\frac{d J_{-v}(x)}{d v}\right)_{v=n}=-\ln \left(\frac{x}{2}\right) J_{-n}(x)-\sum_{s=0}^{\infty}\left(\frac{x}{2}\right)^{2 s-n} \lim _{v \rightarrow n} \frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}$$
+As 
+$$\lim _{v \rightarrow n} \frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}=\frac{(-1)^{s}}{s ! \ } \lim _{v \rightarrow n} \frac{\psi(s-v+1)}{\Gamma(s-v+1)},$$ 
+we get that
+$$\left(\frac{d J_{-v}(x)}{d v}\right)_{v=n}=-\ln \left(\frac{x}{2}\right) J_{-n}(x)-\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \lim _{v \rightarrow n} \frac{(-1)^{x} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}-\sum_{s=n}^{\infty}\left(\frac{x}{2}\right)^{2 s-n} \lim _{v \rightarrow n} \frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}$$
+(by dividing the summation into $s<n$ and $s \geq n$ parts). Also
+$$\sum_{s=n}^{\infty}\left(\frac{x}{2}\right)^{2 s-n} \lim _{v \rightarrow n} \frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}=\sum_{k=0}^{\infty}\left(\frac{x}{2}\right)^{2 k+n} \frac{(-1)^{k+n}}{(k+n) ! \ } \frac{\psi(k+1)}{\Gamma(k+1)}=\sum_{k=0}^{\infty}\left(\frac{x}{2}\right)^{2 k+n} \frac{(-1)^{k+n} \psi(k+1)}{(k+n) ! \  k ! \ }$$
+and 
+$$\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \lim _{v \rightarrow n} \frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}=\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(-1)^{s}}{s ! \ } \lim _{k \rightarrow s-n} \frac{\psi(k+1)}{\Gamma(k+1)}$$
+As 
+$$\lim _{z \rightarrow-n} \frac{\psi(z+1)}{\Gamma(z+1)}=(-1)^{n-1} n ! \ ,$$ 
+we get that
+$$\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(-1)^{s}}{s ! \ } \lim _{k \rightarrow s-n} \frac{\psi(k+1)}{\Gamma(k+1)}=\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(-1)^{s}}{s ! \ }(-1)^{s-n-1}(s-n-1) ! \ $$
+As 
+$$\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(-1)^{s}}{s ! \ } \lim _{k \rightarrow s-n} \frac{\psi(k+1)}{\Gamma(k+1)}=\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(-1)^{s}}{s ! \ }(-1)^{s-n-1}(s-n-1) ! \ $$
+$$\sum_{s=n}^{\infty}\left(\frac{x}{2}\right)^{2 s-n} \lim _{v \rightarrow n} \frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}=\sum_{k=0}^{\infty}\left(\frac{x}{2}\right)^{2 k+n} \frac{(-1)^{k+n} \psi(k+1)}{(k+n) ! \  k ! \ }$$
+and
+$$\left(\frac{d J_{-v}(x)}{d v}\right)_{v=n}=-\ln \left(\frac{x}{2}\right) J_{-n}(x)-\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \lim _{x \rightarrow n} \frac{(-1)^{s} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}-\sum_{x=n}^{\infty}\left(\frac{x}{2}\right)^{2 s-n} \lim _{v \rightarrow n} \frac{(-1)^{x} \psi(s-v+1)}{s ! \  \Gamma(s-v+1)}$$
+we get that $\left(\dfrac{d J_{-v}(x)}{d v}\right)_{v=n}$
+is equal to 
+$$-\ln \left(\frac{x}{2}\right) J_{-n}(x)-\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(-1)^{s}}{s ! \ }(-1)^{s-n-1}(s-n-1) ! \ -\sum_{k=0}^{\infty}\left(\frac{x}{2}\right)^{2 k+n} \frac{(-1)^{k+n} \psi(k+1)}{(k+n) ! \  k ! \ }$$
+
+As $J_{-n}(x)=(-1)^{n} J_{n}(x)$
+$$-\ln \left(\frac{x}{2}\right) J_{-n}(x)-\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(-1)^{s}}{s ! \ }(-1)^{s-n-1}(s-n-1) ! \ -\sum_{k=0}^{\infty}\left(\frac{x}{2}\right)^{2 k+n} \frac{(-1)^{k+n} \psi(k+1)}{(k+n) ! \  k ! \ }$$ 
+can be written as
+$$-(-1)^{n} \ln \left(\frac{x}{2}\right) J_{n}(x)-\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(s-n-1) ! \ }{s ! \ }(-1)^{n+1}-(-1)^{n+1} \sum_{k=0}^{\infty}\left(\frac{x}{2}\right)^{2 k+n} \frac{(-1)^{k} \psi(k+1)}{(k+n) ! \  k ! \ }$$
+$$(-1)^{s-n-1}(-1)^{s}=(-1)^{s-n-1+s-n-1}(-1)^{n+1}=(-1)^{n+1}(-1)^{2(s-n-1)}=(-1)^{n+1}$$
+Thus
+$$(-1)^{n+1}\left(\frac{d J_{-v}(x)}{d v}\right)_{v=n}=\ln \left(\frac{x}{2}\right) J_{n}(x)-\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(s-n-1) ! \ }{s ! \ }-\sum_{k=0}^{\infty}\left(\frac{x}{2}\right)^{2 k+n} \frac{(-1)^{k} \psi(k+1)}{(k+n) ! \  k ! \ }$$
+As
+$$
+\left(\frac{d J_{v}(x)}{d v}\right)_{v=n}=\ln \left(\frac{x}{2}\right) J_{n}(x)-\sum_{s=0}^{\infty} \frac{(-1)^{s} \psi(n+s+1)}{s ! \ (n+s) ! \ }\left(\frac{x}{2}\right)^{n+2}
+$$
+$$
+(-1)^{n+1}\left(\frac{d J_{-v}(x)}{d v}\right)_{v=n}=\ln \left(\frac{x}{2}\right) J_{n}(x)-\sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(s-n-1) ! \ }{s ! \ }-\sum_{s=0}^{\infty} \frac{(-1)^{s} \psi(s+1)}{(s+n) ! \  s ! \ }\left(\frac{x}{2}\right)^{2 s+n}
+$$
+and
+$$
+Y_{n}(x)=\frac{1}{\pi}\left[\frac{d J_{v}(x)}{d v}-(-1)^{n} \frac{d J_{-v}(x)}{d v}\right]_{v=n}
+$$
+we get
+$$
+\frac{2}{\pi} \ln \left(\frac{x}{2}\right) J_{n}(x)-\frac{1}{\pi} \sum_{s=0}^{n-1}\left(\frac{x}{2}\right)^{2 s-n} \frac{(s-n-1) ! \ }{s ! \ }-\sum_{s=0}^{\infty} \frac{(-1)^{s}(\psi(s+1)+\psi(n+s+1))}{(s+n) ! \  s ! \ }\left(\frac{x}{2}\right)^{2 s+n}
+$$
+Therefore, 
+$$Y_{n}(x)=\frac{2}{\pi} J_{n}(x) \ln \left(\frac{x}{2}\right)-\frac{1}{\pi} \sum_{k=0}^{n-1} \frac{(n-k-1) ! \ }{k ! \ }\left(\frac{x}{2}\right)^{2 k-n}-A$$ 
+where
+$$A=\frac{1}{\pi} \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k ! \ (n+k) ! \ }[\psi(k+1)+\psi(n+k+1)]\left(\frac{x}{2}\right)^{2 k+n}$$
+
+\newpage
+
+
+
+\begin{mybox}{14.3.9}
+If Bessel's ODE (with solution $J_{v}$ ) is differentiated with respect to $v,$ one obtains
+$$
+x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{v}}{\partial v}\right)+x \frac{d}{d x}\left(\frac{\partial J_{v}}{\partial v}\right)+\left(x^{2}-v^{2}\right) \frac{\partial J_{v}}{\partial v}=2 v J_{v}
+$$
+Use the above equation to show that $Y_{n}(x)$ is a solution to Bessel's ODE.
+
+\end{mybox}
+$\boxed{\textbf{Solution}}$ We know that 
+$$Y_{n}(x)=\frac{1}{\pi}\left[\frac{d J_{v}(x)}{d v}-(-1)^{n} \frac{d J_{-v}(x)}{d v}\right]_{v=n}$$
+As 
+$$x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{v}}{\partial v}\right)+x \frac{d}{d x}\left(\frac{\partial J_{v}}{\partial v}\right)+\left(x^{2}-v^{2}\right) \frac{\partial J_{v}}{\partial v}=2 v J_{v},$$ 
+we get that
+$$x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{-v}}{\partial(-v)}\right)+x \frac{d}{d x}\left(\frac{\partial J_{-v}}{\partial(-v)}\right)+\left(x^{2}-(-v)^{2}\right) \frac{\partial J_{-v}}{\partial(-v)}=2(-v) J_{-v}$$
+
+As $\frac{\partial J_{-v}}{\partial(-v)}=-\frac{\partial J_{-v}}{\partial v},$ we get that 
+$$-x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{-v}}{\partial v}\right)-x \frac{d}{d x}\left(\frac{\partial J_{-v}}{\partial v}\right)-\left(x^{2}-v^{2}\right) \frac{\partial J_{-v}}{\partial v}=-2 v J_{-v}$$
+$$x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{-v}}{\partial v}\right)+x \frac{d}{d x}\left(\frac{\partial J_{-v}}{\partial v}\right)+\left(x^{2}-v^{2}\right) \frac{\partial J_{-v}}{\partial v}=2 v J_{-v}$$
+As 
+$$x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{v}}{\partial v}\right)+x \frac{d}{d x}\left(\frac{\partial J_{v}}{\partial v}\right)+\left(x^{2}-v^{2}\right) \frac{\partial J_{v}}{\partial v}=2 v J_{v}$$ 
+and
+$$x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{-v}}{\partial v}\right)+x \frac{d}{d x}\left(\frac{\partial J_{-v}}{\partial v}\right)+\left(x^{2}-v^{2}\right) \frac{\partial J_{-v}}{\partial v}=2 v J_{-v},$$ 
+we get that $2 v J_{v}-2 v(-1)^{n} J_{-v}$ is equal to 
+$$x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{v}}{\partial v}-(-1)^{n} \frac{\partial J_{-v}}{\partial v}\right)+x \frac{d}{d x}\left(\frac{\partial J_{v}}{\partial v}-(-1)^{n} \frac{\partial J_{-v}}{\partial v}\right)+\left(x^{2}-v^{2}\right)\left(\frac{\partial J_{v}}{\partial v}-(-1)^{n} \frac{\partial J_{-v}}{\partial v}\right)$$
+Thus, $2 n J_{n}-2 n(-1)^{n} J_{-n}$ is equal to
+$$\left[x^{2} \frac{d^{2}}{d x^{2}}\left(\frac{\partial J_{v}}{\partial v}-(-1)^{n} \frac{\partial J_{-v}}{\partial v}\right)+x \frac{d}{d x}\left(\frac{\partial J_{v}}{\partial v}-(-1)^{n} \frac{\partial J_{-v}}{\partial v}\right)+\left(x^{2}-v^{2}\right)\left(\frac{\partial J_{v}}{\partial v}-(-1)^{n} \frac{\partial J_{-v}}{\partial v}\right)\right]_{v=n}$$
+As 
+$$Y_{n}(x)=\frac{1}{\pi}\left[\frac{d J_{v}(x)}{d v}-(-1)^{n} \frac{d J_{-v}(x)}{d v}\right]_{v=n},$$
+the above equation implies that
+$$x^{2} \frac{d^{2} Y_{n}(x)}{d x^{2}}+x \frac{d Y_{n}(x)}{d x}+\left(x^{2}-n^{2}\right) Y_{n}(x)=\frac{1}{\pi}\left(2 n J_{n}-2 n(-1)^{n} J_{-n}\right)$$
+As $J_{-n}=(-1)^{n} J_{n},$ we get that $2 n J_{n}-2 n(-1)^{n} J_{-n}=0$. As $2 n J_{n}-2 n(-1)^{n} J_{-n}=0$ and
+$$x^{2} \frac{d^{2} Y_{n}(x)}{d x^{2}}+x \frac{d Y_{n}(x)}{d x}+\left(x^{2}-n^{2}\right) Y_{n}(x)=\frac{1}{\pi}\left(2 n J_{n}-2 n(-1)^{n} J_{-n}\right),$$ 
+we get that
+$$x^{2} \frac{d^{2} Y_{n}(x)}{d x^{2}}+x \frac{d Y_{n}(x)}{d x}+\left(x^{2}-n^{2}\right) Y_{n}(x)=0$$
+Therefore, $Y_{n}(x)$ is a solution to the Bessel's ODE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{flushleft}
+\end{document}

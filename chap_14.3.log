@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.1)  9 DEC 2020 20:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.1)  10 DEC 2020 00:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**chap_13.4.tex
-(./chap_13.4.tex
+**chap_14.3.tex
+(./chap_14.3.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -588,8 +588,8 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count287
 \l__pdf_internal_box=\box111
 )
-(./chap_13.4.aux)
-\openout1 = `chap_13.4.aux'.
+(./chap_14.3.aux)
+\openout1 = `chap_14.3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
 LaTeX Font Info:    ... okay on input line 39.
@@ -694,29 +694,51 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 46.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./chap_13.4.aux) 
-) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8
+] [9] [10]
+[11] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (30.34029pt too wide) detected at line 735
+[][] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@ [] [] \OML/cmm/m/it/10 J[]\OT1/cmr/
+m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ [] [][] [] [] 
+^^@ [] [][] [] []
+ []
+
+
+Overfull \hbox (1.21002pt too wide) detected at line 737
+[] [][] [] [] \OT1/cmr/m/n/10 = [] [][] [][] = [] [][] []
+ []
+
+
+Overfull \hbox (31.38423pt too wide) detected at line 748
+[][] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@ [] [] \OML/cmm/m/it/10 J[]\OT1/cmr/
+m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ [] [][] [] [] 
+^^@ [] [][] [] []
+ []
+
+[18] [19] [20] (./chap_14.3.aux) ) 
 Here is how much of TeX's memory you used:
- 13476 strings out of 481239
- 257524 string characters out of 5920377
- 488287 words of memory out of 5000000
- 28483 multiletter control sequences out of 15000+600000
+ 13483 strings out of 481239
+ 257655 string characters out of 5920377
+ 495285 words of memory out of 5000000
+ 28490 multiletter control sequences out of 15000+600000
  537218 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,8n,75p,917b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb>
-Output written on chap_13.4.pdf (3 pages, 99791 bytes).
+ 59i,10n,75p,917b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on chap_14.3.pdf (20 pages, 167483 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 116 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
