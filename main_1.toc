@@ -1,0 +1,2 @@
+\babel@toc {english}{}
+\contentsline {subsection}{\numberline {}Chapter 2.2: Matrices}{1}{chapter*.2}%

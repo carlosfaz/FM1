@@ -1,0 +1,166 @@
+\documentclass{styles/kaobook}
+\usepackage{enumerate}
+\usepackage{blindtext}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{subfig}
+\captionsetup[subfigure]{labelformat=empty}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{bbm}
+\pagestyle{plain}
+\usepackage{yfonts}
+\usepackage{ragged2e}
+\usepackage{framed}
+\pagestyle{empty}
+\usepackage{physics}
+\usepackage{pdfpages}
+\usepackage{setspace}
+\usepackage[bookmarks=true]{hyperref} %hyperref sin bookmarks
+\hypersetup{
+    colorlinks=false, % falso=poner color en la tabla de contenido
+    linkcolor=black, % el color de la letra de la tabla de contenido
+    urlcolor=red, % El color del hipervinculo (el cuadro) 
+    linktocpage=true % solamente los numeros van a tener hipervinculo, el texto no.
+}
+
+
+ \usepackage{tcolorbox}
+\newtcolorbox{mybox}[1]{colback=blue!5!white,colframe=blue!42!black,fonttitle=\bfseries,title=Problem #1}
+
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+%\makeatletter
+%\patchcmd{\tableofcontents}{\@starttoc{toc}}{\thispagestyle{empty}\pagestyle{empty}\@starttoc{toc}}{}{}
+%\makeatother
+
+\usepackage{tikz}
+\usetikzlibrary{matrix,intersections,calc}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\usepackage{physics}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\newcommand\simpleparagraph[1]{%
+\stepcounter{paragraph}\text{\theparagraph\quad{}#1}}
+\usepackage{ccicons}
+
+
+%\renewcommand{\contentsname}{asf} %comando para que NO aparezca el titulo de contenido en las tablas de contenido
+
+\usepackage[toc]{glossaries}
+
+\begin{document}
+
+\title{Solved Problems in Mathematical Methods for Physicists}
+
+\author[JBG]{Carlos Faz}
+
+\date{\today}
+
+%\publishers{Carlos Faz \\ \texttt{A01229031@itesm.mx}}
+
+\makeatletter
+
+\uppertitleback{\@titlehead}
+
+\lowertitleback{
+	\textbf{Disclaimer} \\
+	This document shows the solution to the problems of chapter 2 and 3 of Mathematical Methods for Physicist $7^{\text{th}}-$ed by George Arfken solved by Carlos Faz in \LaTeX . This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
+	
+	\medskip
+	
+	\textbf{Publisher} \\
+	First printed in December by Carlos Faz
+	
+	\medskip
+	
+	\textbf{No copyright} \\
+	\cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law.
+	
+	
+	\medskip
+	
+	\textbf{Publisher} \\
+	First printed in March 2020 by Carlos Faz\\ \\ \texttt{Última modificación} \\ \texttt{\today}. \\ \texttt{Versión: kao1.2}
+}
+
+\makeatother
+
+\KOMAoptions{twoside=semi}
+
+
+
+
+
+\maketitle
+
+\renewcommand{\familydefault}{\sfdefault}
+\makeatletter
+
+\renewcommand{\sectionlinesformat}[4]{%
+  \ifstr{#1}{section}{\clearpage}{}%
+  \@hangfrom{\hskip #2#3}{#4}%
+}
+
+%\makeatother
+\pagelayout{wide}
+%\doublespacing
+\tableofcontents
+\singlespacing
+
+
+
+\setuptoc{toc}{totoc}
+
+\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+\setchapterstyle{kao} % Choose the default chapter heading style
+
+
+
+%\subsubsection*{\fontsize{12}{1}\textbf{Subsection}}
+%\addcontentsline{toc}{subsubsection}{\protect\numberline{}1.1: Asdf}
+
+\chapter*{Chapter 2.2 \\ Matrices}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 2.2: Matrices}
+
+\input{chap_2.2/chap_2.2}
+
+\newpage
+
+\input{chap_3.2/chap_3.2}
+
+\newpage
+
+
+\input{chap_3.3/chap_3.3}
+\newpage
+
+\input{chap_3.4/chap_3.4}
+
+\newpage
+
+\input{chap_5.1/chap_5.1}
+
+\newpage
+
+\input{chap_13.1/chap_13.1}
+
+\newpage
+
+\input{chap_13.4/chap_13.4}
+
+\newpage
+
+\input{chap_14.3/chap_14.3}
+
+\newpage
+
+\end{document}
+

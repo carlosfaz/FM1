@@ -75,12 +75,12 @@
 	\oldmainmatter % Call the old command
 
 	% Set some Lengths used for the page headers
-	\setlength{\overflowingheadlen}{\linewidth}
-	\addtolength{\overflowingheadlen}{\marginparsep}
-	\addtolength{\overflowingheadlen}{\marginparwidth}
+	%\setlength{\overflowingheadlen}{\linewidth}
+	%\addtolength{\overflowingheadlen}{\marginparsep}
+	%\addtolength{\overflowingheadlen}{\marginparwidth}
 
-	\pagestyle{scrheadings} % Use a fancy style for the header and the footer
-	\pagelayout{margin} % Use a 1.5 column layout
+	%\pagestyle{scrheadings} % Use a fancy style for the header and the footer
+%	\pagelayout{margin} % Use a 1.5 column layout
 }
 
 %------------------------------------------------
@@ -149,42 +149,7 @@
 	\setlength{\mtocshift}{0mm}
 }
 
-% Lines
-\renewcommand{\hrulefill}[1][0.4pt]{%
-	\leavevmode\leaders\hrule height #1\hfill\kern\z@%
-}
-\DeclareDocumentCommand{\chapterstylelines}{}
-{
-	\renewcommand*{\chapterformat}
-	{
-	  \chapappifchapterprefix{\nobreakspace}\scalebox{3.5}{\thechapter\autodot}
-	}
-	\renewcommand\chapterlinesformat[3]
-	{
-	  %\vspace*{-1cm}%
-	  \leavevmode
-	  \makebox[\textwidth+\marginparsep+\marginparwidth]{%
-		\makebox[\textwidth][l]{\hrulefill[1pt]##2}%\hfill%\par%\bigskip
-		\makebox[\marginparsep][l]{}%
-		\makebox[\marginparwidth][l]{}%
-	  }\\
-	  %\vspace{.5cm}
-	  \makebox[\textwidth+\marginparsep+\marginparwidth]{%
-		\makebox[\textwidth][l]{##3}%
-		\makebox[\marginparsep][l]{}%
-		\makebox[\marginparwidth][l]{}%
-	  }\\
-	  \makebox[\textwidth+\marginparsep+\marginparwidth]{%
-		\hrulefill[1.1pt]%
-		%\makebox[\textwidth][l]{\hrulefill}%
-		%\makebox[\marginparsep][l]{\hrulefill}%
-		%\makebox[\marginparwidth][l]{\hrulefill}%
-	  }
-	}
 
-	\RedeclareSectionCommand[beforeskip=0cm,afterskip=1cm]{chapter}
-	\setlength{\mtocshift}{-2.5cm}
-}
 
 % Image (Used internally for \chapterimage; normal users should not need this command)
 \DeclareDocumentCommand{\chapterstyleimage}{}{%

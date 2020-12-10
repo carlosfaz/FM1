@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.1)  7 DEC 2020 02:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.1)  10 DEC 2020 00:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -700,7 +700,7 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 Here is how much of TeX's memory you used:
  13488 strings out of 481239
  257727 string characters out of 5920377
- 491295 words of memory out of 5000000
+ 491294 words of memory out of 5000000
  28495 multiletter control sequences out of 15000+600000
  537218 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
