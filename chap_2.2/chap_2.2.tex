@@ -1,4 +1,51 @@
+ 
+$\vspace{7cm}$
 
+ 
+ 
+ % Suppresses headers and footers on the title page
+
+	{\centering % Centre everything on the title page
+	
+	 % Use small caps for all text on the title page
+	
+	\vspace*{\baselineskip} % White space at the top of the page
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal rule
+	\rule{\textwidth}{0.4pt} % Thin horizontal rule
+	
+	\vspace{0.75\baselineskip} % Whitespace above the title
+	
+	{\LARGE Chapter 2 \\ Determinants and \\ Matrices \\} % Title
+	
+	\vspace{0.75\baselineskip} % Whitespace below the title
+	
+	\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal rule
+	\rule{\textwidth}{1.6pt} % Thick horizontal rule
+	
+	\vspace{2\baselineskip} % Whitespace after the title block
+	
+	%------------------------------------------------
+	%	Subtitle
+	%------------------------------------------------
+	
+
+	
+	\vspace*{3\baselineskip} % Whitespace under the subtitle
+	
+
+}
+
+
+\newpage
+
+\begin{center}
+{\Large\text{Chapter 2.2: Matrices}}
+\end{center}
 
 \begin{mybox}{2.2.1}
 Show that matrix multiplication is associative, $(\mathbf{A}\mathbf{B}) \mathbf{C}=\mathbf{A}(\mathbf{B}\mathbf{C})$
@@ -95,7 +142,7 @@ $$
 $$
 Either way, we obtain the same result.
 
-$$$$
+\newpage
 
 \begin{mybox}{2.2.4}
 If $\mathbf{A}$ is an $n \times n$ matrix, show that
@@ -116,8 +163,7 @@ From this
 $$\operatorname{det}(-I A)=\operatorname{det}(-I) \operatorname{det}(\mathrm{A})$$
 $$\operatorname{det}(-I) \operatorname{det}(\mathrm{A})=(-1)^{n} \operatorname{det}(A)$$
 
-
-\newpage
+$$$$
 
 \begin{mybox}{2.2.5}
 \begin{enumerate}[$(a)$]
@@ -212,8 +258,7 @@ $$\mathbf{K}^5 = \begin{bmatrix}{0} & {i} & {0} \\ {0} & {0} & {-1} \\ {-i} & {0
 With this, the answer is $n=6$
 
 
-\newpage
-
+$$$$
 
 \begin{mybox}{2.2.7}
 Verify the Jacobi identity,
@@ -229,7 +274,6 @@ $$[\mathbf{B}[\mathbf{C}, \mathbf{A}]]=[\mathbf{B}, \mathbf{C} \mathbf{A}-\mathb
 $$[\mathbf{B}[\mathbf{C}, \mathbf{A}]]=\mathbf{B}(\mathbf{C} \mathbf{A})-\mathbf{B}(\mathbf{A} \mathbf{C})-(\mathbf{C} \mathbf{A}) \mathbf{B}+(\mathbf{A} \mathbf{C}) \mathbf{B} $$
 $$[\mathbf{C}[\mathbf{A}, \mathbf{B}]]=[\mathbf{C}, \mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A}]=\mathbf{C}(\mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A})-(\mathbf{A} \mathbf{B}-\mathbf{B} \mathbf{A}) \mathbf{C} $$
 $$[\mathbf{C}[\mathbf{A}, \mathbf{B}]]=\mathbf{C}(\mathbf{A} \mathbf{B})-\mathbf{C}(\mathbf{B} \mathbf{A})-(\mathbf{A} \mathbf{B}) \mathbf{C}+(\mathbf{B} \mathbf{A}) \mathbf{C} $$
-
 $\mathbf{A}, \mathbf{B}, \mathbf{C}$ are obey associative law $ \mathbf{C}(\mathbf{A} \mathbf{B})=(\mathbf{C} \mathbf{A}) \mathbf{B},$ $\mathbf{C}(\mathbf{B} \mathbf{A})=(\mathbf{C} \mathbf{B}) \mathbf{A},$ $(\mathbf{A} \mathbf{B}) \mathbf{C}=\mathbf{A}(\mathbf{B} \mathbf{C})$ and $(\mathbf{B} \mathbf{A}) \mathbf{C}=\mathbf{B}(\mathbf{A} \mathbf{C})$
 
 
@@ -238,7 +282,7 @@ $$[\mathbf{C}[\mathbf{A}, \mathbf{B}]]=[\mathbf{A},[\mathbf{B}, \mathbf{C}]]+[\m
 $$=(\mathbf{A}(\mathbf{B} \mathbf{C})-\mathbf{A}(\mathbf{C} \mathbf{B})-(\mathbf{B} \mathbf{C}) \mathbf{A}+(\mathbf{C} \mathbf{B}) \mathbf{A})+(\mathbf{B}(\mathbf{C} \mathbf{A})-\mathbf{B}(\mathbf{A} \mathbf{C})-(\mathbf{C} \mathbf{A}) \mathbf{B} $$
 $$+(\mathbf{A} \mathbf{C}) \mathbf{B})+(\mathbf{C} \mathbf{A}) \mathbf{B}-(\mathbf{C} \mathbf{B}) \mathbf{A}-\mathbf{A}(\mathbf{B} \mathbf{C})+\mathbf{B}(\mathbf{A} \mathbf{C})=0$$
 
-$$$$
+\newpage
 
 \begin{mybox}{2.2.8}
 Show that the matrices
@@ -805,7 +849,11 @@ Show that if $n$ is odd, a contradiction results.
 \end{enumerate}
 \end{mybox}
 
-$\boxed{\textbf{Solution}}$ For $(a)$ if the matrices are non-singular, then writing $\mathbf{A}=-\mathbf{B} \mathbf{A} \mathbf{B}^{-1}$ and taking the trace, we get $\operatorname{Tr} \mathbf{A}=-\operatorname{Tr} \mathbf{A} .$ Hence $\operatorname{Tr} \mathbf{A}=0,$ and the procedure for $\mathbf{B}$ is analogous.
+$\boxed{\textbf{Solution}}$ For $(a)$ if the matrices are non-singular, then writing 
+$$\mathbf{A}=-\mathbf{B} \mathbf{A} \mathbf{B}^{-1}$$ 
+and taking the trace, we get 
+$$\operatorname{Tr} \mathbf{A}=-\operatorname{Tr} \mathbf{A}$$ 
+Hence $\operatorname{Tr} \mathbf{A}=0,$ and the procedure for $\mathbf{B}$ is analogous.
 
 
 $\boxed{\textbf{Solution}}$ For $(b)$ now, we compute the determinant of both sides of $\mathbf{A} \mathbf{B}=-\mathbf{B} \mathbf{A}$ : this yields det $\mathbf{A}$ det $\mathbf{B}=(-1)^{N}$ det $\mathbf{B}$ det $\mathbf{A},$ where $N$ stands for size of matrices. Now since the $\mathbf{A}, \mathbf{B}$ are non-singular, both sides of the equality are non-zero and the equality is possible only for even $N .$
@@ -975,7 +1023,9 @@ does not change their total number.
 
 
 
-$\boxed{\textbf{Solution}}$ For $(b)$ Write the component equation $\sum_{j} \mathbf{T}_{i j} \mathbf{P}_{j}=\mathbf{Q}_{i}$ and sum over $i.$ This summation replaces $\mathbf{T}_{i j}$ by unity, leaving that the sum pver $\mathbf{P}_{j}$ equals the sum over $\mathbf{Q}_{i},$ hence conserving people.
+$\boxed{\textbf{Solution}}$ For $(b)$ Write the component equation 
+$$\sum_{j} \mathbf{T}_{i j} \mathbf{P}_{j}=\mathbf{Q}_{i}$$ 
+and sum over $i.$ This summation replaces $\mathbf{T}_{i j}$ by unity, leaving that the sum pver $\mathbf{P}_{j}$ equals the sum over $\mathbf{Q}_{i},$ hence conserving people.
 
 
 \newpage
@@ -1006,10 +1056,10 @@ Show that the product of two orthogonal matrices is orthogonal.
 
 
 
-$\boxed{\textbf{Solution}}$ Let $Q$ and $P$ be orthogonal matrices. Therefore $\mathbf{Q}^{T} Q=I$ and $\mathbf{P}^{T} P=I .$
+$\boxed{\textbf{Solution}}$ Let $Q$ and $P$ be orthogonal matrices. Therefore $\mathbf{Q}^{T} \mathbf{Q}=\mathbf{I}$ and $\mathbf{P}^{T} P=I $
 We have that
 $$
-(P Q)^{T}(P Q)=\mathbf{Q}^{T} \mathbf{P}^{T} P I Q=\mathbf{Q}^{T} Q=I
+(\mathbf{P Q})^{T}(\mathbf{P Q})=\mathbf{Q}^{T} \mathbf{P}^{T} \mathbf{P I Q}=\mathbf{Q}^{T} \mathbf{Q}=\mathbf{I}
 $$
 Therefore, a product of two orthogonal matrix is an orthogonal matrix.
 

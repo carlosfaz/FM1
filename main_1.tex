@@ -1,28 +1,24 @@
-\documentclass{styles/kaobook}
-\usepackage{enumerate}
-\usepackage{blindtext}
-\usepackage[english]{babel}
+\documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{latexsym}
-\usepackage{pdfpages}
-\usepackage{amsmath}
-\usepackage{subfig}
-\captionsetup[subfigure]{labelformat=empty}
-\usepackage{amssymb}
 \usepackage{bm}
 \usepackage{multicol}
 \usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{wrapfig}
 \usepackage{fancybox}
 \usepackage{bbm}
+\usepackage{enumerate}
 \pagestyle{plain}
 \usepackage{yfonts}
-\usepackage{ragged2e}
-\usepackage{framed}
-\pagestyle{empty}
-\usepackage{physics}
+\usepackage{ccicons}
 \usepackage{pdfpages}
-\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage[toc]{glossaries}
+
+\usepackage[sc]{mathpazo} % or option osf
+\usepackage{newpxmath}
+
 \usepackage[bookmarks=true]{hyperref} %hyperref sin bookmarks
 \hypersetup{
     colorlinks=false, % falso=poner color en la tabla de contenido
@@ -31,136 +27,134 @@
     linktocpage=true % solamente los numeros van a tener hipervinculo, el texto no.
 }
 
+\usepackage{titling}
+\setlength{\droptitle}{-7em} 
 
+
+\def\Tiny{\fontsize{4pt}{4pt}\selectfont}
+\newcommand*{\eqdef}{\ensuremath{\overset{\mathclap{\text{\Tiny def}}}{=}}}
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={160mm,257mm},
+ left=24mm,
+ top=20mm,
+ }
+ 
  \usepackage{tcolorbox}
 \newtcolorbox{mybox}[1]{colback=blue!5!white,colframe=blue!42!black,fonttitle=\bfseries,title=Problem #1}
 
-\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
-%\makeatletter
-%\patchcmd{\tableofcontents}{\@starttoc{toc}}{\thispagestyle{empty}\pagestyle{empty}\@starttoc{toc}}{}{}
-%\makeatother
-
-\usepackage{tikz}
-\usetikzlibrary{matrix,intersections,calc}
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
-\usepackage{physics}
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
-\newcommand\simpleparagraph[1]{%
-\stepcounter{paragraph}\text{\theparagraph\quad{}#1}}
-\usepackage{ccicons}
-
-
-%\renewcommand{\contentsname}{asf} %comando para que NO aparezca el titulo de contenido en las tablas de contenido
-
-\usepackage[toc]{glossaries}
 
 \begin{document}
 
-\title{Solved Problems in Mathematical Methods for Physicists}
-
-\author[JBG]{Carlos Faz}
-
-\date{\today}
-
-%\publishers{Carlos Faz \\ \texttt{A01229031@itesm.mx}}
-
-\makeatletter
-
-\uppertitleback{\@titlehead}
-
-\lowertitleback{
-	\textbf{Disclaimer} \\
-	This document shows the solution to the problems of chapter 2 and 3 of Mathematical Methods for Physicist $7^{\text{th}}-$ed by George Arfken solved by Carlos Faz in \LaTeX . This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
-	
-	\medskip
-	
-	\textbf{Publisher} \\
-	First printed in December by Carlos Faz
-	
-	\medskip
-	
-	\textbf{No copyright} \\
-	\cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law.
-	
-	
-	\medskip
-	
-	\textbf{Publisher} \\
-	First printed in March 2020 by Carlos Faz\\ \\ \texttt{Última modificación} \\ \texttt{\today}. \\ \texttt{Versión: kao1.2}
-}
-
-\makeatother
-
-\KOMAoptions{twoside=semi}
+\begin{flushleft}
 
 
 
+\input{portada/portada.tex}
 
+\newpage
 
-\maketitle
+\input{portada/dis.tex}
 
-\renewcommand{\familydefault}{\sfdefault}
-\makeatletter
+\newpage
 
-\renewcommand{\sectionlinesformat}[4]{%
-  \ifstr{#1}{section}{\clearpage}{}%
-  \@hangfrom{\hskip #2#3}{#4}%
-}
-
-%\makeatother
-\pagelayout{wide}
-%\doublespacing
 \tableofcontents
-\singlespacing
+
+\newpage
 
 
+\phantomsection  
+\addcontentsline{toc}{section}{\protect\numberline{}Chapter 2: Determinants and Matrices}
 
-\setuptoc{toc}{totoc}
-
-\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
-\setchapterstyle{kao} % Choose the default chapter heading style
-
-
-
-%\subsubsection*{\fontsize{12}{1}\textbf{Subsection}}
-%\addcontentsline{toc}{subsubsection}{\protect\numberline{}1.1: Asdf}
-
-\chapter*{Chapter 2.2 \\ Matrices}
+\phantomsection  
 \addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 2.2: Matrices}
 
 \input{chap_2.2/chap_2.2}
 
 \newpage
 
+\phantomsection  
+\addcontentsline{toc}{section}{\protect\numberline{}Chapter 3: Vector Analysis}
+
+
+\begin{center}
+{\Large\text{Chapter 3.2: Vectors in 3-D Space}}
+\end{center}
+
+\phantomsection  
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 3.2: Vectors in 3-D Space}
+
 \input{chap_3.2/chap_3.2}
 
 \newpage
 
+\begin{center}
+{\Large\text{Chapter 3.3: Coordinate Transformation}}
+\end{center}
 
+\phantomsection  
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 3.3: Coordinate Transformation}
 \input{chap_3.3/chap_3.3}
 \newpage
 
+\begin{center}
+{\Large\text{Chapter 3.4: Rotations in R$^3$}}
+\end{center}
+
+\phantomsection 
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 3.4: Rotations in R$^3$}
 \input{chap_3.4/chap_3.4}
 
 \newpage
+
+
+\phantomsection  
+\addcontentsline{toc}{section}{\protect\numberline{}Chapter 5: Vector Spaces}
+
+\begin{center}
+{\Large\text{Chapter 5.1: Vectors in function spaces}}
+\end{center}
+
+\phantomsection  
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 5.1: Vectors in function spaces}
 
 \input{chap_5.1/chap_5.1}
 
 \newpage
 
+\phantomsection  
+\addcontentsline{toc}{section}{\protect\numberline{}Chapter 13: Gamma Function}
+
+\begin{center}
+{\Large\text{Chapter 13.1: Definitions and properties of Gamma Function}}
+\end{center}
+
+\phantomsection  
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 13.1: Properties of gamma function}
 \input{chap_13.1/chap_13.1}
 
 \newpage
-
+\begin{center}
+{\Large\text{Chapter 13.4: Stirling's series}}
+\end{center}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 13.4: Stirling's Series}
 \input{chap_13.4/chap_13.4}
 
 \newpage
+\phantomsection  
+\addcontentsline{toc}{section}{\protect\numberline{}Chapter 14: Bessel Functions}
 
+\begin{center}
+{\Large\text{Chapter 14.3: Neumann Function}}
+\end{center}
+\addcontentsline{toc}{subsection}{\protect\numberline{}Chapter 14.3: Neumann Functions}
 \input{chap_14.3/chap_14.3}
 
 \newpage
 
+\end{flushleft}
 \end{document}
 
