@@ -382,11 +382,16 @@ $$
 The value of $\left\langle\phi_{1} | f\right\rangle$ is,
 $$\langle\phi | f\rangle=\int_{0}^{1}(2 x-1) \sin (\pi x) d x$$
 $$\quad=\left(\frac{2 \sin (\pi x)+(\pi-2 \pi x) \cos (\pi x)}{\pi^{2}}\right)\Bigg|_{0}^{1}$$
-Using $\int_{0}^{1}(2 x-1) \sin (\pi x) d x=\frac{2 \sin (\pi x)+(\pi-2 \pi x) \cos (\pi x)}{\pi^{2}}$
-$$=\frac{2 \sin (\pi \cdot 1)+(\pi-2 \pi \cdot 1) \cos (\pi \cdot 1)}{\pi^{2}}-$$
-$$=\frac{2 \sin (\pi \cdot 0)+(\pi-2 \pi \cdot 0) \cos (\pi \cdot 0)}{\pi^{2}}$$
-$$=\frac{2(0)+(-\pi) \cdot 1}{\pi^{2}}-\left(\frac{2(0)+(-\pi) 1}{\pi^{2}}\right)$$
-$$=0$$
+Now,
+$$
+\begin{aligned}
+\int_{0}^{1}(2 x-1) \sin (\pi x) d x&=\frac{2 \sin (\pi x)+(\pi-2 \pi x) \cos (\pi x)}{\pi^{2}} \\
+&=\frac{2 \sin (\pi \cdot 1)+(\pi-2 \pi \cdot 1) \cos (\pi \cdot 1)}{\pi^{2}}-\frac{2 \sin (\pi \cdot 0)+(\pi-2 \pi \cdot 0) \cos (\pi \cdot 0)}{\pi^{2}} \\
+&=\frac{2(0)+(-\pi) \cdot 1}{\pi^{2}}-\left(\frac{2(0)+(-\pi) 1}{\pi^{2}}\right) \\
+&=0 
+\end{aligned}
+$$
+Using the same analysis, we get that
 $$
 \left\langle\varphi_{2} | f\right\rangle=\frac{2}{\pi}-\frac{24}{\pi^{3}}
 $$
@@ -463,7 +468,7 @@ $$
 =\frac{1}{2}(1)+\frac{1}{4}(1-x)+\frac{1}{8}\left(\frac{2-4 x+x^{2}}{2}\right)+\frac{1}{16}\left(\frac{6-18 x+9 x^{2}-x^{3}}{6}\right)+\cdots
 $$
 
-\newpage
+$\vspace{3mm}$
 
 \begin{mybox}{5.1.10}
 The explicit form of a function $f$ is not known, but the coefficients $a_{n}$ of its expansion in the orthonormal set $\varphi_{n}$ are available. Assuming that the $\varphi_{n}$ and the members of another orthonormal set, $\chi_{n},$ are available, use Dirac notation to obtain a formula for the coefficients for the expansion of $f$ in the $\chi_{n}$ set.
@@ -487,7 +492,8 @@ $$
 $$
 This expression is a component decomposition of a.
 
-$$$$
+\newpage
+
 
 \begin{mybox}{5.1.12}
 Letting a $=a_{1} \hat{\mathrm{e}}_{1}+a_{2} \hat{\mathrm{e}}_{2}$ and $\mathbf{b}=b_{1} \hat{\mathrm{e}}_{1}+b_{2} \hat{\mathrm{e}}_{2}$ be vectors in $\mathbb{R}^{2},$ for what values of $k,$ if

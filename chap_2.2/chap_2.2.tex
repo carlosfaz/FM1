@@ -987,12 +987,83 @@ $$
 \end{mybox}
 
 
-$\boxed{\textbf{Solution}}$ Calculating $\mathbf{A}^{-1}$
+$\boxed{\textbf{Solution}}$ Transpose of A that are interchange rows and columns.
+$$
+A^{T}=\left(\begin{array}{lll}
+3 & 2 & 1 \\
+2 & 2 & 1 \\
+1 & 1 & 4
+\end{array}\right)
+$$
+Now we will find the determinant of each $2 \times 2$ minor matrices we get
+$$
+\left|\begin{array}{ll}
+2 & 1 \\
+1 & 4
+\end{array}\right|=7,\quad \left|\begin{array}{ll}
+2 & 1 \\
+1 & 4
+\end{array}\right|=7,\quad \left|\begin{array}{ll}
+2 & 2 \\
+1 & 1
+\end{array}\right|=0
+$$
+$$
+\left|\begin{array}{ll}
+2 & 1 \\
+1 & 4
+\end{array}\right|=7,\quad \left|\begin{array}{ll}
+2 & 1 \\
+1 & 4
+\end{array}\right|=7,\quad \left|\begin{array}{ll}
+3 & 2 \\
+1 & 1
+\end{array}\right|=1
+$$
+$$
+\left|\begin{array}{ll}
+2 & 2 \\
+1 & 1
+\end{array}\right|=0,\quad \left|\begin{array}{ll}
+3 & 1 \\
+2 & 1
+\end{array}\right|=1,\quad \left|\begin{array}{ll}
+3 & 2 \\
+2 & 2
+\end{array}\right|=2
+$$
+
+The adjacent matrix is
+$$
+\begin{array}{l}
+\operatorname{Adj}(A)=\left(\begin{array}{ccc}
+7 & 7 & 0 \\
+7 & 7 & 1 \\
+0 & 1 & 2
+\end{array}\right) \times\left(\begin{array}{rrr}
++ & - & + \\
+- & + & - \\
++ & - & +
+\end{array}\right) \vspace{3mm}\\
+\operatorname{Adj}(A)=\left(\begin{array}{ccc}
+7 & -7 & 0 \\
+-7 & 7 & -1 \\
+0 & -1 & 2
+\end{array}\right) \vspace{3mm}\\
+A^{-1}=\dfrac{\operatorname{Adj}(A)}{\operatorname{det}(A)}=\dfrac{1}{7}\left(\begin{array}{ccc}
+7 & -7 & 0 \\
+-7 & 7 & -1 \\
+0 & -1 & 2
+\end{array}\right)
+\end{array}
+$$
+
+Therefore, $\mathbf{A}^{-1}$
 
 
 $$\mathbf{A}^{-1}=\frac{1}{7}\begin{bmatrix}{7} & {-7} & {0} \\ {-7} & {11} & {-1} \\ {0} & {-1} & {2}\end{bmatrix}$$
 
-$$$$
+\newpage
 
 \begin{mybox}{2.2.24}
 Matrices are far too useful to remain the exclusive property of physicists. They may

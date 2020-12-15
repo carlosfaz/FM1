@@ -1,0 +1,452 @@
+
+\begin{center}
+{\Large\text{Chapter 5.2: Gram-Schmidt Orthogonalization}}
+\end{center}
+
+
+\begin{mybox}{5.2.1}
+Following the Gram-Schmidt procedure, construct a set of polynomials $P_{n}^{*}(x)$ orthogonal (unit weighting factor) over the range [0,1] from the set $\left[1, x, x^{2}, \ldots\right] .$ Scale so that $P_{n}^{*}(1)=1$
+$$
+\hspace{9cm}\begin{aligned}
+ANS. \quad & P_{n}^{*}(x)=1 \\
+& P_{1}^{*}(x)=2 x-1 \\
+& P_{2}^{*}(x)=6 x^{2}-6 x+1 \\
+& P_{3}^{*}(x)=20 x^{3}-30 x^{2}+12 x-1
+\end{aligned}
+$$
+These are the first four shifted Legendre polynomials.
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ Choose $p_{0}(x)=1$
+$$
+\begin{aligned}
+p_{1}(x) &=x-\frac{\left\langle x, p_{0}(x)\right\rangle}{\left\langle p_{0}(x), p_{0}(x)\right\rangle} p_{0}(x) \\
+&=x-\frac{\langle x, 1\rangle}{\langle 1,1\rangle} \cdot 1 \\
+&=x-\frac{\int_{0}^{1} x d x}{\int_{0}^{1} d x} \\
+&=x-\frac{\left(\frac{x^{2}}{2}\right)_{0}^{1}}{(x)_{0}^{1}} \\
+&=x-\dfrac{1}{2}
+\end{aligned}
+$$
+The polynomial $p_{2}(x)$ can be calculated as,
+$$
+\begin{aligned}
+p_{2}(x) &=x^{2}-\frac{\left\langle x^{2}, p_{0}(x)\right\rangle}{\left\langle p_{0}(x), p_{0}(x)\right\rangle} \cdot p_{0}(x)-\frac{\left\langle x^{2}, p_{1}(x)\right\rangle}{\left\langle p_{1}(x), p_{1}(x)\right\rangle} \cdot p_{1}(x) \\
+&=x^{2}-\frac{\left\langle x^{2}, 1\right\rangle}{\langle 1,1\rangle} \cdot 1-\frac{\left\langle x^{2}, x-\frac{1}{2}\right\rangle}{\left\langle x-\frac{1}{2}, x-\frac{1}{2}\right\rangle} \cdot\left(x-\frac{1}{2}\right) \\
+&=x^{2}-\frac{\int_{0}^{1} x^{2} d x}{\int_{0}^{1} d x}-\frac{\int_{0}^{1} x^{2}\left(x-\frac{1}{2}\right) d x}{\int_{0}^{1}\left(x-\frac{1}{2}\right)^{2} d x} \cdot\left(x-\frac{1}{2}\right) \\
+&=x^{2}-\frac{1}{3}-\frac{\left(\frac{1}{12}\right)}{\left(\frac{1}{12}\right)}\left(x-\frac{1}{2}\right) 
+\end{aligned}
+$$
+Using
+$$
+\int_{0}^{1} x^{2}\left(x-\frac{1}{2}\right) d x=\frac{1}{12}, \int_{0}^{1}\left(x-\frac{1}{2}\right)^{2} d x=\frac{1}{12}
+$$
+$$
+\begin{aligned}
+p_{2}(x) &=x^{2}-\frac{1}{3}-\left(x-\frac{1}{2}\right) \\
+&=x^{2}-x+\frac{1}{6} 
+\end{aligned}
+$$
+The polynomial $p_{3}(x)$ can be calculated as,
+$$
+\begin{aligned}
+p_{3}(x) &=x^{3}-\frac{\left\langle x^{3}, p_{0}(x)\right\rangle}{\left\langle p_{0}(x), p_{0}(x)\right\rangle} \cdot p_{0}(x)-\frac{\left\langle x^{3}, p_{1}(x)\right\rangle}{\left\langle p_{1}(x), p_{1}(x)\right\rangle} \cdot p_{1}(x)-\frac{\left\langle x^{3}, p_{2}(x)\right\rangle}{\left\langle p_{2}(x), p_{2}(x)\right)} \cdot p_{2}(x) \\
+&=x^{3}-\frac{\left\langle x^{3}, 1\right\rangle}{\langle 1,1\rangle} \cdot 1-\frac{\left\langle x^{3}, x-\frac{1}{2}\right\rangle}{\left\langle x-\frac{1}{2}, x-\frac{1}{2}\right\rangle} \cdot\left(x-\frac{1}{2}\right)-\frac{\left\langle x^{3}, x^{2}-x+\frac{1}{6}\right\rangle}{\left\langle x^{2}-x+\frac{1}{6}, x^{2}-x+\frac{1}{6}\right\rangle} \cdot\left(x^{2}-x+\frac{1}{6}\right) \\
+&=x^{3}-\frac{\int_{0}^{1} x^{3} d x}{\int_{0}^{1} d x}-\frac{\int_{0}^{1} x^{3}\left(x-\frac{1}{2}\right) d x}{\int_{0}^{1}\left(x-\frac{1}{2}\right)^{2} d x} \cdot\left(x-\frac{1}{2}\right)-\frac{\int_{0}^{1} x^{3}\left(x^{2}-x+\frac{1}{6}\right) d x}{\int_{0}^{1}\left(x^{2}-x+\frac{1}{6}\right)^{2} d x} \cdot\left(x^{2}-x+\frac{1}{6}\right)\\
+\end{aligned}
+$$
+Calculating
+$$
+\int_{0}^{1} x^{3}\left(x^{2}-x+\frac{1}{6}\right) d x=\frac{1}{120}$$
+$$ \int_{0}^{1}\left(x^{2}-x+\frac{1}{6}\right)^{2} d x=\frac{1}{180}$$
+$$
+\begin{aligned}
+p_{3}(x)&=x^{3}-\frac{1}{4}-\frac{\left(\frac{3}{40}\right)}{\left(\frac{1}{12}\right)}\left(x-\frac{1}{2}\right)-\frac{\frac{1}{120}}{\frac{1}{180}}\left(x^{2}-x+\frac{1}{6}\right) \\
+&=x^{3}-\frac{1}{4}-\frac{9}{10}\left(x-\frac{1}{2}\right)-\frac{3}{2}\left(x^{2}-x+\frac{1}{6}\right) \\
+&=x^{3}-\frac{3}{2} x^{2}+\frac{3}{5} x-\frac{1}{20}
+\end{aligned}
+$$
+
+Using $p_{0}^{*}(x)=c_{0} p_{0}(x)=1$, $p_{1} *(x)=c_{1} p_{1}(x)$, $p_{2} *(x)=c_{2} p_{2}(x)$, and $p_{3}^{*}(x)=c_{3} p_{3}(x)$ Here, $c_{0}=1$, $c_{1}=2$, $c_{2}=6$, $c_{3}=20$. Then, the first four shifted Legendre polynomials are as shown below:
+$$
+\begin{aligned}
+p_{0}^{*}(x) &=c_{0} p_{0}(x) \\
+&=1(1) \\
+&=1
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+p_{1}^{*}(x) &=c_{1} p_{1}(x) \\
+&=2\left(x-\frac{1}{2}\right) \\
+&=2\left(\frac{2 x-1}{2}\right) \\
+&=2x-1
+\end{aligned}
+$$
+$$
+\begin{aligned}
+p_{2}^{*}(x) &=c_{2} p_{2}(x) \\
+&=6\left(x^{2}-x+\frac{1}{6}\right) \\
+&=6\left(\frac{6 x^{2}-6 x+1}{6}\right)\\
+&=6x^2-6x+1
+\end{aligned}
+$$
+And
+$$
+\begin{aligned}
+p_{3}^{*}(x) &=c_{3} p_{3}(x) \\
+&=20\left(x^{3}-\frac{3}{2} x^{2}+\frac{3}{5} x-\frac{1}{20}\right) \\
+&=20\left(\frac{20 x^{3}-30 x^{2}+12 x-1}{20}\right) \\
+&=20x^3 -30x^2+12x-1
+\end{aligned}
+$$
+
+
+\newpage
+
+\begin{mybox}{5.2.2}
+Apply the Gram-Schmidt procedure to form the first three Laguerre polynomials:
+$$
+u_{n}(x)=x^{n}, \quad n=0,1,2, \ldots, \quad 0 \leq x<\infty, \quad w(x)=e^{-x}
+$$
+The conventional normalization is
+$$
+\int_{0}^{\infty} L_{m}(x) L_{n}(x) e^{-x} d x=\delta_{m n}
+$$
+$$
+\hspace{7cm}\text { ANS. } \quad L_{0}=1, \quad L_{1}=(1-x), \quad L_{2}=\frac{2-4 x+x^{2}}{2}
+$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ The Laguerre polynomials are orthogonal on the interval $(0, \infty)$ with respect to the gamma
+distribution $w(x)=e^{-x} x^{a}$
+Then,
+$$L_{n}^{(a)}(x)=\frac{1}{n !} \frac{1}{w(x)} D^{n}\left[w(x) x^{n}\right]$$
+From the hypotheses, we have
+$w(x)=e^{-x}$ and $\alpha=1$ So, the first three Laguerre polynomials are calculated as shown below:
+$$
+\begin{aligned}
+L_{0}(x) &=\frac{1}{(0) !} \frac{1}{e^{-x}} \dfrac{d^0}{dx^0}\left[e^{-x} x^{0}\right] \\
+&=\frac{1}{1}\left(\frac{1}{e^{-x}}\right) \\
+&=e^{x} \\
+L_{0}(0)&=e^{0} \\
+&=1 \\
+\end{aligned}
+$$
+The value of $L_{1}(x)$ is,
+$$
+\begin{aligned}
+L_{1}(x) &=\frac{1}{(1) !} \frac{1}{e^{-x}} \dfrac{d}{dx}\left[e^{-x} x^{1}\right] \\
+&=e^{x}\left(e^{-x}-x e^{-x}\right) \\
+&=e^{x}\left(e^{-x}\right)(1-x) \\
+&=1-x
+\end{aligned}
+$$
+The value of $L_{2}(x)$ is,
+
+$$\begin{aligned} 
+L_{2}(x) &=\frac{1}{(2) !} \frac{1}{e^{-x}} \dfrac{d^2}{dx^2}\left[e^{-x} x^{2}\right] \\ 
+&=\frac{e^{x}}{2} D\left(2 x e^{-x}-x^{2} e^{-x}\right) \\ 
+&=\frac{e^{x}}{2}\left(2 e^{-x}-4 x e^{-x}+x^{2} e^{-x}\right) \\
+&=\dfrac{1}{2}(x^2 - 4x+2)
+\end{aligned}$$
+
+\newpage
+
+\begin{mybox}{5.2.3}
+You are given
+\begin{enumerate}[$(a)$]
+\item a set of functions $u_{n}(x)=x^{n}, n=0,1,2, \ldots,$
+\item an interval $(0, \infty)$
+\item a weighting function $w(x)=x e^{-x}$. Use the Gram-Schmidt procedure to construct the first three orthonormal functions from the set $u_{n}(x)$ for this interval and this weighting function.
+\end{enumerate}
+$$
+\hspace{3cm}\text { ANS. } \varphi_{0}(x)=1, \quad \varphi_{1}(x)=(x-2) / \sqrt{2}, \quad \varphi_{2}(x)=\left(x^{2}-6 x+6\right) / 2 \sqrt{3}
+$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ The objective is to construct the first three orthonormal functions from the set $u_{n}(x)$ by using the
+Gram-Schmidt orthogonalization. Here, $u_{n}(x)=x^{n}$, $n=0,1,2, \ldots$, $0<x<\infty$, $w(x)=x e^{-x}$. The orthonormal function $\phi_{n}$ is obtained from $\chi_{n}$ as shown
+$$
+\begin{aligned}
+\psi_{n} &=\chi_{n}-\sum_{\mu=0}^{n-1}\left\langle\phi_{\mu} \mid \chi_{n}\right\rangle \phi_{u} \\
+\phi_{n} &=\frac{\psi_{n}}{\left\langle\psi_{n} \mid \psi_{n}\right\rangle^{\frac{1}{2}}}
+\end{aligned}
+$$
+Assume $\chi_{n}(x)=u_{n}(x)=x^{n}$, $n=0,1,2, \ldots$ So, the value of $\psi_{0}(x)=u_{0}(x)$ is,
+$$
+\begin{aligned}
+\psi_{0}(x) &=\chi_{0}(x) \\
+&=x^{0} \\
+&=1
+\end{aligned}
+$$
+The value of $\phi_{0}$ is,
+$$
+\begin{aligned}
+\phi_{0} &=\frac{\psi_{0}(x)}{\left\|\psi_{0}\right\|} \\
+&=\frac{1}{\langle 1 \mid 1\rangle^{\frac{1}{2}}} \\
+&=\frac{1}{\left|\int_{0}^{\infty} x e^{-x} d x\right|^{\frac{1}{2}}} \\
+&=\frac{1}{(1)^{\frac{1}{2}}} \\
+&=1
+\end{aligned}
+$$
+The value of $\psi_{1}(x)$ is,
+$$
+\begin{aligned}
+\psi_{1}(x) &=\chi_{1}(x)-\left\langle\phi_{0} \mid \chi_{1}\right\rangle \phi_{0}(x) \\
+&=x-\langle 1 \mid x\rangle \cdot 1 \\
+&=x-\int_{0}^{\infty} x\left(x e^{-x}\right) d x \\
+&=x-\int_{0}^{\infty} x^{2} e^{-x} d x \\
+&=x-2
+\end{aligned}
+$$
+The value of $\phi_{1}(x)$ is,
+$$
+\begin{aligned}
+\phi_{1} &=\frac{\psi_{1}(x)}{\left\|\psi_{1}\right\|} \\
+&=\frac{x-2}{\langle x-2 \mid x-2\rangle^{\frac{1}{2}}} \\
+&=\frac{x-2}{\left|\int_{0}^{\infty}(x-2)^{2} e^{-x} d x\right|^{\frac{1}{2}}} \\
+&=\frac{x-2}{\sqrt{2}}
+\end{aligned}
+$$
+The value of $\psi_{2}(x)$ is,
+$$
+\begin{aligned}
+\psi_{2}(x) &=\chi_{2}(x)-\left\langle\phi_{0} \mid \chi_{2}\right\rangle \phi_{0}(x)-\left\langle\phi \mid \chi_{2}\right\rangle \phi_{1}(x) \\
+&=x^{2}-\left\langle 1 \mid x^{2}\right\rangle \cdot 1-\left\langle\frac{x-2}{\sqrt{2}} \mid x^{2}\right\rangle \frac{x-2}{\sqrt{2}} \\
+&=x^{2}-\int_{0}^{\infty} x^{2}\left(x e^{-x}\right) d x-\left(\int_{0}^{\infty} x^{2}\left(\frac{x-2}{\sqrt{2}}\right)\left(x e^{-x}\right) d x\right) \frac{x-2}{\sqrt{2}} \\
+&=x^{2}-\int_{0}^{\infty} x^{3} e^{-x} d x-\left(\frac{1}{\sqrt{2}} \int_{0}^{\infty} x^{3}(x-2) e^{-x} d x\right) \frac{x-2}{\sqrt{2}}
+\end{aligned}
+$$
+Calculating
+$$
+\int_{0}^{\infty} x^{3} e^{-x} d x=6, \int_{0}^{\infty} x^{3}(x-2) e^{-x} d x=12
+$$
+$$
+\begin{aligned}
+\psi_{2}(x)&=x^{2}-6-\frac{1}{\sqrt{2}}(12) \frac{x-2}{\sqrt{2}} \\
+&=x^{2}-6-6(x-2) \\
+&=x^{2}-6-6 x+12 \\
+&=x^{2}-6 x+6
+\end{aligned}
+$$
+So, the value of $\phi_{2}(x)$ is,
+$$
+\begin{aligned}
+\phi_{2}(x) &=\frac{\psi_{2}(x)}{\left\|\psi_{2}\right\|} \\
+&=\frac{x^{2}-6 x+6}{\left\langle x^{2}-6 x+6 \mid x^{2}-6 x+6\right\rangle^{\frac{1}{2}}} \\
+&=\frac{x^{2}-6 x+6}{\left|\int_{0}^{\infty}\left(x^{2}-6 x+6\right)^{2} x e^{-x} d x\right|^{\frac{1}{2}}} \\
+=& \frac{x^{2}-6 x+6}{(12)^{\frac{1}{2}}} \\
+=& \frac{x^{2}-6 x+6}{(4 \times 3)^{\frac{1}{2}}} \\
+=& \frac{x^{2}-6 x+6}{2 \sqrt{3}}
+\end{aligned}
+$$
+Therefore, $\phi_{0}(x)=1$, $\phi_{1}(x)=\dfrac{x-2}{\sqrt{2}}$, and $\phi_{3}(x)=\dfrac{x^{2}-6 x+6}{2 \sqrt{3}}$
+
+
+
+
+
+\newpage
+
+\begin{mybox}{5.2.4}
+Using the Gram-Schmidt orthogonalization procedure, construct the lowest three Hermite polynomials:
+$$
+u_{n}(x)=x^{n}, \quad n=0,1,2, \ldots, \quad-\infty<x<\infty, \quad w(x)=e^{-x^{2}}
+$$
+For this set of polynomials the usual normalization is
+$$
+\int_{-\infty}^{\infty} H_{m}(x) H_{n}(x) w(x) d x=\delta_{m n} 2^{m} m ! \pi^{1 / 2}
+$$
+$$
+\hspace{8cm} A N S . \quad H_{0}=1, \quad H_{1}=2 x, \quad H_{2}=4 x^{2}-2
+$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ The Hermite polynomials are orthogonal on the interval $(-\infty, \infty)$ with respect to the normal
+distribution $w(x)=e^{-x^{2}}$. Then,
+$$
+H_{n}(x)=\frac{(-1)^{n}}{w(x)} D^{n} w(x),\quad n=0,1,2, \ldots
+$$
+Plug $w(x)=e^{-x^{2}}$, $n=0$ in $H_{n}(x)=\dfrac{(-1)^{n}}{w(x)} D^{n} w(x)$
+$$
+\begin{aligned}
+H_{0}(x) &=\frac{(-1)^{0}}{e^{-x^{2}}} \dfrac{d^0}{dx^0}\left(e^{-x^{2}}\right) \\
+&=e^{x^{2}} \\
+H_{0}(0) &=e^{0} \\
+&=1
+\end{aligned}
+$$
+Plug $w(x)=e^{-x^{2}}$, $n=1,2$ in $H_{n}(x)=\dfrac{(-1)^{n}}{w(x)} \dfrac{d^n}{dx^n} w(x)$
+$$
+\begin{aligned}
+H_{1}(x) &=\frac{(-1)^{1}}{e^{-x^{2}}} \dfrac{d}{dx}\left(e^{-x^{2}}\right) \\
+&=-e^{x^{2}}\left(e^{-x^{2}}\right) \frac{d}{d x}\left(-x^{2}\right) \\
+&=-1(-2 x) \\
+&=2 x
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+H_{2}(x) &=\frac{(-1)^{2}}{e^{-x^{2}}} \dfrac{d^2}{dx^2}\left(e^{-x^{2}}\right) \\
+&=e^{x^{2}} D\left(-2 x e^{-x^{2}}\right) \\
+&=e^{x^{2}}\left(-2 e^{-x^{2}}+4 x^{2} e^{-x^{2}}\right) \\
+&=e^{x^{2}}\left(e^{-x^{2}}\right)\left(-2+4 x^{2}\right)
+&=4x^2-2
+\end{aligned}
+$$
+Therefore
+$$H_{0}=1, \quad H_{1}=2 x, \quad H_{2}=4 x^{2}-2$$
+
+
+\newpage
+
+\begin{mybox}{5.2.5}
+Use the Gram-Schmidt orthogonalization scheme to construct the first three Chebyshev polynomials (type I):
+$$
+u_{n}(x)=x^{n}, \quad n=0,1,2, \ldots, \quad-1 \leq x \leq 1, \quad w(x)=\left(1-x^{2}\right)^{-1 / 2}
+$$
+Take the normalization
+$$
+\int_{-1}^{1} T_{m}(x) T_{n}(x) w(x) d x=\delta_{m n}\left\{\begin{array}{ll}
+\pi, & m=n=0 \\
+\frac{\pi}{2}, & m=n \geq 1
+\end{array}\right.
+$$
+Hint. The needed integrals are given in Exercise 13.3 .2
+$$\hspace{6cm} ANS.\quad T_{0}=1, \quad T_{1}=x, \quad T_{2}=2 x^{2}-1, \quad\left(T_{3}=4 x^{3}-3 x\right)$$
+\end{mybox}
+
+$\boxed{\textbf{Solution}}$ Here, $u_{n}(x)=x^{n}$, $n=0,1,2, \ldots$, $-1 \leq x \leq 1$, $w(x)=\left(1-x^{2}\right)^{\frac{-1}{2}}$. The normalization integral is,
+$$\int_{-1}^{1} T_{m}(x) T_{n}(x) w(x) d x=\delta_{m n}\left\{\begin{array}{l}\pi, m=n=0 \\ \frac{\pi}{2}, m=n \geq 1\end{array} .\right.$$
+The value of $\left\langle x_{0} \mid x_{0}\right\rangle$ is,
+$$
+\begin{aligned}\left\langle x^{0} \mid x^{0}\right\rangle &=\int_{-1}^{1}\left(1-x^{2}\right)^{\frac{-1}{2}} d x \\ &=2 \int_{0}^{1} \frac{1}{\sqrt{1-x^{2}}} d x \\ &=2\left(\sin ^{-1}(x)\right)_{0}^{1} \\ &=2\left(\sin ^{-1}(1)-\sin ^{-1}(0)\right)\\
+&=2\left(\sin ^{-1}\left(\sin \frac{\pi}{2}\right)-\sin ^{-1}(\sin 0)\right) \\
+&=2\left(\frac{\pi}{2}\right) \\
+&=\pi \\
+\end{aligned}
+$$
+The value of $\left\langle x^{1} \mid x^{1}\right\rangle$ is calculated as shown below:
+$$
+\begin{aligned}
+\left\langle x^{1} \mid x^{1}\right\rangle &=\left\langle x^{0} \mid x^{2}\right\rangle \\
+&=\int_{-1}^{1} x^{2}\left(1-x^{2}\right)^{\frac{-1}{2}} d x \\
+&=\int_{-1}^{1} \frac{x^{2}}{\sqrt{1-x^{2}}} d x \\
+&=2 \int_{0}^{1} \frac{x^{2}}{\sqrt{1-x^{2}}} d x 
+\end{aligned}
+$$
+Using
+$$
+\int \frac{x^{2}}{\sqrt{1-x^{2}}} d x=\frac{-1}{2} x \sqrt{1-x^{2}}+\frac{1}{2} \sin ^{-1}(x)
+$$
+$$
+\begin{aligned}
+\left\langle x^{1} \mid x^{1}\right\rangle &=2\left(\frac{-1}{2} x \sqrt{1-x^{2}}+\frac{1}{2} \sin ^{-1}(x)\right)_{0}^{1}\\
+&=\int_{-1}^{1} x^{2}\left(1-x^{2}\right)^{\frac{-1}{2}} d x \\
+&=2\left[\left(\frac{-1}{2}(1) \sqrt{1-(1)^{2}}+\frac{1}{2} \sin ^{-1}(1)\right)-\left(\frac{-1}{2}(0) \sqrt{1-(0)^{2}}+\frac{1}{2} \sin ^{-1}(0)\right)\right] \\
+&=2\left(\frac{1}{2} \sin ^{-1}\left(\sin \frac{\pi}{2}\right)\right) \\
+&=2\left(\frac{1}{2}\left(\frac{\pi}{2}\right)\right) \\
+&=\frac{\pi}{2} \\
+\end{aligned}
+$$
+The value of $\left\langle x^{2} \mid x^{2}\right\rangle$ is calculated as shown below:
+$$
+\begin{aligned}
+\left\langle x^{2} \mid x^{2}\right\rangle &=\int_{-1}^{1} x^{4}\left(1-x^{2}\right)^{\frac{-1}{2}} d x \\
+&=\int_{-1}^{1} \frac{x^{4}}{\sqrt{1-x^{2}}} d x \\
+&=2 \int_{0}^{1} \frac{x^{4}}{\sqrt{1-x^{2}}} d x \\
+&=2\left(\frac{-1}{4} x^{3} \sqrt{1-x^{2}}-\frac{3}{8} x \sqrt{1-x^{2}}+\frac{3}{8} \sin ^{-1}(x)\right)_{0}^{1} \\
+&=2\left[\left(\frac{-1}{4}(1)^{3} \sqrt{1-(1)^{2}}-\frac{3}{8}(1) \sqrt{1-(1)^{2}}+\frac{3}{8} \sin ^{-1}(1)\right)-\left(\frac{-1}{4}(0)^{3} \sqrt{1-(0)^{2}}-\frac{3}{8}(0) \sqrt{1-(0)^{2}}+\frac{3}{8} \sin ^{-1}(0)\right)\right] \\
+&=2\left(\frac{3}{8} \sin ^{-1}\left(\sin \frac{\pi}{2}\right)\right) \\
+&=2\left(\frac{3}{8}\left(\frac{\pi}{2}\right)\right) \\
+&=\frac{3 \pi}{8} \\
+\end{aligned}
+$$
+
+The value of $\left\langle x^{0} \mid x^{1}\right\rangle$ and $\left\langle x^{2} \mid x^{1}\right\rangle$ are calculated as shown below:
+$$
+\begin{aligned}
+\left\langle x^{0} \mid x^{\prime}\right\rangle &=\left\langle x^{2} \mid x^{1}\right\rangle \\
+&=\int_{-1}^{1} \frac{x}{\sqrt{1-x^{2}}} d x \\
+&=\left(-\sqrt{1-x^{2}}\right)_{-1}^{1} \\
+&=0
+\end{aligned}
+$$
+The polynomial $T_{0}$ is of the form $c_{0} x^{0},$ with $c_{0}$ satisfying
+$$
+\begin{aligned}
+\left\langle c_{0} x^{0} \mid c_{1} x^{0}\right\rangle &=\left|c_{0}\right|^{2}\left\langle x^{0} \mid x^{0}\right\rangle \\
+&=\int_{-1}^{1} \frac{1}{\sqrt{1-x^{2}}} d x \\
+&=2 \int_{0}^{1} \frac{1}{\sqrt{1-x^{2}}} d x \\
+&=2\left(\sin ^{-1} x\right)_{0}^{1}\\
+&=2\left(\sin ^{-1}\left(\sin \frac{\pi}{2}\right)\right) \\
+&=2\left(\frac{\pi}{2}\right) \\
+&=\pi \\
+\end{aligned}
+$$
+So, $c_{0}=1$ and $T_{0}=1$. By symmetry, the polynomial $T_{1}$ is a linear combination of $x^{0}$ and $x^{1},$ this is an odd function that
+depends only on $x^{1} .$ So, this is in the form $c_{1} x$.
+It is orthogonal to $T_{0}$ and $c_{1}$ and satisfies,
+$$
+\left\langle c_{1} x^{1} \mid c_{1} x^{1}\right\rangle=\left|c_{1}\right|^{2}\left\langle x^{1} \mid x^{1}\right\rangle
+$$
+Using $c_{1} = 1$
+$$
+\begin{aligned}
+\left\langle c_{1} x^{1} \mid c_{1} x^{1}\right\rangle&=(1)^{2} \int_{-1}^{1} \frac{x^{2}}{\sqrt{1-x^{2}}} d x \\
+&=2\left(\frac{-1}{2} x \sqrt{1-x^{2}}+\frac{1}{2} \sin ^{-1}(x)\right)_{0}^{1} \\
+&=2\left(\frac{1}{2} \sin ^{-1}\left(\sin \frac{\pi}{2}\right)\right) \\
+&=2\left(\frac{1}{2}\left(\frac{\pi}{2}\right)\right) \\
+&=\frac{\pi}{2} \\
+\end{aligned}
+$$
+since $\langle x \mid x\rangle=\frac{\pi}{2},$ so we have $c_{1}=1$ and $T_{1}=c_{1} x=x$. The constant $c_{2}$ is determined from the normalization condition:
+$$
+\begin{aligned}
+\left\langle T_{2} \mid T_{2}\right\rangle &=\left|c_{2}\right|^{2}\left\langle x^{2}-\frac{1}{2} \mid x^{2}-\frac{1}{2}\right\rangle \\
+&=\left|c_{2}\right|^{2} \int_{-1}^{1} \frac{\left(x^{2}-\frac{1}{2}\right)^{2}}{\sqrt{1-x^{2}}} d x \\
+&=2\left|c_{2}\right|^{2} \int_{0}^{1} \frac{\left(x^{2}-\frac{1}{2}\right)^{2}}{\sqrt{1-x^{2}}} d x \\
+&=2\left|c_{2}\right|^{2}\left(\frac{1}{8} \sin ^{-1}(x)-\frac{1}{4} x^{3} \sqrt{1-x^{2}}+\frac{1}{8} x \sqrt{1-x^{2}}\right)_{0}^{1} \\
+&=2|c_{2}|^2 \left[\left(\frac{1}{8} \sin ^{-1}(1)-\frac{1}{4}(1)^{3} \sqrt{1-(1)^{2}}+\frac{1}{8}(1) \sqrt{1-(1)^{2}}\right) -\left(\frac{1}{8} \sin ^{-1}(0)-\frac{1}{4}(0)^{3} \sqrt{1-(0)^{2}}+\frac{1}{8}(0) \sqrt{1-(0)^{2}}\right)\right] \\
+&=2\left|c_{2}\right|^{2}\left(\frac{\pi}{16}\right) \\
+&=\left|c_{2}\right|^{2}\left(\frac{\pi}{8}\right) \\
+&=\frac{\pi}{2} \\
+\end{aligned}
+$$
+From the above equation, the value of $c_{2}$ is $c_{2}=2$. Since $T_{2}$ is an even function, its general form is,
+$$
+\begin{aligned}
+T_{2} &=c_{2}\left[x^{2}-\frac{\left\langle T_{0} \mid x^{2}\right\rangle}{\left\langle T_{0} \mid T_{0}\right\rangle} T_{0}\right] \\
+&=2\left[x^{2}-\frac{\frac{\pi}{2}}{\pi} \cdot 1\right] \\
+&=2\left(x^{2}-\frac{1}{2}\right) \\
+&=2 x^{2}-1
+\end{aligned}
+$$
+Therefore, the first three Chebyshev polynomials are, $T_{0}=1$, $T_{1} = x$ and $T_{2} = 2x^2-1$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
