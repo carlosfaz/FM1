@@ -1,13 +1,15 @@
-\contentsline {section}{\numberline {}Chapter 2: Determinants and Matrices}{4}{section*.2}%
-\contentsline {subsection}{\numberline {}Chapter 2.2: Matrices}{4}{section*.3}%
-\contentsline {section}{\numberline {}Chapter 3: Vector Analysis}{36}{section*.4}%
-\contentsline {subsection}{\numberline {}Chapter 3.2: Vectors in 3-D Space}{36}{section*.5}%
-\contentsline {subsection}{\numberline {}Chapter 3.3: Coordinate Transformation}{45}{section*.6}%
-\contentsline {subsection}{\numberline {}Chapter 3.4: Rotations in R$^3$}{50}{section*.7}%
-\contentsline {section}{\numberline {}Chapter 5: Vector Spaces}{54}{section*.8}%
-\contentsline {subsection}{\numberline {}Chapter 5.1: Vectors in function spaces}{54}{section*.9}%
-\contentsline {section}{\numberline {}Chapter 13: Gamma Function}{67}{section*.10}%
-\contentsline {subsection}{\numberline {}Chapter 13.1: Properties of gamma function}{67}{section*.11}%
-\contentsline {subsection}{\numberline {}Chapter 13.4: Stirling's Series}{93}{Item.71}%
-\contentsline {section}{\numberline {}Chapter 14: Bessel Functions}{96}{section*.12}%
-\contentsline {subsection}{\numberline {}Chapter 14.3: Neumann Functions}{96}{section*.13}%
+\contentsline {section}{\numberline {}Chapter 1: Mathematical Preliminaries}{4}{section*.2}%
+\contentsline {subsection}{\numberline {}Chapter 1.1: Infinite Series}{4}{section*.3}%
+\contentsline {section}{\numberline {}Chapter 2: Determinants and Matrices}{19}{section*.4}%
+\contentsline {subsection}{\numberline {}Chapter 2.2: Matrices}{19}{section*.5}%
+\contentsline {section}{\numberline {}Chapter 3: Vector Analysis}{51}{section*.6}%
+\contentsline {subsection}{\numberline {}Chapter 3.2: Vectors in 3-D Space}{51}{section*.7}%
+\contentsline {subsection}{\numberline {}Chapter 3.3: Coordinate Transformation}{61}{section*.8}%
+\contentsline {subsection}{\numberline {}Chapter 3.4: Rotations in R$^3$}{66}{section*.9}%
+\contentsline {section}{\numberline {}Chapter 5: Vector Spaces}{70}{section*.10}%
+\contentsline {subsection}{\numberline {}Chapter 5.1: Vectors in function spaces}{70}{section*.11}%
+\contentsline {section}{\numberline {}Chapter 13: Gamma Function}{84}{section*.12}%
+\contentsline {subsection}{\numberline {}Chapter 13.1: Properties of gamma function}{84}{section*.13}%
+\contentsline {subsection}{\numberline {}Chapter 13.4: Stirling's Series}{110}{Item.91}%
+\contentsline {section}{\numberline {}Chapter 14: Bessel Functions}{113}{section*.14}%
+\contentsline {subsection}{\numberline {}Chapter 14.3: Neumann Functions}{113}{section*.15}%
