@@ -7,7 +7,10 @@ rst module
 ===============================
 An easy way to create rst document.
 
-:math:"x^2"
+:math:`x^2`
+
+Prove that if :math:`\lim _{n \rightarrow \infty} n^{p} u_{n}=A<\infty, p>1` the series :math:`\sum_{n=1}^{\infty} u_{n}` converges.
+
 
 Contents:
 
