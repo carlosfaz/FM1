@@ -7,7 +7,7 @@ rst module
 ===============================
 An easy way to create rst document.
 
-:math: x^2
+:math:`\ket{\psi}=\frac{1}{\sqrt{2}}(\ket{00}+\ket{11})`
 
 Contents:
 
