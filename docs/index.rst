@@ -7,6 +7,8 @@ rst module
 ===============================
 An easy way to create rst document.
 
+$x^2$
+
 Contents:
 
 .. toctree::
