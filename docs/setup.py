@@ -6,14 +6,14 @@ with open("README.rst", "r") as fh:
 import versioneer
 
 setuptools.setup(
-    name="sphinx-math-dollar",
+    name="faz's",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-    author="SymPy Development Team",
-    author_email="sympy@googlegroups.com",
-    description="Sphinx extension to let you write LaTeX math using $$",
+    author="Carlos Faz",
+    author_email="cefj94@gmail.com",
+    description="Some files",
     long_description=long_description,
-    url="https://github.com/sympy/sphinx-math-dollar/",
+    url="https://github.com/carlosfaz/FM1/",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 2",
