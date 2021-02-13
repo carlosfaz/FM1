@@ -5,11 +5,21 @@
 
 .. include:: ../README.rst
 
+Classical Mechanics:
+-------------
+
+.. toctree::
+   :maxdepth: 3
+   
+   CM/Lagrangian.rst
+
+Topological Insulator:
+-------------
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
-
-   changelog
-   asdf
-
+   
+   TI/Lecture notes/main.rst
+   TI/Berry's Phase/main.rst
+   TI/Weyl_semi-metal.rst
 
