@@ -6,7 +6,7 @@ with open("README.rst", "r") as fh:
 import versioneer
 
 setuptools.setup(
-    name="faz's",
+    name="FM1",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     author="Carlos Faz",
