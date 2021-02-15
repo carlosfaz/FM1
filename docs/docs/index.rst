@@ -5,13 +5,13 @@
 
 .. include:: ../README.rst
 
-Classical Mechanics:
+Arfken Solved Problems:
 -------------
 
 .. toctree::
    :maxdepth: 3
    
-   CM/Lagrangian.rst
+   arfk/arfk_1.1.rst
 
 Topological Insulator:
 -------------

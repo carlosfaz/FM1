@@ -1,3 +1,3 @@
-Notas de Física
+Repositorio de Faz
 =======================================
-Bienvenido! Este un espacio en el cual comparto algunas notas de física.
+Bienvenido a mi repositorio. En este espacio comparto algunas notas de matemáticas y física de interés general.
