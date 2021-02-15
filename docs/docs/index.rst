@@ -14,13 +14,3 @@ Mathematical Methods for Physicist:
    arfk/arfk_1.1.rst
    arfk/arfk_13.4.rst
 
-Topological Insulator:
--------------
-
-.. toctree::
-   :maxdepth: 2
-   
-   TI/Lecture notes/main.rst
-   TI/Berry's Phase/main.rst
-   TI/Weyl_semi-metal.rst
-
