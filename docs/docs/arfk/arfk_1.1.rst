@@ -1,6 +1,8 @@
-Infinite Series
+Mathematical Preliminaries
 ======================================
 
+Infinite Series
+-------------------
 
 $\boxed{\textbf{1.1.1}}$
 
