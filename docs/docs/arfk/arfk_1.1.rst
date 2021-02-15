@@ -135,6 +135,12 @@ $$
 Hence, the required sum is 
 $$\sum_{n=2}^{\infty}\left[n(\ln n)^{2}\right]^{-1}=2 \cdot 10974$$
 
+Ejemplo 2
+-------------
+
+
+asdf $x^2$
+
 
 
 
