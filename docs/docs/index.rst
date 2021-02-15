@@ -5,13 +5,14 @@
 
 .. include:: ../README.rst
 
-Arfken Solved Problems:
+Mathematical Methods for Physicist:
 -------------
 
 .. toctree::
    :maxdepth: 3
    
    arfk/arfk_1.1.rst
+   arfk/arfk_13.4.rst
 
 Topological Insulator:
 -------------
