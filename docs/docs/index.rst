@@ -10,7 +10,7 @@ Mathematical Methods for Physicist:
 
 .. toctree::
    :maxdepth: 3
-   :caption: Ejemplo XDd
+   :caption: Arfken 7th Ed
 
    arfk/arfk_1.1.rst
    arfk/arfk_13.4.rst
