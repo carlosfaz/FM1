@@ -90,3 +90,30 @@ $$
 \lim _{x \rightarrow \infty} x^{b-a} \frac{\Gamma(x+a+1)}{\Gamma(x+b+1)}=1
 $$
 
+
+$\boxed{\textbf{13.4.7}}$ Show that 
+$$\lim _{n \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{1 / 2}=\pi^{-1 / 2}$$
+$\boxed{\textbf{Solution}}$ Write the limit expression in factorial notations. Then it is easy to apply the Stirling formula
+$$
+\lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}=\lim _{x \rightarrow \infty} \frac{(2 n) !}{2^{2 n}(n !)^{2}} n^{\frac{1}{2}}
+$$
+Take logarithm for the limit
+$$
+\ln \left(\lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}\right)=\ln \left(\lim _{x \rightarrow \infty} \frac{(2 n) !}{2^{2 n}(n !)^{2}} n^{\frac{1}{2}}\right)
+$$
+Consider the right hand side of the above equation and solve.
+$$\ln \lim _{n \rightarrow \infty} \frac{(2 n) ! n^{\frac{1}{2}}}{2^{2 n}(n !)^{2}}$$
+$$=\lim _{n \rightarrow \infty} \ln (2 n) !+\frac{1}{2} \ln n-2 n \ln 2-2 \ln (n !)$$
+$$\quad \frac{\ln (2 \pi)}{2}+\left(2 n+\frac{1}{2}\right) \ln (2 n)-2 n+\frac{\ln n}{2}$$
+$$
+\approx -2 n \ln 2-\ln (2 \pi)-2\left(n+\frac{1}{2}\right) \ln n+2 n+\ldots
+$$
+$$\sim-\frac{1}{2} \ln \pi$$
+$$=\ln \pi^{-\frac{1}{2}}$$
+Substitute the value of right hand side limit
+$$\ln \left(\lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}\right)=\ln \pi^{-\frac{1}{2}}$$
+$$\quad \lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}=\pi^{-\frac{1}{2}}$$
+Hence, the limit tends to
+$$
+\lim _{x \rightarrow \infty} \frac{(2 n-1) ! !}{(2 n) ! !} n^{\frac{1}{2}}=\pi^{-\frac{1}{2}}
+$$
