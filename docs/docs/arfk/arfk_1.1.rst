@@ -1,8 +1,5 @@
-.. _Phase_space_Lagrangian:
-
 Mathematical Preliminaries
 ======================================
-.. _Regular_derivation:
 
 Infinite Series
 -------------------
