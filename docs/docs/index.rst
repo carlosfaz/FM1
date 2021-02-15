@@ -10,8 +10,8 @@ Mathematical Methods for Physicist:
 
 .. toctree::
    :maxdepth: 3
-   :hidden:
    :caption: Ejemplo XDd
+
    arfk/arfk_1.1.rst
    arfk/arfk_13.4.rst
 
