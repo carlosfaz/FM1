@@ -4,6 +4,7 @@ Mathematical Preliminaries
 Infinite Series
 -------------------
 
+$\boxed{1.1.1}$
 * Prove that if $\lim _{n \rightarrow \infty} n^{p} u_{n}=A<\infty, p>1,$ the series $\sum_{n=1}^{\infty} u_{n}$ converges.
 * Prove that if $\lim _{n \rightarrow \infty} n u_{n}=A>0,$ the series diverges. (The test fails for $\left.A=0 .\right)$ These two tests, known as limit tests, are often convenient for establishing the convergence of a series. They may be treated as comparison tests, comparing with
 $$
@@ -32,4 +33,6 @@ $$\sum_{n=1}^{\infty} u_{n} = \sum_{n=1}^{\infty} \frac{1}{n^{p}}$$ is convergen
 \sum_{n=1}^{\infty} u_{n}$ is convergent then $$\sum_{n=1}^{\infty} \frac{1}{n^p}, \quad p>1$$
 is convergent by $p-$test. Therefore $\sum_{n=1}^{\infty} u_{n}$ is convergent series. 
 
+$\boxed{1.1.2}$ If $\displaystyle \lim _{n \rightarrow \infty} \frac{b_{n}}{a_{n}}=K,$ a constant with $0<K<\infty,$ show that $\Sigma_{n} b_{n}$ converges or diverges with $\Sigma a_{n}$
+Hint. If $\Sigma a_{n}$ converges, rescale $b_{n}$ to $b_{n}^{\prime}=\dfrac{b_{n}}{2 K} .$ If $\Sigma_{n} a_{n}$ diverges, rescale to $b_{n}^{\prime \prime}=\dfrac{2 b_{n}}{K}$
 
