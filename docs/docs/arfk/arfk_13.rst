@@ -514,6 +514,7 @@ $$=\frac{\sinh (b \pi)}{b \pi}$$
 $$\frac{1}{\|\Gamma(1+i b)\|^{2}}=\frac{\sinh (b \pi)}{b \pi}$$
 $$|\Gamma(1+i b)|^{2}=\frac{b \pi}{\sinh (b \pi)} .$$
 since $n$ is an integer, therefore
+
 $$
 \begin{aligned}
 \Gamma(n+i b+1)&=\Gamma(\{1+i b+(n-1)\}+1) \\
@@ -521,13 +522,14 @@ $$
 &(1+i b)(2+i b)(3+i b) \cdots(n+i b) \Gamma(1+i b) \\
 \Gamma(n+i b+1)&=(1+i b)(2+i b)(3+i b) \cdots(n+i b) \Gamma(1+i b) \\
 \Gamma(n-i b+1)&=(1-i b)(2-i b)(3-i b) \cdots(n-i b) \Gamma(1-i b) \\
-|\Gamma(n+i b+1)|^{2}&=\Gamma(n+i b+1) \Gamma(n-i b+1) \\
+\|\Gamma(n+i b+1)\|^{2}&=\Gamma(n+i b+1) \Gamma(n-i b+1) \\
 &=(1+i b)(2+i b)(3+i b) \cdots(n+i b) \Gamma(1+i b) \times(1-i b)(2-i b)(3-i b) \cdots(n-i b) \Gamma(1-i b) \\
 &=\{(1+i b)(1-i b)\}\{(2+i b)(2-i b)\}\{(3+i b)(3-i b)\} \cdots\{(n+i b)(n-i b)\} \Gamma(1+i b) \Gamma(1-i b) \\
-&=\left(1^{2}+b^{2}\right)\left(2^{2}+b^{2}\right)\left(3^{2}+b^{2}\right) \cdots\left(n^{2}+b^{2}\right)|\Gamma(1+i b)|^{2} \\
+&=\left(1^{2}+b^{2}\right)\left(2^{2}+b^{2}\right)\left(3^{2}+b^{2}\right) \cdots\left(n^{2}+b^{2}\right)\|\Gamma(1+i b)\|^{2} \\
 &=\prod_{s=1}^{n}\left(s^{2}+b^{2}\right) \times \frac{b \pi}{\sinh (b \pi)} \\
 \end{aligned}
 $$
+
 
 Hence 
 
