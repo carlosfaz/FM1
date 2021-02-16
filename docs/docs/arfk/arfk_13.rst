@@ -449,7 +449,7 @@ Hence
 
 $$\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]$$
 
-$$\frac{1}{|\Gamma(\alpha+i \beta)|}=\frac{1}{|\Gamma(\alpha)|} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]^{\frac{1}{2}}$$
+$$\frac{1}{\|\Gamma(\alpha+i \beta)\|}=\frac{1}{\|\Gamma(\alpha)\|} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]^{\frac{1}{2}}$$
 
 $$|\Gamma(\alpha+i \beta)|=|\Gamma(\alpha)| \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(\alpha+n)^{2}}\right]^{-\frac{1}{2}}$$
 
@@ -475,7 +475,7 @@ $$
 \begin{aligned}
 \frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}&=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)} \\
 &\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right] \\
-\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}&=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right] \\
+\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}&=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right] \\
 &=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right] \\
 &=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right] \\
 &=\left(\frac{\alpha^{2}+\beta^{2}}{\alpha^{2}}\right)\left(\alpha e^{\gamma \alpha} \prod_{n=1}^{\infty}\left[e^{-\frac{a}{n}} \cdot\left(1+\frac{\alpha}{n}\right)\right]\right)^{2} \prod_{n=1}^{\infty}\left[\frac{\left(1+\frac{2 \alpha}{n}+\frac{\alpha^{2}+\beta^{2}}{n^{2}}\right)}{\frac{(n+\alpha)^{2}}{n^{2}}}\right] \\
@@ -489,14 +489,14 @@ $$
 Hence
 
 $$
-\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
 $$
 
 Now put $\alpha=1$ and $\beta=b$ in the above identity. Then it becomes
 
 $$
 \begin{aligned}
-\frac{1}{|\Gamma(1+i b)|^{2}}&=\frac{1}{\Gamma(1)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{b^{2}}{(n+1)^{2}}\right] \\
+\frac{1}{\|\Gamma(1+i b)\|^{2}}&=\frac{1}{\Gamma(1)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{b^{2}}{(n+1)^{2}}\right] \\
 &=\prod_{n=0}^{\infty}\left[1+\frac{b^{2}}{(n+1)^{2}}\right], \quad \text { as } \quad \Gamma(1)=1 \\
 &=\prod_{n=0}^{\infty}\left[1-\frac{(i b \pi)^{2}}{(n+1)^{2} \pi^{2}}\right] \\
 &=\prod_{n=1}^{\infty}\left[1-\frac{(i b \pi)^{2}}{n^{2} \pi^{2}}\right] \\
@@ -511,7 +511,7 @@ $$
 $$
 $$=\frac{1}{i b \pi} \cdot i \sinh (b \pi)$$
 $$=\frac{\sinh (b \pi)}{b \pi}$$
-$$\frac{1}{|\Gamma(1+i b)|^{2}}=\frac{\sinh (b \pi)}{b \pi}$$
+$$\frac{1}{\|\Gamma(1+i b)\|^{2}}=\frac{\sinh (b \pi)}{b \pi}$$
 $$|\Gamma(1+i b)|^{2}=\frac{b \pi}{\sinh (b \pi)} .$$
 since $n$ is an integer, therefore
 $$
@@ -555,7 +555,7 @@ $$
 \begin{aligned}
 \frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}&=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)} \\
 &\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right] \\
-\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}&=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right] \\
+\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}&=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right] \\
 &=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right] \\
 &=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right] \\
 &=\left(\frac{\alpha^{2}+\beta^{2}}{\alpha^{2}}\right)\left(\alpha e^{\gamma \alpha} \prod_{n=1}^{\infty}\left[e^{-\frac{a}{n}} \cdot\left(1+\frac{\alpha}{n}\right)\right]\right)^{2} \prod_{n=1}^{\infty}\left[\frac{\left(1+\frac{2 \alpha}{n}+\frac{\alpha^{2}+\beta^{2}}{n^{2}}\right)}{\frac{(n+\alpha)^{2}}{n^{2}}}\right] \\
@@ -569,13 +569,13 @@ $$
 Hence
 
 $$
-\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
 $$
 
 Now put $\alpha=x$ and $\beta=y$ in the above identity. Then it becomes
 
 $$
-\frac{1}{|\Gamma(x+i y)|^{2}}=\frac{1}{\Gamma(x)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+x)^{2}}\right]
+\frac{1}{\|\Gamma(x+i y)\|^{2}}=\frac{1}{\Gamma(x)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+x)^{2}}\right]
 $$
 $$
 \left|\frac{\Gamma(x)}{\Gamma(x+i y)}\right|^{2}=\prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+x)^{2}}\right]
@@ -610,7 +610,7 @@ $$
 \begin{aligned}
 \frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}&=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)} \\
 &\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right] \\
-\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}&=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right] \\
+\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}&=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right] \\
 &=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right] \\
 &=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right] \\
 &=\left(\frac{\alpha^{2}+\beta^{2}}{\alpha^{2}}\right)\left(\alpha e^{\gamma \alpha} \prod_{n=1}^{\infty}\left[e^{-\frac{a}{n}} \cdot\left(1+\frac{\alpha}{n}\right)\right]\right)^{2} \prod_{n=1}^{\infty}\left[\frac{\left(1+\frac{2 \alpha}{n}+\frac{\alpha^{2}+\beta^{2}}{n^{2}}\right)}{\frac{(n+\alpha)^{2}}{n^{2}}}\right] \\
@@ -623,7 +623,7 @@ $$
 
 Hence
 $$
-\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
+\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
 $$
 
 Now put $\alpha=\frac{1}{2}$ and $\beta=y$ in the above identity. Then it becomes
