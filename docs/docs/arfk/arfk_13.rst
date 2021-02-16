@@ -431,8 +431,20 @@ $$
 
 Multiplying these equations it becomes
 
-$$\frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)}$$
-
+$$
+\begin{aligned}
+\frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}&=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)} \\
+&\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right] \\
+\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}&=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right] \\
+&=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right] \\
+&=\left(\alpha^{2}+\beta^{2}\right) e^{2 \gamma a} \prod_{n=1}^{\infty}\left[e^{-\frac{2 a}{n}} \cdot \frac{\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)}{\left(1+\frac{\alpha}{n}\right)^{2}} \cdot\left(1+\frac{\alpha}{n}\right)^{2}\right] \\
+&=\left(\frac{\alpha^{2}+\beta^{2}}{\alpha^{2}}\right)\left(\alpha e^{\gamma \alpha} \prod_{n=1}^{\infty}\left[e^{-\frac{a}{n}} \cdot\left(1+\frac{\alpha}{n}\right)\right]\right)^{2} \prod_{n=1}^{\infty}\left[\frac{\left(1+\frac{2 \alpha}{n}+\frac{\alpha^{2}+\beta^{2}}{n^{2}}\right)}{\frac{(n+\alpha)^{2}}{n^{2}}}\right] \\
+&=\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \frac{1}{\Gamma(\alpha)^{2}} \prod_{n=1}^{\infty}\left[\frac{\left(1+2 \alpha n+\alpha^{2}+\beta^{2}\right)}{(n+\alpha)^{2}}\right] \\
+&=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[\frac{(n+\alpha)^{2}+\beta^{2}}{(n+\alpha)^{2}}\right] \\
+&=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right] \\
+&=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right] \\
+\end{aligned}
+$$
 Hence
 
 $$\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]$$
