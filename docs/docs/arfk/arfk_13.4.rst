@@ -215,6 +215,53 @@ $\boxed{\textbf{13.1.10}}$ Show that, for integer $s$
 
 $$\int_{0}^{\infty} x^{2 s+1} \exp \left(-a x^{2}\right) d x=\frac{s!}{2 a^{s+1}}$$
 $$\int_{0}^{\infty} x^{2 s} \exp \left(-a x^{2}\right) d x=\frac{\Gamma\left(s+\frac{1}{2}\right)}{2 a^{s+1 / 2}}=\frac{(2 s-1) ! !}{2^{s+1} a^{s}} \sqrt{\frac{\pi}{a}}$$
+$\boxed{\textbf{Solution}}$ For $(a)$ Put $a x^{2}=z \cdot$ Then $2 a x d x=d z$. This implies
+$$
+d x=\frac{d z}{2 \sqrt{a z}}
+$$
+As $x \rightarrow 0, \  z \rightarrow 0$ and as $x \rightarrow \infty, \  z \rightarrow \infty$.
+The given integral is
+
+$$\begin{aligned}
+\int_{0}^{\infty} x^{2 s+1} \exp \left(-a x^{2}\right) d x &=\int_{0}^{\infty}\left(\sqrt{\frac{z}{a}}\right)^{2 s+1} e^{-z} \frac{d z}{2 \sqrt{a z}}\\
+&=\frac{1}{2 \sqrt{a}} \int_{0}^{\infty}\left(\frac{z}{a}\right)^{\frac{2 s+1}{2}} e^{-z} z^{-\frac{1}{2}} d z \\
+&=\frac{1}{2 a^{\frac{1}{2}}} \cdot \frac{1}{a^{\frac{2 s+1}{2}}} \int_{0}^{\infty} e^{-z} z^{\frac{2 s+1}{2}-\frac{1}{2}} d z \\
+&=\frac{1}{2 a^{s+1}} \int_{0}^{\infty} e^{-z} z^{s} d z \\
+&=\frac{1}{2 a^{s+1}} \int_{0}^{\infty} e^{-z} z^{(s+1)-1} d z \\
+&=\frac{1}{2 a^{s+1}} \Gamma(s+1) \\
+\end{aligned}
+$$
+
+since $s$ is an integer, therefore $\Gamma(s+1)=s! \ $. Hence 
+$$\int_{0}^{\infty} x^{2 s+1} \exp \left(-a x^{2}\right) d x=\frac{s!}{2 a^{s+1}}$$ 
+
+$\boxed{\textbf{Solution}}$ For $(b)$ Put $a x^{2}=z \cdot$ Then $2 a x d x=d z$. This implies
+$$
+d x=\frac{d z}{2 \sqrt{a z}}
+$$
+As $x \rightarrow 0, \  z \rightarrow 0$ and as $x \rightarrow \infty, \  z \rightarrow \infty$.
+The given integral is
+
+$$
+\begin{aligned}
+\int_{0}^{\infty} x^{2 s} \exp \left(-a x^{2}\right) d x &=\int_{0}^{\infty}\left(\sqrt{\frac{z}{a}}\right)^{2 s} e^{-z} \frac{d z}{2 \sqrt{a z}} \\
+&=\frac{1}{2 \sqrt{a}} \int_{0}^{\infty}\left(\frac{z}{a}\right)^{s} e^{-z} z^{-\frac{1}{2}} d z \\
+&=\frac{1}{2 a^{\frac{1}{2}}} \cdot \frac{1}{a^{s}} \int_{0}^{\infty} e^{-z} z^{s-\frac{1}{2}} d z \\
+&=\frac{1}{2 a^{s+\frac{1}{2}}} \int_{0}^{\infty} e^{-z} z^{\left(s+\frac{3}{2}\right)-1} d z \\
+&=\frac{1}{2 a^{s+\frac{1}{2}}} \Gamma\left(s+\frac{3}{2}\right) \\
+\end{aligned}
+$$
+
+since 
+$$\Gamma\left(s+\frac{1}{2}\right)=\frac{\sqrt{\pi}}{2^{s}} \cdot(2 s-1) ! !$$
+$$
+=\frac{(2 s-1) ! !}{2^{s+1} a^{s}} \sqrt{\frac{\pi}{a}}
+$$
+Thus
+$$
+\int_{0}^{\infty} x^{2 s} \exp \left(-a x^{2}\right) d x=\frac{\Gamma\left(s+\frac{1}{2}\right)}{2 a^{s+\frac{1}{2}}}=\frac{(2 s-1) ! !}{2 a^{s+1} a^{s}} \sqrt{\frac{\pi}{a}}
+$$
+
 
 
 Stirling's Series
