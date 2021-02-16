@@ -441,7 +441,7 @@ $$\begin{aligned}
 &=\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \frac{1}{\Gamma(\alpha)^{2}} \prod_{n=1}^{\infty}\left[\frac{\left(1+2 \alpha n+\alpha^{2}+\beta^{2}\right)}{(n+\alpha)^{2}}\right] \\
 &=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[\frac{(n+\alpha)^{2}+\beta^{2}}{(n+\alpha)^{2}}\right] \\
 &=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right] \\
-&=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right] \\
+&=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
 \end{aligned}$$
 
 Hence
