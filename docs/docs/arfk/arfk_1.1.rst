@@ -34,7 +34,7 @@ $$\sum_{n=1}^{\infty} u_{n} = \sum_{n=1}^{\infty} \frac{1}{n^{p}}$$ is convergen
 \sum_{n=1}^{\infty} u_{n}$ is convergent then $$\sum_{n=1}^{\infty} \frac{1}{n^p}, \quad p>1$$
 is convergent by $p-$test. Therefore $\sum_{n=1}^{\infty} u_{n}$ is convergent series. 
 
-$\boxed{1.1.2}$ If $\displaystyle \lim _{n \rightarrow \infty} \frac{b_{n}}{a_{n}}=K,$ a constant with $0<K<\infty,$ show that $\Sigma_{n} b_{n}$ converges or diverges with $\Sigma a_{n}$
+$\boxed{\textbf{1.1.2}}$ If $\displaystyle \lim _{n \rightarrow \infty} \frac{b_{n}}{a_{n}}=K,$ a constant with $0<K<\infty,$ show that $\Sigma_{n} b_{n}$ converges or diverges with $\Sigma a_{n}$
 
 Hint. If $\Sigma a_{n}$ converges, rescale $b_{n}$ to $b_{n}^{\prime}=\dfrac{b_{n}}{2 K} .$ If $\Sigma_{n} a_{n}$ diverges, rescale to $b_{n}^{\prime \prime}=\dfrac{2 b_{n}}{K}$
 
@@ -58,7 +58,7 @@ also diverges. By the above equation
 $$(K-\varepsilon) a_{n}<b_{n}$$
 for all $n \geq N$. By the condition $(K-\varepsilon) a_{n}<b_{n}$ for all $n \geq N$. Hence, by comparison test the series $\sum_{n=1}^{\infty} b_{n}$ also diverges.
 
-$\boxed{1.1.3}$
+$\boxed{\textbf{1.1.3}}$
 
 * Show that the series 
 $$\sum_{n=2}^{\infty} \frac{1}{n(\ln n)^{2}}$$
@@ -134,13 +134,6 @@ $$
 $$
 Hence, the required sum is 
 $$\sum_{n=2}^{\infty}\left[n(\ln n)^{2}\right]^{-1}=2 \cdot 10974$$
-
-Ejemplo 2
--------------
-
-
-asdf $x^2$
-
 
 
 

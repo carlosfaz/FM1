@@ -1,6 +1,33 @@
 Gamma Function
 ======================================
 
+Properties of Gamma Function
+-------------------
+
+$\boxed{\textbf{13.1.1}}$ Derive the recurrence relations
+$$
+\Gamma(z+1)=z \Gamma(z)
+$$
+from the Euler integral, Eq. (13.5),
+$$
+\Gamma(z)=\int_{0}^{\infty} e^{-t} t^{z-1} d t, \quad \Re e(z)>0, \quad \text{Eq.}(13.5)
+$$
+$\boxed{\textbf{Solution}}$ Consider the Euler integral 
+$$\Gamma (z)=\int_{0}^{\infty} e^{-t} t^{z-1} d t$$
+Put, $z=z+1$
+$$
+\begin{aligned}
+\Gamma(z+1) &=\int_{0}^{\infty} e^{-t} t^{z+1-1} d t \\
+&=\int_{0}^{\infty} e^{-t} t^{z} d t \\
+&=t^{z} \int_{0}^{\infty} e^{-t} d t-\int_{0}^{\infty} \frac{d t^{z}}{d x} \int e^{-t} d t \\
+=&-t^{z} e^{-t}\Big|_{0} ^{\infty}+z \int_{0}^{\infty} e^{-t} t^{z-1} d t \\
+=& z \Gamma(z)
+\end{aligned}
+$$
+
+
+
+
 Stirling's Series
 -------------------
 
