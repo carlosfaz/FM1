@@ -435,7 +435,7 @@ $$\frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}=(\alph
 
 Hence
 
-$$\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]$$
+$$\frac{1}{\|\Gamma(\alpha+i \beta)\|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]$$
 
 $$\frac{1}{|\Gamma(\alpha+i \beta)|}=\frac{1}{|\Gamma(\alpha)|} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]^{\frac{1}{2}}$$
 
