@@ -263,7 +263,7 @@ $$
 $$
 
 
-\boxed{\textbf{13.1.11}}
+$\boxed{\textbf{13.1.11}}$
 Express the coefficient of the $n$ th term of the expansion of $(1+x)^{1 / 2}$ in powers of $x$
 
 * in terms of factorials of integers,
@@ -308,7 +308,7 @@ a_{n}=(-1)^{n+1} \cdot \frac{(2 n-3) ! !}{(2 n) ! !}, \quad \text { for } n=1,2,
 $$
 
 
-\boxed{\textbf{13.1.12}}
+$\boxed{\textbf{13.1.12}}$
 Express the coefficient of the $n$ th term of the expansion of $(1+x)^{-1 / 2}$ in powers of $x$
 
 * in terms of the factorials of integers,
@@ -354,7 +354,7 @@ $$
 a_{n}=(-1)^{n} \cdot \frac{(2 n-1) ! !}{(2 n) ! !}, \quad \text { for } n=1,2,3, \cdots
 $$
 
-\boxed{\textbf{13.1.14}}
+$\boxed{\textbf{13.1.14}}$
 
 * Show that $\Gamma\left(\frac{1}{2}-n\right) \Gamma\left(\frac{1}{2}+n\right)=(-1)^{n} \pi,$ where $n$ is an integer. 
 * Express $\Gamma\left(\frac{1}{2}+n\right)$ and $\Gamma\left(\frac{1}{2}-n\right)$ separately in terms of $\pi^{1 / 2}$ and a double factorial function.
@@ -412,7 +412,7 @@ $$
 
 
 
-\boxed{\textbf{13.1.16}}
+$\boxed{\textbf{13.1.16}}$
 Prove that 
 $$|\Gamma(\alpha+i \beta)|=|\Gamma(\alpha)| \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(\alpha+n)^{2}}\right]^{-1 / 2}$$
 
@@ -428,10 +428,10 @@ and
 $$
 \frac{1}{\Gamma(\alpha-i \beta)}=(\alpha-i \beta) e^{\gamma(\alpha-i \beta)} \prod_{n=1}^{\infty}\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{a-i \beta}{n}}
 $$
+
 Multiplying these equations it becomes
 
-$$
-\begin{aligned}
+$$\begin{aligned}
 \frac{1}{\Gamma(\alpha+i \beta)} \cdot \frac{1}{\Gamma(\alpha-i \beta)}&=(\alpha+i \beta) e^{\gamma(a+i \beta)} \cdot(\alpha-i \beta) e^{\gamma(a-i \beta)} \\
 &\times \prod_{n=1}^{\infty}\left[\left(1+\frac{\alpha+i \beta}{n}\right) e^{\frac{a+i \beta}{n}} \cdot\left(1+\frac{\alpha-i \beta}{n}\right) e^{\frac{\alpha-i \beta}{n}}\right] \\
 \frac{1}{|\Gamma(\alpha+i \beta)|^{2}}&=\left(\alpha^{2}+\beta^{2}\right) e^{2\gamma \alpha} \prod_{n=1}^{\infty} e^{-\frac{2 a}{n}}\left[\left(1+\frac{\alpha+i \beta}{n}\right) \cdot\left(1+\frac{\alpha-i \beta}{n}\right)\right] \\
@@ -442,28 +442,21 @@ $$
 &=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[\frac{(n+\alpha)^{2}+\beta^{2}}{(n+\alpha)^{2}}\right] \\
 &=\frac{1}{\Gamma(\alpha)^{2}} \cdot\left(1+\frac{\beta^{2}}{\alpha^{2}}\right) \prod_{n=1}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right] \\
 &=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right] \\
-\end{aligned}
-$$
+\end{aligned}$$
 
 Hence
-$$
-\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
-$$
 
-$$
-\frac{1}{|\Gamma(\alpha+i \beta)|}=\frac{1}{|\Gamma(\alpha)|} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]^{\frac{1}{2}}
-$$
+$$\frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]$$
 
-$$
-|\Gamma(\alpha+i \beta)|=|\Gamma(\alpha)| \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(\alpha+n)^{2}}\right]^{-\frac{1}{2}}
-$$
+$$\frac{1}{|\Gamma(\alpha+i \beta)|}=\frac{1}{|\Gamma(\alpha)|} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]^{\frac{1}{2}}$$
 
-\boxed{\textbf{13.1.17}}
+$$|\Gamma(\alpha+i \beta)|=|\Gamma(\alpha)| \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(\alpha+n)^{2}}\right]^{-\frac{1}{2}}$$
+
+$\boxed{\textbf{13.1.17}}$
 
 Show that for $n$, a positive integer,
-$$
-|\Gamma(n+i b+1)|=\left(\frac{\pi b}{\sinh \pi b}\right)^{1 / 2} \prod_{s=1}^{n}\left(s^{2}+b^{2}\right)^{1 / 2}
-$$
+
+$$|\Gamma(n+i b+1)|=\left(\frac{\pi b}{\sinh \pi b}\right)^{1 / 2} \prod_{s=1}^{n}\left(s^{2}+b^{2}\right)^{1 / 2}$$
 
 
 $\boxed{\textbf{Solution}}$ Recall 
