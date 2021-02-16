@@ -412,8 +412,8 @@ $$
 
 
 
-$\boxed{\textbf{13.1.16}}$
-Prove that 
+$\boxed{\textbf{13.1.16}}$ Prove that 
+
 $$|\Gamma(\alpha+i \beta)|=|\Gamma(\alpha)| \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(\alpha+n)^{2}}\right]^{-1 / 2}$$
 
 $\boxed{\textbf{Solution}}$ Recall 
@@ -452,9 +452,7 @@ $$\frac{1}{|\Gamma(\alpha+i \beta)|}=\frac{1}{|\Gamma(\alpha)|} \prod_{n=0}^{\in
 
 $$|\Gamma(\alpha+i \beta)|=|\Gamma(\alpha)| \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(\alpha+n)^{2}}\right]^{-\frac{1}{2}}$$
 
-$\boxed{\textbf{13.1.17}}$
-
-Show that for $n$, a positive integer,
+$\boxed{\textbf{13.1.17}}$ Show that for $n$, a positive integer,
 
 $$|\Gamma(n+i b+1)|=\left(\frac{\pi b}{\sinh \pi b}\right)^{1 / 2} \prod_{s=1}^{n}\left(s^{2}+b^{2}\right)^{1 / 2}$$
 
@@ -486,10 +484,13 @@ $$
 &=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right] \\
 \end{aligned}
 $$
+
 Hence
+
 $$
 \frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
 $$
+
 Now put $\alpha=1$ and $\beta=b$ in the above identity. Then it becomes
 
 $$
@@ -528,13 +529,13 @@ $$
 $$
 
 Hence 
+
 $$|\Gamma(n+i b+1)|^{2}=\prod_{s=1}^{n}\left(s^{2}+b^{2}\right) \times \frac{b \pi}{\sinh (b \pi)}$$
 This gives 
 $$|\Gamma(n+i b+1)|=\left(\frac{b \pi}{\sinh (b \pi)}\right)^{\frac{1}{2}} \prod_{s=1}^{n}\left(s^{2}+b^{2}\right)^{\frac{1}{2}} $$
 
 
-\boxed{\textbf{13.1.18}}
-Show that for all real values of $x$ and $y,|\Gamma(x)| \geq|\Gamma(x+i y)|$
+$\boxed{\textbf{13.1.18}}$ Show that for all real values of $x$ and $y,|\Gamma(x)| \geq|\Gamma(x+i y)|$
 
 $\boxed{\textbf{Solution}}$ Recall 
 $$
@@ -565,10 +566,13 @@ $$
 $$
 
 Hence
+
 $$
 \frac{1}{|\Gamma(\alpha+i \beta)|^{2}}=\frac{1}{\Gamma(\alpha)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+\alpha)^{2}}\right]
 $$
+
 Now put $\alpha=x$ and $\beta=y$ in the above identity. Then it becomes
+
 $$
 \frac{1}{|\Gamma(x+i y)|^{2}}=\frac{1}{\Gamma(x)^{2}} \prod_{n=0}^{\infty}\left[1+\frac{\beta^{2}}{(n+x)^{2}}\right]
 $$
@@ -584,8 +588,7 @@ Hence is proved
 
 
 
-\boxed{\textbf{13.1.19}}
-Show that 
+$\boxed{\textbf{13.1.19}}$ Show that 
 $$\left|\Gamma(\frac{1}{2}+i y)\right|^{2}=\frac{\pi}{\cosh \pi y}$$
 
 $\boxed{\textbf{Solution}}$ Recall 
